@@ -1,0 +1,82 @@
+# Canonical data stays outside Git; public release is subject to PUBLICATION_STATUS.md.
+# A source clone / GitHub Source code ZIP does not include these datasets.
+data/raw/**
+data/interim/**
+data/processed/**
+data/reference/**
+
+# Keep folder structure
+!data/raw/**/
+!data/interim/**/
+!data/processed/**/
+!data/reference/**/
+!data/**/.gitkeep
+
+# QGIS temp/database files
+*.qgz~
+*.qgs~
+*.qgd
+*.qgd-wal
+*.qgd-shm
+*.gpkg-wal
+*.gpkg-shm
+*.gpkg-journal
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+logs/*.log
+
+# Temporary exports
+outputs/temp/**
+
+# Local Pages archives and the separately generated academic DOCX.
+# The public Word/PDF report is separate; ignoring does not clean old Git history.
+/outputs/report/canakkale_disaster_priority_academic_report.docx
+/outputs/report/*.pages
+
+# macOS / archive artifacts
+**/.DS_Store
+__MACOSX/
+
+# Generic temporary / backup files
+*.tmp
+*.bak
+*.save
+*.swp
+*.swo
+
+# Windows thumbnails
+Thumbs.db
+
+# GDAL/QGIS auxiliary sidecar files
+*.aux.xml
+
+# Python runtime artifacts
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Present only in an extracted portable release
+/portable_manifest.json
+
+# Local working notes and editorial instructions are outside public content.
+/AGENTS.md
+/.codex/internal/
+/docs/portfolio_roadmap.md
+/docs/baseline_startup_summary.md
+/docs/publication_preparation_summary.md
+/docs/*_stage[0-9]*_summary.md
+/docs/dokumantasyon_dil_standardi.md
+
+# Personal service credentials and local environment files
+.env
+.env.*
+*.key
+*.pem
+*.p12
+/carto_basemap.key

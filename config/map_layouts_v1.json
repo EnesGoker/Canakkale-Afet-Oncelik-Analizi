@@ -1,0 +1,272 @@
+{
+  "format_version": 1,
+  "project_qgs": "qgis/canakkale_disaster_priority.qgs",
+  "project_qgz": "qgis/canakkale_disaster_priority.qgz",
+  "export_manifest": "outputs/maps/map_export_manifest.json",
+  "atlas_path": "outputs/atlas/canakkale_afet_oncelik_harita_atlasi.pdf",
+  "layouts": [
+    {
+      "layout_name": "01_cok_kriterli_oncelik_sinifi_layout",
+      "output_stem": "01_cok_kriterli_oncelik_sinifi",
+      "thematic_layer_id": "mcda_priority_class_32635_e0d9729e_6fa8_43ec_8812_133776b092ce",
+      "raster_path": "data/processed/analysis/mcda_priority_class_32635.tif",
+      "layer_ids_ordered": [
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd",
+        "canakkale_faults_final_32635_862ae357_2a30_46d8_92c9_d72a431ef4bd",
+        "mcda_priority_class_32635_e0d9729e_6fa8_43ec_8812_133776b092ce",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551"
+      ],
+      "expected_layer_style_hashes": {
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe": "29b7037d46f79a9ca56fbca7191f4b9c97bb64396af7d072b2f83e3b41ec4fc0",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd": "9c53ca01b2e61ca05f37b6df47d7f677710d0e1960addf869fc6f3f9253194bf",
+        "canakkale_faults_final_32635_862ae357_2a30_46d8_92c9_d72a431ef4bd": "ecfc5d9d71df4bf8a1ede2fc592212838001d4f5f0f0adb130e019c875b0a402",
+        "mcda_priority_class_32635_e0d9729e_6fa8_43ec_8812_133776b092ce": "54fb2a7961a7a19afed9b7d19d87bfe9edef026a3eea9fca16dad8e9ba61f29a",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
+      },
+      "layout_sha256": "514145a8f68d1b61daf001af53cb104a032552152d0fc58a04a38993b334a2f8"
+    },
+    {
+      "layout_name": "02_fay_yakinlik_skoru_layout",
+      "output_stem": "02_fay_yakinlik_skoru",
+      "thematic_layer_id": "fault_proximity_score_32635_4b2fd6e4_1e37_4547_9e49_5fa8d8332a36",
+      "raster_path": "data/processed/analysis/fault_proximity_score_32635.tif",
+      "layer_ids_ordered": [
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd",
+        "canakkale_faults_final_32635_862ae357_2a30_46d8_92c9_d72a431ef4bd",
+        "fault_proximity_score_32635_4b2fd6e4_1e37_4547_9e49_5fa8d8332a36",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551"
+      ],
+      "expected_layer_style_hashes": {
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe": "29b7037d46f79a9ca56fbca7191f4b9c97bb64396af7d072b2f83e3b41ec4fc0",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd": "9c53ca01b2e61ca05f37b6df47d7f677710d0e1960addf869fc6f3f9253194bf",
+        "canakkale_faults_final_32635_862ae357_2a30_46d8_92c9_d72a431ef4bd": "ecfc5d9d71df4bf8a1ede2fc592212838001d4f5f0f0adb130e019c875b0a402",
+        "fault_proximity_score_32635_4b2fd6e4_1e37_4547_9e49_5fa8d8332a36": "96d166740aef1ed71b4aa0ab62fc6b04e9b9603636d4f6c51aa2f6d8b7b4df6c",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
+      },
+      "layout_sha256": "4e3a4f74071cdfd0d8f6aa009fb30595633e9541cce71c4cf5592198b18e1170"
+    },
+    {
+      "layout_name": "03_nufus_maruziyet_skoru_layout",
+      "output_stem": "03_nufus_maruziyet_skoru",
+      "thematic_layer_id": "population_exposure_score_32635_e56bdac3_48ff_4df9_a8c4_7e2ebd7faa3c",
+      "raster_path": "data/processed/analysis/population_exposure_score_32635.tif",
+      "layer_ids_ordered": [
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd",
+        "canakkale_osm_places_32635_e49553c9_163a_454e_8abc_9b908dc34a01",
+        "population_exposure_score_32635_e56bdac3_48ff_4df9_a8c4_7e2ebd7faa3c",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551"
+      ],
+      "expected_layer_style_hashes": {
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe": "29b7037d46f79a9ca56fbca7191f4b9c97bb64396af7d072b2f83e3b41ec4fc0",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd": "9c53ca01b2e61ca05f37b6df47d7f677710d0e1960addf869fc6f3f9253194bf",
+        "canakkale_osm_places_32635_e49553c9_163a_454e_8abc_9b908dc34a01": "04add33ad891f31a60e75c170d120a6be331e83573e999d53a53a3a3dc68781b",
+        "population_exposure_score_32635_e56bdac3_48ff_4df9_a8c4_7e2ebd7faa3c": "3b8a0b69c76a7ae9b0197965127a9d1c2ff10dc9c5680840aee501295974c68b",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
+      },
+      "layout_sha256": "cbe059e249fa353d691a2f1374166b45a18c477cf5ddb111b62fa8b45bb31e53"
+    },
+    {
+      "layout_name": "04_zemin_kosulu_skoru_layout",
+      "output_stem": "04_zemin_kosulu_skoru",
+      "thematic_layer_id": "site_condition_score_32635_d7a35400_1a01_40e2_bc0f_1c2b9b52ce53",
+      "raster_path": "data/processed/analysis/site_condition_score_32635.tif",
+      "layer_ids_ordered": [
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd",
+        "site_condition_score_32635_d7a35400_1a01_40e2_bc0f_1c2b9b52ce53",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551"
+      ],
+      "expected_layer_style_hashes": {
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe": "29b7037d46f79a9ca56fbca7191f4b9c97bb64396af7d072b2f83e3b41ec4fc0",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd": "9c53ca01b2e61ca05f37b6df47d7f677710d0e1960addf869fc6f3f9253194bf",
+        "site_condition_score_32635_d7a35400_1a01_40e2_bc0f_1c2b9b52ce53": "64a4822b550c74058c7bf4a16b5ff365504d866a103fe3df1a532a86a2668471",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
+      },
+      "layout_sha256": "f543a409a1fb95481f47fc45d4a11011a32fed9f75952c658d50c46febb11bd0"
+    },
+    {
+      "layout_name": "05_deprem_pga_skoru_layout",
+      "output_stem": "05_deprem_pga_skoru",
+      "thematic_layer_id": "earthquake_pga_score_32635_6968404b_8b99_4aed_a1b8_eccd43ac79ed",
+      "raster_path": "data/processed/analysis/earthquake_pga_score_32635.tif",
+      "layer_ids_ordered": [
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd",
+        "earthquake_pga_score_32635_6968404b_8b99_4aed_a1b8_eccd43ac79ed",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551"
+      ],
+      "expected_layer_style_hashes": {
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe": "29b7037d46f79a9ca56fbca7191f4b9c97bb64396af7d072b2f83e3b41ec4fc0",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd": "9c53ca01b2e61ca05f37b6df47d7f677710d0e1960addf869fc6f3f9253194bf",
+        "earthquake_pga_score_32635_6968404b_8b99_4aed_a1b8_eccd43ac79ed": "49710e07eb64a29aae22b1b97cf5bff5a137a8eef17e9368af4d678f898ffaf4",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
+      },
+      "layout_sha256": "aff9b24b7d18b6ab11d0dd86cc02559e621a4487e12203d19d82988191f33e89"
+    },
+    {
+      "layout_name": "06_yapi_maruziyet_yogunluk_skoru_layout",
+      "output_stem": "06_yapi_maruziyet_yogunluk_skoru",
+      "thematic_layer_id": "building_exposure_density_score_32635_ddb87db5_dc65_449a_b296_3d007ae7c19b",
+      "raster_path": "data/processed/analysis/building_exposure_density_score_32635.tif",
+      "layer_ids_ordered": [
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd",
+        "canakkale_osm_roads_32635_3bb75404_6459_4c4e_8e5d_2b494fa0f248",
+        "canakkale_osm_places_32635_e49553c9_163a_454e_8abc_9b908dc34a01",
+        "building_exposure_density_score_32635_ddb87db5_dc65_449a_b296_3d007ae7c19b",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551"
+      ],
+      "expected_layer_style_hashes": {
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe": "29b7037d46f79a9ca56fbca7191f4b9c97bb64396af7d072b2f83e3b41ec4fc0",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd": "9c53ca01b2e61ca05f37b6df47d7f677710d0e1960addf869fc6f3f9253194bf",
+        "canakkale_osm_roads_32635_3bb75404_6459_4c4e_8e5d_2b494fa0f248": "e8148b8746c3b6a4022530a5e8f09589faddf6204806e8f5737e442964063492",
+        "canakkale_osm_places_32635_e49553c9_163a_454e_8abc_9b908dc34a01": "04add33ad891f31a60e75c170d120a6be331e83573e999d53a53a3a3dc68781b",
+        "building_exposure_density_score_32635_ddb87db5_dc65_449a_b296_3d007ae7c19b": "6d98d1da81e5ffa66bcdc1c732d509214e5433aa792eeac6ca6688b3fba67b0c",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
+      },
+      "layout_sha256": "d383eba45b59daa537a4eb71497b9fb823dd7f8c3efeebd939dca5366efc1304"
+    },
+    {
+      "layout_name": "07_taskin_skoru_layout",
+      "output_stem": "07_taskin_skoru",
+      "thematic_layer_id": "flood_score_32635_dd3f27f0_dc7f_4e0e_8319_29955888febf",
+      "raster_path": "data/processed/analysis/flood_score_32635.tif",
+      "layer_ids_ordered": [
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd",
+        "canakkale_hydrography_hybrid_clean_32635_5614fab3_b476_436f_a256_15375dc1bb13",
+        "flood_score_32635_dd3f27f0_dc7f_4e0e_8319_29955888febf",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551"
+      ],
+      "expected_layer_style_hashes": {
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe": "29b7037d46f79a9ca56fbca7191f4b9c97bb64396af7d072b2f83e3b41ec4fc0",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd": "9c53ca01b2e61ca05f37b6df47d7f677710d0e1960addf869fc6f3f9253194bf",
+        "canakkale_hydrography_hybrid_clean_32635_5614fab3_b476_436f_a256_15375dc1bb13": "00aaefddd43233c80ed7bb1bed84456ca36a919ebddce152af05fb9dbfaafaa9",
+        "flood_score_32635_dd3f27f0_dc7f_4e0e_8319_29955888febf": "f4df9cd6adab9817a70b81f21bac034211042c0478660c8b8aad53324d651764",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
+      },
+      "layout_sha256": "4e0ad98a1afc55d3d24ff7444441a5eedbc5f1f5daaec6249b94309aee410baa"
+    },
+    {
+      "layout_name": "08_hidrografya_yakinlik_skoru_layout",
+      "output_stem": "08_hidrografya_yakinlik_skoru",
+      "thematic_layer_id": "hydrography_proximity_score_32635_0dd4cb82_123b_4c0f_8ec8_4c7db77cc371",
+      "raster_path": "data/processed/analysis/hydrography_proximity_score_32635.tif",
+      "layer_ids_ordered": [
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd",
+        "canakkale_hydrography_hybrid_clean_32635_5614fab3_b476_436f_a256_15375dc1bb13",
+        "hydrography_proximity_score_32635_0dd4cb82_123b_4c0f_8ec8_4c7db77cc371",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551"
+      ],
+      "expected_layer_style_hashes": {
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe": "29b7037d46f79a9ca56fbca7191f4b9c97bb64396af7d072b2f83e3b41ec4fc0",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd": "9c53ca01b2e61ca05f37b6df47d7f677710d0e1960addf869fc6f3f9253194bf",
+        "canakkale_hydrography_hybrid_clean_32635_5614fab3_b476_436f_a256_15375dc1bb13": "00aaefddd43233c80ed7bb1bed84456ca36a919ebddce152af05fb9dbfaafaa9",
+        "hydrography_proximity_score_32635_0dd4cb82_123b_4c0f_8ec8_4c7db77cc371": "d290880da088fadb6145f8fb090c4045db9ca96fbd9becbc98344505264eef99",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
+      },
+      "layout_sha256": "ed045fa3cd36663c59b7cf52b800d26fca0c693f068b280669887f0776ead344"
+    },
+    {
+      "layout_name": "09_egim_skoru_layout",
+      "output_stem": "09_egim_skoru",
+      "thematic_layer_id": "slope_score_32635_93a05a37_a935_4f0e_9d76_817ba733e3f2",
+      "raster_path": "data/processed/analysis/slope_score_32635.tif",
+      "layer_ids_ordered": [
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd",
+        "slope_score_32635_93a05a37_a935_4f0e_9d76_817ba733e3f2",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551"
+      ],
+      "expected_layer_style_hashes": {
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe": "29b7037d46f79a9ca56fbca7191f4b9c97bb64396af7d072b2f83e3b41ec4fc0",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd": "9c53ca01b2e61ca05f37b6df47d7f677710d0e1960addf869fc6f3f9253194bf",
+        "slope_score_32635_93a05a37_a935_4f0e_9d76_817ba733e3f2": "06837ab455bcbb878b5a3eda7b0c34fed13d187bb125d57a49713f0425ab49e0",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
+      },
+      "layout_sha256": "b2109b1817512bdc2ed8ea16fd1bc40cf637ef7a2b2cc8452bb48451d5b5faf7"
+    },
+    {
+      "layout_name": "10_arazi_ortusu_duyarlilik_skoru_layout",
+      "output_stem": "10_arazi_ortusu_duyarlilik_skoru",
+      "thematic_layer_id": "landcover_sensitivity_score_32635_f7c222c0_99f5_4641_80bf_f974aaf5ac7c",
+      "raster_path": "data/processed/analysis/landcover_sensitivity_score_32635.tif",
+      "layer_ids_ordered": [
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd",
+        "landcover_sensitivity_score_32635_f7c222c0_99f5_4641_80bf_f974aaf5ac7c",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551"
+      ],
+      "expected_layer_style_hashes": {
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe": "29b7037d46f79a9ca56fbca7191f4b9c97bb64396af7d072b2f83e3b41ec4fc0",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd": "9c53ca01b2e61ca05f37b6df47d7f677710d0e1960addf869fc6f3f9253194bf",
+        "landcover_sensitivity_score_32635_f7c222c0_99f5_4641_80bf_f974aaf5ac7c": "14e8ff6a0bc20bafb1aea288e286507e5256886e6dbd5685ceacfdea009e2659",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
+      },
+      "layout_sha256": "23c673c367ea45b0f97c9fe48307198f908587154caed3878be7c296d9506cde"
+    },
+    {
+      "layout_name": "11_agac_ortusu_skoru_layout",
+      "output_stem": "11_agac_ortusu_skoru",
+      "thematic_layer_id": "tree_cover_score_32635_0929fa5b_66c1_4745_bc95_116ef5ee37e1",
+      "raster_path": "data/processed/analysis/tree_cover_score_32635.tif",
+      "layer_ids_ordered": [
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd",
+        "tree_cover_score_32635_0929fa5b_66c1_4745_bc95_116ef5ee37e1",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551"
+      ],
+      "expected_layer_style_hashes": {
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe": "29b7037d46f79a9ca56fbca7191f4b9c97bb64396af7d072b2f83e3b41ec4fc0",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd": "9c53ca01b2e61ca05f37b6df47d7f677710d0e1960addf869fc6f3f9253194bf",
+        "tree_cover_score_32635_0929fa5b_66c1_4745_bc95_116ef5ee37e1": "22fb0e0211de0cc14e76fc913936e59ab88720df2b76112831add23f738b5574",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
+      },
+      "layout_sha256": "f3d8581d305824bf8a4b821166161ebb05302ac7b257418c2733cfc82e2a9709"
+    },
+    {
+      "layout_name": "12_yol_erisim_zorlugu_skoru_layout",
+      "output_stem": "12_yol_erisim_zorlugu_skoru",
+      "thematic_layer_id": "road_accessibility_difficulty_score_32635_e1a48124_da4f_4ea2_8bee_a3d9506d9245",
+      "raster_path": "data/processed/analysis/road_accessibility_difficulty_score_32635.tif",
+      "layer_ids_ordered": [
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd",
+        "canakkale_osm_roads_32635_3bb75404_6459_4c4e_8e5d_2b494fa0f248",
+        "road_accessibility_difficulty_score_32635_e1a48124_da4f_4ea2_8bee_a3d9506d9245",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551"
+      ],
+      "expected_layer_style_hashes": {
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe": "29b7037d46f79a9ca56fbca7191f4b9c97bb64396af7d072b2f83e3b41ec4fc0",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd": "9c53ca01b2e61ca05f37b6df47d7f677710d0e1960addf869fc6f3f9253194bf",
+        "canakkale_osm_roads_32635_3bb75404_6459_4c4e_8e5d_2b494fa0f248": "e8148b8746c3b6a4022530a5e8f09589faddf6204806e8f5737e442964063492",
+        "road_accessibility_difficulty_score_32635_e1a48124_da4f_4ea2_8bee_a3d9506d9245": "698ecd9789c3ee28218512c3afad0b754a164e81f80571095bb8379d1548ba9b",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
+      },
+      "layout_sha256": "8b0d0fb2b84cd1618fb10580b3f1e3b479eff97baa0714d6961e140785a409a9"
+    },
+    {
+      "layout_name": "13_senaryo_ortakligi_layout",
+      "output_stem": "13_senaryo_ortakligi",
+      "thematic_layer_id": "scenario_agreement_count_32635_7ac82796_77c6_47b6_95f8_1d8b7b7da54c",
+      "raster_path": "outputs/analysis/scenario_agreement_v1/scenario_agreement_count_32635.tif",
+      "layer_ids_ordered": [
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd",
+        "scenario_agreement_count_32635_7ac82796_77c6_47b6_95f8_1d8b7b7da54c",
+        "_437c2d4d_c377_4dcc_936d_2217dea55551"
+      ],
+      "expected_layer_style_hashes": {
+        "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd",
+        "canakkale_aoi_32635_d35f445e_9aa2_43df_8bc5_4e28d2293bbe": "29b7037d46f79a9ca56fbca7191f4b9c97bb64396af7d072b2f83e3b41ec4fc0",
+        "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd": "580b307479db191c26c6aae3ce6230932180117914c3c84b1fc5a4f8589ccbc4",
+        "scenario_agreement_count_32635_7ac82796_77c6_47b6_95f8_1d8b7b7da54c": "5ef9167c2878ca4c708d8d1a63fdebcce24cc929f13f7156ee5cafcccb91b840"
+      },
+      "layout_sha256": "76d187b565661a7052755b6c10f976e468a84627c1d1c3d4f84ad4f602eb835f"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+layer_id,display_name,role,path,width,height,pixel_size_x_m,pixel_size_y_m,nodata,minimum,maximum,mean,stddev,valid_percent
+earthquake_pga_score,Deprem PGA skoru,criterion,data/processed/analysis/earthquake_pga_score_32635.tif,1586,1423,100.0,100.0,-9999.0,0.0,1.0,0.173,0.142,43.47
+fault_proximity_score,Fay yakınlık skoru,criterion,data/processed/analysis/fault_proximity_score_32635.tif,1586,1423,100.0,100.0,-9999.0,0.0,1.0,0.333,0.369,43.47
+site_condition_score,Zemin koşulu skoru,criterion,data/processed/analysis/site_condition_score_32635.tif,1586,1423,100.0,100.0,-9999.0,0.0,1.0,0.566,0.171,43.47
+population_exposure_score,Nüfus maruziyet skoru,criterion,data/processed/analysis/population_exposure_score_32635.tif,1586,1423,100.0,100.0,-9999.0,0.0,1.0,0.017,0.093,43.47
+building_exposure_density_score,Yapı maruziyet yoğunluk skoru,criterion,data/processed/analysis/building_exposure_density_score_32635.tif,1586,1423,100.0,100.0,-9999.0,0.0,1.0,0.004,0.03,43.47
+flood_score,Taşkın skoru,criterion,data/processed/analysis/flood_score_32635.tif,1586,1423,100.0,100.0,-9999.0,0.0,1.0,0.005,0.034,43.47
+hydrography_proximity_score,Hidrografya yakınlık skoru,criterion,data/processed/analysis/hydrography_proximity_score_32635.tif,1586,1423,100.0,100.0,-9999.0,0.0,1.0,0.207,0.313,43.47
+slope_score,Eğim skoru,criterion,data/processed/analysis/slope_score_32635.tif,1586,1423,100.0,100.0,-9999.0,0.0,1.0,0.244,0.163,43.47
+landcover_sensitivity_score,Arazi örtüsü duyarlılık skoru,criterion,data/processed/analysis/landcover_sensitivity_score_32635.tif,1586,1423,100.0,100.0,-9999.0,0.05,0.6,0.487,0.121,43.7
+tree_cover_score,Ağaç örtüsü skoru,criterion,data/processed/analysis/tree_cover_score_32635.tif,1586,1423,100.0,100.0,-9999.0,0.0,0.964,0.315,0.313,43.47
+road_accessibility_difficulty_score,Yol erişim zorluğu skoru,criterion,data/processed/analysis/road_accessibility_difficulty_score_32635.tif,1586,1423,100.0,100.0,-9999.0,0.0,1.0,0.199,0.221,43.47
+mcda_priority_score,MCDA öncelik skoru,mcda,data/processed/analysis/mcda_priority_score_32635.tif,1586,1423,100.0,100.0,-9999.0,0.029,0.502,0.202,0.067,43.47
+mcda_priority_score_normalized,MCDA normalize öncelik skoru,mcda,data/processed/analysis/mcda_priority_score_normalized_32635.tif,1586,1423,100.0,100.0,-9999.0,0.001,1.0,0.366,0.141,43.47
+mcda_priority_class,MCDA öncelik sınıfı,mcda,data/processed/analysis/mcda_priority_class_32635.tif,1586,1423,100.0,100.0,0,1.0,5.0,2.331,0.754,43.47

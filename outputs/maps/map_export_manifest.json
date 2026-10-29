@@ -1,0 +1,232 @@
+{
+  "format_version": 2,
+  "recorded_at": "2026-10-24T03:20:50.801737+03:00",
+  "project_qgs_sha256": "9afd67cb9b5b95ec4c92dd41f5f7029961959df5a7ae05088569cd8fb30ade1b",
+  "contract_sha256": "45dce829e6c3f7a799abc2f24b4096a9949d375634cf2ee2a7015570c8fd13f5",
+  "qgis_version": "3.44.10-Solothurn",
+  "authentication": "runtime environment only; no key in project or outputs",
+  "visual_acceptance": "all13 candidate PNGs reviewed; saved layout design preserved",
+  "pdf_validation": "pypdf checked all13 single-page A3 PDFs and13page atlas; page content streams equal sources",
+  "original_exports_preserved": 24,
+  "files": [
+    {
+      "path": "outputs/maps/png/01_cok_kriterli_oncelik_sinifi.png",
+      "size_bytes": 1706848,
+      "sha256": "97becadce6f5fbf6ec71670b33ad321a6dbbaa33330118fed35861fbb3cbd440",
+      "origin": "preserved_original_export",
+      "width_px": 4960,
+      "height_px": 3507
+    },
+    {
+      "path": "outputs/maps/pdf/01_cok_kriterli_oncelik_sinifi.pdf",
+      "size_bytes": 3250119,
+      "sha256": "10b65a901e925b2818a545acccb9120f4628e62dd4650280af30de0313d159c7",
+      "origin": "preserved_original_export",
+      "page_count": 1
+    },
+    {
+      "path": "outputs/maps/png/02_fay_yakinlik_skoru.png",
+      "size_bytes": 1490243,
+      "sha256": "c757f1f5777eb0c1b3a58e3c695d4fa88662a27c15206a01f7272fbed321aa83",
+      "origin": "preserved_original_export",
+      "width_px": 4960,
+      "height_px": 3507
+    },
+    {
+      "path": "outputs/maps/pdf/02_fay_yakinlik_skoru.pdf",
+      "size_bytes": 2038820,
+      "sha256": "c2e62ae1322e720b991c18fcd12f2c473976ca30efe0fc0c7cd4d3dae7254f19",
+      "origin": "preserved_original_export",
+      "page_count": 1
+    },
+    {
+      "path": "outputs/maps/png/03_nufus_maruziyet_skoru.png",
+      "size_bytes": 1758237,
+      "sha256": "1968265763171d4c9740b11e8355fc54ece40881eedbf736f7b3dbd7e38f2da4",
+      "origin": "preserved_original_export",
+      "width_px": 4960,
+      "height_px": 3507
+    },
+    {
+      "path": "outputs/maps/pdf/03_nufus_maruziyet_skoru.pdf",
+      "size_bytes": 2395887,
+      "sha256": "22af6cf38a6218d5fc6bd99eb6913ebbad47dc8bee481e550c23b3ce97649202",
+      "origin": "preserved_original_export",
+      "page_count": 1
+    },
+    {
+      "path": "outputs/maps/png/04_zemin_kosulu_skoru.png",
+      "size_bytes": 1409823,
+      "sha256": "65dbc4bd26cfc429d54578dc4a4469afea9dd7e1632da899be20f6d5b59f0808",
+      "origin": "preserved_original_export",
+      "width_px": 4960,
+      "height_px": 3507
+    },
+    {
+      "path": "outputs/maps/pdf/04_zemin_kosulu_skoru.pdf",
+      "size_bytes": 2292097,
+      "sha256": "215e4853deb007a50d852b9ed82253e38f5ec2a84cc916467ca873e0925b682d",
+      "origin": "preserved_original_export",
+      "page_count": 1
+    },
+    {
+      "path": "outputs/maps/png/05_deprem_pga_skoru.png",
+      "size_bytes": 1290860,
+      "sha256": "e0d2cdce03f26a621d88672607a3265ebfce2cacec0f58cd307a97f4b70391ae",
+      "origin": "preserved_original_export",
+      "width_px": 4960,
+      "height_px": 3507
+    },
+    {
+      "path": "outputs/maps/pdf/05_deprem_pga_skoru.pdf",
+      "size_bytes": 1518494,
+      "sha256": "85faf3cb53820eb549ad075694eaab4ae10ae0d888f7f5b9ed0d2b1f551ccc1f",
+      "origin": "preserved_original_export",
+      "page_count": 1
+    },
+    {
+      "path": "outputs/maps/png/06_yapi_maruziyet_yogunluk_skoru.png",
+      "size_bytes": 4234894,
+      "sha256": "acc3c0b0643deb3149933158159773bca9eeb26a9f1f1430791f907e4fe92087",
+      "origin": "preserved_original_export",
+      "width_px": 4960,
+      "height_px": 3507
+    },
+    {
+      "path": "outputs/maps/pdf/06_yapi_maruziyet_yogunluk_skoru.pdf",
+      "size_bytes": 4765501,
+      "sha256": "ecc3f95cda352bddf16f1880708592cfccdfc34a2d7b1b375333328bc750d4ed",
+      "origin": "preserved_original_export",
+      "page_count": 1
+    },
+    {
+      "path": "outputs/maps/png/07_taskin_skoru.png",
+      "size_bytes": 1886499,
+      "sha256": "4b75c3f1af83c8873d9b371bd859cb2b4230dfb13292c594cc2d33eae133413b",
+      "origin": "preserved_original_export",
+      "width_px": 4960,
+      "height_px": 3507
+    },
+    {
+      "path": "outputs/maps/pdf/07_taskin_skoru.pdf",
+      "size_bytes": 4150999,
+      "sha256": "31bc182da28c1121bf92eba1025513f2ed9d1475f87cf8a22a261d0e9017b88f",
+      "origin": "preserved_original_export",
+      "page_count": 1
+    },
+    {
+      "path": "outputs/maps/png/08_hidrografya_yakinlik_skoru.png",
+      "size_bytes": 1938672,
+      "sha256": "7a36a20d3b9635d1cb3e65abb2074c75972a36301cbf26209279c9c4df725c10",
+      "origin": "preserved_original_export",
+      "width_px": 4960,
+      "height_px": 3507
+    },
+    {
+      "path": "outputs/maps/pdf/08_hidrografya_yakinlik_skoru.pdf",
+      "size_bytes": 3076816,
+      "sha256": "1c78e845570ea8144832d25371d33f0d3b625bf6bccac27b233a13429cfabf25",
+      "origin": "preserved_original_export",
+      "page_count": 1
+    },
+    {
+      "path": "outputs/maps/png/09_egim_skoru.png",
+      "size_bytes": 1697544,
+      "sha256": "895add6a29ed3b4db80acef385b7ce2980a66c7d01bd5f5eff9867154b21af36",
+      "origin": "preserved_original_export",
+      "width_px": 4960,
+      "height_px": 3507
+    },
+    {
+      "path": "outputs/maps/pdf/09_egim_skoru.pdf",
+      "size_bytes": 2544428,
+      "sha256": "0937e50858fdcefd843d3a7105a9d8e11bf8faf08bd9efee7a39431824ec814e",
+      "origin": "preserved_original_export",
+      "page_count": 1
+    },
+    {
+      "path": "outputs/maps/png/10_arazi_ortusu_duyarlilik_skoru.png",
+      "size_bytes": 1678027,
+      "sha256": "8df5a6881fe4ddda1382bacc5db48fea6ca2102a1276f3eb26a2eb2d15c98f20",
+      "origin": "preserved_original_export",
+      "width_px": 4960,
+      "height_px": 3507
+    },
+    {
+      "path": "outputs/maps/pdf/10_arazi_ortusu_duyarlilik_skoru.pdf",
+      "size_bytes": 2987631,
+      "sha256": "395021bbbba270e4235feb656bc544624bc783d85584ced469ebf25f72089f3f",
+      "origin": "preserved_original_export",
+      "page_count": 1
+    },
+    {
+      "path": "outputs/maps/png/11_agac_ortusu_skoru.png",
+      "size_bytes": 1929048,
+      "sha256": "f528c874ceb2439a7bdfc19b8639027f77c1e8810c67b777555098b1a5d07c26",
+      "origin": "preserved_original_export",
+      "width_px": 4960,
+      "height_px": 3507
+    },
+    {
+      "path": "outputs/maps/pdf/11_agac_ortusu_skoru.pdf",
+      "size_bytes": 3581787,
+      "sha256": "8f7c504f23b48898e5d1050c1b07b82c8e0cc337cfd1fd628a24267d471f73c3",
+      "origin": "preserved_original_export",
+      "page_count": 1
+    },
+    {
+      "path": "outputs/maps/png/12_yol_erisim_zorlugu_skoru.png",
+      "size_bytes": 3924602,
+      "sha256": "ba5616e9b8d76e1d11bc6ac72b4305c057d4abe3d6cfa0e8d03d8f9c1731caf5",
+      "origin": "preserved_original_export",
+      "width_px": 4960,
+      "height_px": 3507
+    },
+    {
+      "path": "outputs/maps/pdf/12_yol_erisim_zorlugu_skoru.pdf",
+      "size_bytes": 4661152,
+      "sha256": "10ec058e0c71903d077713090c2b0ee4fc5bed5a6328d6dfd65ec1c7d3d5c656",
+      "origin": "preserved_original_export",
+      "page_count": 1
+    },
+    {
+      "path": "outputs/maps/png/13_senaryo_ortakligi.png",
+      "size_bytes": 1775889,
+      "sha256": "9aac2d26f98b5a4eace32dac1e250ba53d2f9a23b8013d08488dcdfae6ab3cc6",
+      "origin": "authenticated_qgis_export",
+      "width_px": 4960,
+      "height_px": 3507
+    },
+    {
+      "path": "outputs/maps/pdf/13_senaryo_ortakligi.pdf",
+      "size_bytes": 2363843,
+      "sha256": "85c3b05c02597d266cc2a3adc7cd736e2ef8841abc10232540b485faf4440e7e",
+      "origin": "authenticated_qgis_export",
+      "page_count": 1
+    },
+    {
+      "path": "outputs/atlas/canakkale_afet_oncelik_harita_atlasi.pdf",
+      "size_bytes": 39587765,
+      "sha256": "fb6a50a5a4cae4a364c4cf4c5761a53b87c3d387e496d3c30166f79068d0832e",
+      "page_count": 13,
+      "origin": "merge_of_13_single_page_pdfs"
+    }
+  ],
+  "metadata_revision": {
+    "kind": "qgis-identity-only-v1",
+    "fields": [
+      "qgis/@saveUser",
+      "qgis/@saveUserFull",
+      "qgis/projectMetadata/author"
+    ],
+    "exported_project_qgs_sha256": "9afd67cb9b5b95ec4c92dd41f5f7029961959df5a7ae05088569cd8fb30ade1b",
+    "current_project_qgs_sha256": "e9e315a42d5e488672e43c8303a13ba96fe3e261b9bfd44d8c9b3ae8cbb800b5",
+    "identity_normalized_qgs_sha256": "fde479c3f8fe0e5ba0373450e35c64f5982d570917f1bc10048092c4f904adca",
+    "qgz_project_member": "canakkale_disaster_priority.qgs",
+    "qgz_auxiliary_members_sha256": {
+      "GDjtvA_styles.db": "7d215beb82082dfef4daa367925f5bb6c46c370b60963e7bc55b3323fa1e3a19",
+      "leIjkZ_styles.db": "7d215beb82082dfef4daa367925f5bb6c46c370b60963e7bc55b3323fa1e3a19"
+    },
+    "render_performed": false
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "format_version": 1,
+  "baseline_id": "canakkale-canonical-11criteria-v1",
+  "sources": [
+    {
+      "path": "scenario_agreement_count_32635.tif",
+      "size": 66798,
+      "sha256": "c65e39cc6c55e31ed7579546a69c05bb2e2bff862ea4d1535ddeb91d87f4c7c5"
+    },
+    {
+      "path": "scenario_agreement_membership_32635.tif",
+      "size": 69425,
+      "sha256": "0cd5c55d5f402433ee577286dd116fb95480cc559330aa86a2506055df101681"
+    },
+    {
+      "path": "agreement_count_summary.csv",
+      "size": 4183,
+      "sha256": "9933d8e8d069e4ff23c2b4d994cdf30ac97eec51d7e16a777793f65b1191a64c"
+    },
+    {
+      "path": "agreement_membership_summary.csv",
+      "size": 9871,
+      "sha256": "e844781a19cbb2979b9807412ea4ca43a6c318c246ff2276c1ad2d9bbc4c3e6e"
+    },
+    {
+      "path": "scenario_high_area_comparison.csv",
+      "size": 7620,
+      "sha256": "03e95dcb6ee25a21cd8712bc4723ee3df418efaad9bf18b6603a10412c52f6fb"
+    },
+    {
+      "path": "scenario_agreement_manifest.json",
+      "size": 5950,
+      "sha256": "9fd472f7bf790d05c54ecf126d5e57899edac6d703a273c768628d14933c010c"
+    },
+    {
+      "path": "config/analysis_baseline_v1.json",
+      "size": 12589,
+      "sha256": "15fa4c5d13eb38a571cdc826673549be044f83ad7d8ee3c6cf151c7f63569132"
+    },
+    {
+      "path": "data/processed/analysis/analysis_template_100m_32635.tif",
+      "size": 2258960,
+      "sha256": "c6206625f36d901b616e50911ae36d6d911d1df020ed397e48f3c00662f12626"
+    },
+    {
+      "path": "data/processed/admin/canakkale_districts_32635.gpkg",
+      "size": 245760,
+      "sha256": "733c38cb4f10d8e02cc8c994f96659eac631a6c8a405e74ae888e4c38192441e"
+    }
+  ],
+  "class_counts": [
+    857432,
+    59536,
+    22560,
+    41505
+  ],
+  "colors": [
+    "#e2e5e9",
+    "#f8d36a",
+    "#e98747",
+    "#542788"
+  ],
+  "labels_tr": [
+    "Hiçbir senaryoda",
+    "Yalnız 1 senaryoda",
+    "Yalnız 2 senaryoda",
+    "Üç senaryoda da"
+  ],
+  "outside_nodata": 255,
+  "grid_crs": "EPSG:32635",
+  "grid_metres": 100,
+  "matplotlib": "3.10.9",
+  "page": "A3 landscape",
+  "png_dpi": 300,
+  "display_padding_metres": 4000,
+  "outputs": [
+    {
+      "path": "scenario_high_agreement.png",
+      "size": 1020121,
+      "sha256": "b80a55474bb0092d9fa52c3bfd4655425e14e47016c7ad645ffec27e11cbc725"
+    },
+    {
+      "path": "scenario_high_agreement.pdf",
+      "size": 209010,
+      "sha256": "4bb6600dc19ed4d017f1926ff543b01aeebdaa208e5f4b887f06efecb9b11d30"
+    }
+  ]
+}

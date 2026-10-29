@@ -1,0 +1,111 @@
+{
+  "format_version": 2,
+  "report_id": "canakkale-public-report-october-2026",
+  "prepared_on": "2026-10-29",
+  "status": "The Word document is the authoritative editable source. The 18-page PDF is the reviewed reading copy. Structural, content, source-asset and privacy checks passed; data distribution conditions apply separately.",
+  "authoritative_editable_source": "outputs/report/canakkale_disaster_priority_public_report.docx",
+  "reading_copy": "outputs/report/canakkale_disaster_priority_public_report.pdf",
+  "files": [
+    {
+      "path": "outputs/report/canakkale_disaster_priority_public_report.docx",
+      "size_bytes": 26069991,
+      "sha256": "221adf4b651c2404093ca6c37b68655797215c5748a9311a77a1ad9eb14d2642"
+    },
+    {
+      "path": "outputs/report/canakkale_disaster_priority_public_report.pdf",
+      "size_bytes": 28523637,
+      "sha256": "58e77e575c78c8b41f2707d978fef8f18417fd3f14673b795491864a46fb9f77"
+    }
+  ],
+  "page_count": 18,
+  "content": {
+    "criteria": 11,
+    "geographical_maps": 13,
+    "correlation_figures": 1,
+    "figure_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "table_captions": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "A1",
+      "B1"
+    ],
+    "main_chapters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "verification": {
+    "docx_zip_crc": "passed",
+    "docx_numeric_table_cells": 225,
+    "docx_numeric_table_mismatches": 0,
+    "docx_primary_images_matched_to_source_sha256": 14,
+    "docx_and_pdf_verified_narrative_numeric_claims": 22,
+    "pdf_pages_readable": 18,
+    "pdf_page_layout_review": "author_review",
+    "docx_independent_visual_pagination_review": false,
+    "excluded_personal_metadata_and_key_matches": 0,
+    "docx_tracked_changes": 0,
+    "docx_comments": 0
+  },
+  "known_limitations": [
+    "Word pagination and layout can vary with the installed fonts and document viewer; the PDF is the fixed-layout reading copy.",
+    "Text extraction depends on PDF reader support for embedded fonts. Content checks are separate from visual layout review.",
+    "Report and source-asset integrity checks do not establish blanket data redistribution permission."
+  ],
+  "source_asset_versions": [
+    {
+      "path": "config/analysis_baseline_v1.json",
+      "sha256": "15fa4c5d13eb38a571cdc826673549be044f83ad7d8ee3c6cf151c7f63569132"
+    },
+    {
+      "path": "config/mcda_weights.tsv",
+      "sha256": "efcb587cabb297e04ec2e62bd8d44c5895d999ddab01787db1c7a21d8cc4b153"
+    },
+    {
+      "path": "outputs/maps/map_export_manifest.json",
+      "sha256": "1217155962fe478af47682bbf80492005e4e8ee710442807b9beed068e583230"
+    },
+    {
+      "path": "outputs/tables/criterion_correlation_v1/criterion_correlation_manifest.json",
+      "sha256": "3a85425c6a99dca900b426bea052c775fd34c849c0788ef396c39084c906c392"
+    },
+    {
+      "path": "outputs/analysis/scenario_agreement_v1/scenario_agreement_manifest.json",
+      "sha256": "9fd472f7bf790d05c54ecf126d5e57899edac6d703a273c768628d14933c010c"
+    },
+    {
+      "path": "outputs/figures/criterion_correlation_v1/criterion_pearson_correlation.png",
+      "sha256": "a2018b935a4312ce186fa67ec1c648c1b788e512431b4523be61c05145a9e490"
+    },
+    {
+      "path": "outputs/maps/png/13_senaryo_ortakligi.png",
+      "sha256": "9aac2d26f98b5a4eace32dac1e250ba53d2f9a23b8013d08488dcdfae6ab3cc6"
+    }
+  ]
+}

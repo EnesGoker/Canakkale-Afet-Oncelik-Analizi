@@ -1,0 +1,14 @@
+{
+  "format_version": 1,
+  "package": "numpy",
+  "version": "2.4.4",
+  "platform": "macosx_14_0_arm64",
+  "python_abi": "cp312-cp312",
+  "blas_backend": "Accelerate",
+  "filename": "numpy-2.4.4-cp312-cp312-macosx_14_0_arm64.whl",
+  "url": "https://files.pythonhosted.org/packages/9b/fd/e5ecca1e78c05106d98028114f5c00d3eddb41207686b2b7de3e477b0e22/numpy-2.4.4-cp312-cp312-macosx_14_0_arm64.whl",
+  "sha256": "8b3b60bb7cba2c8c81837661c488637eee696f59a877788a396d33150c35d842",
+  "size": 5204782,
+  "metadata_source": "https://pypi.org/pypi/numpy/2.4.4/json",
+  "installation_policy": "Separate overlay; do not overwrite conda-managed NumPy."
+}

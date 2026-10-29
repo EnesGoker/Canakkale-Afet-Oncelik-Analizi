@@ -1,0 +1,201 @@
+{
+  "aoi_cells": 981033,
+  "aoi_rule": "template_equals_1",
+  "baseline": {
+    "baseline_id": "canakkale-canonical-11criteria-v1",
+    "baseline_manifest": "config/analysis_baseline_v1.json",
+    "baseline_manifest_sha256": "15fa4c5d13eb38a571cdc826673549be044f83ad7d8ee3c6cf151c7f63569132",
+    "district_assignment": "Original SQLite selection / ascending source FID 1..12; GDAL default cell-center rasterization, no ALL_TOUCHED; coverage must equal one for every AOI cell",
+    "district_geometry_areas_km2": [
+      {
+        "district_area_km2": 37.45599673563824,
+        "district_id": 1,
+        "district_name": "Bozcaada"
+      },
+      {
+        "district_area_km2": 880.169485512676,
+        "district_id": 2,
+        "district_name": "Ayvacık"
+      },
+      {
+        "district_area_km2": 725.9657800547662,
+        "district_id": 3,
+        "district_name": "Ezine"
+      },
+      {
+        "district_area_km2": 1015.3031861174447,
+        "district_id": 4,
+        "district_name": "Çanakkale Merkez"
+      },
+      {
+        "district_area_km2": 819.8703371627283,
+        "district_id": 5,
+        "district_name": "Lapseki"
+      },
+      {
+        "district_area_km2": 1309.0830071859775,
+        "district_id": 6,
+        "district_name": "Biga"
+      },
+      {
+        "district_area_km2": 1380.402076492927,
+        "district_id": 7,
+        "district_name": "Yenice"
+      },
+      {
+        "district_area_km2": 1203.3041716365594,
+        "district_id": 8,
+        "district_name": "Bayramiç"
+      },
+      {
+        "district_area_km2": 282.3349225560951,
+        "district_id": 9,
+        "district_name": "Gökçeada"
+      },
+      {
+        "district_area_km2": 822.3787596947244,
+        "district_id": 10,
+        "district_name": "Gelibolu"
+      },
+      {
+        "district_area_km2": 429.91343549480075,
+        "district_id": 11,
+        "district_name": "Eceabat"
+      },
+      {
+        "district_area_km2": 904.1912486538798,
+        "district_id": 12,
+        "district_name": "Çan"
+      }
+    ],
+    "district_layer": "canakkale_districts_32635",
+    "district_vector": "data/processed/admin/canakkale_districts_32635.gpkg",
+    "frozen_files_verified": 27,
+    "normalization": {
+      "alternatives": {
+        "class_thresholds": [
+          0.2,
+          0.4,
+          0.6,
+          0.8
+        ],
+        "mode": "observed_minmax_per_scenario"
+      },
+      "baseline": {
+        "clip": [
+          0,
+          1
+        ],
+        "minimum": 0.029,
+        "mode": "fixed",
+        "range": 0.473
+      },
+      "baseline_classes": "stored_verified_canonical"
+    },
+    "reference_validation": {
+      "all_eight_reference_csv_checksums_verified_by_frozen_loader": true,
+      "checks": [
+        {
+          "passed": true,
+          "path": "outputs/tables/mcda_sensitivity_class_distribution.csv",
+          "rows_checked": 15
+        },
+        {
+          "passed": true,
+          "path": "outputs/tables/mcda_sensitivity_class_transition.csv",
+          "rows_checked": 75
+        },
+        {
+          "passed": true,
+          "path": "outputs/tables/mcda_sensitivity_scenario_summary.csv",
+          "rows_checked": 3
+        },
+        {
+          "passed": true,
+          "path": "outputs/tables/mcda_sensitivity_top_districts.csv",
+          "rows_checked": 15
+        },
+        {
+          "passed": true,
+          "path": "outputs/tables/mcda_class_distribution.csv",
+          "rows_checked": 5
+        },
+        {
+          "passed": true,
+          "path": "outputs/tables/mcda_class_area_by_district.csv",
+          "rows_checked": 60
+        }
+      ],
+      "numeric_tables_checked": 6,
+      "passed": true
+    }
+  },
+  "crs_epsg": 32635,
+  "format_version": 1,
+  "geotransform": [
+    386392.7056,
+    100.0,
+    0.0,
+    4509726.2725,
+    0.0,
+    -100.0
+  ],
+  "grid_shape": [
+    1423,
+    1586
+  ],
+  "high_classes": [
+    4,
+    5
+  ],
+  "interpretation_limit": "Agreement among these three prescribed scenarios is neither probability, independent model validation nor a pure weight-effect experiment; baseline and alternatives use different documented normalization policies",
+  "membership_bits": {
+    "baseline": 1,
+    "earthquake-heavy": 2,
+    "equal-weight": 4
+  },
+  "method": "Descriptive spatial agreement of three scenario high/very-high class masks",
+  "outputs": [
+    {
+      "path": "scenario_agreement_count_32635.tif",
+      "sha256": "c65e39cc6c55e31ed7579546a69c05bb2e2bff862ea4d1535ddeb91d87f4c7c5",
+      "size": 66798
+    },
+    {
+      "path": "scenario_agreement_membership_32635.tif",
+      "sha256": "0cd5c55d5f402433ee577286dd116fb95480cc559330aa86a2506055df101681",
+      "size": 69425
+    },
+    {
+      "path": "agreement_count_summary.csv",
+      "sha256": "9933d8e8d069e4ff23c2b4d994cdf30ac97eec51d7e16a777793f65b1191a64c",
+      "size": 4183
+    },
+    {
+      "path": "agreement_membership_summary.csv",
+      "sha256": "e844781a19cbb2979b9807412ea4ca43a6c318c246ff2276c1ad2d9bbc4c3e6e",
+      "size": 9871
+    },
+    {
+      "path": "scenario_high_area_comparison.csv",
+      "sha256": "03e95dcb6ee25a21cd8712bc4723ee3df418efaad9bf18b6603a10412c52f6fb",
+      "size": 7620
+    }
+  ],
+  "outside_aoi_nodata": 255,
+  "pixel_area_km2": 0.01,
+  "scenario_order": [
+    "baseline",
+    "earthquake-heavy",
+    "equal-weight"
+  ],
+  "share_denominator": "All template-AOI cell centers assigned to the current province or district, including cells with zero agreement; district vector geometry area is not the share denominator",
+  "software": {
+    "gdal": "3.12.3",
+    "numpy": "2.4.4",
+    "python": "3.12.11"
+  },
+  "undefined_ratios": "Empty high-set union, empty baseline-high set or empty scenario-high set produces a blank CSV ratio, not zero or an invented perfect agreement",
+  "valid_zero_meaning": "No scenario assigns a high/very-high class; zero is valid AOI data, not NoData",
+  "weights_modified": false
+}

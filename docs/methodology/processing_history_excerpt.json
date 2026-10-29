@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "evidence_type": "selected_local_processing_history",
+  "collected_on": "2026-10-23",
+  "timestamp_timezone": "not_stored_in_source",
+  "scope": "Selected algorithm parameters and path basenames only. A history record is not proof of identity of an unpreserved intermediate.",
+  "entries": [
+    {
+      "history_id": 70,
+      "recorded_timestamp": "2026-05-25 03:22:24",
+      "parameters": {
+        "algorithm_id": "native:creategrid",
+        "OUTPUT": "analysis_grid_100m_raw_32635.gpkg"
+      }
+    },
+    {
+      "history_id": 71,
+      "recorded_timestamp": "2026-05-25 03:24:15",
+      "parameters": {
+        "algorithm_id": "native:clip",
+        "INPUT": "analysis_grid_100m_raw_32635.gpkg",
+        "OUTPUT": "analysis_grid_100m_32635.gpkg"
+      }
+    },
+    {
+      "history_id": 72,
+      "recorded_timestamp": "2026-05-25 03:37:39",
+      "parameters": {
+        "algorithm_id": "gdal:rasterize",
+        "INPUT": "canakkale_aoi_32635.gpkg",
+        "NODATA": "0",
+        "OUTPUT": "analysis_template_100m_32635.tif"
+      }
+    },
+    {
+      "history_id": 73,
+      "recorded_timestamp": "2026-05-25 04:00:48",
+      "parameters": {
+        "algorithm_id": "gdal:warpreproject",
+        "INPUT": "canakkale_flood_rp100_depth_32635.tif",
+        "NODATA": "-9999",
+        "OUTPUT": "flood_depth_100m_aligned_32635.tif",
+        "RESAMPLING": "1",
+        "TARGET_RESOLUTION": "100"
+      }
+    },
+    {
+      "history_id": 74,
+      "recorded_timestamp": "2026-05-25 04:09:33",
+      "parameters": {
+        "algorithm_id": "gdal:rastercalculator",
+        "FORMULA": "where(A < 0, 0, A / 10.0526208878)",
+        "INPUT_A": "flood_depth_100m_aligned_32635.tif",
+        "OUTPUT": "flood_score_32635.tif"
+      }
+    },
+    {
+      "history_id": 75,
+      "recorded_timestamp": "2026-05-25 04:30:57",
+      "parameters": {
+        "algorithm_id": "gdal:warpreproject",
+        "INPUT": "canakkale_afad_tdth_pga10_aoi_masked_32635.tif",
+        "NODATA": "-9999",
+        "OUTPUT": "earthquake_pga_100m_aligned_32635.tif",
+        "RESAMPLING": "1",
+        "TARGET_RESOLUTION": "100"
+      }
+    },
+    {
+      "history_id": 76,
+      "recorded_timestamp": "2026-05-25 04:39:16",
+      "parameters": {
+        "algorithm_id": "gdal:warpreproject",
+        "INPUT": "canakkale_slope_degrees_32635.tif",
+        "NODATA": "-9999",
+        "OUTPUT": "slope_100m_aligned_32635.tif",
+        "RESAMPLING": "1",
+        "TARGET_RESOLUTION": "100"
+      }
+    },
+    {
+      "history_id": 77,
+      "recorded_timestamp": "2026-05-25 04:46:33",
+      "parameters": {
+        "algorithm_id": "gdal:warpreproject",
+        "INPUT": "canakkale_tree_cover_density_2021_32635.tif",
+        "NODATA": "-9999",
+        "OUTPUT": "tree_cover_density_100m_aligned_32635.tif",
+        "RESAMPLING": "5",
+        "TARGET_RESOLUTION": "100"
+      }
+    },
+    {
+      "history_id": 78,
+      "recorded_timestamp": "2026-05-25 04:54:51",
+      "parameters": {
+        "algorithm_id": "gdal:warpreproject",
+        "INPUT": "landcover_sensitivity_10m_score_32635.tif",
+        "NODATA": "-9999",
+        "OUTPUT": "landcover_sensitivity_score_32635.tif",
+        "RESAMPLING": "5",
+        "TARGET_RESOLUTION": "100"
+      }
+    },
+    {
+      "history_id": 79,
+      "recorded_timestamp": "2026-05-25 05:00:54",
+      "parameters": {
+        "algorithm_id": "native:exportaddgeometrycolumns",
+        "INPUT": "analysis_grid_100m_32635.gpkg",
+        "OUTPUT": "building_density_grid_100m_32635.gpkg"
+      }
+    },
+    {
+      "history_id": 80,
+      "recorded_timestamp": "2026-05-25 05:06:05",
+      "parameters": {
+        "algorithm_id": "native:intersection",
+        "INPUT": "building_density_grid_100m_32635.gpkg",
+        "OUTPUT": "building_grid_intersection_32635.gpkg"
+      }
+    },
+    {
+      "history_id": 81,
+      "recorded_timestamp": "2026-05-25 05:11:37",
+      "parameters": {
+        "algorithm_id": "native:fieldcalculator",
+        "FIELD_NAME": "building_part_area_m2",
+        "FORMULA": "$area",
+        "INPUT": "building_grid_intersection_32635.gpkg",
+        "OUTPUT": "building_grid_intersection_area_32635.gpkg"
+      }
+    },
+    {
+      "history_id": 82,
+      "recorded_timestamp": "2026-05-25 05:21:00",
+      "parameters": {
+        "algorithm_id": "native:aggregate",
+        "INPUT": "building_grid_intersection_area_32635.gpkg",
+        "OUTPUT": "building_area_by_grid_100m_32635.gpkg"
+      }
+    }
+  ]
+}

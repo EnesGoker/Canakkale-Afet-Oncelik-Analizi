@@ -1,0 +1,12 @@
+# Python 3.10+; portability and release tools use only the standard library.
+# Table generation and numerical QA:
+numpy>=1.26,<3
+# Analysis map/figure export (not needed for read-only map/figure checks):
+matplotlib>=3.8,<4
+# GIS QA also requires osgeo (GDAL Python) and qgis (PyQGIS), supplied by a
+# compatible GIS installation/runtime; this file does not install them.
+# Frozen equivalence uses GDAL 3.12.3 and NumPy 2.4.4 (Accelerate).
+# GDAL 3.13 resampling differs; see docs/qa/runtime_compatibility.md.
+# Optional DOCX report generation:
+python-docx>=1.1,<2
+Pillow>=10,<13

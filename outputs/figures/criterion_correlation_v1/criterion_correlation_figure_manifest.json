@@ -1,0 +1,53 @@
+{
+  "format_version": 1,
+  "baseline_id": "canakkale-canonical-11criteria-v1",
+  "criterion_ids": [
+    "earthquake_pga_score",
+    "fault_proximity_score",
+    "site_condition_score",
+    "population_exposure_score",
+    "building_exposure_density_score",
+    "flood_score",
+    "hydrography_proximity_score",
+    "slope_score",
+    "landcover_sensitivity_score",
+    "tree_cover_score",
+    "road_accessibility_difficulty_score"
+  ],
+  "aoi_cells": 981033,
+  "sources": [
+    {
+      "path": "criterion_pearson_correlation.csv",
+      "size": 2843,
+      "sha256": "31fd6d385cefeb66371e7641c3dfd7b2b0506d475ccfc1e21ebf6d2c0f440934"
+    },
+    {
+      "path": "criterion_correlation_statistics.csv",
+      "size": 1692,
+      "sha256": "45e9e1dfc597b2377ab793f3c6645c556d08639a70e8b297d464e8dab446a622"
+    },
+    {
+      "path": "criterion_correlation_manifest.json",
+      "size": 5221,
+      "sha256": "3a85425c6a99dca900b426bea052c775fd34c849c0788ef396c39084c906c392"
+    }
+  ],
+  "color_limits": [
+    -1,
+    1
+  ],
+  "annotation_decimals": 2,
+  "matplotlib": "3.10.9",
+  "outputs": [
+    {
+      "path": "criterion_pearson_correlation.png",
+      "size": 408637,
+      "sha256": "a2018b935a4312ce186fa67ec1c648c1b788e512431b4523be61c05145a9e490"
+    },
+    {
+      "path": "criterion_pearson_correlation.pdf",
+      "size": 32370,
+      "sha256": "2dde4610c4b062ed8a60bdc374c5ace8ae22c85cb0075c6000a9dee32677f6b9"
+    }
+  ]
+}

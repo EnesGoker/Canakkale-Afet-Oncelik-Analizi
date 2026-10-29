@@ -1,0 +1,20 @@
+* text=auto eol=lf
+*.sh text eol=lf
+*.py text eol=lf
+*.md text eol=lf whitespace=-blank-at-eol
+*.txt text eol=lf
+*.tsv text eol=lf
+# Preserve the canonical CSV bytes (some source tables use CRLF).
+*.csv -text whitespace=cr-at-eol
+*.json text eol=lf
+*.qgs text eol=lf
+*.qgz binary
+*.gpkg binary
+*.tif binary
+*.png binary
+*.pdf binary
+*.pages binary
+*.xlsx binary
+*.docx binary
+*.zip binary
+*.db binary

@@ -1,0 +1,127 @@
+{
+  "aoi_cells": 981033,
+  "baseline": {
+    "aoi_rule": "template_equals_1",
+    "baseline_checked_files": 27,
+    "baseline_id": "canakkale-canonical-11criteria-v1",
+    "baseline_manifest": "config/analysis_baseline_v1.json",
+    "baseline_manifest_sha256": "15fa4c5d13eb38a571cdc826673549be044f83ad7d8ee3c6cf151c7f63569132",
+    "source_criterion_files": [
+      {
+        "path": "data/processed/analysis/building_exposure_density_score_32635.tif",
+        "sha256": "7eb38cc94d7d381a61880d4c5638fbc8cdf1f3135953db4ec868d8e1285adf1c",
+        "size": 9036428
+      },
+      {
+        "path": "data/processed/analysis/earthquake_pga_score_32635.tif",
+        "sha256": "36df6f13021a252f1f620556418af5f7cc40b6e48b03812684fb4e6bbb611ccf",
+        "size": 9036428
+      },
+      {
+        "path": "data/processed/analysis/fault_proximity_score_32635.tif",
+        "sha256": "c8b2bd98f65c42d381d84e838972ea2442654cb53b4e93af5ea0aff96ab41e08",
+        "size": 9036428
+      },
+      {
+        "path": "data/processed/analysis/flood_score_32635.tif",
+        "sha256": "5737edc706689323df7605a409d0e03cb9020f6349ef53eab845d8f394c02674",
+        "size": 9036428
+      },
+      {
+        "path": "data/processed/analysis/hydrography_proximity_score_32635.tif",
+        "sha256": "f08fda8c5174e6d5d5566c216209c5d3951ae3cf2f0d408f4d49ba0f0203eb72",
+        "size": 9036428
+      },
+      {
+        "path": "data/processed/analysis/landcover_sensitivity_score_32635.tif",
+        "sha256": "a0826fc599af9cf81d3a1bb60f07dcff9b6173c3b1210aaf4c00f4b0b0383abe",
+        "size": 9036428
+      },
+      {
+        "path": "data/processed/analysis/population_exposure_score_32635.tif",
+        "sha256": "47400c912e207ae123c0af920f8c101edc7e6ef8378eebe96e3f191ad9aa3fad",
+        "size": 9036428
+      },
+      {
+        "path": "data/processed/analysis/road_accessibility_difficulty_score_32635.tif",
+        "sha256": "2b2d9a2400647b6668cf1ef4403d524c57500cacffdd354b02e79940310dcf94",
+        "size": 9036428
+      },
+      {
+        "path": "data/processed/analysis/site_condition_score_32635.tif",
+        "sha256": "25f37c16ba7f5034c7270e996a9d19967680b7efbd924976f97390ec0e291cb2",
+        "size": 9036428
+      },
+      {
+        "path": "data/processed/analysis/slope_score_32635.tif",
+        "sha256": "b12c9310500aef31bb1f965e9950f64824e437426d7ead0ce8d350741548852f",
+        "size": 9036428
+      },
+      {
+        "path": "data/processed/analysis/tree_cover_score_32635.tif",
+        "sha256": "c2e16ba2f1fa75a088679f2bfd1a1ad79a2f4995ba2e256a76b95872213df53b",
+        "size": 9036428
+      }
+    ]
+  },
+  "criterion_ids": [
+    "earthquake_pga_score",
+    "fault_proximity_score",
+    "site_condition_score",
+    "population_exposure_score",
+    "building_exposure_density_score",
+    "flood_score",
+    "hydrography_proximity_score",
+    "slope_score",
+    "landcover_sensitivity_score",
+    "tree_cover_score",
+    "road_accessibility_difficulty_score"
+  ],
+  "display_names_tr": {
+    "building_exposure_density_score": "Yapı maruziyet yoğunluk skoru",
+    "earthquake_pga_score": "Deprem PGA skoru",
+    "fault_proximity_score": "Fay yakınlık skoru",
+    "flood_score": "Taşkın skoru",
+    "hydrography_proximity_score": "Hidrografya yakınlık skoru",
+    "landcover_sensitivity_score": "Arazi örtüsü duyarlılık skoru",
+    "population_exposure_score": "Nüfus maruziyet skoru",
+    "road_accessibility_difficulty_score": "Yol erişim zorluğu skoru",
+    "site_condition_score": "Zemin koşulu skoru",
+    "slope_score": "Eğim skoru",
+    "tree_cover_score": "Ağaç örtüsü skoru"
+  },
+  "format_version": 1,
+  "interpretation_limit": "Spatial cells are not assumed independent; no significance, causality, model validation or automatic weight decision follows from these coefficients",
+  "method": "Pearson product-moment correlation",
+  "missing_data": "No pairwise deletion or imputation; frozen canonical QA requires every AOI criterion value to be finite and not NoData",
+  "numeric_policy": {
+    "algorithm": "centered cross-products divided by their own diagonal norms; positive max-absolute rescaling only for extreme magnitudes outside [1e-100, 1e100]",
+    "dtype": "float64",
+    "matrix_validation_absolute_tolerance": 1e-12,
+    "matrix_values_repaired_or_clipped": false,
+    "near_constant_rule": "std_population <= 64 * float64_epsilon * max(abs(values))",
+    "standard_deviation_ddof": 0
+  },
+  "outputs": [
+    {
+      "path": "criterion_pearson_correlation.csv",
+      "sha256": "31fd6d385cefeb66371e7641c3dfd7b2b0506d475ccfc1e21ebf6d2c0f440934",
+      "size": 2843
+    },
+    {
+      "path": "criterion_correlation_statistics.csv",
+      "sha256": "45e9e1dfc597b2377ab793f3c6645c556d08639a70e8b297d464e8dab446a622",
+      "size": 1692
+    }
+  ],
+  "p_values_computed": false,
+  "sampling": "none; all AOI cells",
+  "scope": "Descriptive spatial association of unweighted stored criterion scores across every template-AOI cell",
+  "software": {
+    "numpy": "2.4.4",
+    "python": "3.12.11"
+  },
+  "weights_applied": false,
+  "weights_modified": false,
+  "zero_scores": "Retained, including source NoData values historically converted to zero; no new recoding is performed"
+}

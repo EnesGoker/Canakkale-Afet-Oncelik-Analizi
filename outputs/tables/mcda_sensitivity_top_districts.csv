@@ -1,0 +1,16 @@
+scenario_id,scenario_label,rank,district_id,district_name,high_plus_pixel_count,high_plus_area_km2,district_share_percent
+baseline,Baseline canonical MCDA,1,7,Yenice,20068,200.68,14.5377932572987
+baseline,Baseline canonical MCDA,2,10,Gelibolu,10506,105.06,12.775135393696132
+baseline,Baseline canonical MCDA,3,12,Çan,8868,88.68,9.807659622012808
+baseline,Baseline canonical MCDA,4,6,Biga,8506,85.06,6.497678110026508
+baseline,Baseline canonical MCDA,5,2,Ayvacık,3869,38.69,4.395744301163096
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,1,7,Yenice,29734,297.34000000000003,21.54010089259117
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,2,10,Gelibolu,17341,173.41,21.086390906347287
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,3,12,Çan,12784,127.84,14.138601782567855
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,4,6,Biga,12159,121.59,9.28818106510843
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,5,2,Ayvacık,6774,67.74,7.696244997694188
+equal-weight,Eşit ağırlıklı robustness senaryosu,1,7,Yenice,40557,405.57,29.38057011841057
+equal-weight,Eşit ağırlıklı robustness senaryosu,2,12,Çan,16514,165.14000000000001,18.263835250103693
+equal-weight,Eşit ağırlıklı robustness senaryosu,3,6,Biga,14309,143.09,10.930552089862369
+equal-weight,Eşit ağırlıklı robustness senaryosu,4,8,Bayramiç,7319,73.19,6.082418870073192
+equal-weight,Eşit ağırlıklı robustness senaryosu,5,2,Ayvacık,6950,69.5,7.896206485676795

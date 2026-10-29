@@ -1,0 +1,16 @@
+scenario_id,scenario_label,scenario_role,class_value,class_label,pixel_count,area_km2,share_of_aoi_percent
+baseline,Baseline canonical MCDA,canonical,1,Çok düşük,114283,1142.83,11.649251350362322
+baseline,Baseline canonical MCDA,canonical,2,Düşük,483129,4831.29,49.24696722740214
+baseline,Baseline canonical MCDA,canonical,3,Orta,329029,3290.29,33.53903487446396
+baseline,Baseline canonical MCDA,canonical,4,Yüksek,53893,538.9300000000001,5.493495121978568
+baseline,Baseline canonical MCDA,canonical,5,Çok yüksek,699,6.99,0.07125142579301615
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,robustness,1,Çok düşük,167431,1674.31,17.066806111517145
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,robustness,2,Düşük,410010,4100.1,41.79370112931981
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,robustness,3,Orta,321722,3217.2200000000003,32.794207738169874
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,robustness,4,Yüksek,76086,760.86,7.7557024075642715
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,robustness,5,Çok yüksek,5784,57.84,0.589582613428906
+equal-weight,Eşit ağırlıklı robustness senaryosu,robustness,1,Çok düşük,71011,710.11,7.238390553630714
+equal-weight,Eşit ağırlıklı robustness senaryosu,robustness,2,Düşük,445614,4456.14,45.42293684310314
+equal-weight,Eşit ağırlıklı robustness senaryosu,robustness,3,Orta,371699,3716.9900000000002,37.88853178231518
+equal-weight,Eşit ağırlıklı robustness senaryosu,robustness,4,Yüksek,89884,898.84,9.16217905004215
+equal-weight,Eşit ağırlıklı robustness senaryosu,robustness,5,Çok yüksek,2825,28.25,0.28796177090882774

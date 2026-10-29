@@ -1,0 +1,361 @@
+{
+  "format_version": 1,
+  "baseline_id": "canakkale-canonical-11criteria-v1",
+  "recorded_on": "2026-10-23",
+  "canonical_reference_commit": "183b4485a9414b44ace6cdfc28a86d6647540123",
+  "scope": "Frozen processed-canonical inputs for criterion correlation and three-scenario spatial agreement. This snapshot does not assert complete upstream raw-data reproducibility.",
+  "aoi_rule": "template_equals_1",
+  "normalization": {
+    "baseline": {
+      "mode": "fixed",
+      "minimum": 0.029,
+      "range": 0.473,
+      "clip": [
+        0,
+        1
+      ]
+    },
+    "alternatives": {
+      "mode": "observed_minmax_per_scenario",
+      "class_thresholds": [
+        0.2,
+        0.4,
+        0.6,
+        0.8
+      ]
+    },
+    "baseline_classes": "stored_verified_canonical"
+  },
+  "class_thresholds": [
+    0.2,
+    0.4,
+    0.6,
+    0.8
+  ],
+  "expected_aoi_cells": 981033,
+  "known_input_boundary_finding": {
+    "criterion_id": "landcover_sensitivity_score",
+    "outside_valid_cells": 5272,
+    "handling": "Only template-AOI values are exposed by load_frozen_inputs; the original raster is preserved."
+  },
+  "scenarios": {
+    "baseline": [
+      {
+        "criterion_id": "earthquake_pga_score",
+        "raster_path": "data/processed/analysis/earthquake_pga_score_32635.tif",
+        "weight": 0.16
+      },
+      {
+        "criterion_id": "fault_proximity_score",
+        "raster_path": "data/processed/analysis/fault_proximity_score_32635.tif",
+        "weight": 0.12
+      },
+      {
+        "criterion_id": "site_condition_score",
+        "raster_path": "data/processed/analysis/site_condition_score_32635.tif",
+        "weight": 0.08
+      },
+      {
+        "criterion_id": "population_exposure_score",
+        "raster_path": "data/processed/analysis/population_exposure_score_32635.tif",
+        "weight": 0.14
+      },
+      {
+        "criterion_id": "building_exposure_density_score",
+        "raster_path": "data/processed/analysis/building_exposure_density_score_32635.tif",
+        "weight": 0.1
+      },
+      {
+        "criterion_id": "flood_score",
+        "raster_path": "data/processed/analysis/flood_score_32635.tif",
+        "weight": 0.1
+      },
+      {
+        "criterion_id": "hydrography_proximity_score",
+        "raster_path": "data/processed/analysis/hydrography_proximity_score_32635.tif",
+        "weight": 0.06
+      },
+      {
+        "criterion_id": "slope_score",
+        "raster_path": "data/processed/analysis/slope_score_32635.tif",
+        "weight": 0.08
+      },
+      {
+        "criterion_id": "landcover_sensitivity_score",
+        "raster_path": "data/processed/analysis/landcover_sensitivity_score_32635.tif",
+        "weight": 0.06
+      },
+      {
+        "criterion_id": "tree_cover_score",
+        "raster_path": "data/processed/analysis/tree_cover_score_32635.tif",
+        "weight": 0.04
+      },
+      {
+        "criterion_id": "road_accessibility_difficulty_score",
+        "raster_path": "data/processed/analysis/road_accessibility_difficulty_score_32635.tif",
+        "weight": 0.06
+      }
+    ],
+    "earthquake-heavy": [
+      {
+        "criterion_id": "earthquake_pga_score",
+        "raster_path": "data/processed/analysis/earthquake_pga_score_32635.tif",
+        "weight": 0.22
+      },
+      {
+        "criterion_id": "fault_proximity_score",
+        "raster_path": "data/processed/analysis/fault_proximity_score_32635.tif",
+        "weight": 0.16
+      },
+      {
+        "criterion_id": "site_condition_score",
+        "raster_path": "data/processed/analysis/site_condition_score_32635.tif",
+        "weight": 0.1
+      },
+      {
+        "criterion_id": "population_exposure_score",
+        "raster_path": "data/processed/analysis/population_exposure_score_32635.tif",
+        "weight": 0.12
+      },
+      {
+        "criterion_id": "building_exposure_density_score",
+        "raster_path": "data/processed/analysis/building_exposure_density_score_32635.tif",
+        "weight": 0.08
+      },
+      {
+        "criterion_id": "flood_score",
+        "raster_path": "data/processed/analysis/flood_score_32635.tif",
+        "weight": 0.09
+      },
+      {
+        "criterion_id": "hydrography_proximity_score",
+        "raster_path": "data/processed/analysis/hydrography_proximity_score_32635.tif",
+        "weight": 0.05
+      },
+      {
+        "criterion_id": "slope_score",
+        "raster_path": "data/processed/analysis/slope_score_32635.tif",
+        "weight": 0.06
+      },
+      {
+        "criterion_id": "landcover_sensitivity_score",
+        "raster_path": "data/processed/analysis/landcover_sensitivity_score_32635.tif",
+        "weight": 0.04
+      },
+      {
+        "criterion_id": "tree_cover_score",
+        "raster_path": "data/processed/analysis/tree_cover_score_32635.tif",
+        "weight": 0.03
+      },
+      {
+        "criterion_id": "road_accessibility_difficulty_score",
+        "raster_path": "data/processed/analysis/road_accessibility_difficulty_score_32635.tif",
+        "weight": 0.05
+      }
+    ],
+    "equal-weight": [
+      {
+        "criterion_id": "earthquake_pga_score",
+        "raster_path": "data/processed/analysis/earthquake_pga_score_32635.tif",
+        "weight": 0.0909090909
+      },
+      {
+        "criterion_id": "fault_proximity_score",
+        "raster_path": "data/processed/analysis/fault_proximity_score_32635.tif",
+        "weight": 0.0909090909
+      },
+      {
+        "criterion_id": "site_condition_score",
+        "raster_path": "data/processed/analysis/site_condition_score_32635.tif",
+        "weight": 0.0909090909
+      },
+      {
+        "criterion_id": "population_exposure_score",
+        "raster_path": "data/processed/analysis/population_exposure_score_32635.tif",
+        "weight": 0.0909090909
+      },
+      {
+        "criterion_id": "building_exposure_density_score",
+        "raster_path": "data/processed/analysis/building_exposure_density_score_32635.tif",
+        "weight": 0.0909090909
+      },
+      {
+        "criterion_id": "flood_score",
+        "raster_path": "data/processed/analysis/flood_score_32635.tif",
+        "weight": 0.0909090909
+      },
+      {
+        "criterion_id": "hydrography_proximity_score",
+        "raster_path": "data/processed/analysis/hydrography_proximity_score_32635.tif",
+        "weight": 0.0909090909
+      },
+      {
+        "criterion_id": "slope_score",
+        "raster_path": "data/processed/analysis/slope_score_32635.tif",
+        "weight": 0.0909090909
+      },
+      {
+        "criterion_id": "landcover_sensitivity_score",
+        "raster_path": "data/processed/analysis/landcover_sensitivity_score_32635.tif",
+        "weight": 0.0909090909
+      },
+      {
+        "criterion_id": "tree_cover_score",
+        "raster_path": "data/processed/analysis/tree_cover_score_32635.tif",
+        "weight": 0.0909090909
+      },
+      {
+        "criterion_id": "road_accessibility_difficulty_score",
+        "raster_path": "data/processed/analysis/road_accessibility_difficulty_score_32635.tif",
+        "weight": 0.0909090909
+      }
+    ]
+  },
+  "reference_tables": [
+    "outputs/tables/criterion_raster_statistics.csv",
+    "outputs/tables/mcda_class_area_by_district.csv",
+    "outputs/tables/mcda_class_distribution.csv",
+    "outputs/tables/mcda_sensitivity_class_distribution.csv",
+    "outputs/tables/mcda_sensitivity_class_transition.csv",
+    "outputs/tables/mcda_sensitivity_interpretation.csv",
+    "outputs/tables/mcda_sensitivity_scenario_summary.csv",
+    "outputs/tables/mcda_sensitivity_top_districts.csv"
+  ],
+  "files": [
+    {
+      "path": "config/mcda_weights.tsv",
+      "size": 9606,
+      "sha256": "efcb587cabb297e04ec2e62bd8d44c5895d999ddab01787db1c7a21d8cc4b153"
+    },
+    {
+      "path": "data/processed/admin/canakkale_districts_32635.gpkg",
+      "size": 245760,
+      "sha256": "733c38cb4f10d8e02cc8c994f96659eac631a6c8a405e74ae888e4c38192441e"
+    },
+    {
+      "path": "data/processed/analysis/analysis_template_100m_32635.tif",
+      "size": 2258960,
+      "sha256": "c6206625f36d901b616e50911ae36d6d911d1df020ed397e48f3c00662f12626"
+    },
+    {
+      "path": "data/processed/analysis/building_exposure_density_score_32635.tif",
+      "size": 9036428,
+      "sha256": "7eb38cc94d7d381a61880d4c5638fbc8cdf1f3135953db4ec868d8e1285adf1c"
+    },
+    {
+      "path": "data/processed/analysis/earthquake_pga_score_32635.tif",
+      "size": 9036428,
+      "sha256": "36df6f13021a252f1f620556418af5f7cc40b6e48b03812684fb4e6bbb611ccf"
+    },
+    {
+      "path": "data/processed/analysis/fault_proximity_score_32635.tif",
+      "size": 9036428,
+      "sha256": "c8b2bd98f65c42d381d84e838972ea2442654cb53b4e93af5ea0aff96ab41e08"
+    },
+    {
+      "path": "data/processed/analysis/flood_score_32635.tif",
+      "size": 9036428,
+      "sha256": "5737edc706689323df7605a409d0e03cb9020f6349ef53eab845d8f394c02674"
+    },
+    {
+      "path": "data/processed/analysis/hydrography_proximity_score_32635.tif",
+      "size": 9036428,
+      "sha256": "f08fda8c5174e6d5d5566c216209c5d3951ae3cf2f0d408f4d49ba0f0203eb72"
+    },
+    {
+      "path": "data/processed/analysis/landcover_sensitivity_score_32635.tif",
+      "size": 9036428,
+      "sha256": "a0826fc599af9cf81d3a1bb60f07dcff9b6173c3b1210aaf4c00f4b0b0383abe"
+    },
+    {
+      "path": "data/processed/analysis/mcda_priority_class_32635.tif",
+      "size": 2258960,
+      "sha256": "36febd6b45cb5f5b89cc8649f4f3204c589d93cca80ccabf0dd34f93017529e9"
+    },
+    {
+      "path": "data/processed/analysis/mcda_priority_score_32635.tif",
+      "size": 9036428,
+      "sha256": "589f8c045f4deee2cd552d4f200a9ff5997a1aea89ab6ec486e8048b92bd34e1"
+    },
+    {
+      "path": "data/processed/analysis/mcda_priority_score_normalized_32635.tif",
+      "size": 9036428,
+      "sha256": "6ca025cee719d302d38ba4803a26cc152ae245cb9095ece6c18f668d80f0eed0"
+    },
+    {
+      "path": "data/processed/analysis/population_exposure_score_32635.tif",
+      "size": 9036428,
+      "sha256": "47400c912e207ae123c0af920f8c101edc7e6ef8378eebe96e3f191ad9aa3fad"
+    },
+    {
+      "path": "data/processed/analysis/road_accessibility_difficulty_score_32635.tif",
+      "size": 9036428,
+      "sha256": "2b2d9a2400647b6668cf1ef4403d524c57500cacffdd354b02e79940310dcf94"
+    },
+    {
+      "path": "data/processed/analysis/site_condition_score_32635.tif",
+      "size": 9036428,
+      "sha256": "25f37c16ba7f5034c7270e996a9d19967680b7efbd924976f97390ec0e291cb2"
+    },
+    {
+      "path": "data/processed/analysis/slope_score_32635.tif",
+      "size": 9036428,
+      "sha256": "b12c9310500aef31bb1f965e9950f64824e437426d7ead0ce8d350741548852f"
+    },
+    {
+      "path": "data/processed/analysis/tree_cover_score_32635.tif",
+      "size": 9036428,
+      "sha256": "c2e16ba2f1fa75a088679f2bfd1a1ad79a2f4995ba2e256a76b95872213df53b"
+    },
+    {
+      "path": "outputs/tables/criterion_raster_statistics.csv",
+      "size": 2505,
+      "sha256": "1a6b0ec59eacbc03df1f70dd784f1ee97e8f541a2a397d54f2321da26f8a35da"
+    },
+    {
+      "path": "outputs/tables/mcda_class_area_by_district.csv",
+      "size": 5259,
+      "sha256": "b24e8e55c08be3b8ebbf57b729c80297f4b5fae47e97090cf6cf1b23a21f2e6f"
+    },
+    {
+      "path": "outputs/tables/mcda_class_distribution.csv",
+      "size": 302,
+      "sha256": "1ce27f4d7fea8e369bdceea04810a3d60fd1744bcd70ba003caf2180dfea7fec"
+    },
+    {
+      "path": "outputs/tables/mcda_sensitivity_class_distribution.csv",
+      "size": 1702,
+      "sha256": "d08e1ca38dc7b9a67e58eaf28e43dd163514aef5c41f9b37823735716fda9ee2"
+    },
+    {
+      "path": "outputs/tables/mcda_sensitivity_class_transition.csv",
+      "size": 7861,
+      "sha256": "afccf0adc00f1d64ad0332054d94260bcae9d8fea1a619d3cacea63c6c275185"
+    },
+    {
+      "path": "outputs/tables/mcda_sensitivity_interpretation.csv",
+      "size": 1899,
+      "sha256": "83c5ece7e1add3dd4ef61e4cacb1d38d361b70366850183c7d3f9f156da63b9c"
+    },
+    {
+      "path": "outputs/tables/mcda_sensitivity_scenario_summary.csv",
+      "size": 1121,
+      "sha256": "951b1f52ad8115aebf639a94d7d91934bdfc25e91622c9b784354c2de7256bad"
+    },
+    {
+      "path": "outputs/tables/mcda_sensitivity_top_districts.csv",
+      "size": 1518,
+      "sha256": "312692a80a8dd10bad4fba7a1c23bc5561ca4dcb96cbf8963061758f6e042131"
+    },
+    {
+      "path": "scripts/bash/mcda_pipeline_commands.sh",
+      "size": 13055,
+      "sha256": "7d1dcde847f1b9dae6f511b9dcbb2225837669956a5cb179d6b66aeee5997dd6"
+    },
+    {
+      "path": "scripts/python/generate_sensitivity_tables.py",
+      "size": 35176,
+      "sha256": "d18ed4bb880ab46e54ee3a6c5f7ecc358df893fd4ddf32f2aa5f0445dabaf8a1"
+    }
+  ]
+}

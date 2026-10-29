@@ -1,0 +1,76 @@
+scenario_id,scenario_label,baseline_class_value,baseline_class_label,scenario_class_value,scenario_class_label,pixel_count,area_km2,share_of_aoi_percent,share_of_baseline_class_percent
+baseline,Baseline canonical MCDA,1,Çok düşük,1,Çok düşük,114283,1142.83,11.649251350362322,100.0
+baseline,Baseline canonical MCDA,1,Çok düşük,2,Düşük,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,1,Çok düşük,3,Orta,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,1,Çok düşük,4,Yüksek,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,1,Çok düşük,5,Çok yüksek,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,2,Düşük,1,Çok düşük,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,2,Düşük,2,Düşük,483129,4831.29,49.24696722740214,100.0
+baseline,Baseline canonical MCDA,2,Düşük,3,Orta,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,2,Düşük,4,Yüksek,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,2,Düşük,5,Çok yüksek,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,3,Orta,1,Çok düşük,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,3,Orta,2,Düşük,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,3,Orta,3,Orta,329029,3290.29,33.53903487446396,100.0
+baseline,Baseline canonical MCDA,3,Orta,4,Yüksek,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,3,Orta,5,Çok yüksek,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,4,Yüksek,1,Çok düşük,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,4,Yüksek,2,Düşük,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,4,Yüksek,3,Orta,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,4,Yüksek,4,Yüksek,53893,538.9300000000001,5.493495121978567,100.0
+baseline,Baseline canonical MCDA,4,Yüksek,5,Çok yüksek,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,5,Çok yüksek,1,Çok düşük,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,5,Çok yüksek,2,Düşük,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,5,Çok yüksek,3,Orta,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,5,Çok yüksek,4,Yüksek,0,0.0,0.0,0.0
+baseline,Baseline canonical MCDA,5,Çok yüksek,5,Çok yüksek,699,6.99,0.07125142579301615,100.0
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,1,Çok düşük,1,Çok düşük,109339,1093.39,11.145292767929316,95.6738972550598
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,1,Çok düşük,2,Düşük,4944,49.44,0.5039585824330068,4.326102744940193
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,1,Çok düşük,3,Orta,0,0.0,0.0,0.0
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,1,Çok düşük,4,Yüksek,0,0.0,0.0,0.0
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,1,Çok düşük,5,Çok yüksek,0,0.0,0.0,0.0
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,2,Düşük,1,Çok düşük,58092,580.92,5.92151334358783,12.024117782207236
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,2,Düşük,2,Düşük,387404,3874.04,39.48939536182779,80.18645123766116
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,2,Düşük,3,Orta,37633,376.33,3.8360585219865184,7.789430980131601
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,2,Düşük,4,Yüksek,0,0.0,0.0,0.0
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,2,Düşük,5,Çok yüksek,0,0.0,0.0,0.0
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,3,Orta,1,Çok düşük,0,0.0,0.0,0.0
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,3,Orta,2,Düşük,17662,176.62,1.8003471850590143,5.367915897990755
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,3,Orta,3,Orta,281419,2814.19,28.685987117660673,85.5301508377681
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,3,Orta,4,Yüksek,29948,299.48,3.0527005717442735,9.101933264241147
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,3,Orta,5,Çok yüksek,0,0.0,0.0,0.0
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,4,Yüksek,1,Çok düşük,0,0.0,0.0,0.0
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,4,Yüksek,2,Düşük,0,0.0,0.0,0.0
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,4,Yüksek,3,Orta,2670,26.7,0.27216209852267964,4.95426122130889
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,4,Yüksek,4,Yüksek,46088,460.88,4.697905167308337,85.5175996882712
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,4,Yüksek,5,Çok yüksek,5135,51.35,0.5234278561475506,9.528139090419906
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,5,Çok yüksek,1,Çok düşük,0,0.0,0.0,0.0
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,5,Çok yüksek,2,Düşük,0,0.0,0.0,0.0
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,5,Çok yüksek,3,Orta,0,0.0,0.0,0.0
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,5,Çok yüksek,4,Yüksek,50,0.5,0.005096668511660667,7.1530758226037205
+earthquake-heavy,Deprem ağırlıklı robustness senaryosu,5,Çok yüksek,5,Çok yüksek,649,6.49,0.06615475728135548,92.84692417739629
+equal-weight,Eşit ağırlıklı robustness senaryosu,1,Çok düşük,1,Çok düşük,67214,672.14,6.851349546855203,58.81364682411208
+equal-weight,Eşit ağırlıklı robustness senaryosu,1,Çok düşük,2,Düşük,47069,470.69,4.797901803507119,41.18635317588793
+equal-weight,Eşit ağırlıklı robustness senaryosu,1,Çok düşük,3,Orta,0,0.0,0.0,0.0
+equal-weight,Eşit ağırlıklı robustness senaryosu,1,Çok düşük,4,Yüksek,0,0.0,0.0,0.0
+equal-weight,Eşit ağırlıklı robustness senaryosu,1,Çok düşük,5,Çok yüksek,0,0.0,0.0,0.0
+equal-weight,Eşit ağırlıklı robustness senaryosu,2,Düşük,1,Çok düşük,3797,37.97,0.3870410067755111,0.7859184607009722
+equal-weight,Eşit ağırlıklı robustness senaryosu,2,Düşük,2,Düşük,361165,3611.65,36.8147656602785,74.75539659180053
+equal-weight,Eşit ağırlıklı robustness senaryosu,2,Düşük,3,Orta,118166,1181.66,12.04505862697789,24.458477963442476
+equal-weight,Eşit ağırlıklı robustness senaryosu,2,Düşük,4,Yüksek,1,0.01,0.00010193337023321336,0.0002069840560181649
+equal-weight,Eşit ağırlıklı robustness senaryosu,2,Düşük,5,Çok yüksek,0,0.0,0.0,0.0
+equal-weight,Eşit ağırlıklı robustness senaryosu,3,Orta,1,Çok düşük,0,0.0,0.0,0.0
+equal-weight,Eşit ağırlıklı robustness senaryosu,3,Orta,2,Düşük,37380,373.8,3.810269379317515,11.360700728507215
+equal-weight,Eşit ağırlıklı robustness senaryosu,3,Orta,3,Orta,242928,2429.28,24.762469764014057,73.83178990301766
+equal-weight,Eşit ağırlıklı robustness senaryosu,3,Orta,4,Yüksek,48721,487.21000000000004,4.966295731132388,14.807509368475118
+equal-weight,Eşit ağırlıklı robustness senaryosu,3,Orta,5,Çok yüksek,0,0.0,0.0,0.0
+equal-weight,Eşit ağırlıklı robustness senaryosu,4,Yüksek,1,Çok düşük,0,0.0,0.0,0.0
+equal-weight,Eşit ağırlıklı robustness senaryosu,4,Yüksek,2,Düşük,0,0.0,0.0,0.0
+equal-weight,Eşit ağırlıklı robustness senaryosu,4,Yüksek,3,Orta,10600,106.0,1.0804937244720616,19.668602601451024
+equal-weight,Eşit ağırlıklı robustness senaryosu,4,Yüksek,4,Yüksek,40642,406.42,4.142776033018257,75.41239121963892
+equal-weight,Eşit ağırlıklı robustness senaryosu,4,Yüksek,5,Çok yüksek,2651,26.51,0.2702253644882486,4.919006178910062
+equal-weight,Eşit ağırlıklı robustness senaryosu,5,Çok yüksek,1,Çok düşük,0,0.0,0.0,0.0
+equal-weight,Eşit ağırlıklı robustness senaryosu,5,Çok yüksek,2,Düşük,0,0.0,0.0,0.0
+equal-weight,Eşit ağırlıklı robustness senaryosu,5,Çok yüksek,3,Orta,5,0.05,0.0005096668511660668,0.7153075822603719
+equal-weight,Eşit ağırlıklı robustness senaryosu,5,Çok yüksek,4,Yüksek,520,5.2,0.05300535252127094,74.39198855507868
+equal-weight,Eşit ağırlıklı robustness senaryosu,5,Çok yüksek,5,Çok yüksek,174,1.74,0.017736406420579123,24.892703862660944

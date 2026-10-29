@@ -1,0 +1,1130 @@
+{
+  "format_version": 1,
+  "archive_root": "canakkale-disaster-priority",
+  "package_kind": "public-source-and-selected-analytical-summaries",
+  "checksum_scope": "All selected payloads; this manifest excludes its own hash.",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "size": 401,
+      "sha256": "c34f79e69492fdb62664af8b3fc741baba9044b2b2ef8a129bf70cf3be9bc042",
+      "mode": "0644"
+    },
+    {
+      "path": ".gitignore",
+      "size": 1503,
+      "sha256": "c5a33359de5654823fdb6b28f607039622faa01a7a6ae7d5968a2420845833d6",
+      "mode": "0644"
+    },
+    {
+      "path": "LICENSE",
+      "size": 1068,
+      "sha256": "05728a4b02e8fd9016236e7f3129b186010f787d0788c0352c03897f68621f41",
+      "mode": "0644"
+    },
+    {
+      "path": "LICENSE_SCOPE.md",
+      "size": 1932,
+      "sha256": "38cbc4b7731409f1b5f322e33a39be7546088b48d250d3c8bb50902e349e35e4",
+      "mode": "0644"
+    },
+    {
+      "path": "PUBLICATION_STATUS.md",
+      "size": 8198,
+      "sha256": "8e856143b7cf53cdbfade58a12c95039c59028ffc4912a5be9e94efaf6e97359",
+      "mode": "0644"
+    },
+    {
+      "path": "README.md",
+      "size": 16304,
+      "sha256": "392bf69071bd626873ab555acdeed72179659adaf1ac6c9f463d236a3d544b18",
+      "mode": "0644"
+    },
+    {
+      "path": "README.tr.md",
+      "size": 16525,
+      "sha256": "a164740a8874491c55e63eb9e325766b375086c4cb25146e2890aef9cc3da5bf",
+      "mode": "0644"
+    },
+    {
+      "path": "config/analysis_baseline_v1.json",
+      "size": 12589,
+      "sha256": "15fa4c5d13eb38a571cdc826673549be044f83ad7d8ee3c6cf151c7f63569132",
+      "mode": "0644"
+    },
+    {
+      "path": "config/map_layouts_v1.json",
+      "size": 18701,
+      "sha256": "45dce829e6c3f7a799abc2f24b4096a9949d375634cf2ee2a7015570c8fd13f5",
+      "mode": "0644"
+    },
+    {
+      "path": "config/mcda_weights.tsv",
+      "size": 9606,
+      "sha256": "efcb587cabb297e04ec2e62bd8d44c5895d999ddab01787db1c7a21d8cc4b153",
+      "mode": "0644"
+    },
+    {
+      "path": "config/public_source_release_v1.json",
+      "size": 9088,
+      "sha256": "3d90038ee922ff2688e466f9900d09ef3238b6aefc907a4d2b3b3e40aec70558",
+      "mode": "0644"
+    },
+    {
+      "path": "config/qa_runtime_macos_arm64/conda-explicit.txt",
+      "size": 8867,
+      "sha256": "74f06430a4bd181202ce99b8c0f91a5418dfc701edff44e65bf17032dd888d12",
+      "mode": "0644"
+    },
+    {
+      "path": "config/qa_runtime_macos_arm64/conda-full-explicit.txt",
+      "size": 13546,
+      "sha256": "3e8768987610ee112216fe344eebe97c3e7ce5a6422b0e96a173fd68ac221924",
+      "mode": "0644"
+    },
+    {
+      "path": "config/qa_runtime_macos_arm64/numpy-accelerate.requirements.txt",
+      "size": 240,
+      "sha256": "ab8dfb50e2ad21324d858175e3e719380b66741392af2c46b62a75ff6ae952a3",
+      "mode": "0644"
+    },
+    {
+      "path": "config/qa_runtime_macos_arm64/numpy_accelerate.lock.json",
+      "size": 642,
+      "sha256": "fe59217d26a80a2ca5677a82dbb3fe9aba9ac71e6e8de7d2cde5ff50e7131487",
+      "mode": "0644"
+    },
+    {
+      "path": "config/qa_runtime_macos_arm64/package_sha256.json",
+      "size": 17266,
+      "sha256": "e7d74ead85d5d0232dc89ab89cdfe50215c375f0428258ebe4fd7e029b976ed6",
+      "mode": "0644"
+    },
+    {
+      "path": "data/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "data/interim/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "data/processed/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "data/processed/admin/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "data/processed/analysis/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "data/processed/aoi/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "data/processed/dem/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "data/processed/earthquake/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "data/processed/exposure/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "data/processed/faults/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "data/processed/flood/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "data/processed/hydrography/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "data/processed/landcover/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "data/processed/osm/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "data/raw/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "data/raw/admin/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "data/raw/admin/hgm_admin_boundaries/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "data/raw/earthquake/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "data/raw/earthquake/afad_tdth/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/analysis/criterion_correlation.md",
+      "size": 7388,
+      "sha256": "ad2a7787d2c10fa5dfaf750103e0a80f0c8b064dfdff9ab3d4ae4973aaef2c39",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/analysis/scenario_agreement.md",
+      "size": 8994,
+      "sha256": "770aa2b33c2bfa45b0f7494da954ce779589a02c393ffeea8293dde2552d5c22",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/canonical_data_policy.md",
+      "size": 7157,
+      "sha256": "6b3da69a81283e12b2c75df820f696381583659f9e101cd8ddb67e1eb6c93f8f",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/canonical_qa_runner.md",
+      "size": 3901,
+      "sha256": "f7d64cdfca1a37f7b6500ee829db6cba79b178746d555b39680a268b1351c554",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/carto_live_access.md",
+      "size": 3262,
+      "sha256": "aa0f7c1f9ed57402847695c85d94dc7b22caa62f48d0d81b79c34fb66c72e410",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/data_manifest.md",
+      "size": 10297,
+      "sha256": "468cd9140ffca03efbe37815fe5be72c8204199cbfe7ce66de303c7ec558a5f9",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/data_rights_and_distribution.md",
+      "size": 23218,
+      "sha256": "0f7ef0eab95f424890eaa47a3a7d5f7655ed25a70d787c5ea93da7ff49433986",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/data_source_inventory.md",
+      "size": 8366,
+      "sha256": "16dbbc008360c636cebce7900d9da3355cbf956e2967e772a39ac1dc27996f5e",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/github_distribution.md",
+      "size": 9180,
+      "sha256": "968961a6baed790e5a78118a53e6be924a93ec99f229e248feab23b0136df34e",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/interim_vrt_policy.md",
+      "size": 2284,
+      "sha256": "17ccab3aa42f0d92848ea4d89ff3ea0fb4945d68f509cec5bd65d199c3b113c9",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/map_atlas_plan.md",
+      "size": 9295,
+      "sha256": "9e1ccdb2285cf22daf25d33d3b2fedf7d3c2e0f83d24f11bdeb1ce990777ecbf",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/map_symbology_qa.md",
+      "size": 18917,
+      "sha256": "74c96834ee612709eeafa2fe1291dec38a9c55d040548858c0e55fc7c558adcb",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/methodology/criterion_transformations.md",
+      "size": 8574,
+      "sha256": "43f801e2a412b67793d2ed460fdc6ec2f40ae88074c521e38586f2a9d4a76e60",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/methodology/crs_policy.md",
+      "size": 373,
+      "sha256": "2c4172a7bfc5f1b3020f313a9d1dc99a242319ee72e9e3cfe2de01a3910e308a",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/methodology/fault_data_methodology_note.md",
+      "size": 5660,
+      "sha256": "f05cc353fb77e08777c05aa2228f50a01aaeb0b1ff658a1adc06a7471c6b41f4",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/methodology/mcda_methodology_notes.md",
+      "size": 5592,
+      "sha256": "d58fdaecf52887ce1ba96e0dc7ed46680d00d13c949400beca5bdabaa97daf45",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/methodology/normalization_and_baseline.md",
+      "size": 4012,
+      "sha256": "8f0b662832511026c8c2cc054e8ca2523e01a3545b527c77e8018d9b81cdcb02",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/methodology/population_data_methodology_note.md",
+      "size": 5920,
+      "sha256": "1bd51723fce86e78813b9cc7fb99ea182ebfe75aa8390b48dca894b43b004113",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/methodology/processing_history_excerpt.json",
+      "size": 4476,
+      "sha256": "25e59470cd14cc1f4001e93f7aac15833144cd94512bd4c21c5957b8469d2592",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/methodology/scientific_limits.md",
+      "size": 2554,
+      "sha256": "a97f2d8373591800bb0d3693de3cfdda9810c2be2ec1500adda9f9a7dc476cd6",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/methodology/updated_mcda_methodology_note.md",
+      "size": 24330,
+      "sha256": "5e1501031e0a564e8d1089ffb86b72f6869d0dd26655f171fc0b3c42e443ff40",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/methodology/vs30_data_methodology_note.md",
+      "size": 6937,
+      "sha256": "61507aae5edd46877b2f88bb8e0b1dad9481c8545f6e4a4082bc0c7374266a70",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/portable_script_standard.md",
+      "size": 3208,
+      "sha256": "4ba0167ac0de702cd73822f3fa24e83e2eebb804714e9e9414ff359e67ca1053",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/publication_file_scope.md",
+      "size": 12124,
+      "sha256": "678f12111033f80574ce4cf9cffae3a79ceb48d1662be356e5121c46ad49a6e7",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/admin_boundary_qa.md",
+      "size": 1975,
+      "sha256": "3c3a09fe5f8cadf84b1813ddde87c725a92a2136d7b9f8f9adb360c8fc37ff18",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/afad_tdth_excel_structure.md",
+      "size": 2021,
+      "sha256": "b9ca11d720457dcdb6feef9aa1462997c68ff0d6b87417109cee432b8d3c8385",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/afad_tdth_pga10_aoi_masked_qa.md",
+      "size": 1492,
+      "sha256": "edc4fe5798f009814f5bfc580a051ea6ad900a3fd5e68aa1fbf16ea026306c13",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/afad_tdth_pga10_raster_stats.md",
+      "size": 1425,
+      "sha256": "5c774fcc87d4671cfe864a69ded0d548b561b1819aef9ed686d3d337d4f303a0",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/afad_tdth_points_qa.md",
+      "size": 881,
+      "sha256": "83fc68634b37dd5f58eb042f8dfafddaf31b13055a0ca33ce8e57ea1e0885d8e",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/afad_tdth_points_stats.md",
+      "size": 1006,
+      "sha256": "a27f28395c602267c40e58d9dd5639f95c87c595cd36dea18fbe98d077d9565e",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/afad_tdth_source_check.md",
+      "size": 828,
+      "sha256": "013421741ca03342f3d588ad0293ffc4f761e508dc38cf652e4d864b52c069f9",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/afad_tdth_table_normalization.md",
+      "size": 1513,
+      "sha256": "310b25e778a91e85761e2fb20b383ccd3982d1585d8c598f305f966a9f955ffe",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/buildings_hybrid_stats.md",
+      "size": 489,
+      "sha256": "d6aeec335fba440e1907188d68b40805e5141a57f370eb4d6b7db971c5c5b332",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/canonical_integrity_checks.md",
+      "size": 17977,
+      "sha256": "245d3fc3b4041bc708f0f5d62368302a8d7de58cd7418309a389d69855db226e",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/dem_qa.md",
+      "size": 2491,
+      "sha256": "7407b451648762c6d9b649b91a44fd28e7d2dc6bd64cc01714a93a97690f7d6d",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/dem_raster_stats.md",
+      "size": 1226,
+      "sha256": "df9773afc763598fa742e93e354789e4370086a7a8f456d0123036c3321cb80d",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/dem_sanity_checks.md",
+      "size": 1330,
+      "sha256": "95cb1ec58464e4b03152b3ff284450c8955b3735176deeab9f142d91aa5e8f4b",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/flood_qa.md",
+      "size": 1106,
+      "sha256": "7d1bbb8f97fe10dec13cb593acb70d44c330cffb3e945faf8c7d802eddcf4864",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/flood_raster_stats.md",
+      "size": 1487,
+      "sha256": "58dd74f6033fe8cda772016860621b2a75b5f82b9d6e6e37c945d3a12467d2a9",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/hydrography_hybrid_clean_qa.md",
+      "size": 1500,
+      "sha256": "a8f16486e05b9149b11a3f308441bd82c606c9041d9eec3d89b8022771b6e9d9",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/hydrography_hybrid_clean_stats.md",
+      "size": 1142,
+      "sha256": "b672359d933567f3613a7bd94346ed9f53b32c49df8aa9e1afd463b80568ba17",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/hydrography_hybrid_stats.md",
+      "size": 1067,
+      "sha256": "0cab554ddf29925fd3b8158ab5719d234642c887a25fd21290b2e6fa15eff416",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/hydrorivers_aoi_qa.md",
+      "size": 1211,
+      "sha256": "805b91f5be42f93e5683ce5d30e4a34c27207b74b57422b2499fd5aea415d732",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/hydrorivers_aoi_stats.md",
+      "size": 1078,
+      "sha256": "daffe79608a2a8d4bdcaaa5bcfa65f7b3ee209d96dc34bc94b63519074be241c",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/hydrorivers_qa.md",
+      "size": 1498,
+      "sha256": "55c21be34683c12ae2337957902f57507b3dc2bdd6a44106844e0aa946353ad7",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/hydrorivers_stats.md",
+      "size": 1136,
+      "sha256": "8cd9187968a76de498f8998b01cdbe130c015ddc3157647584bd56dae3ce0c3a",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/landcover_qa.md",
+      "size": 1917,
+      "sha256": "8a7580c13692191cb713b93980398d69faa38865ace4247ae061ea450bc8aabc",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/landcover_raster_stats.md",
+      "size": 1565,
+      "sha256": "a73c75e30f394f8daf2668db59c184bbb6d73c95cb32a0a1a514ea65bb7a0a90",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/map_export_qa.md",
+      "size": 10504,
+      "sha256": "dce64a8704db8c7373eb6eba1b749828d9843eed1ed6b64a53d1352139ccb0de",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/microsoft_buildings_qa.md",
+      "size": 1311,
+      "sha256": "69d2e8feede28c5bc707b69249e6f061871686a1861ef6b8ee79f74ddc41179f",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/microsoft_buildings_stats.md",
+      "size": 1187,
+      "sha256": "cbd94c35f30ecda72a50a1fca63bd70a9e358e768b59ce9f52c87dcc01b1f649",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/osm_buildings_gapfill_qa.md",
+      "size": 1383,
+      "sha256": "c47606317cf4a7bcdb9a92711d5b4c33a9beaf39614711ade6825f3b8b3c71b8",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/osm_buildings_qa.md",
+      "size": 1126,
+      "sha256": "b23dd2e19ddc4825bd2c976a7dd4d88900344b784881b37fbfe2aefa49d568ba",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/osm_buildings_stats.md",
+      "size": 1978,
+      "sha256": "7ea6043439ac4a8b2f2ee2a919c63348134b476a4b58ed05f34bb5387e54b6d4",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/osm_landuse_water_context_qa.md",
+      "size": 1169,
+      "sha256": "d8757eb30a607f0fec358682945af60e5ca2296d7b3b5be355f0f6ee28c91a83",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/osm_landuse_water_context_stats.md",
+      "size": 3409,
+      "sha256": "cbfee918737a9d327d523d247cd6b0c4cf779d67d3e4b1a9357edddc433c78c1",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/osm_poi_places_transport_qa.md",
+      "size": 1373,
+      "sha256": "c4615d9732843fa6525668505e018f6eb65460ad2cc8cafa91693e7d08329f1e",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/osm_poi_places_transport_stats.md",
+      "size": 3064,
+      "sha256": "f41d7f6e6774a99f13456a0111a32c1c5dc7152f68f36b844310558dec6e746d",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/osm_roads_qa.md",
+      "size": 1089,
+      "sha256": "18025db26c68a1525458c4d1048cf92e453e0220e0e1d91b3d5b4583859ac9ef",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/osm_roads_stats.md",
+      "size": 1566,
+      "sha256": "8fb7f50cce547981d15f7d6a75f48db603762bcc18c2464dc13a3a2f9db1bdf3",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/osm_waterways_gapfill_qa.md",
+      "size": 1356,
+      "sha256": "5276371f28acc1736af7458597048525ea362869fe996246c3fbcc0e49103987",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/runtime_compatibility.md",
+      "size": 5124,
+      "sha256": "4df76c5f7994eabfe2e3d62023b9c2884fc3a30a0dd33811572285e233f8a096",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/stage3_boundary_findings.md",
+      "size": 3176,
+      "sha256": "4d390aefd5b5ca53994a9d3ede89b802daf2d8785c117493a7726478a01e688a",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/tree_cover_density_qa.md",
+      "size": 1374,
+      "sha256": "57821cf097320fc6e193077f660ec9cb4a4da3395268bb8cff13786d107c4aad",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qa/tree_cover_density_raster_stats.md",
+      "size": 1534,
+      "sha256": "88ac24ad256764f95505639c2b7428fadeb319bc7f15e62c3ad93fad87778572",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/qgis_project_portability.md",
+      "size": 6011,
+      "sha256": "485fac1b43eabd1f62f214d6abd001bce076d143d5a8d4c14111db403f38d0c5",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/report_asset_outline_lock.md",
+      "size": 15438,
+      "sha256": "d7efdc9ee6e6bf8bdb4e8dd0bed3a4a4933e0ed2fac72c4bdfb44fc35a73b4d9",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/report_build_outputs.md",
+      "size": 4348,
+      "sha256": "3dd3d54eb7bfffbec6f52d74e291df7c520f713f8756f4da47415ce9210c0639",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/report_table_outputs.md",
+      "size": 10451,
+      "sha256": "32e68138d825caf7ff15e77bae2605c22eae7e36b23c83d4fb8ab8b08d9f4c14",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/script_kullanim_ve_guvenlik_rehberi.md",
+      "size": 11629,
+      "sha256": "9bcc619dabaa5eb2b794efb4715c052f72b954ec5755811021e145b351a6ea8d",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/static_map_attributions.md",
+      "size": 8384,
+      "sha256": "58418bce852085390b76d91bb9d12eae850eb938bd9e98d4b7cd0ade23c6d58b",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/scenario_agreement_v1/agreement_count_summary.csv",
+      "size": 4183,
+      "sha256": "9933d8e8d069e4ff23c2b4d994cdf30ac97eec51d7e16a777793f65b1191a64c",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/scenario_agreement_v1/agreement_membership_summary.csv",
+      "size": 9871,
+      "sha256": "e844781a19cbb2979b9807412ea4ca43a6c318c246ff2276c1ad2d9bbc4c3e6e",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/scenario_agreement_v1/scenario_agreement_manifest.json",
+      "size": 5950,
+      "sha256": "9fd472f7bf790d05c54ecf126d5e57899edac6d703a273c768628d14933c010c",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/scenario_agreement_v1/scenario_high_area_comparison.csv",
+      "size": 7620,
+      "sha256": "03e95dcb6ee25a21cd8712bc4723ee3df418efaad9bf18b6603a10412c52f6fb",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/atlas/README.md",
+      "size": 1621,
+      "sha256": "903fee1b394f4655691154b3d79afedf1d532ea7f15e10b6d3783de548ebcd31",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/figures/criterion_correlation_v1/criterion_correlation_figure_manifest.json",
+      "size": 1434,
+      "sha256": "845253722954b1f5dcd10f8aaf90027dcee1ce2e24b144f7d5bf4b315b70ef29",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/figures/scenario_agreement_v1/scenario_high_agreement_map_manifest.json",
+      "size": 2446,
+      "sha256": "04e766d2cf8cb6c7956f3c497879f6743739f515910877eaef975d4680309248",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/maps/README.md",
+      "size": 3232,
+      "sha256": "3db54a79495306d62bcc01ec169637c0414f364de6da1ae3a56eebddf438f2ff",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/maps/map_export_manifest.json",
+      "size": 8690,
+      "sha256": "1217155962fe478af47682bbf80492005e4e8ee710442807b9beed068e583230",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/report/public_report_manifest.json",
+      "size": 3517,
+      "sha256": "24d117e8e502cadc78090552a8034319688b866442c631713e5ee6a92254395e",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/criterion_correlation_v1/criterion_correlation_manifest.json",
+      "size": 5221,
+      "sha256": "3a85425c6a99dca900b426bea052c775fd34c849c0788ef396c39084c906c392",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/criterion_correlation_v1/criterion_correlation_statistics.csv",
+      "size": 1692,
+      "sha256": "45e9e1dfc597b2377ab793f3c6645c556d08639a70e8b297d464e8dab446a622",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/criterion_correlation_v1/criterion_pearson_correlation.csv",
+      "size": 2843,
+      "sha256": "31fd6d385cefeb66371e7641c3dfd7b2b0506d475ccfc1e21ebf6d2c0f440934",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/criterion_raster_statistics.csv",
+      "size": 2505,
+      "sha256": "1a6b0ec59eacbc03df1f70dd784f1ee97e8f541a2a397d54f2321da26f8a35da",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/criterion_raster_statistics.md",
+      "size": 3407,
+      "sha256": "fc6176f9f76863c51245da6d77710ff022c5751fedd256322d09947268fe2d1b",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/mcda_class_area_by_district.csv",
+      "size": 5259,
+      "sha256": "b24e8e55c08be3b8ebbf57b729c80297f4b5fae47e97090cf6cf1b23a21f2e6f",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/mcda_class_area_by_district.md",
+      "size": 5076,
+      "sha256": "19c95a629429bc7fa2730f15dc5170169b9c25fb1d98aff6ff8c083c0ae853d4",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/mcda_class_distribution.csv",
+      "size": 302,
+      "sha256": "1ce27f4d7fea8e369bdceea04810a3d60fd1744bcd70ba003caf2180dfea7fec",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/mcda_class_distribution.md",
+      "size": 463,
+      "sha256": "c98304c18c48f0092ffe4955b4cd381785e98a8835979afa355a4886fa0d2abb",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/mcda_sensitivity_class_distribution.csv",
+      "size": 1702,
+      "sha256": "d08e1ca38dc7b9a67e58eaf28e43dd163514aef5c41f9b37823735716fda9ee2",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/mcda_sensitivity_class_distribution.md",
+      "size": 1989,
+      "sha256": "048397351696791db39c0b281cabf611603fd062d7917919b14d679358087c24",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/mcda_sensitivity_class_transition.csv",
+      "size": 7861,
+      "sha256": "afccf0adc00f1d64ad0332054d94260bcae9d8fea1a619d3cacea63c6c275185",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/mcda_sensitivity_class_transition.md",
+      "size": 9407,
+      "sha256": "521afbcc63a96cc906e5a4da31617abd108edee6bf12f0d43c87c58a66f88acd",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/mcda_sensitivity_interpretation.csv",
+      "size": 1899,
+      "sha256": "83c5ece7e1add3dd4ef61e4cacb1d38d361b70366850183c7d3f9f156da63b9c",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/mcda_sensitivity_interpretation.md",
+      "size": 2138,
+      "sha256": "36bdd33eed6022f89590e1e514405a8604d3cf49b44f0d21ffc9ffe297cec40c",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/mcda_sensitivity_manifest.md",
+      "size": 1396,
+      "sha256": "cea21c041a5cbe009b5212121ebda1ba89e488a83a5d26f361784bc242e1e0db",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/mcda_sensitivity_scenario_summary.csv",
+      "size": 1121,
+      "sha256": "951b1f52ad8115aebf639a94d7d91934bdfc25e91622c9b784354c2de7256bad",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/mcda_sensitivity_scenario_summary.md",
+      "size": 1206,
+      "sha256": "1dc23908d56aa956a227a70c41a233774a4ddc1ef43a332328be57375f60e290",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/mcda_sensitivity_top_districts.csv",
+      "size": 1518,
+      "sha256": "312692a80a8dd10bad4fba7a1c23bc5561ca4dcb96cbf8963061758f6e042131",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/mcda_sensitivity_top_districts.md",
+      "size": 1806,
+      "sha256": "a017e3f52288a1ff6343b8a18b4ac327eb428530ed828e7e65205c44eeb26384",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/tables/report_tables_manifest.md",
+      "size": 741,
+      "sha256": "2c0133beff5ec21caf481c91a52aad0fcaa1a3bf8252bc833d93f7eea86e23e1",
+      "mode": "0644"
+    },
+    {
+      "path": "qgis/canakkale_disaster_priority.qgs",
+      "size": 3133605,
+      "sha256": "e9e315a42d5e488672e43c8303a13ba96fe3e261b9bfd44d8c9b3ae8cbb800b5",
+      "mode": "0644"
+    },
+    {
+      "path": "qgis/canakkale_disaster_priority.qgz",
+      "size": 268612,
+      "sha256": "e97a2aa76f039e1077455c0e309d5bee5f9f7198c01e3a3dbec0acb596639b8b",
+      "mode": "0644"
+    },
+    {
+      "path": "requirements.txt",
+      "size": 579,
+      "sha256": "7c674ecf694318a868332cf8b1999256e2b18f3bb4e71105aa1b1f328ec21ddd",
+      "mode": "0644"
+    },
+    {
+      "path": "scripts/bash/audit_project_tree.sh",
+      "size": 800,
+      "sha256": "aeaf94798f0bb1274e162d7caef7be1f9d4807a973f9d9c0bfc4988ba3b180f0",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/bash/build_academic_report.sh",
+      "size": 2835,
+      "sha256": "950da234e0a45ba9555c6cb377f5f510e555a9e1e9d14529c163380cda8622af",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/bash/fault_processing_pipeline.sh",
+      "size": 10354,
+      "sha256": "1a5a3d5dfefdaaf6eb9e2c859fb4decebf25b1ccd153d63eb26997b123bb8ede",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/bash/generate_report_tables.sh",
+      "size": 3618,
+      "sha256": "09e645ea372e71b1c355bfa020b91c40d9821113a54eb5ce669e5d3ff34ef9cf",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/bash/generate_sensitivity_tables.sh",
+      "size": 3815,
+      "sha256": "99b9174bb50622c6ba566bcbd178afffd628ea14cdc0343f3e16e3ae2db8662f",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/bash/lib/project_env.sh",
+      "size": 2166,
+      "sha256": "66c497cf6e2564809dfda0b45f901d12d7a702b05a1b418b306f9f890a94a311",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/bash/mcda_pipeline_commands.sh",
+      "size": 13055,
+      "sha256": "7d1dcde847f1b9dae6f511b9dcbb2225837669956a5cb179d6b66aeee5997dd6",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/bash/population_processing_pipeline.sh",
+      "size": 7625,
+      "sha256": "7c22a0d7aa780f50069b94691e5380029dd9de876869bcd56e59b7851f88db6a",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/bash/run_canonical_qa.sh",
+      "size": 12643,
+      "sha256": "7635667d22c94c3e18b6d2746f508a38d6fe8efaca11f24683c8ff10678b3a2b",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/bash/vs30_processing_pipeline.sh",
+      "size": 7582,
+      "sha256": "94287acc523214deaacbafa3b457e7ef7c6c2c41f962fd96a5135bf3381764bf",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/analysis_baseline.py",
+      "size": 7682,
+      "sha256": "f069e98fe2b619e35f2ebf23086dbc3b29d80659ea740bed2d1534ece90b7530",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/build_academic_report.py",
+      "size": 47680,
+      "sha256": "bca7e7fc0632d4c93fd99a8e735c6122e31e5596beeb90dc5996b28748b4dcff",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/build_portable_release.py",
+      "size": 10259,
+      "sha256": "7cf32380169d929cf211185eb51dc702f95ad53eaca0ca68e106b6dfdd3b7476",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/build_public_source_release.py",
+      "size": 12637,
+      "sha256": "a90455146e5859773891420079b0a1d7651d08b0df114ac2b2963a4c6f3c96cf",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/check_criterion_transformations.py",
+      "size": 15724,
+      "sha256": "21be67ed6a38c4821e31e021a3c4bdd9f005e48e80f4a0e8cc4f0df039c3e4b5",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/check_map_layouts.py",
+      "size": 16760,
+      "sha256": "2ce0b52e858c408b859cf657f1a2529b23c7f8cfdcaeba911df2c852a9c6317b",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/check_mcda_integrity.py",
+      "size": 18314,
+      "sha256": "af8c4201402fe7b1fb9c0743b5b3b97d873b4e78d79af8d6955cf336395ca586",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/check_portability.py",
+      "size": 8306,
+      "sha256": "8bd7d126b7db1581d98c415ff36c98fe01af07d68da9425fb227dfaf52b956e6",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/check_qgis_runtime.py",
+      "size": 12350,
+      "sha256": "bef666f6d2b07e81b3c940ab1b97296137bbf38a10847fc67c233b7a6ffddce8",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/export_map_layouts.py",
+      "size": 22887,
+      "sha256": "91c31f53863e2ac6a17e76be5297be97effc4bb691bf70dbc6ac13affff5ef8a",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/generate_correlation_analysis.py",
+      "size": 20092,
+      "sha256": "7ca76742920d6847e6ccf5f356eabff832e7377ac3ac247474476b11d5d29fc8",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/generate_report_tables.py",
+      "size": 22905,
+      "sha256": "e8d706145fa5f1034d526cc6f8d17e50b9ee0696802a13fc16dbbe2f429f3036",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/generate_scenario_agreement.py",
+      "size": 32337,
+      "sha256": "8cc23bcc7f64e114e48f11ee0e0ad0a4e235f257e2431e69acec59d807830a05",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/generate_sensitivity_tables.py",
+      "size": 35176,
+      "sha256": "d18ed4bb880ab46e54ee3a6c5f7ecc358df893fd4ddf32f2aa5f0445dabaf8a1",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/open_qgis_with_carto.py",
+      "size": 8706,
+      "sha256": "b213b66b1448dcf5c2e5402de881c8f860b0e3c1abf166b17dd92bd859299206",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/plot_criterion_correlation.py",
+      "size": 13400,
+      "sha256": "37f1718ac93ab5246be9f34f6bd77c4b3678ee3636d6593eb4018fe8da9bdedf",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/plot_scenario_agreement.py",
+      "size": 18301,
+      "sha256": "ac11e304fde7cd0f5adef199a38e86df41aa6f5a391b3f1b54fc28604a90883c",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/qgis_carto_startup.py",
+      "size": 323,
+      "sha256": "29136f29aae9cccad6cb949ae6e3c88f824a9fedfa890134da133d1bcd2801c8",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/qgis_identity.py",
+      "size": 11942,
+      "sha256": "b9a7cc4e8c3777f9bb2c85ca338a6d669ff5e23ee3f39b02730a61eee4e88fc0",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/run_compatible_qa.py",
+      "size": 4212,
+      "sha256": "ac04085f7203e635c0ff916bed612628e782d7304f6779919994853ed56e2036",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/run_integrity_checks.py",
+      "size": 11007,
+      "sha256": "13a0cfbe7b73bc6fe84028e894bc36622f9cc556bda75b27a80e4e2d82a60ef0",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_analysis_baseline.py",
+      "size": 5187,
+      "sha256": "dc7c3e90539a9bf65feadc03d90cd24ec02ae40c69753c430eaf5543ea881611",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_carto_runtime.py",
+      "size": 4474,
+      "sha256": "10362395d46a47b9cf4a04a9bbbc4d41aa3db4e00f463629cd6738405a61f616",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_compatible_qa.py",
+      "size": 4099,
+      "sha256": "14505e4ec7bdd51e20de09c70c7e513976ff3743a375f4e1be2a125682b6a21a",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_correlation_analysis.py",
+      "size": 17871,
+      "sha256": "9829176ce5bfcc4ccf1642d88b9515625d3530d103737fa7bd5c2707a0a75b37",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_criterion_transformations.py",
+      "size": 11188,
+      "sha256": "cd884be8ca7f0f5c0cd9a3dea8518cbd45ca0f3d137d4893ed3b108fcc30cc9a",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_export_map_layouts.py",
+      "size": 11432,
+      "sha256": "b19d35731739c08f9b296eaa1ba83956fa0dc294141f9737b0d80f55e520b59f",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_integrity_runner.py",
+      "size": 4150,
+      "sha256": "37c05791a8a78052a5d334dccc8e9647a05af28246b9cb1f79c5d25781052364",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_map_layouts.py",
+      "size": 19254,
+      "sha256": "93604f5fe5d954916500da5fafe3cce636a15730856cca9054144ad210d8d4c6",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_mcda_integrity.py",
+      "size": 16488,
+      "sha256": "79a84146914b6f3f34c86c06a175c3f902cf9039e82071729849e03bb768b64f",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_plot_criterion_correlation.py",
+      "size": 10613,
+      "sha256": "b5bfed82da8379e48f390904a323950f934ad32fea4dc470301995b039c88197",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_plot_scenario_agreement.py",
+      "size": 14979,
+      "sha256": "fe893699e0935790d1642b32a68ced036955c437e68a025224a9760aec64daf9",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_public_source_release.py",
+      "size": 10969,
+      "sha256": "e07e7aea628cbbd6a7364b78264111434cbfcadadf63f4f79d78f3527c0a2735",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_qgis_identity.py",
+      "size": 10699,
+      "sha256": "979e32d63e377e75b5c39564ef9b1b9898c9de8a9f8465a903c3788a9da75cb6",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_qgis_runtime.py",
+      "size": 9788,
+      "sha256": "95d80ee95c9757c536dee5cb38f596a80d91da98ea87f729d59042bb86113e34",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_release_privacy.py",
+      "size": 5013,
+      "sha256": "c01e9644d7ab4a74fbe52b11dde9188fe5b943981f3c12801284114ed9c872bb",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_scenario_agreement.py",
+      "size": 19809,
+      "sha256": "d5348086bd61c564dde7ecf0c415c3246315c5253532d153d1b4b06fd4e39dba",
+      "mode": "0755"
+    }
+  ]
+}
