@@ -59,7 +59,22 @@ python3 scripts/python/analysis_baseline.py --check
 
 Bu komut standart kütüphaneyle dosya bütünlüğünü ve kayıtlı sözleşmeyi
 denetler. Manifest kendisini yeniden üretmez. Kaynak klonunda büyük veriler
-yoksa eksik dosya bildirir; checksum eşleşmesi bilimsel doğrulama değildir.
+yoksa eksik dosya bildirir ve doğrulanan/eksik dosyaları ayrı sayar; checksum
+eşleşmesi bilimsel doğrulama değildir.
+
+Kanonik veri içermeyen kamu kaynak sürümünde kapsam açıkça seçilir:
+
+```bash
+python3 scripts/python/analysis_baseline.py --check --scope public-source
+```
+
+Bu modda dağıtılmayan kayıtlar iki bağımsız yoldan belirlenir: manifestteki
+`data/processed/` kayıtları ve
+[kamu seçim listesinde](../../config/public_source_release_v1.json) bulunmayan
+kayıtlar. İki küme eşit olmalıdır; bugün ikisi de aynı 16 dosyadır. Bu
+dosyaların her biri kopyada bulunmamalıdır ve tek tek `SKIPPED` satırıyla
+listelenir; kalan 11 kayıt checksum ile doğrulanır. Kanonik verinin bir kısmı
+veya tamamı kopyada varsa kontrol başarısız olur ve tam kapsamı önerir.
 
 Yeni analizler [ortak yükleyiciyi](../../scripts/python/analysis_baseline.py)
 `load_frozen_inputs()` ile kullanır: önce snapshot, sonra sayısal baseline QA

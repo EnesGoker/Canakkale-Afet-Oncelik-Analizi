@@ -17,12 +17,16 @@ import unittest
 sys.dont_write_bytecode = True
 os.environ["GDAL_PAM_ENABLED"] = "NO"
 
-import numpy as np
-from osgeo import gdal, ogr, osr
-from PIL import Image
-import plot_scenario_agreement as plotting
+from tier_support import module_tier
 
-gdal.UseExceptions(); ogr.UseExceptions(); osr.UseExceptions()
+TIER = module_tier(__file__)
+if TIER.available:
+    import numpy as np
+    from osgeo import gdal, ogr, osr
+    from PIL import Image
+
+    gdal.UseExceptions(); ogr.UseExceptions(); osr.UseExceptions()
+import plot_scenario_agreement as plotting
 
 
 def snapshot(directory):
@@ -85,6 +89,7 @@ def create_fixture(root):
     return sources
 
 
+@TIER.skip_unless_available
 class ScenarioMapTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

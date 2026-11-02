@@ -1,0 +1,44 @@
+{
+  "format_version": 1,
+  "description": "Single source of truth for unit-test runtime tiers and the number of tests in each module. Tiers are cumulative environment profiles; a module is skipped test by test when an import of its tier is unavailable. scripts/python/tier_support.py --check compares this table with the test files.",
+  "tiers": {
+    "stdlib": {
+      "imports": [],
+      "description": "Python standard library only."
+    },
+    "scientific": {
+      "imports": ["numpy", "matplotlib", "PIL"],
+      "description": "NumPy, Matplotlib and Pillow, as installed from requirements.txt."
+    },
+    "gdal": {
+      "imports": ["numpy", "matplotlib", "PIL", "osgeo.gdal", "osgeo.ogr", "osgeo.osr"],
+      "description": "GDAL Python bindings (osgeo) in addition to the scientific tier."
+    },
+    "qgis": {
+      "imports": ["osgeo.gdal", "qgis.core"],
+      "description": "QGIS 3.44 Python (PyQGIS) with its bundled GDAL."
+    }
+  },
+  "modules": {
+    "test_analysis_baseline_scope": {"tier": "stdlib", "tests": 8},
+    "test_carto_runtime": {"tier": "stdlib", "tests": 4},
+    "test_check_portability": {"tier": "stdlib", "tests": 8},
+    "test_compatible_qa": {"tier": "stdlib", "tests": 4},
+    "test_export_map_layouts": {"tier": "stdlib", "tests": 19},
+    "test_integrity_runner": {"tier": "stdlib", "tests": 10},
+    "test_map_layouts": {"tier": "stdlib", "tests": 37},
+    "test_public_source_release": {"tier": "stdlib", "tests": 11},
+    "test_qgis_identity": {"tier": "stdlib", "tests": 13},
+    "test_release_privacy": {"tier": "stdlib", "tests": 4},
+    "test_table_reproduction": {"tier": "stdlib", "tests": 10},
+    "test_tier_support": {"tier": "stdlib", "tests": 15},
+    "test_analysis_baseline": {"tier": "scientific", "tests": 10},
+    "test_correlation_analysis": {"tier": "scientific", "tests": 34},
+    "test_plot_criterion_correlation": {"tier": "scientific", "tests": 10},
+    "test_criterion_transformations": {"tier": "gdal", "tests": 19},
+    "test_mcda_integrity": {"tier": "gdal", "tests": 47},
+    "test_plot_scenario_agreement": {"tier": "gdal", "tests": 10},
+    "test_scenario_agreement": {"tier": "gdal", "tests": 35},
+    "test_qgis_runtime": {"tier": "qgis", "tests": 17}
+  }
+}

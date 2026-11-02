@@ -3,6 +3,13 @@
 
 This command uses only Python's standard library and never modifies files.
 The manifest covers payload files; it cannot contain its own checksum.
+
+--scope public-source checks a copy of the public source edition, which omits
+the data layers. The omitted local layers are derived twice, as the layers
+missing from the public selection config and as the layers the public
+packaging policy can never select; both sets must be equal, each omitted
+layer must be absent and is listed as skipped, and every other check still
+applies. A layer present in that scope is a failure: use the full scope.
 """
 
 from __future__ import annotations
@@ -24,6 +31,15 @@ PROJECT_FILE = Path("qgis/canakkale_disaster_priority.qgz")
 MANIFEST_FILE = "portable_manifest.json"
 LFS_HEADER = b"version https://git-lfs.github.com/spec/v1"
 CHUNK_SIZE = 1024 * 1024
+MISSING_LAYER = "Eksik katman dosyası: "
+PUBLIC_SELECTION = Path("config/public_source_release_v1.json")
+FULL_CHECK = "python3 scripts/python/check_portability.py --check"
+DATA_HINT = (
+    "Eksik yerel katmanlar: Kamu kaynak sürümü (GitHub, v0.1.x) kanonik veri katmanlarını içermez; "
+    "bu kopyada eksik olmaları beklenir. Kaynak kopyasını bu kapsamla denetleyin: "
+    f"{FULL_CHECK} --scope public-source. Tam QGIS görünümü kanonik veri klasörünü gerektirir; "
+    "bu veriler kamuya açık bir paketle henüz dağıtılmıyor (PUBLICATION_STATUS.md)."
+)
 
 
 def is_lfs_pointer(path: Path) -> bool:
@@ -103,7 +119,7 @@ def audit_project(project_root: Path) -> tuple[list[str], set[Path], int]:
             continue
         local_files.add(local_file)
         if not local_file.is_file():
-            errors.append(f"Eksik katman dosyası: {relative_name}")
+            errors.append(f"{MISSING_LAYER}{relative_name}")
             continue
         try:
             if is_lfs_pointer(local_file):
@@ -111,6 +127,24 @@ def audit_project(project_root: Path) -> tuple[list[str], set[Path], int]:
         except OSError as error:
             errors.append(f"Katman okunamadı: {relative_name}: {error}")
     return errors, local_files, len(web_sources)
+
+
+def public_source_omissions(project_root: Path, local_names: set[str]) -> set[str]:
+    """Return the QGIS local layers the public source edition omits; both definitions must agree."""
+    from build_public_source_release import approved_shape, safe_relative
+    selection = json.loads((project_root / PUBLIC_SELECTION).read_text(encoding="utf-8"))
+    published = {row if isinstance(row, str) else row["path"] for row in selection["files"]}
+    unselected = {name for name in local_names if name not in published}
+    unpublishable = set()
+    for name in local_names:
+        try:
+            approved_shape(safe_relative(name))
+        except ValueError:
+            unpublishable.add(name)
+    if not unselected or unselected != unpublishable:
+        raise ValueError("Kamu kaynak kapsamının iki tanımı (seçim listesi ve paketleme politikası) uyuşmuyor: "
+                         + ", ".join(sorted(unselected ^ unpublishable) or ["atlanacak yerel katman yok"]))
+    return unselected
 
 
 def verify_manifest(project_root: Path) -> tuple[list[str], int]:
@@ -162,23 +196,43 @@ def main() -> int:
     parser.add_argument("--project-root", type=Path, default=PROJECT_ROOT, help="Kontrol edilecek proje kökü")
     parser.add_argument("--check", action="store_true", help="Salt okunur kontrol (varsayılan)")
     parser.add_argument("--verify-manifest", action="store_true", help="Portable paketin dosya boyutlarını ve SHA256 değerlerini de doğrula")
+    parser.add_argument("--scope", choices=("full", "public-source"), default="full",
+                        help="full: bütün yerel katmanlar bulunmalı (varsayılan); public-source: dağıtılmayan katmanlar listelenip atlanır")
     args = parser.parse_args()
+    if args.scope == "public-source" and args.verify_manifest:
+        parser.error("--verify-manifest yalnız tam kapsamda (portable paket) kullanılır")
     project_root = args.project_root.resolve()
     errors, local_files, web_count = audit_project(project_root)
+    skipped: list[str] = []
+    if args.scope == "public-source":
+        names = {path.relative_to(project_root).as_posix() for path in local_files}
+        try:
+            omitted = public_source_omissions(project_root, names)
+        except (OSError, ValueError, KeyError, TypeError) as error:
+            errors.append(str(error))
+            omitted = set()
+        present = sorted(name for name in omitted if (project_root / name).exists() or (project_root / name).is_symlink())
+        skipped = sorted(omitted - set(present))
+        errors = [error for error in errors if not (error.startswith(MISSING_LAYER) and error[len(MISSING_LAYER):] in omitted)]
+        errors += [f"Kamu kaynak kapsamında dağıtılmayan yerel katman bulundu: {name}" for name in present]
+        if present:
+            errors.append(f"Bu kopyada kanonik veri var ({len(present)}/{len(omitted)} katman); tam kapsamla denetleyin: {FULL_CHECK}")
     if args.verify_manifest:
         manifest_errors, verified = verify_manifest(project_root)
         errors.extend(manifest_errors)
         print(f"Manifest: {verified} dosya doğrulandı.")
+    for name in skipped:
+        print(f"ATLANDI (kamu kaynak sürümünde dağıtılmaz): {name}")
     if errors:
         for error in errors:
             print(f"HATA: {error}", file=sys.stderr)
-        print(
-            "GitHub kaynak ZIP'i/clone veri katmanlarını içermeyebilir. Releases bölümündeki "
-            "canakkale-disaster-priority-portable.zip paketini açın ve klasör yapısını koruyun. "
-            "Git LFS kullanılıyorsa gerçek veri dosyalarını indirin.",
-            file=sys.stderr,
-        )
+        if args.scope == "full" and any(error.startswith(MISSING_LAYER) for error in errors):
+            print(DATA_HINT, file=sys.stderr)
         return 1
+    if args.scope == "public-source":
+        print(f"QGIS taşınabilirlik kontrolü (kamu kaynak kapsamı) geçti: {len(skipped)} yerel katman listelenip atlandı, "
+              f"{len(local_files) - len(skipped)} yerel dosya doğrulandı, {web_count} web kaynağı; göreli yollar.")
+        return 0
     print(f"QGIS taşınabilirlik kontrolü geçti: {len(local_files)} yerel dosya, {web_count} web kaynağı; göreli yollar.")
     return 0
 

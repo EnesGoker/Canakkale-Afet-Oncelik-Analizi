@@ -26,7 +26,7 @@ eski reçetelerden farklıdır; ana MCDA aynı kalır. [Çalışma ortamı uyuml
 
 | Dosya / grup | İçerik rolü | Sürüm kapsamı / sonraki koşul |
 |---|---|---|
-| `scripts/`, `requirements.txt`, `.gitignore`, `.gitattributes` | Kaynak deposu | Özgün kod MIT; son kod ve temiz klasör kontrollerinden geçecek. |
+| `scripts/`, `.github/workflows/`, `requirements.txt`, `.gitignore`, `.gitattributes` | Kaynak deposu | Özgün kod MIT; son kod ve temiz klasör kontrollerinden geçecek. |
 | `README.md`, `README.tr.md`, `LICENSE`, `LICENSE_SCOPE.md`, bu liste, `docs/` | Kaynak deposu | İngilizce ve Türkçe README sürümleri karşılıklı dil bağlantılarıyla sunulur. Belgelerin seçilmiş kaynak sürümü lisans kapsamını ve kaynak bağlantılarını korur. Ham veri örnekleri dağıtılmaz; tam dosya listesi kaynak sürümü config dosyasındadır. |
 | `config/` | Kaynak deposu | Mevcut model tanımları korunacak; ayrı açık veri lisansı verilmedi. |
 | `qgis/*.qgs`, `qgis/*.qgz` | Kaynak deposu ve uygun veri paketi | Göreli yerel yollar korunur; yerel katmanları içermez. 13 düzen, 27 harita/atlas dosyası ve statik çıktı üretimi teknik olarak doğrulanmıştır. Taban haritası kredileri kayıtlıdır; temaya özgü görünür bildirimlerin son uygulaması dosya kapsamındaki koşullara tabidir. Kamu proje dosyası erişim anahtarı içermez. |

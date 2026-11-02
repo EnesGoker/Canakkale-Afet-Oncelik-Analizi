@@ -65,6 +65,8 @@ python3 scripts/python/build_public_source_release.py --check
 
 Bu komut seçilmiş kaynak dosyalarını doğrular; CBS analizini çalıştırmaz.
 Aşağıdaki veriye bağımlı komutlar tam canonical veri klasörünü gerektirir.
+Veri olmadan çalışanlar [Testler ve sürekli entegrasyon](#testler-ve-sürekli-entegrasyon)
+bölümündedir.
 
 ## Kişisel katkım
 
@@ -136,6 +138,7 @@ Ayrı akademik DOCX üreticisi bu raporun elle düzenlenmiş içeriğini yeniden
 
 ```text
 config/          Ağırlıklar, model ve sabit girdi sürümü
+.github/         Sürekli entegrasyon: birim testleri ve kamu kapsamı kontrolleri
 scripts/         Python ve Bash analiz, QA ve paketleme araçları
 qgis/            QGIS projesi ve harita düzenleri
 data/            Yerel analiz verileri; büyük veriler Git dışında
@@ -231,8 +234,14 @@ bash scripts/bash/run_canonical_qa.sh --check
 
 QA; 11 kriterin CRS/grid/AOI uyumunu ve skorlarını kontrol eder, baseline
 ham/normalize skorunu ve sınıfları bellekte yeniden hesaplar. Sekiz
-kaynak→skor eşdeğer reçetesini, 27 dosyalık sabit girdi sürümünü, mevcut rapor
-ve duyarlılık tablolarını, korelasyonu ve senaryo ortaklığını karşılaştırır.
+kaynak→skor eşdeğer reçetesini, 27 dosyalık sabit girdi sürümünü,
+korelasyonu ve senaryo ortaklığını karşılaştırır. Rapor ve duyarlılık
+tabloları canonical veriden geçici bir sandbox'ta yeniden üretilir ve
+`outputs/tables/` altındaki 7 ve 11 kayıtlı dosyayla bayt bayt
+karşılaştırılır; değişmiş, eksik veya fazla dosya kontrolü düşürür. İki tablo
+manifestine yazılan üretim zamanı, kayıtlı manifestin tek
+`Üretim zamanı (UTC)` satırından kopyalanır; bu değer doğrulanmaz, yeniden
+üretilir: değiştirilmiş bir zaman değeri de kontrolden geçer.
 QGIS kontrolü; 13 düzenin katman/stil kilitlerini, lejant bağlantılarını,
 QGS/QGZ eşliğini ve 27 harita/atlas dosyasının checksum'ını denetler.
 Bunlar teknik tutarlılık kontrolleridir; gözlenmiş afetlerle doğrulama değildir.
@@ -287,6 +296,83 @@ paketinin kapsamını ve kontrollerini açıklar.
 [Script rehberi](docs/script_kullanim_ve_guvenlik_rehberi.md).
 
 </details>
+
+## Testler ve sürekli entegrasyon
+
+`scripts/python/` altındaki birim testleri küçük geçici fikstürler kurar;
+hiçbiri canonical veriyi okumaz. [`config/test_tiers_v1.json`](config/test_tiers_v1.json)
+her test modülünü bir çalışma katmanına atar ve test sayısını kaydeder;
+aşağıdaki sayıların tek kaynağıdır.
+
+| Katman | Test | Modül | Gereksinim | CI'da |
+|---|---:|---:|---|---|
+| `stdlib` | 143 | 12 | Python 3.10+ standart kütüphanesi | Ubuntu 24.04 ve macOS arm64; Python 3.10, 3.12, 3.14 |
+| `scientific` | 54 | 3 | `requirements.txt` ile NumPy, Matplotlib ve Pillow | Ubuntu 24.04 ve macOS arm64; Python 3.12, kilitli sürümler |
+| `gdal` | 111 | 4 | GDAL Python (`osgeo`) ve `scientific` katmanı | Yalnız macOS arm64; kilitli ortam (GDAL 3.12.3, NumPy 2.4.4 Accelerate) |
+| `qgis` | 17 | 1 | PyQGIS 3.44 | Çalıştırılmaz |
+| **Toplam** | **325** | **20** | | |
+
+Bir katmanın içe aktarımları yoksa testleri tek tek, katmanı adlandıran bir
+gerekçeyle atlanır. Atlama hiçbir zaman geçti sayılmaz: `run_tests.py` her
+modülü ayrı süreçte koşar ve geçen/atlanan sayıları tabloyla karşılaştırır.
+Adı verilen bir katman içe aktarılamıyorsa ya da adı verilmeyen bir katman
+içe aktarılabiliyorsa test koşmaz ve 2 koduyla çıkar.
+
+Yeni bir klonda veya kaynak ZIP'inde Python standart kütüphanesi şunlara yeter:
+
+```bash
+python3 scripts/python/tier_support.py --check
+python3 scripts/python/run_tests.py --tiers stdlib
+python3 scripts/python/check_public_scope.py
+```
+
+Her biri 0 koduyla çıkar ve şu satırla biter:
+
+- `Test tier table: PASSED; 20 modules, 325 tests (stdlib 143, scientific 54, gdal 111, qgis 17).`
+- `Unit tests (stdlib): PASSED; 143 passed, 182 skipped with a tier reason, 0 other outcomes, 325 tests in the table.`
+- `Public-source scope: PASSED`. Bu satırdan önce `analysis_baseline.py`
+  için `11 verified, 16 skipped` (sürümün dağıtmadığı 16 sabit veri dosyası),
+  `check_portability.py` için `28 layers skipped` (dağıtılmayan yerel QGIS
+  katmanları) bildirilir. İki atlama listesi de
+  [`config/public_scope_expected_v1.json`](config/public_scope_expected_v1.json)
+  ile kayıt kayıt aynı olmalıdır.
+
+`python3 -m unittest discover -s scripts/python`, bilimsel paketleri olmayan
+bir Python'da `OK (skipped=182)` ile biter; bazı testler sınadıkları
+komutların mesajlarını yazdırır. `--scope public-source` olmadan
+`analysis_baseline.py --check` ve `check_portability.py --check` kaynak
+kopyada canonical veri bulunmadığı için 1 koduyla çıkar; bu beklenen
+durumdur.
+
+`requirements.txt` kurulduktan sonra `--tiers stdlib,scientific` kullanılır
+(197 geçer, 128 atlanır). macOS arm64'te kilitli GDAL ortamı
+`config/qa_runtime_macos_arm64/` dosyalarından proje dışında kurulup ilk üç
+katman için kullanılabilir (308 geçer, 17 atlanır):
+
+```bash
+bash scripts/bash/setup_locked_gis_runtime.sh install "$HOME/.local/share/canakkale-qa/test-runtime"
+bash scripts/bash/setup_locked_gis_runtime.sh run "$HOME/.local/share/canakkale-qa/test-runtime" python -B scripts/python/run_tests.py --tiers stdlib,scientific,gdal
+```
+
+[`.github/workflows/tests.yml`](.github/workflows/tests.yml) her push ve
+pull request'te çalışır:
+
+- `stdlib` katmanı, katman tablosu kontrolü, `check_public_scope.py` ve
+  `build_public_source_release.py --check`; Ubuntu 24.04 ve macOS arm64'te,
+  Python 3.10, 3.12 ve 3.14 ile;
+- `scientific` katmanı, Python 3.12 ve
+  [`config/ci/scientific_constraints.txt`](config/ci/scientific_constraints.txt)
+  sürümleriyle; ayrıca Python 3.14'te `requirements.txt`'nin izin verdiği en
+  yeni sürümlerle bir canary işi; canary başarısız olsa da iş akışı düşmez;
+- `gdal` katmanı, macOS arm64'te yukarıdaki kilitli ortamda; ortam önbelleği
+  kilit dosyalarının hash'iyle anahtarlanır.
+
+CI, 17 `qgis` testini (barındırılan hiçbir runner PyQGIS 3.44 sağlamaz),
+Linux'ta `gdal` katmanını (bunun için kilit dosyası yok) ve canonical veri
+isteyen hiçbir QA komutunu **çalıştırmaz**: `run_canonical_qa.sh`,
+`run_compatible_qa.py`, tam kapsamlı `analysis_baseline.py` ve
+`check_portability.py`, tablo `--check` komutları. Başarılı bir CI koşusu bu
+kontrolleri kapsamaz.
 
 ## Sonuçları yorumlarken
 

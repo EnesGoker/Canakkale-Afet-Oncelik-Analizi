@@ -33,6 +33,14 @@ micromamba create --yes --prefix "$GIS_QA_PREFIX" --file config/qa_runtime_macos
 "$GIS_QA_PREFIX/bin/python" -m pip install --no-deps --only-binary=:all: --require-hashes --target "$GIS_QA_NUMPY" -r config/qa_runtime_macos_arm64/numpy-accelerate.requirements.txt
 ```
 
+Test katmanları için aynı profil, proje dışındaki yeni bir dizine tek komutla
+kurulabilir: `bash scripts/bash/setup_locked_gis_runtime.sh install <dizin>`.
+Betik micromamba 2.5.0-2'yi sabit SHA-256 ile indirir, 117 paketlik
+`conda-full-explicit.txt` listesini kurar, her paket arşivini
+`package_sha256.json` ile karşılaştırır ve NumPy overlay'ini ekler; `verify`
+kurulu paket kümesini ve Python/GDAL/NumPy sürümlerini denetler. Ortam yolu
+255 karakteri aşmamalıdır (conda ikili prefix sınırı).
+
 Conda da aynı explicit paket listesini kullanabilir. Listede çekirdek
 ortamın 77 sabit paket URL'si bulunur. NumPy wheel URL/SHA-256'sı
 [numpy_accelerate.lock.json](../../config/qa_runtime_macos_arm64/numpy_accelerate.lock.json),

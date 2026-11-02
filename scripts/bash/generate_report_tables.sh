@@ -10,9 +10,10 @@ set -euo pipefail
 #   Canonical processed katmanlardan rapora hazır tablolar üretir.
 #
 # Güvenlik:
-#   Varsayılan mod --check'tir. Yalnızca geçici dizine yazar ve proje
-#   verisine dokunmaz. Rapor tablolarını outputs/tables altına yazmak için
-#   --generate kullanılır.
+#   Varsayılan mod --check'tir. Tabloları geçici bir sandbox'ta yeniden üretir
+#   ve outputs/tables altındaki kayıtlı dosyalarla bayt bayt karşılaştırır;
+#   proje verisine dokunmaz. Rapor tablolarını outputs/tables altına yazmak
+#   için --generate kullanılır.
 # ============================================================
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -21,8 +22,8 @@ source "$SCRIPT_DIR/lib/project_env.sh"
 MODE="${1:---check}"
 PYTHON_BIN="${PYTHON_BIN:-python3}"
 PYTHON_SCRIPT="scripts/python/generate_report_tables.py"
+CHECK_SCRIPT="scripts/python/check_table_reproduction.py"
 OUTPUT_DIR="outputs/tables"
-TEMP_DIR=""
 
 GDALINFO="${GDALINFO:-}"
 GDAL_TRANSLATE="${GDAL_TRANSLATE:-}"
@@ -37,7 +38,8 @@ Kullanım:
   scripts/bash/generate_report_tables.sh --generate
 
 Modlar:
-  --check      Tüm rapor tablolarını geçici dizinde build eder ve QA çalıştırır.
+  --check      Rapor tablolarını geçici sandbox'ta yeniden üretir ve kayıtlı
+               outputs/tables dosyalarıyla bayt bayt karşılaştırır.
   --generate   Rapor tablolarını outputs/tables altına yazar.
 
 Araç bulma:
@@ -48,13 +50,6 @@ Python gereksinimleri:
   numpy bulunan Python 3.
 EOF
 }
-
-cleanup() {
-  if [[ -n "$TEMP_DIR" && -d "$TEMP_DIR" ]]; then
-    rm -rf "$TEMP_DIR"
-  fi
-}
-trap cleanup EXIT
 
 resolve_python() {
   if [[ "$PYTHON_BIN" == */* ]]; then
@@ -87,6 +82,7 @@ prepare_runtime() {
   require_tool "$OGR2OGR"
   require_tool "$PYTHON_BIN"
   require_file "$PYTHON_SCRIPT"
+  require_file "$CHECK_SCRIPT"
 
   "$PYTHON_BIN" - <<'PY'
 import numpy  # noqa: F401
@@ -110,16 +106,12 @@ run_generator() {
 run_check() {
   prepare_runtime
 
-  TEMP_DIR="$(mktemp -d)"
   echo "Rapor tablo generator"
   echo "Proje kökü: script konumundan çözüldü"
   echo "Mod: --check"
-  echo "Çıktı: geçici QA dizini"
+  echo "Karşılaştırma: geçici sandbox çıktısı ile kayıtlı $OUTPUT_DIR, bayt bayt"
 
-  run_generator "$TEMP_DIR/report_tables"
-
-  echo ""
-  echo "Rapor tablo QA kontrolü geçti."
+  "$PYTHON_BIN" "$CHECK_SCRIPT" --table-set report --project-root "$PROJECT_DIR"
 }
 
 run_generate() {

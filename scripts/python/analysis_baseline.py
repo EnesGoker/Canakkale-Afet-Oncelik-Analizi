@@ -4,6 +4,13 @@
 The default CLI is a standard-library checksum check. load_frozen_inputs()
 additionally requires NumPy/GDAL and reruns the canonical arithmetic checker.
 No source file is changed; changing a file does not regenerate this snapshot.
+
+--scope public-source checks a copy of the public source edition, which omits
+the canonical data. The omitted records are derived twice, as the manifest's
+data/processed records and as the records missing from the public selection
+config; both sets must be equal, every such file must be absent and is listed
+as skipped, and every other record must match. Any canonical data present in
+that scope is a failure: use the full scope for a copy with data.
 """
 
 from __future__ import annotations
@@ -21,6 +28,10 @@ from check_portability import sha256_file
 
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST = Path("config/analysis_baseline_v1.json")
+PUBLIC_SELECTION = "config/public_source_release_v1.json"
+PUBLIC_OMITTED_PREFIX = "data/processed/"
+SKIP_REASON = "not distributed in the public source edition"
+FULL_CHECK = "python3 scripts/python/analysis_baseline.py --check"
 WEIGHTS = "config/mcda_weights.tsv"
 ANALYSIS = "data/processed/analysis/"
 TEMPLATE = ANALYSIS + "analysis_template_100m_32635.tif"
@@ -61,9 +72,24 @@ def weight_scenarios(root: Path) -> dict:
     return scenarios
 
 
-def verify_baseline(root=ROOT, manifest_path=MANIFEST) -> dict:
+def public_source_omissions(root: Path, names: list[str]) -> set[str]:
+    """Return the records the public source edition omits; both definitions must agree."""
+    selection = json.loads(local_path(root, PUBLIC_SELECTION).read_text(encoding="utf-8"))
+    published = {row if isinstance(row, str) else row["path"] for row in selection["files"]}
+    by_prefix = {name for name in names if name.startswith(PUBLIC_OMITTED_PREFIX)}
+    by_selection = {name for name in names if name not in published}
+    if not by_prefix or by_prefix != by_selection:
+        raise ValueError("Public-source omissions differ between the data/processed rule and the public "
+                         "selection: " + ", ".join(sorted(by_prefix ^ by_selection) or ["no omitted records"]))
+    return by_prefix
+
+
+def verify_baseline(root=ROOT, manifest_path=MANIFEST, scope="full") -> dict:
     root = Path(root).resolve()
-    result = {"passed": False, "errors": [], "checked_files": 0}
+    result = {"passed": False, "scope": scope, "errors": [], "checked_files": 0, "verified_files": 0,
+              "missing_files": [], "skipped_files": []}
+    if scope not in ("full", "public-source"):
+        raise ValueError(f"Unknown baseline scope: {scope}")
     try:
         manifest = json.loads(local_path(root, str(manifest_path)).read_text(encoding="utf-8"))
         if manifest["format_version"] != 1 or not manifest["baseline_id"]:
@@ -89,13 +115,29 @@ def verify_baseline(root=ROOT, manifest_path=MANIFEST) -> dict:
         required.update(references)
         if not required.issubset(names):
             raise ValueError("A required baseline input/reference is not covered by checksums")
+        omitted = public_source_omissions(root, names) if scope == "public-source" else set()
+        present = []
         for entry in records:
             path = local_path(root, entry["path"])
-            if not path.is_file():
+            if entry["path"] in omitted:
+                if path.exists() or path.is_symlink():
+                    present.append(entry["path"])
+                    result["errors"].append(f"Canonical data file present in the public-source scope: {entry['path']}")
+                else:
+                    result["skipped_files"].append(entry["path"])
+            elif not path.is_file():
+                result["missing_files"].append(entry["path"])
                 result["errors"].append(f"Missing frozen file: {entry['path']}")
             elif path.stat().st_size != entry["size"] or sha256_file(path) != entry["sha256"]:
                 result["errors"].append(f"Changed frozen file: {entry['path']}")
+            else:
+                result["verified_files"] += 1
             result["checked_files"] += 1
+        if present:
+            result["errors"].append(f"This copy contains canonical data ({len(present)} of {len(omitted)} omitted "
+                                    f"records); check it in the full scope instead: {FULL_CHECK}")
+        if omitted:
+            result["skip_reason"] = SKIP_REASON
     except (OSError, ValueError, KeyError, TypeError, csv.Error) as error:
         result["errors"].append(str(error))
     result["passed"] = not result["errors"]
@@ -140,14 +182,23 @@ def load_frozen_inputs(root=ROOT, manifest_path=MANIFEST) -> dict:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="Read-only checksum validation (default)")
+    parser.add_argument("--scope", choices=("full", "public-source"), default="full",
+                        help="full: every frozen file must match (default); public-source: canonical data is omitted")
     parser.add_argument("--project-root", type=Path, default=ROOT)
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
-    result = verify_baseline(args.project_root)
+    result = verify_baseline(args.project_root, scope=args.scope)
     if args.json:
         print(json.dumps(result, ensure_ascii=False, indent=2))
     else:
-        print(f"Frozen analysis baseline: {'PASSED' if result['passed'] else 'FAILED'}; {result['checked_files']} files checked")
+        label = "" if args.scope == "full" else " (public-source scope)"
+        counts = [f"{result['verified_files']} verified"]
+        counts += [f"{len(result['skipped_files'])} skipped"] if result["skipped_files"] else []
+        counts += [f"{len(result['missing_files'])} missing"] if result["missing_files"] else []
+        print(f"Frozen analysis baseline{label}: {'PASSED' if result['passed'] else 'FAILED'}; "
+              f"{result['checked_files']} files checked: {', '.join(counts)}")
+        for name in result["skipped_files"]:
+            print(f"SKIPPED ({SKIP_REASON}): {name}")
         for error in result["errors"]:
             print(error)
     return 0 if result["passed"] else 1

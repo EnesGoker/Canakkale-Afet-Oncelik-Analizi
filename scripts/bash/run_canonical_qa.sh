@@ -78,6 +78,7 @@ ALL_BASH_SCRIPTS=(
   "scripts/bash/generate_report_tables.sh"
   "scripts/bash/generate_sensitivity_tables.sh"
   "scripts/bash/build_academic_report.sh"
+  "scripts/bash/setup_locked_gis_runtime.sh"
 )
 
 PYTHON_SCRIPTS=(
@@ -94,6 +95,7 @@ PYTHON_SCRIPTS=(
   "scripts/python/test_criterion_transformations.py"
   "scripts/python/analysis_baseline.py"
   "scripts/python/test_analysis_baseline.py"
+  "scripts/python/test_analysis_baseline_scope.py"
   "scripts/python/generate_correlation_analysis.py"
   "scripts/python/test_correlation_analysis.py"
   "scripts/python/plot_criterion_correlation.py"
@@ -113,6 +115,14 @@ PYTHON_SCRIPTS=(
   "scripts/python/test_compatible_qa.py"
   "scripts/python/export_map_layouts.py"
   "scripts/python/test_export_map_layouts.py"
+  "scripts/python/tier_support.py"
+  "scripts/python/test_tier_support.py"
+  "scripts/python/check_table_reproduction.py"
+  "scripts/python/test_table_reproduction.py"
+  "scripts/python/check_portability.py"
+  "scripts/python/test_check_portability.py"
+  "scripts/python/run_tests.py"
+  "scripts/python/check_public_scope.py"
 )
 
 usage() {

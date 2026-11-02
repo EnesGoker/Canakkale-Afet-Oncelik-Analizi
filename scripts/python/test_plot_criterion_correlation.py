@@ -17,7 +17,11 @@ import unittest
 
 sys.dont_write_bytecode = True
 
-from PIL import Image
+from tier_support import module_tier
+
+TIER = module_tier(__file__)
+if TIER.available:
+    from PIL import Image
 import generate_correlation_analysis as correlation
 import plot_criterion_correlation as plotting
 
@@ -27,6 +31,7 @@ def snapshot(directory):
             for path in directory.rglob("*") if path.is_file()}
 
 
+@TIER.skip_unless_available
 class CorrelationFigureTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

@@ -2,13 +2,13 @@
 """Functional tests using tiny temporary QGIS raster/vector projects.
 
 Run with the same QGIS Python runtime as check_qgis_runtime.py. No project data
-is copied or edited. Missing PyQGIS is an error, not a skipped/passing test suite.
+is copied or edited. Without PyQGIS every test is skipped with the reason named;
+a tier runner that requires the qgis tier counts that skip as a failure.
 """
 
 from __future__ import annotations
 
 import copy
-import gc
 import json
 import os
 from pathlib import Path
@@ -22,53 +22,89 @@ import zipfile
 
 
 sys.dont_write_bytecode = True
+from tier_support import module_tier
+
+TIER = module_tier(__file__)
 SCRIPT = Path(__file__).with_name("check_qgis_runtime.py")
+CHILD_ENVIRONMENT = {"QT_QPA_PLATFORM": "offscreen", "GDAL_PAM_ENABLED": "NO"}
+# exitQgis() unregisters GDAL/OGR drivers for the whole process, so the
+# synthetic project is built in a child process, never in the test process.
+FIXTURE = r'''
+import gc
+from pathlib import Path
+import sys
+
+from osgeo import gdal, ogr, osr
+from qgis.core import Qgis, QgsApplication, QgsProject, QgsRasterLayer, QgsVectorLayer
+
+gdal.UseExceptions()
+template, profile = Path(sys.argv[1]), Path(sys.argv[2])
+raster_file = template / "tiny.tif"
+raster = gdal.GetDriverByName("GTiff").Create(str(raster_file), 2, 2, 1, gdal.GDT_Byte)
+raster.SetGeoTransform((26, 0.01, 0, 40, 0, -0.01))
+crs = osr.SpatialReference()
+crs.ImportFromEPSG(4326)
+raster.SetProjection(crs.ExportToWkt())
+raster.GetRasterBand(1).Fill(1)
+raster = None
+vector = ogr.GetDriverByName("GPKG").CreateDataSource(str(template / "tiny.gpkg"))
+vector.CreateLayer("points", crs, ogr.wkbPoint)
+vector = None
+app = QgsApplication([], False, str(profile))
+app.initQgis()
+project = QgsProject()
+project.setFilePathStorage(Qgis.FilePathType.Relative)
+raster_layer = QgsRasterLayer(str(raster_file), "Tiny raster", "gdal")
+vector_layer = QgsVectorLayer(str(template / "tiny.gpkg") + "|layername=points", "Tiny vector", "ogr")
+assert raster_layer.isValid() and vector_layer.isValid(), "Synthetic providers failed to initialize"
+project.addMapLayer(raster_layer)
+project.addMapLayer(vector_layer)
+assert project.write(str(template / "tiny.qgs")), "Synthetic project write failed"
+project.clear()
+del raster_layer, vector_layer, project
+gc.collect()
+app.exitQgis()
+'''
 
 
+def child_environment():
+    return dict(os.environ, **CHILD_ENVIRONMENT)
+
+
+def process_state():
+    from osgeo import gdal, ogr
+    return {"environment": {name: os.environ.get(name) for name in CHILD_ENVIRONMENT},
+            "exceptions": (gdal.GetUseExceptions(), ogr.GetUseExceptions()),
+            "drivers": (gdal.GetDriverByName("GTiff") is not None, ogr.GetDriverByName("GPKG") is not None),
+            "qgis_core_imported": "qgis.core" in sys.modules}
+
+
+@TIER.skip_unless_available
 class QgisRuntimeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        os.environ["QT_QPA_PLATFORM"] = "offscreen"
-        os.environ["GDAL_PAM_ENABLED"] = "NO"
-        from osgeo import gdal, ogr, osr
-        from qgis.core import Qgis, QgsApplication, QgsProject, QgsRasterLayer, QgsVectorLayer
-
-        gdal.UseExceptions()
+        cls.state_before_fixture = process_state()
         cls.workspace = tempfile.TemporaryDirectory(prefix="canakkale-qgis-tests-")
         cls.template = Path(cls.workspace.name) / "template"
         cls.template.mkdir()
-        raster_file = cls.template / "tiny.tif"
-        raster = gdal.GetDriverByName("GTiff").Create(str(raster_file), 2, 2, 1, gdal.GDT_Byte)
-        raster.SetGeoTransform((26, 0.01, 0, 40, 0, -0.01))
-        crs = osr.SpatialReference()
-        crs.ImportFromEPSG(4326)
-        raster.SetProjection(crs.ExportToWkt())
-        raster.GetRasterBand(1).Fill(1)
-        raster = None
-        vector = ogr.GetDriverByName("GPKG").CreateDataSource(str(cls.template / "tiny.gpkg"))
-        vector.CreateLayer("points", crs, ogr.wkbPoint)
-        vector = None
         profile = Path(cls.workspace.name) / "profile"
         profile.mkdir()
-        app = QgsApplication([], False, str(profile))
-        app.initQgis()
-        project = QgsProject()
-        project.setFilePathStorage(Qgis.FilePathType.Relative)
-        raster_layer = QgsRasterLayer(str(raster_file), "Tiny raster", "gdal")
-        vector_layer = QgsVectorLayer(str(cls.template / "tiny.gpkg") + "|layername=points", "Tiny vector", "ogr")
-        assert raster_layer.isValid() and vector_layer.isValid(), "Synthetic providers failed to initialize"
-        project.addMapLayer(raster_layer)
-        project.addMapLayer(vector_layer)
-        assert project.write(str(cls.template / "tiny.qgs")), "Synthetic project write failed"
-        project.clear()
-        del raster_layer, vector_layer, project
-        gc.collect()
-        app.exitQgis()
-        del app
+        process = subprocess.run([sys.executable, "-B", "-c", FIXTURE, str(cls.template), str(profile)],
+                                 capture_output=True, text=True, timeout=120, env=child_environment())
+        if process.returncode != 0:
+            cls.workspace.cleanup()
+            raise RuntimeError("Synthetic QGIS fixture failed:\n" + process.stdout + process.stderr)
+        cls.state_after_fixture = process_state()
 
     @classmethod
     def tearDownClass(cls):
         cls.workspace.cleanup()
+
+    def test_fixture_setup_leaves_the_test_process_untouched(self):
+        self.assertEqual(self.state_after_fixture, self.state_before_fixture)
+        self.assertEqual(self.state_after_fixture["drivers"], (True, True))
+        self.assertFalse(self.state_after_fixture["qgis_core_imported"])
+        self.assertLessEqual({"tiny.gpkg", "tiny.qgs", "tiny.tif"}, {path.name for path in self.template.iterdir()})
 
     def setUp(self):
         self.folder = tempfile.TemporaryDirectory(dir=self.workspace.name, prefix="case-")
@@ -82,7 +118,7 @@ class QgisRuntimeTests(unittest.TestCase):
     def check(self, expected_code, filename="tiny.qgs"):
         process = subprocess.run(
             [sys.executable, str(SCRIPT), "--check", "--project-root", str(self.root), "--project-file", filename, "--json"],
-            capture_output=True, text=True, timeout=30,
+            capture_output=True, text=True, timeout=30, env=child_environment(),
         )
         self.assertEqual(process.returncode, expected_code, process.stdout + process.stderr)
         result = json.loads(process.stdout)
@@ -114,7 +150,7 @@ class QgisRuntimeTests(unittest.TestCase):
         self.check(0, str(self.project))
 
     def test_unavailable_pyqgis_is_exit_two_and_not_passed(self):
-        env = os.environ.copy()
+        env = child_environment()
         env["PYTHONPATH"] = str(self.root / "no-python-modules")
         process = subprocess.run(
             [sys.executable, "-S", str(SCRIPT), "--project-root", str(self.root), "--project-file", "tiny.qgs", "--json"],

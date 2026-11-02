@@ -17,7 +17,11 @@ from unittest import mock
 
 sys.dont_write_bytecode = True
 
-import numpy as np
+from tier_support import module_tier
+
+TIER = module_tier(__file__)
+if TIER.available:
+    import numpy as np
 import generate_correlation_analysis as correlation
 
 
@@ -37,6 +41,7 @@ def directory_snapshot(root):
             for path in root.rglob("*") if path.is_file()}
 
 
+@TIER.skip_unless_available
 class CorrelationArithmeticTests(unittest.TestCase):
     def test_hand_computed_positive_negative_and_zero(self):
         vectors = {"a": [0, 1, 2], "b": [2, 1, 0], "c": [1, 0, 1]}
@@ -143,6 +148,7 @@ class CorrelationArithmeticTests(unittest.TestCase):
             correlation.validate_correlation(np.array([[1 + 2e-11, .1], [.1, 1.]]), 2)
 
 
+@TIER.skip_unless_available
 class CorrelationArtifactTests(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()

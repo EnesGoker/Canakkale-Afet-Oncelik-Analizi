@@ -1,0 +1,57 @@
+{
+  "format_version": 1,
+  "description": "Files and QGIS layers the public source edition omits. scripts/python/check_public_scope.py runs analysis_baseline.py and check_portability.py with --scope public-source and requires exactly these skip lists. Both tools derive the omitted set twice on their own; this file is the third, written-down expectation, so a change in the publication scope must be made here as well.",
+  "analysis_baseline": {
+    "verified_files": 11,
+    "skipped_files": [
+      "data/processed/admin/canakkale_districts_32635.gpkg",
+      "data/processed/analysis/analysis_template_100m_32635.tif",
+      "data/processed/analysis/building_exposure_density_score_32635.tif",
+      "data/processed/analysis/earthquake_pga_score_32635.tif",
+      "data/processed/analysis/fault_proximity_score_32635.tif",
+      "data/processed/analysis/flood_score_32635.tif",
+      "data/processed/analysis/hydrography_proximity_score_32635.tif",
+      "data/processed/analysis/landcover_sensitivity_score_32635.tif",
+      "data/processed/analysis/mcda_priority_class_32635.tif",
+      "data/processed/analysis/mcda_priority_score_32635.tif",
+      "data/processed/analysis/mcda_priority_score_normalized_32635.tif",
+      "data/processed/analysis/population_exposure_score_32635.tif",
+      "data/processed/analysis/road_accessibility_difficulty_score_32635.tif",
+      "data/processed/analysis/site_condition_score_32635.tif",
+      "data/processed/analysis/slope_score_32635.tif",
+      "data/processed/analysis/tree_cover_score_32635.tif"
+    ]
+  },
+  "check_portability": {
+    "skipped_layers": [
+      "data/processed/admin/canakkale_districts_32635.gpkg",
+      "data/processed/analysis/analysis_grid_100m_32635.gpkg",
+      "data/processed/analysis/analysis_template_100m_32635.tif",
+      "data/processed/analysis/building_density_final_grid_100m_32635.gpkg",
+      "data/processed/analysis/building_exposure_density_score_32635.tif",
+      "data/processed/analysis/earthquake_pga_score_32635.tif",
+      "data/processed/analysis/fault_proximity_score_32635.tif",
+      "data/processed/analysis/flood_score_32635.tif",
+      "data/processed/analysis/hydrography_proximity_score_32635.tif",
+      "data/processed/analysis/landcover_sensitivity_score_32635.tif",
+      "data/processed/analysis/mcda_priority_class_32635.tif",
+      "data/processed/analysis/mcda_priority_score_32635.tif",
+      "data/processed/analysis/mcda_priority_score_normalized_32635.tif",
+      "data/processed/analysis/population_exposure_score_32635.tif",
+      "data/processed/analysis/road_accessibility_difficulty_score_32635.tif",
+      "data/processed/analysis/site_condition_score_32635.tif",
+      "data/processed/analysis/slope_score_32635.tif",
+      "data/processed/analysis/tree_cover_score_32635.tif",
+      "data/processed/aoi/canakkale_aoi_32635.gpkg",
+      "data/processed/exposure/canakkale_buildings_hybrid_microsoft_osm_32635.gpkg",
+      "data/processed/faults/canakkale_faults_final_32635.gpkg",
+      "data/processed/hydrography/canakkale_hydrography_hybrid_clean_32635.gpkg",
+      "data/processed/osm/canakkale_osm_landuse_32635.gpkg",
+      "data/processed/osm/canakkale_osm_places_32635.gpkg",
+      "data/processed/osm/canakkale_osm_pois_32635.gpkg",
+      "data/processed/osm/canakkale_osm_roads_32635.gpkg",
+      "data/processed/osm/canakkale_osm_transport_points_32635.gpkg",
+      "outputs/analysis/scenario_agreement_v1/scenario_agreement_count_32635.tif"
+    ]
+  }
+}

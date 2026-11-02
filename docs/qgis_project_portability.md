@@ -68,6 +68,20 @@ lejant bağlantılarını, yerel dosyaları ve 27 harita/atlas dosyasının mani
 denetler. Katman sağlayıcısının dosya içeriğini gerçekten açması ana QA'daki
 PyQGIS kontrolünün işidir; yolun mevcut olması tek başına yeterli sayılmaz.
 Bu sürümde 28 yerel katman geçerli bulunmuştur; bir web altlığı tanımlıdır.
+
+Kamu kaynak sürümünün kopyasında bu 28 yerel katman bulunmaz; orada tam kapsam
+eksik katmanları hata olarak listeler. Kaynak kopyası açık kapsamla denetlenir:
+
+```bash
+python3 scripts/python/check_portability.py --check --scope public-source
+```
+
+Bu modda dağıtılmayan katmanlar iki bağımsız yoldan belirlenir: kamu seçim
+listesinde bulunmayan katmanlar ve kamu paketleme politikasının hiç seçemeyeceği
+katmanlar. İki küme eşit olmalı; her katman kopyada bulunmamalı ve tek tek
+`ATLANDI` satırıyla listelenir. Göreli yol, mutlak yol ve proje dışına çıkış
+kontrolleri aynen uygulanır. Bu katmanlardan biri kopyada varsa kontrol
+başarısız olur ve tam kapsamı önerir.
 Ana QA'nın 9. zorunlu kontrolü, düzen ve kayıtlı ürün bütünlüğünü denetler; eksik
 veya değişmiş final dosyası başarısızlık (çıkış 1) üretir.
 Kontrol sonuçları [harita QA kaydında](qa/map_export_qa.md) tutulur.

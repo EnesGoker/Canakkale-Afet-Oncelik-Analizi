@@ -1,0 +1,21 @@
+# Locked versions for the required scientific-tier CI jobs (Python 3.12):
+# python -m pip install --only-binary=:all: -r requirements.txt -c config/ci/scientific_constraints.txt
+# NumPy, Matplotlib, Pillow and Matplotlib's dependencies are the versions of
+# the validated macOS arm64 runtime (config/qa_runtime_macos_arm64/conda-full-explicit.txt).
+# python-docx, lxml and typing-extensions are not part of that runtime and are
+# pinned here. The canary job installs requirements.txt without this file.
+contourpy==1.4.0
+cycler==0.12.1
+fonttools==4.68.0
+kiwisolver==1.5.1
+lxml==6.1.3
+matplotlib==3.11.2
+numpy==2.4.4
+packaging==26.3
+pillow==13.0.0
+pyparsing==3.3.3
+python-dateutil==3.0.0
+python-docx==1.2.0
+six==1.17.0
+typing-extensions==4.16.0
+tzdata==2026.6

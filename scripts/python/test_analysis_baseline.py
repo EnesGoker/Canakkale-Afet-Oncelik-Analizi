@@ -10,10 +10,15 @@ import tempfile
 import unittest
 
 sys.dont_write_bytecode = True
-import numpy as np
+from tier_support import module_tier
+
+TIER = module_tier(__file__)
+if TIER.available:
+    import numpy as np
 import analysis_baseline as baseline
 
 
+@TIER.skip_unless_available
 class BaselineTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix="canakkale-baseline-test-")

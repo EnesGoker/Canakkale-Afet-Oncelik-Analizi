@@ -11,6 +11,12 @@
       "mode": "0644"
     },
     {
+      "path": ".github/workflows/tests.yml",
+      "size": 7405,
+      "sha256": "715be9a19b56c3d45dfacbed185ab420b128a868b5befefde2a570092aceeaa8",
+      "mode": "0644"
+    },
+    {
       "path": ".gitignore",
       "size": 1503,
       "sha256": "c5a33359de5654823fdb6b28f607039622faa01a7a6ae7d5968a2420845833d6",
@@ -30,26 +36,32 @@
     },
     {
       "path": "PUBLICATION_STATUS.md",
-      "size": 8198,
-      "sha256": "8e856143b7cf53cdbfade58a12c95039c59028ffc4912a5be9e94efaf6e97359",
+      "size": 8220,
+      "sha256": "c862f910ebd8b5ce8cba59f8885e66e4eeb5504af2d58440e942d75efa605458",
       "mode": "0644"
     },
     {
       "path": "README.md",
-      "size": 16304,
-      "sha256": "392bf69071bd626873ab555acdeed72179659adaf1ac6c9f463d236a3d544b18",
+      "size": 20976,
+      "sha256": "a1a36a4dcc97f0bd9035ccf44942ef5dd74f5c5f0313d1b6884e655f92895917",
       "mode": "0644"
     },
     {
       "path": "README.tr.md",
-      "size": 16525,
-      "sha256": "a164740a8874491c55e63eb9e325766b375086c4cb25146e2890aef9cc3da5bf",
+      "size": 21404,
+      "sha256": "fdf13ba8dc65bf893f99289bb73f2397e5166c4aa6bef3f5c674ff0cf5fddd5f",
       "mode": "0644"
     },
     {
       "path": "config/analysis_baseline_v1.json",
       "size": 12589,
       "sha256": "15fa4c5d13eb38a571cdc826673549be044f83ad7d8ee3c6cf151c7f63569132",
+      "mode": "0644"
+    },
+    {
+      "path": "config/ci/scientific_constraints.txt",
+      "size": 758,
+      "sha256": "80d0ee4c0e4b94dd934ed7ad6af35ca939d0900c44a83bd2c93b1996e77a97cf",
       "mode": "0644"
     },
     {
@@ -65,9 +77,15 @@
       "mode": "0644"
     },
     {
+      "path": "config/public_scope_expected_v1.json",
+      "size": 3492,
+      "sha256": "98e828d0ca9bd143e365cf459b119134f29a95cbf4aeee5fd9455fbe0dafe025",
+      "mode": "0644"
+    },
+    {
       "path": "config/public_source_release_v1.json",
-      "size": 9088,
-      "sha256": "3d90038ee922ff2688e466f9900d09ef3238b6aefc907a4d2b3b3e40aec70558",
+      "size": 9653,
+      "sha256": "caf205c7329a2eb226c1a61604ee8f2cea14ea4a37c83f35426968bb06cfa2d2",
       "mode": "0644"
     },
     {
@@ -98,6 +116,12 @@
       "path": "config/qa_runtime_macos_arm64/package_sha256.json",
       "size": 17266,
       "sha256": "e7d74ead85d5d0232dc89ab89cdfe50215c375f0428258ebe4fd7e029b976ed6",
+      "mode": "0644"
+    },
+    {
+      "path": "config/test_tiers_v1.json",
+      "size": 2233,
+      "sha256": "a3f97237ce77d46c42e510158419cc97a5fed560025a2a7ceb50cd9f17e73804",
       "mode": "0644"
     },
     {
@@ -312,8 +336,8 @@
     },
     {
       "path": "docs/methodology/normalization_and_baseline.md",
-      "size": 4012,
-      "sha256": "8f0b662832511026c8c2cc054e8ca2523e01a3545b527c77e8018d9b81cdcb02",
+      "size": 4737,
+      "sha256": "c70a3feef58b9215f24177edb8edb6c5264676f915829cecfee9585018d32e15",
       "mode": "0644"
     },
     {
@@ -354,8 +378,8 @@
     },
     {
       "path": "docs/publication_file_scope.md",
-      "size": 12124,
-      "sha256": "678f12111033f80574ce4cf9cffae3a79ceb48d1662be356e5121c46ad49a6e7",
+      "size": 12256,
+      "sha256": "181e2220203eb0ba514797b3cdfe4bc675c538b20d9890cf6df373f2e9266143",
       "mode": "0644"
     },
     {
@@ -414,8 +438,8 @@
     },
     {
       "path": "docs/qa/canonical_integrity_checks.md",
-      "size": 17977,
-      "sha256": "245d3fc3b4041bc708f0f5d62368302a8d7de58cd7418309a389d69855db226e",
+      "size": 19252,
+      "sha256": "69a7ecf2a9ceb755cc39b8f29c5d489bea2a08a0203efbd1d062cd1d7e2473ba",
       "mode": "0644"
     },
     {
@@ -582,8 +606,8 @@
     },
     {
       "path": "docs/qa/runtime_compatibility.md",
-      "size": 5124,
-      "sha256": "4df76c5f7994eabfe2e3d62023b9c2884fc3a30a0dd33811572285e233f8a096",
+      "size": 5640,
+      "sha256": "a42ca9cfb60e14d7ce17f00b6d019cee7cb44d43ba16679de66ca81b1d1dc914",
       "mode": "0644"
     },
     {
@@ -606,8 +630,8 @@
     },
     {
       "path": "docs/qgis_project_portability.md",
-      "size": 6011,
-      "sha256": "485fac1b43eabd1f62f214d6abd001bce076d143d5a8d4c14111db403f38d0c5",
+      "size": 6719,
+      "sha256": "2233c94daf4e80d4891d2b742808b749dd97de5133dff6df84e53768c693bb58",
       "mode": "0644"
     },
     {
@@ -624,14 +648,14 @@
     },
     {
       "path": "docs/report_table_outputs.md",
-      "size": 10451,
-      "sha256": "32e68138d825caf7ff15e77bae2605c22eae7e36b23c83d4fb8ab8b08d9f4c14",
+      "size": 11178,
+      "sha256": "20375cb2335389ce91669aa380e1f81002d0e3f9267136197f414d8aaeeb55c5",
       "mode": "0644"
     },
     {
       "path": "docs/script_kullanim_ve_guvenlik_rehberi.md",
-      "size": 11629,
-      "sha256": "9bcc619dabaa5eb2b794efb4715c052f72b954ec5755811021e145b351a6ea8d",
+      "size": 13127,
+      "sha256": "e624960a98baaefc9ba2af3ea71575efe1e138d2eae0d98e27a5bb78bdc4ad74",
       "mode": "0644"
     },
     {
@@ -841,7 +865,7 @@
     {
       "path": "requirements.txt",
       "size": 579,
-      "sha256": "7c674ecf694318a868332cf8b1999256e2b18f3bb4e71105aa1b1f328ec21ddd",
+      "sha256": "85d2a0a0b7c1df34dfd940f7e91d8ebdb8135bc551544d0b95667be7b2054b4f",
       "mode": "0644"
     },
     {
@@ -864,14 +888,14 @@
     },
     {
       "path": "scripts/bash/generate_report_tables.sh",
-      "size": 3618,
-      "sha256": "09e645ea372e71b1c355bfa020b91c40d9821113a54eb5ce669e5d3ff34ef9cf",
+      "size": 3767,
+      "sha256": "fecd1431249cd311204c075fa05eb3604387af5ae5f251ee9e516a7683846d5b",
       "mode": "0755"
     },
     {
       "path": "scripts/bash/generate_sensitivity_tables.sh",
-      "size": 3815,
-      "sha256": "99b9174bb50622c6ba566bcbd178afffd628ea14cdc0343f3e16e3ae2db8662f",
+      "size": 3958,
+      "sha256": "20960ad69b756db392d1397afa98cc505d1103be600af8f3d40000a7822a71d1",
       "mode": "0755"
     },
     {
@@ -894,8 +918,14 @@
     },
     {
       "path": "scripts/bash/run_canonical_qa.sh",
-      "size": 12643,
-      "sha256": "7635667d22c94c3e18b6d2746f508a38d6fe8efaca11f24683c8ff10678b3a2b",
+      "size": 13065,
+      "sha256": "73f41a340fc7511b446b7c209f556dc9c6b97e30d551a9be8343af6ab5b41df0",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/bash/setup_locked_gis_runtime.sh",
+      "size": 6488,
+      "sha256": "9be27a27d151b78c0165f9031b2152b5c5ab4952ce87609676339d67d3fb7f21",
       "mode": "0755"
     },
     {
@@ -906,8 +936,8 @@
     },
     {
       "path": "scripts/python/analysis_baseline.py",
-      "size": 7682,
-      "sha256": "f069e98fe2b619e35f2ebf23086dbc3b29d80659ea740bed2d1534ece90b7530",
+      "size": 10961,
+      "sha256": "a921bff8c8d9940b5fe9f15cc450b4db3677a71a95fbd371fda6929405624e17",
       "mode": "0755"
     },
     {
@@ -948,14 +978,26 @@
     },
     {
       "path": "scripts/python/check_portability.py",
-      "size": 8306,
-      "sha256": "8bd7d126b7db1581d98c415ff36c98fe01af07d68da9425fb227dfaf52b956e6",
+      "size": 11856,
+      "sha256": "a42357b01d35efa4f46befe45370b2c4dddf37e6c3d259d2836f1bdb94ef9b69",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/check_public_scope.py",
+      "size": 4623,
+      "sha256": "a1727a9a3d4c51cba6b3396007f72d93f296f578f7f2a713503292267ba894c2",
       "mode": "0755"
     },
     {
       "path": "scripts/python/check_qgis_runtime.py",
       "size": 12350,
       "sha256": "bef666f6d2b07e81b3c940ab1b97296137bbf38a10847fc67c233b7a6ffddce8",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/check_table_reproduction.py",
+      "size": 9571,
+      "sha256": "2638d19f98449424e0f75997bcde011a2f0d51a75fc351df9d54ed7e2f240eed",
       "mode": "0755"
     },
     {
@@ -1031,15 +1073,33 @@
       "mode": "0755"
     },
     {
+      "path": "scripts/python/run_tests.py",
+      "size": 9826,
+      "sha256": "92f7014ec617411de739f16975eb0e6661a8de551e29d260cc33997c28c963d5",
+      "mode": "0755"
+    },
+    {
       "path": "scripts/python/test_analysis_baseline.py",
-      "size": 5187,
-      "sha256": "dc7c3e90539a9bf65feadc03d90cd24ec02ae40c69753c430eaf5543ea881611",
+      "size": 5305,
+      "sha256": "2749c9da7672d803c708097038f3737baf304d402cd51853d302f5f1f85af37e",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_analysis_baseline_scope.py",
+      "size": 6686,
+      "sha256": "b83b20373fd63638a9fbbc92f751a241c6e2fa4bcae599cc6e9a9d0e89f3c721",
       "mode": "0755"
     },
     {
       "path": "scripts/python/test_carto_runtime.py",
       "size": 4474,
       "sha256": "10362395d46a47b9cf4a04a9bbbc4d41aa3db4e00f463629cd6738405a61f616",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_check_portability.py",
+      "size": 5638,
+      "sha256": "fb119f19e7ea14b8822171f166cf2a2b4fc1e806358e14c98142cd8da9e6cf3d",
       "mode": "0755"
     },
     {
@@ -1050,14 +1110,14 @@
     },
     {
       "path": "scripts/python/test_correlation_analysis.py",
-      "size": 17871,
-      "sha256": "9829176ce5bfcc4ccf1642d88b9515625d3530d103737fa7bd5c2707a0a75b37",
+      "size": 18017,
+      "sha256": "7d0abdfbe9013abe7c8d2eb338c537e12a669c9fbcf7cc55c53425a1cdc1dcce",
       "mode": "0755"
     },
     {
       "path": "scripts/python/test_criterion_transformations.py",
-      "size": 11188,
-      "sha256": "cd884be8ca7f0f5c0cd9a3dea8518cbd45ca0f3d137d4893ed3b108fcc30cc9a",
+      "size": 11362,
+      "sha256": "517e93e12dafe82e232774dd04b55fe312722d3492f6f675253060c9053a31e8",
       "mode": "0755"
     },
     {
@@ -1080,26 +1140,26 @@
     },
     {
       "path": "scripts/python/test_mcda_integrity.py",
-      "size": 16488,
-      "sha256": "79a84146914b6f3f34c86c06a175c3f902cf9039e82071729849e03bb768b64f",
+      "size": 16664,
+      "sha256": "79cfa8f6096e3426fb090e6beb307fcc0e4cde79523c0b31948e34c57bbfba56",
       "mode": "0755"
     },
     {
       "path": "scripts/python/test_plot_criterion_correlation.py",
-      "size": 10613,
-      "sha256": "b5bfed82da8379e48f390904a323950f934ad32fea4dc470301995b039c88197",
+      "size": 10731,
+      "sha256": "7e63eac9865e94344c3850208780ebe8a6e02e6c5940207ab782e4c174cd458d",
       "mode": "0755"
     },
     {
       "path": "scripts/python/test_plot_scenario_agreement.py",
-      "size": 14979,
-      "sha256": "fe893699e0935790d1642b32a68ced036955c437e68a025224a9760aec64daf9",
+      "size": 15109,
+      "sha256": "ca7358f091e0925c6cbdd81f772958e266155c2cb7f5731cc7d38d67cfe0fa53",
       "mode": "0755"
     },
     {
       "path": "scripts/python/test_public_source_release.py",
-      "size": 10969,
-      "sha256": "e07e7aea628cbbd6a7364b78264111434cbfcadadf63f4f79d78f3527c0a2735",
+      "size": 11175,
+      "sha256": "9e51caa63c19023f4be6ecac290678761e55a792ce7bdb92e80f0808d5fde4ec",
       "mode": "0755"
     },
     {
@@ -1110,8 +1170,8 @@
     },
     {
       "path": "scripts/python/test_qgis_runtime.py",
-      "size": 9788,
-      "sha256": "95d80ee95c9757c536dee5cb38f596a80d91da98ea87f729d59042bb86113e34",
+      "size": 11328,
+      "sha256": "14025d4af5e63329e83a7bf121f83d9b1056d0a65902cacc865b70adbd01c8e7",
       "mode": "0755"
     },
     {
@@ -1122,8 +1182,26 @@
     },
     {
       "path": "scripts/python/test_scenario_agreement.py",
-      "size": 19809,
-      "sha256": "d5348086bd61c564dde7ecf0c415c3246315c5253532d153d1b4b06fd4e39dba",
+      "size": 19959,
+      "sha256": "c29f74de73c3a3428c456e1d4baa25bcc5af6a4b89d10656e8878c1b0496d9d7",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_table_reproduction.py",
+      "size": 7782,
+      "sha256": "10602f4e66f875ae778709eb5c418cfc979e445e5b3c4c7b3e7b4acdc8446b5b",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_tier_support.py",
+      "size": 11051,
+      "sha256": "aa25fa1adbf622060a70b561a4c15f7f8bb04850a4fc3783c025ca3ad9002450",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/tier_support.py",
+      "size": 9722,
+      "sha256": "f4149af543a5df1fb8593be8f6f7f19541b5f32c8d8bcbc36948990cc4d4e0e1",
       "mode": "0755"
     }
   ]

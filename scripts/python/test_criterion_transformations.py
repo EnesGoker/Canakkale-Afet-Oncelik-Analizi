@@ -15,15 +15,19 @@ import tempfile
 import unittest
 from unittest import mock
 
-import numpy as np
-from osgeo import gdal, ogr, osr
+from tier_support import module_tier
+
+TIER = module_tier(__file__)
+if TIER.available:
+    import numpy as np
+    from osgeo import gdal, ogr, osr
+
+    gdal.UseExceptions()
 
 import check_criterion_transformations as checker
 
 
-gdal.UseExceptions()
-
-
+@TIER.skip_unless_available
 class TransformationTests(unittest.TestCase):
     def test_direct_invocation_does_not_write_import_cache(self):
         folder = self.root / "script-copy"
@@ -68,9 +72,10 @@ class TransformationTests(unittest.TestCase):
         self.vector(checker.BUILDING_SOURCE, "POLYGON ((400000 4500000,400500 4500000,400500 4499600,400000 4499600,400000 4500000))", building=True)
         self.score("building_exposure_density_score", np.full(self.aoi.shape, .2))
 
-    def write(self, relative, array, nodata=-9999, dtype=gdal.GDT_Float32, pixel=100, crs=None):
+    def write(self, relative, array, nodata=-9999, dtype=None, pixel=100, crs=None):
         path = self.root / relative
         path.parent.mkdir(parents=True, exist_ok=True)
+        dtype = gdal.GDT_Float32 if dtype is None else dtype
         d = gdal.GetDriverByName("GTiff").Create(str(path), array.shape[1], array.shape[0], 1, dtype)
         grid = list(self.grid)
         grid[1], grid[5] = pixel, -pixel

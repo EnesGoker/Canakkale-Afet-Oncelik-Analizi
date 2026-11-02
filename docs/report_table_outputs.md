@@ -24,8 +24,16 @@ Modlar:
 --generate
 ```
 
-`--check`, tabloları sistem geçici dizinine yazar ve satır sayıları, ilçe
-kapsamı, sınıf toplamları ve ortak raster grid varsayımlarını doğrular.
+`--check`, tabloları geçici bir sandbox'ta göreli `outputs/tables` hedefiyle
+yeniden üretir; üretici satır sayılarını, ilçe kapsamını, sınıf toplamlarını ve
+ortak raster grid varsayımlarını doğrular. Ardından
+[`check_table_reproduction.py`](../scripts/python/check_table_reproduction.py)
+üretilen yedi dosyayı `outputs/tables/` altındaki kayıtlı dosyalarla bayt bayt
+karşılaştırır. Manifestteki üretim zamanı, kayıtlı manifestin tek
+`Üretim zamanı (UTC)` satırından okunur; satır yoksa, birden fazlaysa veya
+biçimi bozuksa kontrol başarısız olur. Bu satırın değeri başka bir kayıtla
+doğrulanmaz. Eksik veya fazla dosya da başarısızlıktır; proje dosyalarına
+yazılmaz.
 
 `--generate`, rapora hazır çıktıları şu konuma yazar:
 
@@ -129,6 +137,9 @@ Modlar:
 --check
 --generate
 ```
+
+`--check`, rapor tablolarıyla aynı yöntemle on bir dosyayı yeniden üretir ve
+`outputs/tables/` altındaki kayıtlı dosyalarla bayt bayt karşılaştırır.
 
 Bu script `config/mcda_weights.tsv` içindeki üç senaryoyu kullanır:
 

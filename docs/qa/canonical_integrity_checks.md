@@ -138,8 +138,27 @@ python3 scripts/python/test_integrity_runner.py
 
 GIS Python değişkenleri, bu örnekleri doğrudan çalıştırmadan önce uygun Python'a
 ayarlanmalıdır. PROJ/GDAL kaynakları da o ortamda kullanılabilir olmalıdır;
-özellikle paket Python'unun doğrudan kullanımında gerekebilir. Eksik GIS
-bağımlılığı test takımının başarılı sayılarak atlanmasına yol açmaz.
+özellikle paket Python'unun doğrudan kullanımında gerekebilir.
+
+Testlerin çalışma katmanları ve modül başına test sayıları tek yerde,
+[`config/test_tiers_v1.json`](../../config/test_tiers_v1.json) içinde tanımlıdır.
+Katmanının bir içe aktarımı bulunamayan modülün testleri hata vermez; her test,
+eksik içe aktarımı adıyla belirten bir gerekçeyle atlanır. Bu nedenle yalnız
+standart kütüphanesi olan bir Python'da
+`python3 -m unittest discover -s scripts/python` hatasız tamamlanır. Atlama bir
+başarı sayılmaz: koşucular koşan ve atlanan sayıları bu tabloyla karşılaştırır,
+gerekli tutulan bir katmandaki atlamayı hata sayar.
+`python3 scripts/python/tier_support.py --check` tabloyu diskteki test
+dosyalarıyla karşılaştırır.
+
+`python3 scripts/python/run_tests.py --tiers stdlib` (veya ortamın sağladığı
+`stdlib,scientific`, `stdlib,scientific,gdal`) her modülü ayrı süreçte koşar.
+Adı verilen katmanların bütün testleri geçmeli, diğer katmanların bütün
+testleri o katmanı adlandıran gerekçeyle atlanmalıdır; sayılar tablodan gelir.
+Adı verilen bir katman içe aktarılamıyorsa ya da adı verilmeyen bir katman
+içe aktarılabiliyorsa test koşulmaz ve çıkış kodu 2'dir. Aynı komutlar
+[`.github/workflows/tests.yml`](../../.github/workflows/tests.yml) içinde
+çalışır; QGIS katmanı ve kanonik veri isteyen QA komutları CI kapsamında değildir.
 
 Kapsam: eksik/yanlış yol, yanlış CRS/grid, geçersiz şablon/maske, NoData,
 NaN/Inf/aralık dışı değer, değişmiş ağırlık, bozuk ham/normalize/sınıf hücresi,

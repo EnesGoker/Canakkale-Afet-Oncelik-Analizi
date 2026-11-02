@@ -17,6 +17,7 @@ kaydeder. Veri gerektiren tam QA ile kaynak seçimi kontrolü ayrı kapsamlardı
 ## Kaynak deposu
 
 - `scripts/`: özgün Python/Bash kodu, MIT lisansı ve bağımlılık bildirimleri.
+- `.github/workflows/tests.yml`: test katmanlarını ve kamu kapsamı kontrollerini koşan CI tanımı; veri veya anahtar içermez.
 - `config/`, `README.md`, `README.tr.md`, `docs/`, `LICENSE`, `LICENSE_SCOPE.md`, `PUBLICATION_STATUS.md`, kurulum/bağımlılık dosyaları: yöntem, kullanım, sonuç ve kaynak açıklamaları; [lisans kapsamı](../LICENSE_SCOPE.md) geçerlidir.
 - `qgis/canakkale_disaster_priority.qgs` ve `.qgz`: göreli dosya referansları ve kayıtlı düzenler. Kaynak veriler ve kişisel servis anahtarı bu dosyalarla dağıtılmaz; veri olmadan tam proje görüntüsü beklenmez.
 - `data/**/.gitkeep`: yalnız klasör iskeleti.

@@ -19,13 +19,18 @@ import tempfile
 import unittest
 from unittest import mock
 
-import numpy as np
-from osgeo import gdal, osr
+from tier_support import module_tier
+
+TIER = module_tier(__file__)
+if TIER.available:
+    import numpy as np
+    from osgeo import gdal, osr
+
+    gdal.UseExceptions()
 
 import check_mcda_integrity as checker
 
 
-gdal.UseExceptions()
 WEIGHTS = (.16, .12, .08, .14, .10, .10, .06, .08, .06, .04, .06)
 RAW = "mcda_priority_score"
 NORMALIZED = "mcda_priority_score_normalized"
@@ -33,6 +38,7 @@ CLASS = "mcda_priority_class"
 TEMPLATE = "analysis_template_100m"
 
 
+@TIER.skip_unless_available
 class IntegrityTests(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory(prefix="canakkale-mcda-test-")
@@ -81,12 +87,13 @@ class IntegrityTests(unittest.TestCase):
     def path(self, name):
         return self.analysis / f"{name}_32635.tif"
 
-    def write(self, name, values, nodata=-9999, dtype=gdal.GDT_Float32, grid=None, projection=None, bands=1):
+    def write(self, name, values, nodata=-9999, dtype=None, grid=None, projection=None, bands=1):
         target = self.path(name)
         for suffix in ("", ".msk", ".aux.xml"):
             candidate = Path(str(target) + suffix)
             if candidate.exists():
                 candidate.unlink()
+        dtype = gdal.GDT_Float32 if dtype is None else dtype
         dataset = gdal.GetDriverByName("GTiff").Create(str(target), values.shape[1], values.shape[0], bands, dtype)
         dataset.SetGeoTransform(self.grid if grid is None else grid)
         dataset.SetProjection(self.projection if projection is None else projection)

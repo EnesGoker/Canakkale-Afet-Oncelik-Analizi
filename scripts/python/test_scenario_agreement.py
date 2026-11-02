@@ -15,8 +15,12 @@ import sys
 
 sys.dont_write_bytecode = True
 os.environ["GDAL_PAM_ENABLED"] = "NO"
-import numpy as np
-from osgeo import gdal, ogr, osr
+from tier_support import module_tier
+
+TIER = module_tier(__file__)
+if TIER.available:
+    import numpy as np
+    from osgeo import gdal, ogr, osr
 import generate_scenario_agreement as sa
 
 
@@ -41,6 +45,7 @@ def score_fixture():
         "baseline_class": np.array([5, 4, 3, 2, 1, 2, 3, 4], dtype=np.uint8)}
 
 
+@TIER.skip_unless_available
 class NumericalContracts(unittest.TestCase):
     def test_all_eight_memberships_have_expected_identity(self):
         result = fixture()
@@ -213,6 +218,7 @@ class NumericalContracts(unittest.TestCase):
                             sa.load_district_assignment(root, np.ones((1, 12), bool), grid, target.ExportToWkt())
 
 
+@TIER.skip_unless_available
 class SavedArtifactContracts(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()

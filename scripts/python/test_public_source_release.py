@@ -45,7 +45,9 @@ class PublicSourceReleaseTests(unittest.TestCase):
                      ".git/config", "docs/AGENTS.md", "outputs/report/a11y_report.json",
                      "docs/portfolio_roadmap.md", "docs/readme_stage8_summary.md", "data/raw/source.csv",
                      "outputs/maps/map.png", "docs/private.pdf", "docs/CON.md", "docs/file.md ",
-                     "docs/new\nline.md"]
+                     "docs/new\nline.md", "AGENTS.md", "private/notes.md", "private/v0_1_1/plan.md",
+                     "archive/drive_manifests/manifest.json", "config/carto_basemap.key", "scripts/.env",
+                     "docs/service.pem"]
         for path in bad_paths:
             with self.subTest(path=path):
                 config = dict(self.config, files=[path])

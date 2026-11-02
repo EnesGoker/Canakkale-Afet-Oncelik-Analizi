@@ -1,0 +1,170 @@
+# Unit tests by runtime tier (config/test_tiers_v1.json) and public-source checks.
+# Not covered here: the qgis tier (no hosted runner provides PyQGIS 3.44) and
+# every QA command that needs the canonical data, which this edition omits.
+name: tests
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  stdlib:
+    name: stdlib · ${{ matrix.os }} · Python ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, macos-26]
+        python: ["3.10", "3.12", "3.14"]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Tier table matches the test files
+        run: python -B scripts/python/tier_support.py --check
+      - name: Unit tests, stdlib tier
+        run: python -B scripts/python/run_tests.py --tiers stdlib
+      - name: Public-source scope with the expected skip lists
+        run: python -B scripts/python/check_public_scope.py
+      - name: Public source selection
+        run: python -B scripts/python/build_public_source_release.py --check
+
+  scientific:
+    name: scientific (locked) · ${{ matrix.os }} · Python 3.12
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, macos-26]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - name: Install requirements.txt at the locked versions
+        run: |
+          python -m pip install --disable-pip-version-check --only-binary=:all: -r requirements.txt -c config/ci/scientific_constraints.txt
+      - name: Every installed package is pinned
+        run: |
+          python -I -B - <<'PY'
+          import re
+          from importlib import metadata
+          from pathlib import Path
+          def key(name):
+              return re.sub(r"[-_.]+", "-", name).lower()
+          pins = {}
+          for line in Path("config/ci/scientific_constraints.txt").read_text(encoding="utf-8").splitlines():
+              line = line.split("#", 1)[0].strip()
+              if line:
+                  name, version = line.split("==")
+                  pins[key(name)] = version.strip()
+          installed = {key(d.metadata["Name"]): d.version for d in metadata.distributions()}
+          errors = [f"{name} {version} is not pinned" for name, version in sorted(installed.items())
+                    if name not in pins and name != "pip"]
+          errors += [f"{name} {installed[name]}, pinned {version}" for name, version in sorted(pins.items())
+                     if name in installed and installed[name] != version]
+          for name, version in sorted(installed.items()):
+              print(f"{name}=={version}")
+          for error in errors:
+              print(f"ERROR: {error}")
+          raise SystemExit(1 if errors else 0)
+          PY
+      - name: Unit tests, stdlib and scientific tiers
+        run: python -B scripts/python/run_tests.py --tiers stdlib,scientific
+
+  scientific-canary:
+    name: CANARY (non-blocking) · scientific, newest allowed versions · ${{ matrix.os }} · Python 3.14
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, macos-26]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.14"
+      - name: Mark this job as a non-blocking canary
+        run: |
+          {
+            echo "## CANARY (non-blocking): newest versions requirements.txt allows"
+            echo
+            echo "This job tests forward compatibility. A failure here is reported but does not fail the workflow."
+            echo
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Install the newest versions requirements.txt allows
+        run: |
+          python -m pip install --disable-pip-version-check --upgrade --only-binary=:all: -r requirements.txt
+          python -m pip list --disable-pip-version-check
+          {
+            echo "Python $(python -c 'import sys; print(sys.version.split()[0])') on $RUNNER_OS; installed versions:"
+            echo
+            echo '```'
+            python -m pip list --disable-pip-version-check --format=freeze
+            echo '```'
+            echo
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Unit tests, stdlib and scientific tiers
+        run: python -B scripts/python/run_tests.py --tiers stdlib,scientific
+      - name: Report a failed canary
+        if: failure()
+        run: |
+          echo "::warning title=Canary failed (non-blocking)::The newest allowed dependency versions fail on $RUNNER_OS with Python 3.14. The workflow result is not affected; see the job summary."
+          {
+            echo "### :warning: CANARY FAILED (non-blocking)"
+            echo
+            echo "The newest dependency versions that requirements.txt allows fail the unit tests on $RUNNER_OS with Python 3.14."
+            echo "The locked jobs are unaffected and this failure does not fail the workflow."
+            echo "Check the failing step above, then widen or tighten the requirements.txt bounds or fix the incompatibility."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  gdal-locked:
+    name: gdal (locked runtime) · macOS arm64 · Python 3.12
+    runs-on: macos-26
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Runtime location
+        run: echo "GIS_RUNTIME=$RUNNER_TEMP/gis-runtime" >> "$GITHUB_ENV"
+      - name: Restore the locked runtime
+        id: runtime-cache
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            ${{ env.GIS_RUNTIME }}/bin
+            ${{ env.GIS_RUNTIME }}/env
+            ${{ env.GIS_RUNTIME }}/numpy-pypi-2.4.4
+          key: gis-runtime-macos-arm64-${{ hashFiles('config/qa_runtime_macos_arm64/conda-full-explicit.txt', 'config/qa_runtime_macos_arm64/package_sha256.json', 'config/qa_runtime_macos_arm64/numpy-accelerate.requirements.txt', 'scripts/bash/setup_locked_gis_runtime.sh') }}
+      - name: Build the locked runtime
+        if: steps.runtime-cache.outputs.cache-hit != 'true'
+        run: bash scripts/bash/setup_locked_gis_runtime.sh install "$GIS_RUNTIME"
+      - name: Verify the locked runtime
+        run: bash scripts/bash/setup_locked_gis_runtime.sh verify "$GIS_RUNTIME"
+      - name: Unit tests, stdlib, scientific and gdal tiers
+        run: bash scripts/bash/setup_locked_gis_runtime.sh run "$GIS_RUNTIME" python -B scripts/python/run_tests.py --tiers stdlib,scientific,gdal
