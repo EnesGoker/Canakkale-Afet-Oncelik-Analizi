@@ -2,6 +2,8 @@
 
 # Çanakkale Multi-Criteria Disaster Susceptibility and Spatial Priority Analysis
 
+[![tests](https://github.com/EnesGoker/canakkale-disaster-priority/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/EnesGoker/canakkale-disaster-priority/actions/workflows/tests.yml)
+
 A GIS project that combines disaster susceptibility, population and building
 exposure, and accessibility conditions in Çanakkale province through
 **multi-criteria decision analysis (MCDA) with 11 criteria**. It identifies

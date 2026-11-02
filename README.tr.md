@@ -2,6 +2,8 @@
 
 # Çanakkale Çok Kriterli Afet Duyarlılığı ve Mekânsal Öncelik Analizi
 
+[![tests](https://github.com/EnesGoker/canakkale-disaster-priority/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/EnesGoker/canakkale-disaster-priority/actions/workflows/tests.yml)
+
 Çanakkale ili için afet duyarlılığı, nüfus ve yapı maruziyeti ile erişim
 koşullarını **11 kriterli çok kriterli karar analizi (MCDA)** ile birleştiren
 bir CBS projesi. **100 m ortak gridde** göreli öncelik alanları üretir;
