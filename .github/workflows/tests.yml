@@ -61,12 +61,23 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.12"
+      - name: Create a clean virtual environment
+        run: |
+          python -m venv "$RUNNER_TEMP/venv"
+          echo "VENV=$RUNNER_TEMP/venv" >> "$GITHUB_ENV"
+          "$RUNNER_TEMP/venv/bin/python" -I -B -c 'import sys; assert sys.prefix != sys.base_prefix, "not a virtual environment"'
+          grep -qx "include-system-site-packages = false" "$RUNNER_TEMP/venv/pyvenv.cfg"
+          {
+            echo "Virtual environment: \`$RUNNER_TEMP/venv\` (no system site-packages)"
+            echo "Interpreter: Python $("$RUNNER_TEMP/venv/bin/python" -c 'import sys; print(sys.version.split()[0])'), base \`$(python -c 'import sys; print(sys.executable)')\`"
+            echo
+          } >> "$GITHUB_STEP_SUMMARY"
       - name: Install requirements.txt at the locked versions
         run: |
-          python -m pip install --disable-pip-version-check --only-binary=:all: -r requirements.txt -c config/ci/scientific_constraints.txt
+          "$VENV/bin/python" -m pip install --disable-pip-version-check --only-binary=:all: -r requirements.txt -c config/ci/scientific_constraints.txt
       - name: Every installed package is pinned
         run: |
-          python -I -B - <<'PY'
+          "$VENV/bin/python" -I -B - <<'PY'
           import re
           from importlib import metadata
           from pathlib import Path
@@ -90,7 +101,7 @@ jobs:
           raise SystemExit(1 if errors else 0)
           PY
       - name: Unit tests, stdlib and scientific tiers
-        run: python -B scripts/python/run_tests.py --tiers stdlib,scientific
+        run: '"$VENV/bin/python" -B scripts/python/run_tests.py --tiers stdlib,scientific'
 
   scientific-canary:
     name: CANARY (non-blocking) · scientific, newest allowed versions · ${{ matrix.os }} · Python 3.14
@@ -116,20 +127,31 @@ jobs:
             echo "This job tests forward compatibility. A failure here is reported but does not fail the workflow."
             echo
           } >> "$GITHUB_STEP_SUMMARY"
+      - name: Create a clean virtual environment
+        run: |
+          python -m venv "$RUNNER_TEMP/venv"
+          echo "VENV=$RUNNER_TEMP/venv" >> "$GITHUB_ENV"
+          "$RUNNER_TEMP/venv/bin/python" -I -B -c 'import sys; assert sys.prefix != sys.base_prefix, "not a virtual environment"'
+          grep -qx "include-system-site-packages = false" "$RUNNER_TEMP/venv/pyvenv.cfg"
+          {
+            echo "Virtual environment: \`$RUNNER_TEMP/venv\` (no system site-packages)"
+            echo "Interpreter: Python $("$RUNNER_TEMP/venv/bin/python" -c 'import sys; print(sys.version.split()[0])'), base \`$(python -c 'import sys; print(sys.executable)')\`"
+            echo
+          } >> "$GITHUB_STEP_SUMMARY"
       - name: Install the newest versions requirements.txt allows
         run: |
-          python -m pip install --disable-pip-version-check --upgrade --only-binary=:all: -r requirements.txt
-          python -m pip list --disable-pip-version-check
+          "$VENV/bin/python" -m pip install --disable-pip-version-check --upgrade --only-binary=:all: -r requirements.txt
+          "$VENV/bin/python" -m pip list --disable-pip-version-check
           {
-            echo "Python $(python -c 'import sys; print(sys.version.split()[0])') on $RUNNER_OS; installed versions:"
+            echo "Python $("$VENV/bin/python" -c 'import sys; print(sys.version.split()[0])') on $RUNNER_OS; installed versions:"
             echo
             echo '```'
-            python -m pip list --disable-pip-version-check --format=freeze
+            "$VENV/bin/python" -m pip list --disable-pip-version-check --format=freeze
             echo '```'
             echo
           } >> "$GITHUB_STEP_SUMMARY"
       - name: Unit tests, stdlib and scientific tiers
-        run: python -B scripts/python/run_tests.py --tiers stdlib,scientific
+        run: '"$VENV/bin/python" -B scripts/python/run_tests.py --tiers stdlib,scientific'
       - name: Report a failed canary
         if: failure()
         run: |
