@@ -1,0 +1,141 @@
+{
+  "aoi_cells": 981033,
+  "aoi_rule": "template_equals_1",
+  "baseline": {
+    "baseline_classes_exact": true,
+    "baseline_id": "canakkale-canonical-11criteria-v1",
+    "baseline_manifest": "config/analysis_baseline_v1.json",
+    "baseline_manifest_sha256": "15fa4c5d13eb38a571cdc826673549be044f83ad7d8ee3c6cf151c7f63569132",
+    "baseline_raw_bit_exact": true,
+    "top_share_reproduces_baseline_classes": true
+  },
+  "baseline_top5_districts": [
+    "Yenice",
+    "Gelibolu",
+    "Çan",
+    "Biga",
+    "Ayvacık"
+  ],
+  "classification": {
+    "fitted_on": "baseline fixed-scale score only",
+    "methods": [
+      "equal_interval",
+      "quantile",
+      "natural_breaks"
+    ],
+    "natural_breaks_bins": 1000,
+    "natural_breaks_goodness_of_variance_fit": 0.9412801298306305,
+    "purpose": "Shows the effect of the threshold choice; not a replacement for the canonical equal-interval classes"
+  },
+  "config": "config/mcda_variants_v1.json",
+  "config_sha256": "20d729a76aefd34fafa7618c24d13e694ce49c540c6a9dbdb638a8b4640897bd",
+  "criterion_order": [
+    "earthquake_pga_score",
+    "fault_proximity_score",
+    "site_condition_score",
+    "population_exposure_score",
+    "building_exposure_density_score",
+    "flood_score",
+    "hydrography_proximity_score",
+    "slope_score",
+    "landcover_sensitivity_score",
+    "tree_cover_score",
+    "road_accessibility_difficulty_score"
+  ],
+  "crs_epsg": 32635,
+  "district_ranking": "Districts ranked by high-plus area (km², descending); ties share the best rank (competition ranking)",
+  "flood_coverage_variant": "None. The source documents no NoData meaning and no modelled-network or coverage layer, so a 'not modelled' mask cannot be built; deriving coverage from flood_score > 0 would use the result as its own coverage",
+  "format_version": 1,
+  "grid_shape": [
+    1423,
+    1586
+  ],
+  "high_plus_definition": {
+    "fixed_scale": "Supplementary. Canonical clip((raw - 0.029) / 0.473, 0, 1) with 0.2/0.4/0.6/0.8 thresholds; area changes include weight-driven level shifts.",
+    "top_share": "Main measure. The cells holding the baseline class 4-5 cell count (class 5 likewise) by rank of the weighted raw score, ties included; the area is constant by definition and the comparison measures location."
+  },
+  "inputs": {
+    "flood_depth": {
+      "path": "data/processed/flood/canakkale_flood_rp100_depth_32635.tif",
+      "sha256": "b4e4750881cf5a727c38e3a984fbd1d89456e9a9e56d696983322dd4d9000f88"
+    },
+    "hydrorivers": {
+      "path": "data/reference/hydrography/canakkale_hydrorivers_32635.gpkg",
+      "sha256": "39b1b82c0cdd77e2045276340dc52f0df62e3b30856bb0dad8a62de265b777fb"
+    }
+  },
+  "interpretation_limit": "Variants test single modelling choices around the frozen canonical model; they are not validated alternatives or hazard probabilities",
+  "merge_rule": "Merged criterion = arithmetic mean of the member scores (Float64, stored as Float32); block_weight 'largest_member' keeps the block at its largest member weight and spreads the rest of the block weight over all criteria in proportion, 'sum' keeps the block total; 'rescale' keeps the members separate at the largest_member block weight, in their baseline proportions",
+  "method": "Scenario variants and alternative thresholds of the frozen canonical MCDA",
+  "outputs": [
+    {
+      "path": "variant_weights.csv",
+      "sha256": "ff3b62b6bea4a6946a81c2cdca3e90d1a9ad8b3675087123e7c8c1e70df5b1eb",
+      "size": 4114
+    },
+    {
+      "path": "variant_summary.csv",
+      "sha256": "59d5c0530ce277af0123a2d20f3bdd8094f2377635a48de4f401285a4fe0684c",
+      "size": 2862
+    },
+    {
+      "path": "variant_district_areas.csv",
+      "sha256": "81842b13f9d5e8f96e0c4a7755dfe357cb37b1c7c241ca3119ef849cfef5f6aa",
+      "size": 10326
+    },
+    {
+      "path": "classification_summary.csv",
+      "sha256": "8b69ba39380ee80914a587f048dc9825f0910f148c09d3ae92e06b6c3f583d3a",
+      "size": 1078
+    },
+    {
+      "path": "classification_distribution.csv",
+      "sha256": "583f2497e909f354ff9822f5ebca733e858acee51edc55778fb77797dc5a76ae",
+      "size": 16247
+    },
+    {
+      "path": "flood_coverage_evidence.csv",
+      "sha256": "750d8087ebef5e7a586b2e4ae7efd958b23ecc2a98a467b4a5f3daafc3264d50",
+      "size": 3344
+    }
+  ],
+  "pixel_area_km2": 0.01,
+  "scenarios": [
+    {
+      "group": "flood",
+      "id": "flood_weight_zero",
+      "label_tr": "Taşkın ağırlığı 0, oransal dağıtım",
+      "role": "main"
+    },
+    {
+      "group": "vegetation",
+      "id": "vegetation_mean_reduced",
+      "label_tr": "Vejetasyon ortalaması, blok ağırlığı 0,06/0,96",
+      "role": "main"
+    },
+    {
+      "group": "vegetation",
+      "id": "vegetation_mean_same_block",
+      "label_tr": "Vejetasyon ortalaması, blok ağırlığı 0,10",
+      "role": "supplementary"
+    },
+    {
+      "group": "vegetation",
+      "id": "vegetation_drop_tree",
+      "label_tr": "Ağaç örtüsü çıkarıldı, oransal dağıtım",
+      "role": "supplementary"
+    },
+    {
+      "group": "vegetation",
+      "id": "vegetation_separate_reduced",
+      "label_tr": "İki kriter ayrı, blok ağırlığı 0,06/0,96",
+      "role": "supplementary"
+    }
+  ],
+  "software": {
+    "gdal": "3.12.3",
+    "numpy": "2.4.4",
+    "python": "3.12.16"
+  },
+  "weights_modified": false
+}

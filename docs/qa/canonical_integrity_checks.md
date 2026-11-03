@@ -1,8 +1,8 @@
 # Canonical QA: gerçek proje okuma ve hesap bütünlüğü
 
 **Kaynak sürümü kapsamı:** İlk kamu sürümü kod, yöntem belgeleri, QGIS
-proje tanımı ve seçilmiş analitik özetleri içerir. Tam kanonik veriler ve
-harita/rapor dosyaları dahil değildir. Bu belgedeki tam analiz, katman ve
+proje tanımı, seçilmiş analitik özetleri ve harita PNG görsellerini içerir.
+Tam kanonik veriler, harita PDF/atlas ve rapor dosyaları dahil değildir. Bu belgedeki tam analiz, katman ve
 çıktı kontrolleri ilgili yerel dosyalar ayrıca sağlandığında çalışır; kaynak
 kopyasında eksik girdilerin bildirilmesi beklenir. [Dosya kapsamı](../publication_file_scope.md).
 
@@ -289,6 +289,61 @@ mkdir -p outputs/analysis outputs/figures
 "$GDAL_PYTHON_BIN" scripts/python/plot_scenario_agreement.py --check --source-dir outputs/analysis/scenario_agreement_recheck --output-dir outputs/figures/scenario_agreement_recheck
 ```
 
+## Ağırlık pertürbasyonu kontrolü
+
+- `generate_weight_perturbation.py --check`, ortak motorla
+  ([`mcda_scenario_engine.py`](../../scripts/python/mcda_scenario_engine.py))
+  sabit baseline yükleyicisini kullanır. Baseline ağırlıklarıyla ham skorun
+  kayıtlı `mcda_priority_score_32635.tif` ile **bit düzeyinde** aynı olduğu ve
+  iki sınıflayıcının kanonik sınıfları birebir verdiği her koşuda doğrulanır.
+- Önce `config/weight_perturbation_v1.json` tohumundan üretilen Dirichlet
+  ağırlıkları kayıtlı `weight_samples.csv` ile tam eşitlik için
+  karşılaştırılır. Fark varsa kontrol ortam hatasıyla başarısız olur; sonuçlar
+  yine kayıtlı ağırlıklardan yeniden hesaplanıp ayrıca bildirilir.
+- κ = 50/100/200 için 2.000'er örnek ve κ = 100 yakınsama denetimi için 4.000
+  örnek yeniden hesaplanır (yaklaşık 2–3 dk). UInt16 sayım rasterının bütün
+  hücreleri, grid, CRS, **AOI dışı NoData 65535** ve geçerlilik maskesi; sekiz
+  CSV'nin bütün alanları (ağırlıklar tam eşitlik, diğer kayan nokta değerleri
+  mutlak `1e-10`) ve manifest karşılaştırılır.
+- Yakınsama ölçütü: sıralama tabanlı ölçüde 0 < P < 1 hücrelerinde
+  `%99 |P_2000 − P_4000| ≤ 0,02` ve P ≥ 0,5 alanında göreli değişim ≤ %1.
+  Ölçüt karşılanmazsa üretim dosya yazmaz.
+
+```bash
+"$GDAL_PYTHON_BIN" scripts/python/generate_weight_perturbation.py --check --json
+"$GDAL_PYTHON_BIN" scripts/python/test_weight_perturbation.py
+"$GDAL_PYTHON_BIN" scripts/python/test_mcda_scenario_engine.py
+"$GDAL_PYTHON_BIN" scripts/python/generate_weight_perturbation.py --generate --output-dir outputs/analysis/weight_perturbation_recheck
+```
+
+Yöntem ve sonuçlar: [ağırlık pertürbasyonu](../analysis/weight_perturbation.md).
+
+## MCDA varyantları kontrolü
+
+- `generate_mcda_variants.py --check` aynı ortak motoru ve baseline bit
+  düzeyi doğrulamasını kullanır. [`config/mcda_variants_v1.json`](../../config/mcda_variants_v1.json)
+  içindeki beş varyantın (taşkın ağırlığı 0; vejetasyon ortalaması blok
+  0,0625 ve 0,10; iki kriter ayrı, blok 0,0625; ağaç örtüsü çıkarıldı) ağırlıkları, iki ölçüdeki
+  karşılaştırmaları ve ilçe alanları yeniden hesaplanır.
+- Kantil ve doğal kırılma sınırları baseline skorundan yeniden bulunur;
+  doğal kırılma `⌊1000·z⌋` kutularında kesin Fisher-Jenks'tir.
+- Taşkın kanıt tablosu için HydroRIVERS kolları kanonik gride işlenir ve
+  uzaklıklar hesaplanır; taşkın derinliği rasterının geçerli hücre sayısı ve
+  en küçük değeri okunur. Bu iki yerel girdinin SHA-256'sı manifestte kayıtlıdır.
+- Altı CSV'nin bütün alanları (kayan nokta değerleri mutlak `1e-10`) ve
+  manifest karşılaştırılır. Raster üretilmez. Kontrol birkaç saniye sürer.
+- Taşkın kapsama maskesiyle bir varyant yoktur: kaynakta kapsama katmanı
+  bulunmadığı için maske ancak sonuçtan türetilebilirdi
+  ([gerekçe](../analysis/mcda_variants.md#taşkın)).
+
+```bash
+"$GDAL_PYTHON_BIN" scripts/python/generate_mcda_variants.py --check --json
+"$GDAL_PYTHON_BIN" scripts/python/test_mcda_variants.py
+"$GDAL_PYTHON_BIN" scripts/python/generate_mcda_variants.py --generate --output-dir outputs/analysis/mcda_variants_recheck
+```
+
+Yöntem ve sonuçlar: [MCDA varyantları](../analysis/mcda_variants.md).
+
 Hedefler zaten doluysa başka yeni bir ad seçilir; üzerine yazılmaz.
 Varsayılan QA `scenario_agreement_v1` paketini ve haritasını denetler.
 [Sayısal sonuçlar ve coğrafi yorum](../analysis/scenario_agreement.md),
@@ -299,7 +354,7 @@ senaryoların kendi göreli ölçeklerini ve seçilmiş üç ayarın kapsamını
 Ana QA'nın dokuzuncu kontrolü `check_map_layouts.py` ile 13 QGIS düzenini,
 katman/stil kilitlerini, lejant bağlantılarını, göreli kaynakları ve QGS/QGZ
 XML eşliğini doğrular. Tam düzen ve stil hashleri `config/map_layouts_v1.json`
-içindedir. 13 PNG, 13 tek sayfalık PDF ve 13 sayfalık atlasın boyut ve SHA-256
+içindedir. 14 PNG, 13 tek sayfalık PDF ve 13 sayfalık atlasın boyut ve SHA-256
 kayıtları `outputs/maps/map_export_manifest.json` üzerinden denetlenir.
 Standart Python yeterlidir; bu kontrol ağa bağlanmaz veya PDF'yi yeniden çizmez.
 PDF sayfa sayıları/ölçüleri üretim sırasında PDF okuyucuyla doğrulanmıştır.

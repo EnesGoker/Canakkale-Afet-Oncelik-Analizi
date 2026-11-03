@@ -1,0 +1,196 @@
+method,scope,district_id,district_name,class_value,class_label,pixel_count,area_km2,share_of_scope_percent
+equal_interval,province,,Çanakkale,1,Çok düşük,114283,1142.8299999999999,11.649251350362322
+equal_interval,province,,Çanakkale,2,Düşük,483129,4831.29,49.246967227402138
+equal_interval,province,,Çanakkale,3,Orta,329029,3290.29,33.539034874463958
+equal_interval,province,,Çanakkale,4,Yüksek,53893,538.93000000000006,5.493495121978567
+equal_interval,province,,Çanakkale,5,Çok yüksek,699,6.9900000000000002,0.071251425793016146
+equal_interval,district,1,Bozcaada,1,Çok düşük,2975,29.75,79.418045915643347
+equal_interval,district,1,Bozcaada,2,Düşük,751,7.5099999999999998,20.048051254671652
+equal_interval,district,1,Bozcaada,3,Orta,20,0.20000000000000001,0.53390282968499736
+equal_interval,district,1,Bozcaada,4,Yüksek,0,0,0
+equal_interval,district,1,Bozcaada,5,Çok yüksek,0,0,0
+equal_interval,district,2,Ayvacık,1,Çok düşük,2940,29.400000000000002,3.3403776671893106
+equal_interval,district,2,Ayvacık,2,Düşük,33467,334.67000000000002,38.024632444838318
+equal_interval,district,2,Ayvacık,3,Orta,47738,477.38,54.239098325266433
+equal_interval,district,2,Ayvacık,4,Yüksek,3811,38.109999999999999,4.3299929556661443
+equal_interval,district,2,Ayvacık,5,Çok yüksek,58,0.57999999999999996,0.065898607039789128
+equal_interval,district,3,Ezine,1,Çok düşük,18505,185.05000000000001,25.490385145187062
+equal_interval,district,3,Ezine,2,Düşük,46264,462.63999999999999,63.728029092511981
+equal_interval,district,3,Ezine,3,Orta,7765,77.650000000000006,10.696181607802083
+equal_interval,district,3,Ezine,4,Yüksek,62,0.62,0.085404154498870455
+equal_interval,district,3,Ezine,5,Çok yüksek,0,0,0
+equal_interval,district,4,Çanakkale Merkez,1,Çok düşük,29985,299.85000000000002,29.539252677102525
+equal_interval,district,4,Çanakkale Merkez,2,Düşük,67384,673.84000000000003,66.382291225408579
+equal_interval,district,4,Çanakkale Merkez,3,Orta,4044,40.439999999999998,3.9838832024746575
+equal_interval,district,4,Çanakkale Merkez,4,Yüksek,96,0.95999999999999996,0.094572895014235187
+equal_interval,district,4,Çanakkale Merkez,5,Çok yüksek,0,0,0
+equal_interval,district,5,Lapseki,1,Çok düşük,18764,187.64000000000001,22.883484963047877
+equal_interval,district,5,Lapseki,2,Düşük,58733,587.33000000000004,71.627356764799146
+equal_interval,district,5,Lapseki,3,Orta,4501,45.009999999999998,5.4891582721529799
+equal_interval,district,5,Lapseki,4,Yüksek,0,0,0
+equal_interval,district,5,Lapseki,5,Çok yüksek,0,0,0
+equal_interval,district,6,Biga,1,Çok düşük,7023,70.230000000000004,5.3650003055674391
+equal_interval,district,6,Biga,2,Düşük,58053,580.52999999999997,44.347766302022855
+equal_interval,district,6,Biga,3,Orta,57322,573.22000000000003,43.789341807736967
+equal_interval,district,6,Biga,4,Yüksek,8448,84.480000000000004,6.4535843060563467
+equal_interval,district,6,Biga,5,Çok yüksek,58,0.57999999999999996,0.044307278616390638
+equal_interval,district,7,Yenice,1,Çok düşük,37,0.37,0.026801106813275966
+equal_interval,district,7,Yenice,2,Düşük,12138,121.38,8.7922117432309097
+equal_interval,district,7,Yenice,3,Orta,105811,1058.1100000000001,76.644646297825489
+equal_interval,district,7,Yenice,4,Yüksek,20035,200.34999999999999,14.512437162269837
+equal_interval,district,7,Yenice,5,Çok yüksek,33,0.33000000000000002,0.023903689860489373
+equal_interval,district,8,Bayramiç,1,Çok düşük,17077,170.77000000000001,14.190036977024389
+equal_interval,district,8,Bayramiç,2,Düşük,70423,704.23000000000002,58.517595246998212
+equal_interval,district,8,Bayramiç,3,Orta,30228,302.28000000000003,25.117786364202914
+equal_interval,district,8,Bayramiç,4,Yüksek,2617,26.170000000000002,2.1745814117744815
+equal_interval,district,8,Bayramiç,5,Çok yüksek,0,0,0
+equal_interval,district,9,Gökçeada,1,Çok düşük,3886,38.859999999999999,13.759161562156994
+equal_interval,district,9,Gökçeada,2,Düşük,23999,239.99000000000001,84.973267712353504
+equal_interval,district,9,Gökçeada,3,Orta,358,3.5800000000000001,1.2675707254895019
+equal_interval,district,9,Gökçeada,4,Yüksek,0,0,0
+equal_interval,district,9,Gökçeada,5,Çok yüksek,0,0,0
+equal_interval,district,10,Gelibolu,1,Çok düşük,3017,30.170000000000002,3.6696020239369465
+equal_interval,district,10,Gelibolu,2,Düşük,45342,453.42000000000002,55.149849177775614
+equal_interval,district,10,Gelibolu,3,Orta,23351,233.50999999999999,28.402014206480491
+equal_interval,district,10,Gelibolu,4,Yüksek,10144,101.44,12.338231001264962
+equal_interval,district,10,Gelibolu,5,Çok yüksek,362,3.6200000000000001,0.44030359054198698
+equal_interval,district,11,Eceabat,1,Çok düşük,7490,74.900000000000006,17.417794521185062
+equal_interval,district,11,Eceabat,2,Düşük,34038,340.38,79.154457932189203
+equal_interval,district,11,Eceabat,3,Orta,1474,14.74,3.4277475466257381
+equal_interval,district,11,Eceabat,4,Yüksek,0,0,0
+equal_interval,district,11,Eceabat,5,Çok yüksek,0,0,0
+equal_interval,district,12,Çan,1,Çok düşük,2584,25.84,2.8582173749529898
+equal_interval,district,12,Çan,2,Düşük,32537,325.37,35.989867929119754
+equal_interval,district,12,Çan,3,Orta,46417,464.17000000000002,51.342831228015839
+equal_interval,district,12,Çan,4,Yüksek,8680,86.799999999999997,9.6011326681857394
+equal_interval,district,12,Çan,5,Çok yüksek,188,1.8800000000000001,0.20795079972568192
+quantile,province,,Çanakkale,1,Çok düşük,196207,1962.0699999999999,20.000040773348093
+quantile,province,,Çanakkale,2,Düşük,196207,1962.0699999999999,20.000040773348093
+quantile,province,,Çanakkale,3,Orta,196206,1962.0599999999999,19.999938839977858
+quantile,province,,Çanakkale,4,Yüksek,196207,1962.0699999999999,20.000040773348093
+quantile,province,,Çanakkale,5,Çok yüksek,196206,1962.0599999999999,19.999938839977858
+quantile,district,1,Bozcaada,1,Çok düşük,3384,33.840000000000003,90.336358782701552
+quantile,district,1,Bozcaada,2,Düşük,270,2.7000000000000002,7.2076882007474641
+quantile,district,1,Bozcaada,3,Orta,71,0.70999999999999996,1.8953550453817407
+quantile,district,1,Bozcaada,4,Yüksek,21,0.20999999999999999,0.56059797116924714
+quantile,district,1,Bozcaada,5,Çok yüksek,0,0,0
+quantile,district,2,Ayvacık,1,Çok düşük,6302,63.020000000000003,7.1602245097370867
+quantile,district,2,Ayvacık,2,Düşük,9145,91.450000000000003,10.390392437566751
+quantile,district,2,Ayvacık,3,Orta,19607,196.06999999999999,22.277137728088714
+quantile,district,2,Ayvacık,4,Yüksek,32719,327.19,37.174767650601041
+quantile,district,2,Ayvacık,5,Çok yüksek,20241,202.41,22.997477674006408
+quantile,district,3,Ezine,1,Çok düşük,30961,309.61000000000001,42.648355281282711
+quantile,district,3,Ezine,2,Düşük,20193,201.93000000000001,27.815582125736952
+quantile,district,3,Ezine,3,Orta,13199,131.99000000000001,18.181442503719214
+quantile,district,3,Ezine,4,Yüksek,6686,66.859999999999999,9.2098738222491594
+quantile,district,3,Ezine,5,Çok yüksek,1557,15.57,2.1447462670119566
+quantile,district,4,Çanakkale Merkez,1,Çok düşük,46539,465.38999999999999,45.847166261119703
+quantile,district,4,Çanakkale Merkez,2,Düşük,31774,317.74000000000001,31.301657981065716
+quantile,district,4,Çanakkale Merkez,3,Orta,18649,186.49000000000001,18.371769990838253
+quantile,district,4,Çanakkale Merkez,4,Yüksek,3989,39.890000000000001,3.9297008147060852
+quantile,district,4,Çanakkale Merkez,5,Çok yüksek,558,5.5800000000000001,0.54970495227024208
+quantile,district,5,Lapseki,1,Çok düşük,30204,302.04000000000002,36.835044757189202
+quantile,district,5,Lapseki,2,Düşük,28128,281.28000000000003,34.303275689650967
+quantile,district,5,Lapseki,3,Orta,18748,187.47999999999999,22.863972292007123
+quantile,district,5,Lapseki,4,Yüksek,4664,46.640000000000001,5.6879436083806922
+quantile,district,5,Lapseki,5,Çok yüksek,254,2.54,0.30976365277201884
+quantile,district,6,Biga,1,Çok düşük,13432,134.31999999999999,10.260954592678605
+quantile,district,6,Biga,2,Düşük,18210,182.09999999999999,13.910957648352992
+quantile,district,6,Biga,3,Orta,31669,316.69,24.192538043146122
+quantile,district,6,Biga,4,Yüksek,36630,366.30000000000001,27.982338202041191
+quantile,district,6,Biga,5,Çok yüksek,30963,309.63,23.653211513781091
+quantile,district,7,Yenice,1,Çok düşük,95,0.95000000000000007,0.06881365262868154
+quantile,district,7,Yenice,2,Düşük,831,8.3100000000000005,0.6019383719414142
+quantile,district,7,Yenice,3,Orta,10129,101.29000000000001,7.3369840786938454
+quantile,district,7,Yenice,4,Yüksek,47074,470.74000000000001,34.098251408868997
+quantile,district,7,Yenice,5,Çok yüksek,79925,799.25,57.894012487867066
+quantile,district,8,Bayramiç,1,Çok düşük,29759,297.59000000000003,24.728073455482154
+quantile,district,8,Bayramiç,2,Düşük,31593,315.93000000000001,26.252025426897667
+quantile,district,8,Bayramiç,3,Orta,25230,252.30000000000001,20.964726411566744
+quantile,district,8,Bayramiç,4,Yüksek,20504,205.03999999999999,17.037683327101249
+quantile,district,8,Bayramiç,5,Çok yüksek,13259,132.59,11.01749137895218
+quantile,district,9,Gökçeada,1,Çok düşük,9341,93.409999999999997,33.073681974294516
+quantile,district,9,Gökçeada,2,Düşük,12833,128.33000000000001,45.43780759834295
+quantile,district,9,Gökçeada,3,Orta,5647,56.469999999999999,19.994334879439151
+quantile,district,9,Gökçeada,4,Yüksek,419,4.1900000000000004,1.4835534468717912
+quantile,district,9,Gökçeada,5,Çok yüksek,3,0.029999999999999999,0.010622101051588003
+quantile,district,10,Gelibolu,1,Çok düşük,6280,62.800000000000004,7.6384158801206583
+quantile,district,10,Gelibolu,2,Düşük,15475,154.75,18.822370341539362
+quantile,district,10,Gelibolu,3,Orta,25471,254.71000000000001,30.980587720151796
+quantile,district,10,Gelibolu,4,Yüksek,16432,164.31999999999999,19.986377347474942
+quantile,district,10,Gelibolu,5,Çok yüksek,18558,185.58000000000001,22.572248710713243
+quantile,district,11,Eceabat,1,Çok düşük,14465,144.65000000000001,33.637970326961536
+quantile,district,11,Eceabat,2,Düşük,17020,170.20000000000002,39.579554439328405
+quantile,district,11,Eceabat,3,Orta,9854,98.540000000000006,22.91521324589554
+quantile,district,11,Eceabat,4,Yüksek,1655,16.550000000000001,3.8486582019440956
+quantile,district,11,Eceabat,5,Çok yüksek,8,0.080000000000000002,0.018603785870424629
+quantile,district,12,Çan,1,Çok düşük,5445,54.450000000000003,6.0228303431188195
+quantile,district,12,Çan,2,Düşük,10735,107.35000000000001,11.874211888591466
+quantile,district,12,Çan,3,Orta,17932,179.31999999999999,19.834966705749618
+quantile,district,12,Çan,4,Yüksek,25414,254.14000000000001,28.110966086321703
+quantile,district,12,Çan,5,Çok yüksek,30880,308.80000000000001,34.157024976218395
+natural_breaks,province,,Çanakkale,1,Çok düşük,209080,2090.8000000000002,21.312229048360248
+natural_breaks,province,,Çanakkale,2,Düşük,264052,2640.52,26.915710276820455
+natural_breaks,province,,Çanakkale,3,Orta,213333,2133.3299999999999,21.745751671962104
+natural_breaks,province,,Çanakkale,4,Yüksek,200665,2006.6500000000001,20.454459737847756
+natural_breaks,province,,Çanakkale,5,Çok yüksek,93903,939.02999999999997,9.5718492650094333
+natural_breaks,district,1,Bozcaada,1,Çok düşük,3425,34.25,91.430859583555787
+natural_breaks,district,1,Bozcaada,2,Düşük,258,2.5800000000000001,6.8873465029364658
+natural_breaks,district,1,Bozcaada,3,Orta,63,0.63,1.6817939135077415
+natural_breaks,district,1,Bozcaada,4,Yüksek,0,0,0
+natural_breaks,district,1,Bozcaada,5,Çok yüksek,0,0,0
+natural_breaks,district,2,Ayvacık,1,Çok düşük,6824,68.239999999999995,7.7533119730951894
+natural_breaks,district,2,Ayvacık,2,Düşük,14214,142.14000000000001,16.149703456268323
+natural_breaks,district,2,Ayvacık,3,Orta,30503,305.03000000000003,34.656986388529099
+natural_breaks,district,2,Ayvacık,4,Yüksek,29086,290.86000000000001,33.047015247574251
+natural_breaks,district,2,Ayvacık,5,Çok yüksek,7387,73.870000000000005,8.3929829345331424
+natural_breaks,district,3,Ezine,1,Çok düşük,32565,325.65000000000003,44.857843407350266
+natural_breaks,district,3,Ezine,2,Düşük,25100,251,34.57490770841369
+natural_breaks,district,3,Ezine,3,Orta,10731,107.31,14.781806160119014
+natural_breaks,district,3,Ezine,4,Yüksek,3878,38.780000000000001,5.3418921152680587
+natural_breaks,district,3,Ezine,5,Çok yüksek,322,3.2200000000000002,0.44355060884897241
+natural_breaks,district,4,Çanakkale Merkez,1,Çok düşük,49004,490.04000000000002,48.275522367474807
+natural_breaks,district,4,Çanakkale Merkez,2,Düşük,38933,389.32999999999998,38.35423459988769
+natural_breaks,district,4,Çanakkale Merkez,3,Orta,11946,119.46000000000001,11.768414623333893
+natural_breaks,district,4,Çanakkale Merkez,4,Yüksek,1426,14.26,1.4048015446906186
+natural_breaks,district,4,Çanakkale Merkez,5,Çok yüksek,200,2,0.19702686461298999
+natural_breaks,district,5,Lapseki,1,Çok düşük,32023,320.23000000000002,39.053391546135273
+natural_breaks,district,5,Lapseki,2,Düşük,35988,359.88,43.888875338422892
+natural_breaks,district,5,Lapseki,3,Orta,12577,125.77,15.338178979975121
+natural_breaks,district,5,Lapseki,4,Yüksek,1392,13.92,1.6976023805458669
+natural_breaks,district,5,Lapseki,5,Çok yüksek,18,0.17999999999999999,0.021951754920851729
+natural_breaks,district,6,Biga,1,Çok düşük,14494,144.94,11.072236142516653
+natural_breaks,district,6,Biga,2,Düşük,28496,284.95999999999998,21.768624335390822
+natural_breaks,district,6,Biga,3,Orta,39349,393.49000000000001,30.059432866833713
+natural_breaks,district,6,Biga,4,Yüksek,33495,334.94999999999999,25.587453400965593
+natural_breaks,district,6,Biga,5,Çok yüksek,15070,150.70000000000002,11.512253254293222
+natural_breaks,district,7,Yenice,1,Çok düşük,107,1.0700000000000001,0.077505903487041297
+natural_breaks,district,7,Yenice,2,Düşük,2691,26.91,1.9492372549871788
+natural_breaks,district,7,Yenice,3,Orta,25876,258.75999999999999,18.743390267576459
+natural_breaks,district,7,Yenice,4,Yüksek,71482,714.82000000000005,51.77828965477277
+natural_breaks,district,7,Yenice,5,Çok yüksek,37898,378.98000000000002,27.451576919176556
+natural_breaks,district,8,Bayramiç,1,Çok düşük,31782,317.81999999999999,26.409073912501558
+natural_breaks,district,8,Bayramiç,2,Düşük,41218,412.18000000000001,34.249864971540156
+natural_breaks,district,8,Bayramiç,3,Orta,23931,239.31,19.885329677178113
+natural_breaks,district,8,Bayramiç,4,Yüksek,18521,185.21000000000001,15.389920644812829
+natural_breaks,district,8,Bayramiç,5,Çok yüksek,4893,48.93,4.0658107939673442
+natural_breaks,district,9,Gökçeada,1,Çok düşük,10292,102.92,36.440888007647914
+natural_breaks,district,9,Gökçeada,2,Düşük,15370,153.70000000000002,54.420564387635871
+natural_breaks,district,9,Gökçeada,3,Orta,2540,25.400000000000002,8.9933788903445091
+natural_breaks,district,9,Gökçeada,4,Yüksek,40,0.40000000000000002,0.14162801402117339
+natural_breaks,district,9,Gökçeada,5,Çok yüksek,1,0.01,0.0035407003505293346
+natural_breaks,district,10,Gelibolu,1,Çok düşük,6905,69.049999999999997,8.3986085433492264
+natural_breaks,district,10,Gelibolu,2,Düşük,24393,243.93000000000001,29.669407414615161
+natural_breaks,district,10,Gelibolu,3,Orta,26419,264.19,32.13364795173689
+natural_breaks,district,10,Gelibolu,4,Yüksek,11688,116.88,14.216210956504815
+natural_breaks,district,10,Gelibolu,5,Çok yüksek,12811,128.11000000000001,15.582125133793909
+natural_breaks,district,11,Eceabat,1,Çok düşük,15695,156.95000000000002,36.498302404539324
+natural_breaks,district,11,Eceabat,2,Düşük,21016,210.16,48.872145481605507
+natural_breaks,district,11,Eceabat,3,Orta,6121,61.210000000000001,14.234221664108645
+natural_breaks,district,11,Eceabat,4,Yüksek,170,1.7,0.39533044974652343
+natural_breaks,district,11,Eceabat,5,Çok yüksek,0,0,0
+natural_breaks,district,12,Çan,1,Çok düşük,5964,59.640000000000001,6.5969072849147183
+natural_breaks,district,12,Çan,2,Düşük,16375,163.75,18.112735880361921
+natural_breaks,district,12,Çan,3,Orta,23277,232.77000000000001,25.747184921354776
+natural_breaks,district,12,Çan,4,Yüksek,29487,294.87,32.616198039953098
+natural_breaks,district,12,Çan,5,Çok yüksek,15303,153.03,16.926973873415481

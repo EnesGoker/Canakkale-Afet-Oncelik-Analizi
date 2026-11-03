@@ -104,6 +104,12 @@ PYTHON_SCRIPTS=(
   "scripts/python/test_scenario_agreement.py"
   "scripts/python/plot_scenario_agreement.py"
   "scripts/python/test_plot_scenario_agreement.py"
+  "scripts/python/mcda_scenario_engine.py"
+  "scripts/python/test_mcda_scenario_engine.py"
+  "scripts/python/generate_weight_perturbation.py"
+  "scripts/python/test_weight_perturbation.py"
+  "scripts/python/generate_mcda_variants.py"
+  "scripts/python/test_mcda_variants.py"
   "scripts/python/check_map_layouts.py"
   "scripts/python/qgis_identity.py"
   "scripts/python/test_map_layouts.py"
@@ -123,6 +129,9 @@ PYTHON_SCRIPTS=(
   "scripts/python/test_check_portability.py"
   "scripts/python/run_tests.py"
   "scripts/python/check_public_scope.py"
+  "scripts/python/test_run_tests.py"
+  "scripts/python/test_check_public_scope.py"
+  "scripts/python/test_setup_locked_gis_runtime.py"
 )
 
 usage() {
@@ -148,7 +157,7 @@ Kontroller:
   - 8 kaynak–skor eşdeğer reçetesinin sayısal denetimi (tarihsel kanıt sınırı ayrı)
   - korelasyonun yeniden hesabı, kayıtlı CSV/manifest ve figür checksum kontrolü
   - üç senaryonun ortaklık rasterları, il/ilçe tabloları ve harita checksum kontrolü
-  - 13 QGIS düzeni, katman/stil kilitleri, QGS/QGZ eşliği ve 27 harita/atlas checksum kontrolü
+  - 14 QGIS düzeni, katman/stil kilitleri, QGS/QGZ eşliği ve 28 harita/atlas checksum kontrolü
   - interim VRT XML ve path politikası
   - MCDA, population, VS30/site condition, fault, report table ve sensitivity --check scriptleri
 

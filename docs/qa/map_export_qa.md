@@ -1,21 +1,22 @@
 # Harita ve atlas dışa aktarma QA kaydı
 
 **Kaynak sürümü kapsamı:** İlk kamu sürümü kod, yöntem belgeleri, QGIS
-proje tanımı ve seçilmiş analitik özetleri içerir. Tam kanonik veriler ve
-harita/rapor dosyaları dahil değildir. Bu belgedeki tam analiz, katman ve
+proje tanımı, seçilmiş analitik özetleri ve harita PNG görsellerini içerir.
+Tam kanonik veriler, harita PDF/atlas ve rapor dosyaları dahil değildir. Bu belgedeki tam analiz, katman ve
 çıktı kontrolleri ilgili yerel dosyalar ayrıca sağlandığında çalışır; kaynak
 kopyasında eksik girdilerin bildirilmesi beklenir. [Dosya kapsamı](../publication_file_scope.md).
 
-Güncelleme: 2026-10-29 · CRS: EPSG:32635 · analiz gridi: 100 m.
+Güncelleme: 2026-11-03 · CRS: EPSG:32635 · analiz gridi: 100 m.
 
 Harita seti, korunan ilk 12 PNG/PDF ile 13. QGIS düzeninden üretilen
-senaryo ortaklığı haritasını kapsar. Atlas bu 13 PDF'yi aynı sırada
+senaryo ortaklığı haritasını ve yalnız PNG olarak üretilen 14. yüksek
+öncelikte kalma oranı haritasını kapsar. Atlas 01–13 PDF'lerini aynı sırada
 birleştirir. İlk 12 tekil ürünün baytları ve 13. sayfanın kayıtlı tasarımı,
 renkleri ve metinleri korunmuştur.
 
-Bu belge, 13 harita ve atlasın teslim sözleşmesini ve üretim QA kaydını tanımlar.
+Bu belge, 14 harita ve atlasın teslim sözleşmesini ve üretim QA kaydını tanımlar.
 Güncel düzen ve stil kayıtları [map_layouts_v1.json](../../config/map_layouts_v1.json)
-içindedir. Kayıtlı 27 dosyanın boyutları ve SHA-256 özetleri
+içindedir. Kayıtlı 28 dosyanın boyutları ve SHA-256 özetleri
 [çıktı manifestinde](../../outputs/maps/map_export_manifest.json) tutulur. Veri dağıtım izinleri bu
 teknik QA'nın kapsamından ayrıdır;
 [veri hakları kaydı](../data_rights_and_distribution.md) geçerliliğini korur.
@@ -32,12 +33,14 @@ teknik QA'nın kapsamından ayrıdır;
 - İlk 12 düzenin yeniden çizimleri karşılaştırma adayıdır; korunmuş nihai
   dosyaların üzerine otomatik yazılmaz. 13. harita QGIS düzeninden alınır.
 - Atlas, korunmuş ilk 12 PDF ve 13. PDF'nin 01–13 sırasıyla birleşimidir.
-  Korelasyon figürü coğrafi atlasın 14. sayfası değildir.
+  Korelasyon figürü coğrafi atlasın sayfası değildir.
+- 14. düzenin sözleşme kaydı `pdf_export: false` taşır; harita yalnız PNG
+  olarak üretilir ve atlasa girmez.
 
 ## Çıktı seti
 
 Her kök için `outputs/maps/png/<kök>.png` ve
-`outputs/maps/pdf/<kök>.pdf` teslim dosyaları kullanılır:
+`outputs/maps/pdf/<kök>.pdf` teslim dosyaları kullanılır (14 için yalnız PNG):
 
 | No | Dosya kökü |
 |---:|---|
@@ -54,9 +57,10 @@ Her kök için `outputs/maps/png/<kök>.png` ve
 | 11 | `11_agac_ortusu_skoru` |
 | 12 | `12_yol_erisim_zorlugu_skoru` |
 | 13 | `13_senaryo_ortakligi` |
+| 14 | `14_yuksek_oncelik_olasiligi` |
 
 Atlas yolu: `outputs/atlas/canakkale_afet_oncelik_harita_atlasi.pdf`.
-13 PNG, 13 tek sayfalık PDF ve 13 sayfalık bir atlas olmak üzere 27
+14 PNG, 01–13 için 13 tek sayfalık PDF ve 13 sayfalık bir atlas olmak üzere 28
 harita/atlas dosyası manifestle izlenir. `_layout` eki yalnız düzen
 adlarında kullanılır. Dosya boyutları sabit bir yaklaşık MB değeriyle değil,
 manifestteki gerçek bayt sayısı ve SHA-256 özetiyle doğrulanır.
@@ -74,7 +78,7 @@ bash scripts/bash/run_canonical_qa.sh --check
 İlk iki komut kaydedilmiş QGS/QGZ, sözleşme ve ürünleri denetler; çıktı
 üretmez. Gerçek katman sağlayıcıları ana QA içindeki PyQGIS kontrolünde açılır.
 Web altlığı bağlantısı salt okunur çevrim dışı QA'da sınanmaz. Dokuzuncu
-zorunlu kontrol; düzen, stil ve kaydedilmiş 27 dosyanın bütünlüğünü kapsar.
+zorunlu kontrol; düzen, stil ve kaydedilmiş 28 dosyanın bütünlüğünü kapsar.
 Dosya veya manifest eksikliği başarısızlık (çıkış 1) üretir.
 
 Yeni bir karşılaştırma adayı üretmek için QGIS'in Python ortamı kullanılır:
@@ -89,7 +93,7 @@ export CARTO_BASEMAPS_API_KEY
 unset CARTO_BASEMAPS_API_KEY
 ```
 
-Yalnız 13. sayfa için `--layouts 13` eklenir. Hedef yeni veya boş bir klasör
+Seçili düzenler için `--layouts` eklenir (ör. `--layouts 14` veya `--layouts 01,02`); 14. düzende PDF üretilmez. Hedef yeni veya boş bir klasör
 olmalıdır; mevcut nihai ürünlerin üzerine yazılmaz. `--allow-web-basemap`,
 projede tanımlı CARTO altlığını çizmek için açık ağ iznidir; bu bayrak olmadan
 web altlığı içeren düzen üretimi başarısız olur. QGIS projesi kaydedilmez.
@@ -110,23 +114,59 @@ teknik dosya üretimi sonrasında harita içeriği mutlaka görsel olarak incele
 | Kontrol | Beklenen |
 |---|---|
 | QGS ve QGZ içindeki QGS | Birebir aynı XML baytları |
-| Düzen sayısı ve adları | Sözleşmedeki 13 düzen |
+| Düzen sayısı ve adları | Sözleşmedeki 14 düzen |
 | Katman kümesi | Her haritanın doğru sıralı kümesi; kilitli |
 | Stiller | Tüm harita katmanları için kilitli ve sözleşmeyle aynı |
 | Lejant | Kendi haritasına bağlı; doğru tematik katmanı içeriyor |
 | Yerel dosya kaynakları | Göreli, proje kökü içinde, mevcut |
 | 13. haritanın renk değerleri | EXACT; tam 0, 1, 2, 3 |
 | 13. haritanın lejantı | Sürekli renk çubuğu kapalı; dört ayrı kutu |
+| 14. haritanın renk değerleri | DISCRETE; sayım sınırları 0, 499, 999, 1499, 1799, 2000 (P = sayım / 2.000); 0 saydam |
+| 14. haritanın lejantı | Sürekli renk çubuğu kapalı; altı ayrı kutu ve baseline yüksek+ sınır çizgisi |
 | PNG | A3 yatay, 300 DPI; 4960 × 3507 px, manifestte kayıtlı |
-| Tekil PDF | Bir sayfa, A3 yatay |
+| Tekil PDF | 01–13 için bir sayfa, A3 yatay; 14 için PDF yok |
 | Atlas | 13 sayfa, aynı sıra ve sayfa ölçüsü |
-| Kaydedilmiş dosyalar | Tam 27 yol; boyut ve SHA-256 eşliği |
+| Kaydedilmiş dosyalar | Tam 28 yol; boyut ve SHA-256 eşliği |
 
 PDF sayfa sayıları ve sayfa ölçüleri üretim sırasında PDF okuyucuyla
 kontrol edilir. Standart kütüphaneli `check_map_layouts.py`, PDF'yi yeniden
 ayrıştırmaz; doğrulanmış dosyanın checksum'ını ve manifestteki sayfa kaydını
 kontrol eder. PNG başlığı ve boyutları ayrıca okunur. Görsel kontrol; başlık,
 lejant, içerik, kırpılma ve eski referansla uyumu kapsar.
+
+## 2026-11-03 üretim ve kabul kaydı (v0.2, 14. harita)
+
+| Kontrol | Sonuç |
+|---|---|
+| Düzen değişikliği | 14. düzen 13. düzenin sayfa tasarımından eklendi: P(yüksek+) sayım rasterı (`outputs/analysis/weight_perturbation_v1/high_plus_probability_count_32635.tif`) ve baseline yüksek+ sınır çizgisi (0,15 mm, #4d4d4d). Sınır katmanı türev harita katmanıdır (`outputs/maps/layers/baseline_high_plus_boundary_32635.geojson`; üretici [`build_high_plus_boundary.py`](../../scripts/python/build_high_plus_boundary.py): donmuş sınıf rasterında 4–5 ∩ AOI, 4 komşuluk, 2.022 poligon, 54.592 hücre = 545,92 km², SHA-256 `841d9fa3…`; `--check` kayıtlı dosyayı bayt bayt yeniden üretir); proje `data/interim`'e başvurmaz ([Interim VRT politikası](../interim_vrt_policy.md)). 01–13 düzenlerinin XML'i değişmedi |
+| Üretim | `export_map_layouts.py --generate --allow-web-basemap`, QGIS 3.44.15; tek koşu (01–14), 151 HTTP isteği, 0 ağ hatası; kaynak QGS değişmedi |
+| Nihai PNG'ler | 14 dosya, 4960 × 3507 px, 300 DPI |
+| 01–13 yeniden üretimi | 03–13 PNG'leri 2026-11-02 üretimiyle bayt bayt aynı. 01 ve 02'de 400 ve 1.085 piksel (%0,002 ve %0,006) farklı; hepsi altlık karo dikiş çizgilerinde ve beyaza yakın tonlarda, tematik ve vektör katmanlarda fark yok |
+| 14'ün yeniden üretimi | Sınır katmanının yolu değişmeden önceki ilk 14 üretimine göre 2.251 piksel (%0,013) farklı; 2.244'ü karo dikiş çizgilerinin 3 px yakınında, düşük doygunluklu gri tonlarda (mor sınıf piksellerinde fark yok); 13 piksel sınır/idari çizgilerin dikişi kestiği yerlerde, kanal farkı ≤ 4 |
+| Tekil PDF'ler | 13 PDF; önceki üretimden yalnız oluşturma tarihi ve XMP belge kimliğiyle ayrılır |
+| Atlas | 13 sayfa; aynı PDF sayfalarından yeniden birleştirme önceki atlasla bayt bayt aynı |
+| Görsel kabul | 14. harita yazar tarafından tam incelendi; 01–13 örneklemeyle: 01 ve rastgele seçilen 06 önceki dışa aktarımla karşılaştırıldı (13 de görüldü); sorun bulunmadı |
+| Düzen ve final dosya kontrolü | Geçti: 14 düzen, 28 kayıtlı dosya |
+
+Aynı projeden ve sözleşmeden yapılan iki dışa aktarım, CARTO karo dikişlerinde
+birkaç yüz ile birkaç bin piksel farklı olabilir (01, 02 ve 14 yukarıda); bu nedenle PNG pinleri ve
+manifest SHA-256 değerleri yalnız kaydedilen dışa aktarıma aittir.
+
+## 2026-11-02 üretim ve kabul kaydı (v0.2, görünür atıflı haritalar)
+
+| Kontrol | Sonuç |
+|---|---|
+| Düzen değişikliği | 13 düzene alt bant atıf etiketi eklendi; lejantta görünen katman ve grup adları Türkçe yazımla düzeltildi. Katman kimlikleri, veri kaynakları ve kilitli stiller değişmedi |
+| Üretim | `export_map_layouts.py --generate --allow-web-basemap`, QGIS 3.44.15; iki koşu (01; 02–13), aynı QGS ve sözleşme; her koşuda 151 HTTP isteği, 0 ağ hatası; kaynak QGS değişmedi |
+| PNG metadata | Dışa aktarım metadata kapalı; PNG'lerde metin parçası yok (izinli tek değer `Author = Enes Göker`); yalnız IHDR, pHYs, IDAT, IEND |
+| Nihai PNG'ler | 13 dosya, 4960 × 3507 px, 300 DPI |
+| Altlık çizimi | 13 haritanın çerçevesinde altlık piksel düzeyinde denetlendi: beyaz piksel payı < %0,01, boş karo bloğu 0 |
+| Tekil PDF'ler | Aynı iki koşunun 13 PDF'i; her biri bir sayfa A3 |
+| Atlas | 13 sayfa A3, 01–13 sözleşme sırası, ek sayfa yok; her sayfanın içerik akışı kaynak PDF ile bayt bayt aynı |
+| Görsel kabul | 13 PNG yazar tarafından incelendi |
+| Düzen ve final dosya kontrolü | Geçti: 13 düzen, 27 kayıtlı dosya |
+
+Aynı karo kümesi 13 düzenin hepsinde kullanılır (harita çerçevesi ve kapsamı aynıdır); istek sayısı koşu başına kaydedilir, düzen başına değil.
 
 ## 2026-10-24 üretim ve kabul kaydı
 
@@ -171,7 +211,9 @@ başarısı, üçüncü taraf verilerin kamuya dağıtım izninin tamamlandığ�
 
 ## Kimlik alanları ve üretim kaydı
 
-Manifest v1'de bütün QGS dosyası üretim hash'iyle birebir eşleşir. Manifest
+Manifest v1'de bütün QGS dosyası üretim hash'iyle birebir eşleşir; v0.2
+çıktıları (2026-11-02) bu biçimdedir ve 27 kayıt aynı QGS hash'ine bağlıdır; 2026-11-03'ten beri 28 kayıt
+(14 PNG, 13 PDF, atlas) güncel QGS hash'ine bağlıdır. Manifest
 v2, yalnız `qgis/@saveUser`, `qgis/@saveUserFull` ve
 `qgis/projectMetadata/author` değerlerinin değiştiği kimlik temizliğini
 yeniden çizimden ayırır. `project_qgs_sha256`, **özgün dışa aktarma kaynağının**
@@ -182,7 +224,7 @@ XML baytlarının eşitliği, QGS/QGZ eşliği ve QGZ'nin XML dışı üyeleri d
 İzin verilen alan listesi kodda sabittir; başka metadata, layout, stil,
 veri yolu, XML boşluğu veya sürüm değişikliği kabul edilmez. Tanık önceki
 kişisel değerleri içermez. `render_performed: false`, yeni harita üretimi
-yapılmadığını açıkça kaydeder. 27 PNG/PDF/atlas boyut/hash kontrolü sürer.
+yapılmadığını açıkça kaydeder. Kayıtlı bütün PNG/PDF/atlas dosyalarının boyut/hash kontrolü sürer.
 
 Bu kayıt bir kaynak/provenance beyanıdır; erişilemeyen eski XML'i yalnız
 hash'ten yeniden oluşturmaz ve veri paylaşım izni sağlamaz.

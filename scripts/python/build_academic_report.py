@@ -582,7 +582,7 @@ def configure_document() -> Document:
     props = doc.core_properties
     props.title = DOC_TITLE
     props.subject = "Çanakkale MCDA afet öncelik akademik raporu"
-    props.author = "Codex"
+    props.author = "Enes Göker"
     props.comments = "Canonical proje varlıklarından üretildi."
 
     return doc

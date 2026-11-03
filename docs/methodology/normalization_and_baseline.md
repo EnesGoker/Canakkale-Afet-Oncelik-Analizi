@@ -39,6 +39,26 @@ gözlenen min/max'ı uygulanınca 1.393 hücrenin sınıfı değişir. Bu, iki
 yaklaşımın tamamen aynı olmadığını gösterir; baseline'ı yeniden sınıflandırma
 önerisi değildir. İki ek analiz mevcut politikayı kullanacaktır.
 
+## Ağırlık pertürbasyonunda ölçek
+
+[Ağırlık pertürbasyonu](../analysis/weight_perturbation.md) binlerce ağırlık
+örneği kullandığı için ölçek seçimi sonucu belirler:
+
+| Ölçek | Yüksek + çok yüksek tanımı | Kullanım |
+|---|---|---|
+| Sıralama tabanlı (ana) | Her örnekte en yüksek ham skorlu 54.592 hücre (baseline payı, %5,565); çok yüksek en yüksek 699 hücre. Sınır k'inci en büyük değer, eşitler dahil | P(yüksek+) rasterı, olasılık sınıfları, ilçe sıra kararlılığı |
+| Baseline sabit ölçeği (ek) | `clip((raw−0.029)/0.473,0,1) ≥ 0.6` | Yalnız alan değişimi tabloları |
+| Örneğin kendi min/max'ı | — | Kullanılmaz: tek uç hücreye bağlıdır; baseline ağırlığında bile 1.393 hücre farklı sınıf verir |
+
+Sıralama tabanlı ölçüde yüksek+ alanı tanım gereği sabittir; ölçü, alanın
+büyüklüğünü değil, hangi hücrelerin yüksek+ kaldığını (konum kararlılığını)
+gösterir. Baseline ağırlıklarıyla iki ölçek de kanonik sınıfları birebir verir.
+Ağırlığın neredeyse her yerde sıfır olan kriterlerden (taşkın, bina, nüfus)
+ortalaması yüksek kriterlere kayması bütün ham skorları yükseltir; sabit
+ölçekteki alan artışının büyük kısmı bu düzey kaymasıdır. Mevcut üç senaryonun
+yukarıdaki politikası ve kayıtlı tabloları değişmez; sıralama tabanlı karşılıkları
+ayrı köprü satırlarıdır.
+
 ## Girdi sürümü ve AOI izolasyonu
 
 [`config/analysis_baseline_v1.json`](../../config/analysis_baseline_v1.json),

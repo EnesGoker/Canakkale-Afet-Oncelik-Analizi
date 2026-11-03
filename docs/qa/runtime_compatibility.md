@@ -1,8 +1,8 @@
 # GIS çalışma ortamı ve sayısal uyumluluk
 
 **Kaynak sürümü kapsamı:** İlk kamu sürümü kod, yöntem belgeleri, QGIS
-proje tanımı ve seçilmiş analitik özetleri içerir. Tam kanonik veriler ve
-harita/rapor dosyaları dahil değildir. Bu belgedeki tam analiz, katman ve
+proje tanımı, seçilmiş analitik özetleri ve harita PNG görsellerini içerir.
+Tam kanonik veriler, harita PDF/atlas ve rapor dosyaları dahil değildir. Bu belgedeki tam analiz, katman ve
 çıktı kontrolleri ilgili yerel dosyalar ayrıca sağlandığında çalışır; kaynak
 kopyasında eksik girdilerin bildirilmesi beklenir. [Dosya kapsamı](../publication_file_scope.md).
 
@@ -16,6 +16,7 @@ Tam QA, kaynak→skor dönüşümlerini ve kayıtlı analizleri yeniden hesaplar
 | QGIS 3.44.10, GDAL 3.12.3, NumPy 2.4.4 | Önceki tam doğrulama geçti. |
 | QGIS 3.44.15, kendi GDAL 3.13.3 / NumPy 2.5.2 ortamı | Ana MCDA, korelasyon, senaryo ortaklığı ve QGIS okuması geçer; eğim/taşkın kaynak→skor eşdeğerliği farklıdır. |
 | Ayrı GDAL 3.12.3, NumPy 2.4.4 **Accelerate**; QGIS 3.44.15 okuyucusu | **Tam canonical QA geçti.** 8/8 dönüşüm, 28 yerel katman, 13 düzen/27 ürün; ana MCDA 0 farklı hücre. |
+| Aynı profil, 3 Kasım 2026 (`v0.2.0`) | **Tam canonical QA geçti.** 8/8 dönüşüm, 30 yerel katman, 14 düzen/28 ürün; ana MCDA 0 farklı hücre; 27 modülde 465 birim test geçti. |
 
 Son profil macOS arm64, Python 3.12.16 ve macOS 14+ NumPy wheel'iyle
 sınanmıştır. Başka işletim sistemi/BLAS kurulumları bu profille doğrulanmış

@@ -40,7 +40,7 @@ olarak Bash girişi kullanılabilir.
 | Hesap bütünlüğü | 11 kriterin CRS/grid/AOI/aralıkları; baseline ham, normalize ve sınıf sonuçları |
 | Dönüşümler ve baseline | Sekiz kaynak→skor reçetesi ve sabit 27 girdinin checksum'ları |
 | Tablolar ve ek analizler | Rapor/duyarlılık tabloları, korelasyon ve senaryo ortaklığı karşılaştırmaları |
-| Harita düzenleri ve ürünler | 13 düzen, stil/lejant kilitleri, QGS/QGZ eşliği ve 27 harita/atlas dosyası |
+| Harita düzenleri ve ürünler | 14 düzen, stil/lejant kilitleri, QGS/QGZ eşliği ve 28 harita/atlas dosyası |
 
 Gerçek PyQGIS okuması zorunlu bütünlük kontrolüdür; yalnız algoritma
 listelemek proje okuması olarak kabul edilmez. GDAL Python, NumPy veya
@@ -49,10 +49,11 @@ QA'da sınanmaz; CARTO görünümü ve görsel kabul ayrıca ele alınır.
 
 ## Doğrulanmış tam yerel sürüm
 
-29 Ekim 2026'da ayrı GDAL **3.12.3**, NumPy **2.4.4 / Accelerate** ve native
-QGIS **3.44.15** okuyucusuyla tam canonical QA geçmiştir. 28 yerel katman,
-13 düzen/27 harita ürünü, 981.033 AOI hücresi ve baseline hesapları bu
-kapsamdadır. 272 proje regresyon testi geçmiştir. Bu sonuçlar, verileri ve
+3 Kasım 2026'da ayrı GDAL **3.12.3**, NumPy **2.4.4 / Accelerate** ve native
+QGIS **3.44.15** okuyucusuyla tam canonical QA geçmiştir. 30 yerel katman,
+14 düzen/28 harita ürünü, 981.033 AOI hücresi ve baseline hesapları bu
+kapsamdadır. Aynı ortamda 27 modüldeki 465 birim testin tamamı (stdlib,
+scientific, gdal ve qgis katmanları) geçmiştir. Bu sonuçlar, verileri ve
 ürünleri içermeyen kaynak sürümünde tam QA'nın çalıştığı anlamına gelmez.
 
 Arazi örtüsünün AOI dışındaki 5.272 geçerli hücresi belgelenmiş, sınırlı

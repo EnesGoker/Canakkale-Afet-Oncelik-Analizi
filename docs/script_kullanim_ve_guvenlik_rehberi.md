@@ -1,8 +1,8 @@
 # Script Kullanım ve Güvenlik Rehberi
 
 **Kaynak sürümü kapsamı:** İlk kamu sürümü kod, yöntem belgeleri, QGIS
-proje tanımı ve seçilmiş analitik özetleri içerir. Tam kanonik veriler ve
-harita/rapor dosyaları dahil değildir. Bu belgedeki tam analiz, katman ve
+proje tanımı, seçilmiş analitik özetleri ve harita PNG görsellerini içerir.
+Tam kanonik veriler, harita PDF/atlas ve rapor dosyaları dahil değildir. Bu belgedeki tam analiz, katman ve
 çıktı kontrolleri ilgili yerel dosyalar ayrıca sağlandığında çalışır; kaynak
 kopyasında eksik girdilerin bildirilmesi beklenir. [Dosya kapsamı](publication_file_scope.md).
 
@@ -62,6 +62,10 @@ korunan küçük raw kaynaklar ve rapora hazır `outputs` varlıklarıdır.
 | `scripts/python/plot_criterion_correlation.py` | Doğrudan; kontrolü canonical QA'ya bağlı | Kayıtlı matrisi Türkçe figüre dönüştürür ve figür checksum'larını doğrular | `--check` salt okur; `--generate --output-dir` yeni/boş hedefe PNG, PDF ve JSON manifest yazar |
 | `scripts/python/generate_scenario_agreement.py` | Doğrudan; kontrolü canonical QA'ya bağlı | Üç senaryonun yüksek sınıf ortaklığı, sekiz üyelik kombinasyonu ve il/ilçe özetleri | `--check` yeniden hesapla karşılaştırır; `--generate --output-dir` yeni/boş hedefe iki GeoTIFF, üç CSV ve JSON manifest yazar |
 | `scripts/python/plot_scenario_agreement.py` | Doğrudan; kontrolü canonical QA'ya bağlı | Sayım rasterından Türkçe coğrafi harita; kaynak ve dosya checksum kontrolü | `--check` Matplotlib yüklemeden salt okur; `--generate --output-dir` yeni/boş hedefe PNG/PDF/JSON yazar |
+| `scripts/python/mcda_scenario_engine.py` | Ağırlık pertürbasyonu ve MCDA varyantları üreticileri | Sabit baseline yükleyicisiyle 11 kriteri AOI vektörü olarak yükler; ağırlıklı ham skoru kanonik sırayla Float32 hesaplar, baseline ağırlığında kayıtlı ham skorla bit düzeyinde eşitliği doğrular; sabit ölçek, sıralama tabanlı, kantil ve doğal kırılma sınıflayıcıları | Dosya yazmaz |
+| `scripts/python/generate_mcda_variants.py` | Doğrudan; kontrolü canonical QA'ya bağlı | Taşkın ağırlığı, vejetasyon birleştirme ve eşik seçimi varyantları; taşkın NoData kanıt tablosu | `--check` yeniden hesaplar ve karşılaştırır; `--generate --output-dir` yeni/boş hedefe altı CSV ve JSON manifest yazar |
+| `scripts/python/build_high_plus_boundary.py` | Doğrudan | 14. haritanın üzerine çizilen baseline yüksek+ sınırı: donmuş sınıf rasterında 4–5 sınıfları ∩ AOI, 4 komşuluklu poligonlar, sıralı ve bayt bayt yeniden üretilebilir GeoJSON | `--check` bellekte yeniden üretir ve kayıtlı dosyayla bayt bayt karşılaştırır, yazmaz; `--generate --output <yeni dosya>` yalnız yeni dosya yazar, var olanı değiştirmez |
+| `scripts/python/generate_weight_perturbation.py` | Doğrudan; kontrolü canonical QA'ya bağlı | OAT (±%10/±%20) ve Dirichlet ağırlık örneklemesi; P(yüksek+) sayımı, ilçe sıra kararlılığı, yakınsama ve senaryo köprü satırları | `--check` saklanan ağırlık örnekleriyle yeniden hesaplar ve karşılaştırır; `--generate --output-dir` yeni/boş hedefe bir GeoTIFF, sekiz CSV ve JSON manifest yazar |
 
 Python modülleri doğrudan çağrılabilir; ancak normal kullanımda Bash entry point
 tercih edilir. Bash wrapper'lar proje kökünü, tool pathlerini ve gerekli environment
@@ -80,6 +84,16 @@ aynı manifestle birlikte altı dosyalık bir paket olarak üretilir; eski
 `outputs/tables/` dosyalarına veya canonical rasterlara yazılmaz.
 [Kontrol/üretim sözleşmesi](qa/canonical_integrity_checks.md#senaryo-ortaklığı-ve-harita-kontrolü)
 bu yeni modüllerin komutlarını ve NoData ayrımını açıklar.
+
+Ağırlık pertürbasyonu paketi `outputs/analysis/weight_perturbation_v1/`
+altındadır; ayarları `config/weight_perturbation_v1.json`'dadır. Paket on
+dosya olarak birlikte üretilir; kanonik rasterlara veya eski tablolara yazılmaz.
+[Kontrol sözleşmesi](qa/canonical_integrity_checks.md#ağırlık-pertürbasyonu-kontrolü).
+
+MCDA varyantları paketi `outputs/analysis/mcda_variants_v1/` altındadır;
+ayarları `config/mcda_variants_v1.json`'dadır. Yedi dosya birlikte üretilir;
+raster yazılmaz, kanonik rasterlara veya eski tablolara dokunulmaz.
+[Kontrol sözleşmesi](qa/canonical_integrity_checks.md#mcda-varyantları-kontrolü).
 
 ## 4. Önerilen Kullanım Komutları
 

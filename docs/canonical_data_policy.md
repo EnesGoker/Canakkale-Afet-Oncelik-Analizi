@@ -1,8 +1,8 @@
 # Canonical Veri Politikası
 
 **Kaynak sürümü kapsamı:** İlk kamu sürümü kod, yöntem belgeleri, QGIS
-proje tanımı ve seçilmiş analitik özetleri içerir. Tam kanonik veriler ve
-harita/rapor dosyaları dahil değildir. Bu belgedeki tam analiz, katman ve
+proje tanımı, seçilmiş analitik özetleri ve harita PNG görsellerini içerir.
+Tam kanonik veriler, harita PDF/atlas ve rapor dosyaları dahil değildir. Bu belgedeki tam analiz, katman ve
 çıktı kontrolleri ilgili yerel dosyalar ayrıca sağlandığında çalışır; kaynak
 kopyasında eksik girdilerin bildirilmesi beklenir. [Dosya kapsamı](publication_file_scope.md).
 

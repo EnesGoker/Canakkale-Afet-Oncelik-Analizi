@@ -1,16 +1,16 @@
 # QGIS proje taşınabilirliği
 
 **Kaynak sürümü kapsamı:** İlk kamu sürümü kod, yöntem belgeleri, QGIS
-proje tanımı ve seçilmiş analitik özetleri içerir. Tam kanonik veriler ve
-harita/rapor dosyaları dahil değildir. Bu belgedeki tam analiz, katman ve
+proje tanımı, seçilmiş analitik özetleri ve harita PNG görsellerini içerir.
+Tam kanonik veriler, harita PDF/atlas ve rapor dosyaları dahil değildir. Bu belgedeki tam analiz, katman ve
 çıktı kontrolleri ilgili yerel dosyalar ayrıca sağlandığında çalışır; kaynak
 kopyasında eksik girdilerin bildirilmesi beklenir. [Dosya kapsamı](publication_file_scope.md).
 
-Güncelleme: 2026-10-24.
+Güncelleme: 2026-11-03.
 
-QGIS projesi, 13 harita düzeninin katman ve stil bağlantılarını içerir.
-28 yerel katman QGIS'te geçerli bulunmuştur. 13 tekil PNG/PDF harita ve
-13 sayfalık atlas, 27 dosya manifestiyle izlenir.
+QGIS projesi, 14 harita düzeninin katman ve stil bağlantılarını içerir.
+30 yerel katman QGIS'te geçerli bulunmuştur. 14 PNG, 13 tekil PDF harita
+(14. düzen yalnız PNG) ve 13 sayfalık atlas, 28 dosya manifestiyle izlenir.
 Canlı CARTO altlığının anahtarı yalnız çalışma ortamından sağlanır.
 
 Güncel açılabilir proje `qgis/canakkale_disaster_priority.qgz` dosyasıdır.
@@ -63,13 +63,13 @@ python3 scripts/python/check_portability.py --check
 bash scripts/bash/run_canonical_qa.sh --check
 ```
 
-Düzen kontrolü QGS/QGZ eşliğini, tam 13 düzeni, kilitli katman/stilleri,
-lejant bağlantılarını, yerel dosyaları ve 27 harita/atlas dosyasının manifestini
+Düzen kontrolü QGS/QGZ eşliğini, tam 14 düzeni, kilitli katman/stilleri,
+lejant bağlantılarını, yerel dosyaları ve 28 harita/atlas dosyasının manifestini
 denetler. Katman sağlayıcısının dosya içeriğini gerçekten açması ana QA'daki
 PyQGIS kontrolünün işidir; yolun mevcut olması tek başına yeterli sayılmaz.
-Bu sürümde 28 yerel katman geçerli bulunmuştur; bir web altlığı tanımlıdır.
+Bu sürümde 30 yerel katman geçerli bulunmuştur; bir web altlığı tanımlıdır.
 
-Kamu kaynak sürümünün kopyasında bu 28 yerel katman bulunmaz; orada tam kapsam
+Kamu kaynak sürümünün kopyasında bu 30 yerel katman bulunmaz; orada tam kapsam
 eksik katmanları hata olarak listeler. Kaynak kopyası açık kapsamla denetlenir:
 
 ```bash
@@ -91,6 +91,10 @@ doğrulamış; ana canonical QA çıkış 0 ile tamamlanmıştır. Genel dosyala
 QGZ'nin gömülü içeriğinde üretim anahtarı eşleşmesi 0'dır. Bu doğrulamalar
 canlı web altlığının gelecekte her kullanıcı için otomatik açılacağı iddiası
 değildir; canlı kullanım kullanıcının kendi anahtarını gerektirir.
+2026-11-02 (v0.2) yeniden üretiminden sonra da düzen/ürün denetimi 13 düzen ve
+27 dosyayı hatasız doğrular; anahtar projeye ve çıktılara yazılmamıştır.
+2026-11-03'te 14. düzen ve iki yerel katman (P(yüksek+) sayım rasterı, baseline
+yüksek+ sınırı; ikincisi `outputs/maps/layers/` altında) eklenmiştir; düzen/ürün denetimi 14 düzen ve 28 dosyayı doğrular.
 
 ## Veri paketi ve GitHub kapsamı
 
@@ -99,7 +103,7 @@ Göreli yolun geçerli olması, verinin Git deposunda bulunacağı anlamına gel
 `qgis/`, `data/` ve `outputs/` klasörleri aynı kök altında korunmalıdır.
 
 12 haritalı portable ZIP önceki sürümün referans arşividir; güncel
-13 haritalı sürümün GitHub dağıtım paketiyle aynı değildir. Kamuya dağıtılacak
+14 haritalı sürümün GitHub dağıtım paketiyle aynı değildir. Kamuya dağıtılacak
 paket, [veri hakları kaydı](data_rights_and_distribution.md) ve
 [yayın durumu](../PUBLICATION_STATUS.md) tamamlandığında ayrıca hazırlanır.
 Yeni bir portable pakette manifest varsa:

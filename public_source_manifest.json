@@ -30,26 +30,26 @@
     },
     {
       "path": "LICENSE_SCOPE.md",
-      "size": 1932,
-      "sha256": "38cbc4b7731409f1b5f322e33a39be7546088b48d250d3c8bb50902e349e35e4",
+      "size": 5189,
+      "sha256": "25b22aa6c5066eea9923204ff26b90092b8d0cf4e21d1133f4079482cf780cb7",
       "mode": "0644"
     },
     {
       "path": "PUBLICATION_STATUS.md",
-      "size": 8220,
-      "sha256": "c862f910ebd8b5ce8cba59f8885e66e4eeb5504af2d58440e942d75efa605458",
+      "size": 9263,
+      "sha256": "f7429a9fc9e2d083e429a4a31dbf06ccffa8df72f7e53cf2542ad91de132aa2a",
       "mode": "0644"
     },
     {
       "path": "README.md",
-      "size": 21182,
-      "sha256": "663d1ba61f0de73896a2336d5c21a8766e26a35fd7a9c8d745690048505a418e",
+      "size": 6651,
+      "sha256": "3ac76fc523fea69feba2d6e3c93ce46098f54b30ff7ef0f2360a3cedb2420ad8",
       "mode": "0644"
     },
     {
       "path": "README.tr.md",
-      "size": 21610,
-      "sha256": "e4a78ce778d7222b1ac4d41785ca3ab3151911054522633c53a9b4a458a5a35e",
+      "size": 7059,
+      "sha256": "456febca64b245889e7dcf89717481d3ab3d72aed9e0d9e36a8dd03c01d84bbe",
       "mode": "0644"
     },
     {
@@ -66,8 +66,14 @@
     },
     {
       "path": "config/map_layouts_v1.json",
-      "size": 18701,
-      "sha256": "45dce829e6c3f7a799abc2f24b4096a9949d375634cf2ee2a7015570c8fd13f5",
+      "size": 20279,
+      "sha256": "53d500d1ab3ce6aaddfa7ebd6f3bd4b02a9d0ce7068f37245958ec97a69dddb3",
+      "mode": "0644"
+    },
+    {
+      "path": "config/mcda_variants_v1.json",
+      "size": 3148,
+      "sha256": "20d729a76aefd34fafa7618c24d13e694ce49c540c6a9dbdb638a8b4640897bd",
       "mode": "0644"
     },
     {
@@ -78,14 +84,14 @@
     },
     {
       "path": "config/public_scope_expected_v1.json",
-      "size": 3492,
-      "sha256": "98e828d0ca9bd143e365cf459b119134f29a95cbf4aeee5fd9455fbe0dafe025",
+      "size": 3650,
+      "sha256": "762d7511b078b02a83ef50210ebe8fc211b8cb57365bdd791dae29e4c17a5fcb",
       "mode": "0644"
     },
     {
       "path": "config/public_source_release_v1.json",
-      "size": 9653,
-      "sha256": "caf205c7329a2eb226c1a61604ee8f2cea14ea4a37c83f35426968bb06cfa2d2",
+      "size": 14069,
+      "sha256": "9cff4d633b8c31a3084b45ccf80baa2366bd0ec0071bb5ca5ed440d50bc0de60",
       "mode": "0644"
     },
     {
@@ -120,8 +126,14 @@
     },
     {
       "path": "config/test_tiers_v1.json",
-      "size": 2233,
-      "sha256": "a3f97237ce77d46c42e510158419cc97a5fed560025a2a7ceb50cd9f17e73804",
+      "size": 2671,
+      "sha256": "4bbef680043abe3c839f82546137360dd8ddd831aca7d80d91d7ce3a044b2824",
+      "mode": "0644"
+    },
+    {
+      "path": "config/weight_perturbation_v1.json",
+      "size": 1195,
+      "sha256": "dc903c690350203a1400c6189d3d6d380856e8419f691af309e5c2aa8a9ee7a3",
       "mode": "0644"
     },
     {
@@ -239,45 +251,63 @@
       "mode": "0644"
     },
     {
+      "path": "docs/README.md",
+      "size": 4485,
+      "sha256": "cb74c260d0cf4742de98f95ae12b3983ffaa2896f24b0d1c9b83d044ad505913",
+      "mode": "0644"
+    },
+    {
       "path": "docs/analysis/criterion_correlation.md",
-      "size": 7388,
-      "sha256": "ad2a7787d2c10fa5dfaf750103e0a80f0c8b064dfdff9ab3d4ae4973aaef2c39",
+      "size": 7461,
+      "sha256": "368f5f8584aec7b113a0ec04c5fde51e94de385f97a9a727f23af0bf249533ff",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/analysis/mcda_variants.md",
+      "size": 13315,
+      "sha256": "4cac395a7df1c24e3d503bab0259490c8f187c2f44fb714e72376b3b3ecf6fbd",
       "mode": "0644"
     },
     {
       "path": "docs/analysis/scenario_agreement.md",
-      "size": 8994,
-      "sha256": "770aa2b33c2bfa45b0f7494da954ce779589a02c393ffeea8293dde2552d5c22",
+      "size": 9067,
+      "sha256": "277aafb01da6731004bc051ffdc2ca21d3ec04a864d6930c9428f6c6ad628167",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/analysis/weight_perturbation.md",
+      "size": 15194,
+      "sha256": "4de5937b933c9743acc93c6ffbb4b601e515370b23a3c8f90b211ba530c88224",
       "mode": "0644"
     },
     {
       "path": "docs/canonical_data_policy.md",
-      "size": 7157,
-      "sha256": "6b3da69a81283e12b2c75df820f696381583659f9e101cd8ddb67e1eb6c93f8f",
+      "size": 7194,
+      "sha256": "51cdbc07bc48656f513c44425eea7992a7b471e725848a87f63bb386aec9112f",
       "mode": "0644"
     },
     {
       "path": "docs/canonical_qa_runner.md",
-      "size": 3901,
-      "sha256": "f7d64cdfca1a37f7b6500ee829db6cba79b178746d555b39680a268b1351c554",
+      "size": 3976,
+      "sha256": "67c9f0530767a6906df8ca04263a7c5de6d685dcd5076c877a58a199b7e09d74",
       "mode": "0644"
     },
     {
       "path": "docs/carto_live_access.md",
-      "size": 3262,
-      "sha256": "aa0f7c1f9ed57402847695c85d94dc7b22caa62f48d0d81b79c34fb66c72e410",
+      "size": 3299,
+      "sha256": "2e8f7c384d3dc37e06bacfb2664ad5782022c142f48bd5a548dcdffe33eac9d0",
       "mode": "0644"
     },
     {
       "path": "docs/data_manifest.md",
-      "size": 10297,
-      "sha256": "468cd9140ffca03efbe37815fe5be72c8204199cbfe7ce66de303c7ec558a5f9",
+      "size": 10334,
+      "sha256": "62035685dc06c8aedf92ace8e6568669dd694bf6e8d30605928cc931121eb405",
       "mode": "0644"
     },
     {
       "path": "docs/data_rights_and_distribution.md",
-      "size": 23218,
-      "sha256": "0f7ef0eab95f424890eaa47a3a7d5f7655ed25a70d787c5ea93da7ff49433986",
+      "size": 24168,
+      "sha256": "1a1fc22551bfa96573f4305c4a9caf7990086fcaebc81691e1d97ff22a40510c",
       "mode": "0644"
     },
     {
@@ -288,8 +318,8 @@
     },
     {
       "path": "docs/github_distribution.md",
-      "size": 9180,
-      "sha256": "968961a6baed790e5a78118a53e6be924a93ec99f229e248feab23b0136df34e",
+      "size": 9290,
+      "sha256": "2f1c9d04514cef101057ec837a5caeb55856b95a9307e3493ed8cb09026ed96e",
       "mode": "0644"
     },
     {
@@ -300,20 +330,26 @@
     },
     {
       "path": "docs/map_atlas_plan.md",
-      "size": 9295,
-      "sha256": "9e1ccdb2285cf22daf25d33d3b2fedf7d3c2e0f83d24f11bdeb1ce990777ecbf",
+      "size": 10676,
+      "sha256": "835ad12213c75b46e286b2e1fbe8f89c525d15004e963c1e18c4ccc4457a8ec1",
       "mode": "0644"
     },
     {
       "path": "docs/map_symbology_qa.md",
-      "size": 18917,
-      "sha256": "74c96834ee612709eeafa2fe1291dec38a9c55d040548858c0e55fc7c558adcb",
+      "size": 20527,
+      "sha256": "69e5229e63e78dc31963c0eed2e6762ef85e88235891d3552014704f5e1ad880",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/method_summary.md",
+      "size": 10604,
+      "sha256": "b20cb52527ff0bd30485ba9aa7c6b560b1b41fa13f0189c58e21940f9beefc0e",
       "mode": "0644"
     },
     {
       "path": "docs/methodology/criterion_transformations.md",
-      "size": 8574,
-      "sha256": "43f801e2a412b67793d2ed460fdc6ec2f40ae88074c521e38586f2a9d4a76e60",
+      "size": 9121,
+      "sha256": "2144a4f91e4ba2a7189ead1746d48a09714e102c98d20388b20c167619ed1427",
       "mode": "0644"
     },
     {
@@ -336,8 +372,8 @@
     },
     {
       "path": "docs/methodology/normalization_and_baseline.md",
-      "size": 4737,
-      "sha256": "c70a3feef58b9215f24177edb8edb6c5264676f915829cecfee9585018d32e15",
+      "size": 6187,
+      "sha256": "9876d24554064e5c623dabbc33bc47496132c267badfbc7ca9ab2467176b1454",
       "mode": "0644"
     },
     {
@@ -354,14 +390,14 @@
     },
     {
       "path": "docs/methodology/scientific_limits.md",
-      "size": 2554,
-      "sha256": "a97f2d8373591800bb0d3693de3cfdda9810c2be2ec1500adda9f9a7dc476cd6",
+      "size": 4067,
+      "sha256": "21e38775eb524ab36cd3447c9a5cd851ca20547543d4597b446bb9f4d6447c08",
       "mode": "0644"
     },
     {
       "path": "docs/methodology/updated_mcda_methodology_note.md",
-      "size": 24330,
-      "sha256": "5e1501031e0a564e8d1089ffb86b72f6869d0dd26655f171fc0b3c42e443ff40",
+      "size": 25996,
+      "sha256": "e887f28d137e385913f1c66144f337fd58903f8067c18860bc70c0b78f57c79b",
       "mode": "0644"
     },
     {
@@ -378,8 +414,8 @@
     },
     {
       "path": "docs/publication_file_scope.md",
-      "size": 12256,
-      "sha256": "181e2220203eb0ba514797b3cdfe4bc675c538b20d9890cf6df373f2e9266143",
+      "size": 13975,
+      "sha256": "316b946b3ca7a34e80b6fd814bfb52f72f3a666be6d51534bffdf62ccc922338",
       "mode": "0644"
     },
     {
@@ -438,8 +474,8 @@
     },
     {
       "path": "docs/qa/canonical_integrity_checks.md",
-      "size": 19252,
-      "sha256": "69a7ecf2a9ceb755cc39b8f29c5d489bea2a08a0203efbd1d062cd1d7e2473ba",
+      "size": 22662,
+      "sha256": "bea80344f0f73ed2a60028353cff207f8067a6d0cef301c07da7e2ec90a25711",
       "mode": "0644"
     },
     {
@@ -528,8 +564,8 @@
     },
     {
       "path": "docs/qa/map_export_qa.md",
-      "size": 10504,
-      "sha256": "dce64a8704db8c7373eb6eba1b749828d9843eed1ed6b64a53d1352139ccb0de",
+      "size": 15152,
+      "sha256": "0d387b0cd254a5fad0b0faaa9d2b45b54ac4f873836f23666e649d7bd6c3fda8",
       "mode": "0644"
     },
     {
@@ -606,8 +642,8 @@
     },
     {
       "path": "docs/qa/runtime_compatibility.md",
-      "size": 5640,
-      "sha256": "a42ca9cfb60e14d7ce17f00b6d019cee7cb44d43ba16679de66ca81b1d1dc914",
+      "size": 5868,
+      "sha256": "dd8a6018f400a66c0a9f727bd342a2801c7fc49ed8d1a8f0581cd052a88847c2",
       "mode": "0644"
     },
     {
@@ -630,38 +666,92 @@
     },
     {
       "path": "docs/qgis_project_portability.md",
-      "size": 6719,
-      "sha256": "2233c94daf4e80d4891d2b742808b749dd97de5133dff6df84e53768c693bb58",
+      "size": 7171,
+      "sha256": "e5e52c684aab10cd4003916e85f4fc4193e01af7d0096e8e9b512a2adc4740fa",
       "mode": "0644"
     },
     {
       "path": "docs/report_asset_outline_lock.md",
-      "size": 15438,
-      "sha256": "d7efdc9ee6e6bf8bdb4e8dd0bed3a4a4933e0ed2fac72c4bdfb44fc35a73b4d9",
+      "size": 15511,
+      "sha256": "737330b62c11c906278e64dd96c9bb5f55a2189c9f081a525542d0fc5935d581",
       "mode": "0644"
     },
     {
       "path": "docs/report_build_outputs.md",
-      "size": 4348,
-      "sha256": "3dd3d54eb7bfffbec6f52d74e291df7c520f713f8756f4da47415ce9210c0639",
+      "size": 4421,
+      "sha256": "bde573e08197e14bcc9981c1c73b57d4c74cf0fd448589e8a7501112c23ce644",
       "mode": "0644"
     },
     {
       "path": "docs/report_table_outputs.md",
-      "size": 11178,
-      "sha256": "20375cb2335389ce91669aa380e1f81002d0e3f9267136197f414d8aaeeb55c5",
+      "size": 11251,
+      "sha256": "44d7878f1825d29727373fb11e04425b8778289025418b3920e7849d8eb17004",
       "mode": "0644"
     },
     {
       "path": "docs/script_kullanim_ve_guvenlik_rehberi.md",
-      "size": 13127,
-      "sha256": "e624960a98baaefc9ba2af3ea71575efe1e138d2eae0d98e27a5bb78bdc4ad74",
+      "size": 15432,
+      "sha256": "a7f1ae314c3e2cfafea871a48050f596e8fbc77db18610eca8445d32360c153f",
       "mode": "0644"
     },
     {
       "path": "docs/static_map_attributions.md",
-      "size": 8384,
-      "sha256": "58418bce852085390b76d91bb9d12eae850eb938bd9e98d4b7cd0ade23c6d58b",
+      "size": 19755,
+      "sha256": "052881586f6f669130a03ef5d5179aaf58df7091b4ff6a0ef370d67cd59706f6",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/usage.md",
+      "size": 13389,
+      "sha256": "e180ec309fc0fe9fd82a8ed2617123f3211ab0b2944175ac95da855a241bf35e",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/usage.tr.md",
+      "size": 13672,
+      "sha256": "ad7cec3bc2c50c1278bf1f7543bd146928e8764e9575ada57d11fa9bfd0758b0",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/mcda_variants_v1/classification_distribution.csv",
+      "size": 16247,
+      "sha256": "583f2497e909f354ff9822f5ebca733e858acee51edc55778fb77797dc5a76ae",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/mcda_variants_v1/classification_summary.csv",
+      "size": 1078,
+      "sha256": "8b69ba39380ee80914a587f048dc9825f0910f148c09d3ae92e06b6c3f583d3a",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/mcda_variants_v1/flood_coverage_evidence.csv",
+      "size": 3344,
+      "sha256": "750d8087ebef5e7a586b2e4ae7efd958b23ecc2a98a467b4a5f3daafc3264d50",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/mcda_variants_v1/mcda_variants_manifest.json",
+      "size": 5328,
+      "sha256": "9d581a20ffd2afc63b0379feb3aa61848c4633ff00c2d8c2f32824ce58313201",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/mcda_variants_v1/variant_district_areas.csv",
+      "size": 10326,
+      "sha256": "81842b13f9d5e8f96e0c4a7755dfe357cb37b1c7c241ca3119ef849cfef5f6aa",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/mcda_variants_v1/variant_summary.csv",
+      "size": 2862,
+      "sha256": "59d5c0530ce277af0123a2d20f3bdd8094f2377635a48de4f401285a4fe0684c",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/mcda_variants_v1/variant_weights.csv",
+      "size": 4114,
+      "sha256": "ff3b62b6bea4a6946a81c2cdca3e90d1a9ad8b3675087123e7c8c1e70df5b1eb",
       "mode": "0644"
     },
     {
@@ -689,9 +779,63 @@
       "mode": "0644"
     },
     {
+      "path": "outputs/analysis/weight_perturbation_v1/convergence.csv",
+      "size": 1272,
+      "sha256": "fef0f5437f23525eb693ff344eff1a3f6d4a0a9962b163288414a6b5930f63bf",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/weight_perturbation_v1/district_rank_stability.csv",
+      "size": 7770,
+      "sha256": "bdd71882468f64513717489d7f102e32c52380ab90e7b0da9e7e7982ce2932fb",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/weight_perturbation_v1/kappa_summary.csv",
+      "size": 1124,
+      "sha256": "b43dd968da08767675192632043fd4725ff19a91d07d925ed3c7e6a91518fd87",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/weight_perturbation_v1/monte_carlo_summary.csv",
+      "size": 6318,
+      "sha256": "d8107fb98f0002217b157f3d522637fff81f5de3fe44b56c3be61ac7bbb455a1",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/weight_perturbation_v1/oat_summary.csv",
+      "size": 40729,
+      "sha256": "ab154bda98f04180fdcf7acdecebc15e25d63239358f76c98712627ec3a21573",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/weight_perturbation_v1/probability_area_summary.csv",
+      "size": 8154,
+      "sha256": "c070946679409990a156ad96ca50ffb50967cb7fcee643c386a9bff6a9eda2d3",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/weight_perturbation_v1/scenario_bridge.csv",
+      "size": 4052,
+      "sha256": "a1e120b22af6633eceb20f3fa937b7db8b527ac7fe47f5bee86bacf828d132cd",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/weight_perturbation_v1/weight_perturbation_manifest.json",
+      "size": 5211,
+      "sha256": "0ab0e420e84dae5cb24e8fc457af288f89a33f461ad92aa08692afc6a16051e2",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/analysis/weight_perturbation_v1/weight_samples.csv",
+      "size": 1936995,
+      "sha256": "7eece60a235ce7f5ac97c91b777e6146cac2128862c4f0c3b387fc673332e82d",
+      "mode": "0644"
+    },
+    {
       "path": "outputs/atlas/README.md",
-      "size": 1621,
-      "sha256": "903fee1b394f4655691154b3d79afedf1d532ea7f15e10b6d3783de548ebcd31",
+      "size": 1721,
+      "sha256": "33653aeab4b2f8fdd6703ec5aeaa6c023a6306edde3c28b4e3e4feff8daa31da",
       "mode": "0644"
     },
     {
@@ -708,14 +852,98 @@
     },
     {
       "path": "outputs/maps/README.md",
-      "size": 3232,
-      "sha256": "3db54a79495306d62bcc01ec169637c0414f364de6da1ae3a56eebddf438f2ff",
+      "size": 3803,
+      "sha256": "072bbd3edf9b1cb10e5bb95a13057b933b62c86bff6200943ab3d8320f3d0824",
       "mode": "0644"
     },
     {
       "path": "outputs/maps/map_export_manifest.json",
-      "size": 8690,
-      "sha256": "1217155962fe478af47682bbf80492005e4e8ee710442807b9beed068e583230",
+      "size": 8389,
+      "sha256": "dbc646d33898aeb2f519373ca7113af100a25a79b03cf225f1204cc655d74a46",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/maps/png/01_cok_kriterli_oncelik_sinifi.png",
+      "size": 2368659,
+      "sha256": "d39318a3a1f40f33d4c151517ce81c4734d76ff94f4c250639f2bfd95066fbdf",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/maps/png/02_fay_yakinlik_skoru.png",
+      "size": 1868541,
+      "sha256": "4bf8e24eeb528207f7e3fc65fd5e73d6b9de00b0268978dfe5bc9f54bf175346",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/maps/png/03_nufus_maruziyet_skoru.png",
+      "size": 2163945,
+      "sha256": "86fedf5204ea07479713b871ce91d59f77245f4a0d354b251ac39474714d1399",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/maps/png/04_zemin_kosulu_skoru.png",
+      "size": 1801592,
+      "sha256": "a8181e2e1961061640dc6b0c7a4ecc057124a743c68749e2a1b82325f037966e",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/maps/png/05_deprem_pga_skoru.png",
+      "size": 1674796,
+      "sha256": "1d9443fd4d4983e24cd6d9e2c6ff4d934ca85ccea91b67c0cdfb899262ced46f",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/maps/png/06_yapi_maruziyet_yogunluk_skoru.png",
+      "size": 4614205,
+      "sha256": "b8e375610508a54416bf46795b09379a29cc08e45fa29634cc9500e1e6ed95cb",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/maps/png/07_taskin_skoru.png",
+      "size": 2285734,
+      "sha256": "e500482dbfa923478d4402b045feb2323d0156fbd0c5ea1272386e3bb5c5b9c8",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/maps/png/08_hidrografya_yakinlik_skoru.png",
+      "size": 2351435,
+      "sha256": "f8bb194883c525d4b919c4c799343c4caf3718904ef66f6a49b93a2db972f962",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/maps/png/09_egim_skoru.png",
+      "size": 2148269,
+      "sha256": "9ed018cc5b1a54ee2656d7c3554db883417513580dcc93308281f9d992700385",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/maps/png/10_arazi_ortusu_duyarlilik_skoru.png",
+      "size": 2092072,
+      "sha256": "8dc2b8ae9c8788057081550f74b5039a6bc46297838e3433962235b17e617a48",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/maps/png/11_agac_ortusu_skoru.png",
+      "size": 2344549,
+      "sha256": "20f6e2e26bb87b37dc18c6384294119ab0c03a96983c8704485612e5ee19f91e",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/maps/png/12_yol_erisim_zorlugu_skoru.png",
+      "size": 4311571,
+      "sha256": "be8fa4645365cc1d33a4f1a5d0087fc676146108534de4545c63049b57ef02b9",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/maps/png/13_senaryo_ortakligi.png",
+      "size": 2182051,
+      "sha256": "e819db6f20a9b78de37557b97cc8ad3d613e6226d8d7dadd5f4780456c2c6471",
+      "mode": "0644"
+    },
+    {
+      "path": "outputs/maps/png/14_yuksek_oncelik_olasiligi.png",
+      "size": 3999661,
+      "sha256": "b9d6be6bcf3935403f524cfbb98330399f3d183f9fe39a248117b92d0ac627f1",
       "mode": "0644"
     },
     {
@@ -852,14 +1080,14 @@
     },
     {
       "path": "qgis/canakkale_disaster_priority.qgs",
-      "size": 3133605,
-      "sha256": "e9e315a42d5e488672e43c8303a13ba96fe3e261b9bfd44d8c9b3ae8cbb800b5",
+      "size": 3523052,
+      "sha256": "a89179c7f66de12d241e4356024596d163c5f417519ad2803407f247bcfefc3b",
       "mode": "0644"
     },
     {
       "path": "qgis/canakkale_disaster_priority.qgz",
-      "size": 268612,
-      "sha256": "e97a2aa76f039e1077455c0e309d5bee5f9f7198c01e3a3dbec0acb596639b8b",
+      "size": 302766,
+      "sha256": "4ef4659f767ec0f0afa52ddd26da428395511f6eacfe90d454431050c7e7be98",
       "mode": "0644"
     },
     {
@@ -918,8 +1146,8 @@
     },
     {
       "path": "scripts/bash/run_canonical_qa.sh",
-      "size": 13065,
-      "sha256": "73f41a340fc7511b446b7c209f556dc9c6b97e30d551a9be8343af6ab5b41df0",
+      "size": 13475,
+      "sha256": "cba12c17fa66f6dd5209a11a2151036b07df5fc852095877cea106a20abbdbe0",
       "mode": "0755"
     },
     {
@@ -942,8 +1170,14 @@
     },
     {
       "path": "scripts/python/build_academic_report.py",
-      "size": 47680,
-      "sha256": "bca7e7fc0632d4c93fd99a8e735c6122e31e5596beeb90dc5996b28748b4dcff",
+      "size": 47686,
+      "sha256": "1e0df906b4fc4df673e079f10235599ecf11f6677310263dd0f9edee98450b61",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/build_high_plus_boundary.py",
+      "size": 6281,
+      "sha256": "2ced264b8242410019642db77c14c0197feb6ef36443a7ba24bc5069042fa44c",
       "mode": "0755"
     },
     {
@@ -954,8 +1188,8 @@
     },
     {
       "path": "scripts/python/build_public_source_release.py",
-      "size": 12637,
-      "sha256": "a90455146e5859773891420079b0a1d7651d08b0df114ac2b2963a4c6f3c96cf",
+      "size": 19295,
+      "sha256": "9634904ff408cee2fc886d9f2071e03d0c29061da60da859eb63949ccb0809f1",
       "mode": "0755"
     },
     {
@@ -966,14 +1200,14 @@
     },
     {
       "path": "scripts/python/check_map_layouts.py",
-      "size": 16760,
-      "sha256": "2ce0b52e858c408b859cf657f1a2529b23c7f8cfdcaeba911df2c852a9c6317b",
+      "size": 18811,
+      "sha256": "ee6fbc4919463c63a639d39f3cd01734cf6c80f257ce728da9d141a45c827227",
       "mode": "0755"
     },
     {
       "path": "scripts/python/check_mcda_integrity.py",
-      "size": 18314,
-      "sha256": "af8c4201402fe7b1fb9c0743b5b3b97d873b4e78d79af8d6955cf336395ca586",
+      "size": 18316,
+      "sha256": "992dbd69e74623fe411bc6c3305684f5c4449d0be148de9686fca9ff225a35ba",
       "mode": "0755"
     },
     {
@@ -985,7 +1219,7 @@
     {
       "path": "scripts/python/check_public_scope.py",
       "size": 4623,
-      "sha256": "a1727a9a3d4c51cba6b3396007f72d93f296f578f7f2a713503292267ba894c2",
+      "sha256": "7576c926c66bfd321bfb80f486e685ae803da00950f29fa108c3cb18f3b9d926",
       "mode": "0755"
     },
     {
@@ -1002,14 +1236,20 @@
     },
     {
       "path": "scripts/python/export_map_layouts.py",
-      "size": 22887,
-      "sha256": "91c31f53863e2ac6a17e76be5297be97effc4bb691bf70dbc6ac13affff5ef8a",
+      "size": 23143,
+      "sha256": "a16b409104a3578aae165e7422403b2515ee2750b5e986cd96bc8827d46f76d4",
       "mode": "0755"
     },
     {
       "path": "scripts/python/generate_correlation_analysis.py",
       "size": 20092,
       "sha256": "7ca76742920d6847e6ccf5f356eabff832e7377ac3ac247474476b11d5d29fc8",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/generate_mcda_variants.py",
+      "size": 32711,
+      "sha256": "773c2866f0063a91f08bd2c8f72f9bf9ea0941fa8eb2918f72c97d14ca1de718",
       "mode": "0755"
     },
     {
@@ -1028,6 +1268,18 @@
       "path": "scripts/python/generate_sensitivity_tables.py",
       "size": 35176,
       "sha256": "d18ed4bb880ab46e54ee3a6c5f7ecc358df893fd4ddf32f2aa5f0445dabaf8a1",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/generate_weight_perturbation.py",
+      "size": 40305,
+      "sha256": "6b14829b5058f9e5f7d9748e3f66bc17ac71d3926a7bb4e844c6c5a9f6e13275",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/mcda_scenario_engine.py",
+      "size": 24159,
+      "sha256": "fbdfec0d1c953980b41482c11dcc4bdb5234469780ef9ad3e705d580297c4934",
       "mode": "0755"
     },
     {
@@ -1068,8 +1320,8 @@
     },
     {
       "path": "scripts/python/run_integrity_checks.py",
-      "size": 11007,
-      "sha256": "13a0cfbe7b73bc6fe84028e894bc36622f9cc556bda75b27a80e4e2d82a60ef0",
+      "size": 12613,
+      "sha256": "ce627fff6d494a5d2430b9285207f6e86d1f59174b79a65a6fd2f0a41ab5c046",
       "mode": "0755"
     },
     {
@@ -1103,6 +1355,12 @@
       "mode": "0755"
     },
     {
+      "path": "scripts/python/test_check_public_scope.py",
+      "size": 4878,
+      "sha256": "59d589d944b82455b0c7a308f39a767e7d8473a32f7b01966de48f6851c8b495",
+      "mode": "0755"
+    },
+    {
       "path": "scripts/python/test_compatible_qa.py",
       "size": 4099,
       "sha256": "14505e4ec7bdd51e20de09c70c7e513976ff3743a375f4e1be2a125682b6a21a",
@@ -1123,7 +1381,13 @@
     {
       "path": "scripts/python/test_export_map_layouts.py",
       "size": 11432,
-      "sha256": "b19d35731739c08f9b296eaa1ba83956fa0dc294141f9737b0d80f55e520b59f",
+      "sha256": "30ddcea84b2fa83d492261785ba8920e0cc4387e8b534d4c3fed571d40469d82",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_high_plus_boundary.py",
+      "size": 5781,
+      "sha256": "0f5e9133b3e93c41bd2c42f3beaa825585e2a114edd1944f2072e6b28d9e6c73",
       "mode": "0755"
     },
     {
@@ -1134,14 +1398,26 @@
     },
     {
       "path": "scripts/python/test_map_layouts.py",
-      "size": 19254,
-      "sha256": "93604f5fe5d954916500da5fafe3cce636a15730856cca9054144ad210d8d4c6",
+      "size": 21086,
+      "sha256": "b8c16f8ab5d9630d67b2832786e647ddb65c19dd2e62d1e395415a32d99ef501",
       "mode": "0755"
     },
     {
       "path": "scripts/python/test_mcda_integrity.py",
       "size": 16664,
       "sha256": "79cfa8f6096e3426fb090e6beb307fcc0e4cde79523c0b31948e34c57bbfba56",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_mcda_scenario_engine.py",
+      "size": 16474,
+      "sha256": "e9e28890de1af8600ee0a94ea47dc52b41cd77f4a37eeb6a545f51a4a882ccb5",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_mcda_variants.py",
+      "size": 17413,
+      "sha256": "ad0efcaf4dbe6b1ae8f88a553dc11ffd1906e4e5652cc4e1d2b65e35a53783ad",
       "mode": "0755"
     },
     {
@@ -1158,8 +1434,8 @@
     },
     {
       "path": "scripts/python/test_public_source_release.py",
-      "size": 11175,
-      "sha256": "9e51caa63c19023f4be6ecac290678761e55a792ce7bdb92e80f0808d5fde4ec",
+      "size": 24255,
+      "sha256": "8d02ee2468a8a5bb0db4bf27d4a936288f31570ee5105c3f561bc41c27c29768",
       "mode": "0755"
     },
     {
@@ -1181,9 +1457,21 @@
       "mode": "0755"
     },
     {
+      "path": "scripts/python/test_run_tests.py",
+      "size": 6619,
+      "sha256": "31170e1509b3b7d9ed5ecd744e5e6846363bb19711565d84c73f25fba7b2205f",
+      "mode": "0755"
+    },
+    {
       "path": "scripts/python/test_scenario_agreement.py",
       "size": 19959,
       "sha256": "c29f74de73c3a3428c456e1d4baa25bcc5af6a4b89d10656e8878c1b0496d9d7",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_setup_locked_gis_runtime.py",
+      "size": 3468,
+      "sha256": "59f4cf91a537a8f3bf7270ea8941da8fa0487947359cbf1b1a74d1f2f4af818b",
       "mode": "0755"
     },
     {
@@ -1196,6 +1484,12 @@
       "path": "scripts/python/test_tier_support.py",
       "size": 11051,
       "sha256": "aa25fa1adbf622060a70b561a4c15f7f8bb04850a4fc3783c025ca3ad9002450",
+      "mode": "0755"
+    },
+    {
+      "path": "scripts/python/test_weight_perturbation.py",
+      "size": 16504,
+      "sha256": "5a265095e80af5ee7e2404fb0acc137c0787ca3643dc9cb23ba070f89d90383b",
       "mode": "0755"
     },
     {

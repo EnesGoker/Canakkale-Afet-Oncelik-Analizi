@@ -1,8 +1,9 @@
 # Üç senaryoda yüksek öncelik alanlarının mekânsal ortaklığı
 
-**Kaynak sürümü kapsamı:** Aşağıdaki harita, raster, atlas ve Word/PDF
+**Kaynak sürümü kapsamı:** Aşağıdaki raster, harita PDF, atlas ve Word/PDF
 yolları tam yerel çalışma çıktısıdır; bu dosyalar kaynak ve analitik özet
-sürümünde dağıtılmaz. Yerel üretim/kontrol komutları ilgili kanonik veri ve
+sürümünde dağıtılmaz. `outputs/maps/png/` altındaki harita PNG'leri kamu
+kapsamındadır. Yerel üretim/kontrol komutları ilgili kanonik veri ve
 çıktıların ayrıca bulunmasını gerektirir. [Kamu dosya kapsamı](../publication_file_scope.md).
 
 **Analiz tarihi: 24 Ekim 2026.** Bu analiz, baseline, deprem ağırlıklı ve eşit ağırlıklı senaryolarda

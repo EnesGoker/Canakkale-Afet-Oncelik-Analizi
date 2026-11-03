@@ -19,7 +19,7 @@ import xml.etree.ElementTree as ET
 import zipfile
 
 sys.dont_write_bytecode = True
-from check_map_layouts import AGREEMENT_COLORS, audit_project, sha256_file, xml_sha256
+from check_map_layouts import AGREEMENT_COLORS, PROBABILITY_COLORS, PROBABILITY_VALUES, audit_project, sha256_file, xml_sha256
 from qgis_identity import build_metadata_revision, replace_identity_values
 
 SCRIPT = Path(__file__).with_name("check_map_layouts.py")
@@ -40,7 +40,7 @@ class MapLayoutTests(unittest.TestCase):
         projectlayers = ET.SubElement(self.xml, "projectlayers")
         layers = ET.SubElement(self.xml, "Layouts")
         records = []
-        for number in range(1, 14):
+        for number in range(1, 15):
             layer_id = f"score_{number:02d}"
             filename = f"data/{layer_id}.tif"
             (self.root / filename).write_bytes(b"synthetic file; provider validity checked elsewhere")
@@ -55,9 +55,14 @@ class MapLayoutTests(unittest.TestCase):
             styles = ET.SubElement(map_item, "LayerStyles")
             entry = ET.SubElement(styles, "LayerStyle", layerid=layer_id, source="../" + filename, provider="gdal")
             style = ET.SubElement(entry, "qgis")
-            shader = ET.SubElement(style, "colorrampshader", colorRampType="EXACT")
-            for value, color in enumerate(AGREEMENT_COLORS):
-                ET.SubElement(shader, "item", value=str(value), color=color, alpha="255", label=f"Class {value}")
+            if number == 14:  # P(high-plus) map: DISCRETE count classes, P = 0 transparent
+                shader = ET.SubElement(style, "colorrampshader", colorRampType="DISCRETE")
+                for index, (value, color) in enumerate(zip(PROBABILITY_VALUES, PROBABILITY_COLORS)):
+                    ET.SubElement(shader, "item", value=f"{value:g}", color=color, alpha="0" if index == 0 else "255", label=f"Class {index}")
+            else:
+                shader = ET.SubElement(style, "colorrampshader", colorRampType="EXACT")
+                for value, color in enumerate(AGREEMENT_COLORS):
+                    ET.SubElement(shader, "item", value=str(value), color=color, alpha="255", label=f"Class {value}")
             ET.SubElement(shader, "rampLegendSettings", useContinuousLegend="0")
             legend = ET.SubElement(layout, "LayoutItem", type="65642", map_uuid=f"{{map-{number}}}")
             legend_tree = ET.SubElement(legend, "layer-tree-group")
@@ -65,11 +70,13 @@ class MapLayoutTests(unittest.TestCase):
             records.append({"layout_name": layout.get("name"), "output_stem": f"{number:02d}_map", "thematic_layer_id": layer_id,
                             "raster_path": filename, "layer_ids_ordered": [layer_id],
                             "expected_layer_style_hashes": {layer_id: xml_sha256(style)}, "layout_sha256": xml_sha256(layout)})
+            if number == 14:
+                records[-1]["pdf_export"] = False
         self.contract = {"format_version": 1, "project_qgs": "qgis/project.qgs", "project_qgz": "qgis/project.qgz",
                          "export_manifest": "outputs/maps/map_export_manifest.json", "atlas_path": "outputs/atlas/maps.pdf", "layouts": records}
         self.manifest = {"format_version": 1, "files": []}
         for record in records:
-            for kind in ("png", "pdf"):
+            for kind in ("png", "pdf") if record.get("pdf_export", True) else ("png",):
                 relative = f"outputs/maps/{kind}/{record['output_stem']}.{kind}"
                 data = (b"\x89PNG\r\n\x1a\n" + struct.pack(">I", 13) + b"IHDR" + struct.pack(">II", 4960, 3507)) if kind == "png" else b"%PDF-1.7\nfixture"
                 (self.root / relative).write_bytes(data)
@@ -145,13 +152,13 @@ class MapLayoutTests(unittest.TestCase):
     def legend(self, index=0):
         return self.layout(index).find("./LayoutItem[@type='65642']")
 
-    def shader(self):
-        return self.map(12).find(".//colorrampshader")
+    def shader(self, index=12):
+        return self.map(index).find(".//colorrampshader")
 
     def test_valid_read_only_without_external_modules(self):
         before = {p.relative_to(self.root).as_posix(): sha256_file(p) for p in self.root.rglob("*") if p.is_file()}
         result = self.check(0)
-        self.assertEqual((result["layout_count"], result["export_count"]), (13, 27))
+        self.assertEqual((result["layout_count"], result["export_count"]), (14, 28))
         process = subprocess.run([sys.executable, "-S", str(SCRIPT), "--check", "--project-root", str(self.root), "--json"], capture_output=True, text=True, timeout=15)
         self.assertEqual(process.returncode, 0, process.stdout + process.stderr)
         self.assertTrue(json.loads(process.stdout)["passed"])
@@ -165,7 +172,7 @@ class MapLayoutTests(unittest.TestCase):
     def test_missing_layout_fails(self):
         self.xml.find("Layouts").remove(self.layout(0))
         self.save()
-        self.check(1, "13")
+        self.check(1, "14")
 
     def test_unlocked_map_fails_even_after_new_layout_fingerprint(self):
         self.map().set("keepLayerSet", "false")
@@ -240,6 +247,34 @@ class MapLayoutTests(unittest.TestCase):
         self.shader().find("rampLegendSettings").set("useContinuousLegend", "1")
         self.save(refresh_contract=True)
         self.check(1, "sürekli")
+
+    def test_probability_map_needs_discrete_classes(self):
+        self.shader(13).set("colorRampType", "EXACT")
+        self.save(refresh_contract=True)
+        self.check(1, "DISCRETE")
+
+    def test_probability_map_class_bounds_are_fixed(self):
+        self.shader(13).findall("item")[1].set("value", "500")
+        self.save(refresh_contract=True)
+        self.check(1, "sınıf sınırları")
+
+    def test_probability_map_zero_class_must_be_transparent(self):
+        self.shader(13).findall("item")[0].set("alpha", "255")
+        self.save(refresh_contract=True)
+        self.check(1, "saydam")
+
+    def test_png_only_layout_rejects_a_pdf_row(self):
+        data = b"%PDF-1.7\nfixture"
+        (self.root / "outputs/maps/pdf/14_map.pdf").write_bytes(data)
+        self.manifest["files"].insert(-1, {"path": "outputs/maps/pdf/14_map.pdf", "size_bytes": len(data),
+                                           "sha256": hashlib.sha256(data).hexdigest(), "page_count": 1})
+        self.save()
+        self.check(1, "13 PDF")
+
+    def test_pdf_export_flag_must_be_boolean(self):
+        self.contract["layouts"][13]["pdf_export"] = "no"
+        self.save()
+        self.check(1, "pdf_export")
 
     def test_changed_geometry_fingerprint_fails(self):
         self.map().set("size", "199,133,mm")
@@ -367,7 +402,7 @@ class MapLayoutTests(unittest.TestCase):
     def test_unlisted_or_duplicate_export_fails(self):
         self.manifest["files"].append(copy.deepcopy(self.manifest["files"][0]))
         self.save()
-        self.check(1, "13 PNG")
+        self.check(1, "14 PNG")
 
     def test_wrong_atlas_page_count_record_fails(self):
         self.manifest["files"][-1]["page_count"] = 12

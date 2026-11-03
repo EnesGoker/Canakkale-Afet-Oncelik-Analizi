@@ -29,7 +29,7 @@ CRITERIA = (
 TOLERANCE = 1e-6
 THRESHOLDS = (0.2, 0.4, 0.6, 0.8)
 # Open boundary finding: the saved land-cover input has 5,272 outside-AOI cells.
-# Stage 3 investigates/isolate this; stage 2 reports it, without changing data.
+# Stage 3 investigates and isolates it; stage 2 reports it without changing data.
 # This exception never permits nonfinite/out-of-range values or output spill.
 KNOWN_BOUNDARY_FINDING = "landcover_sensitivity_score"
 KNOWN_BOUNDARY_MAX_CELLS = 5272

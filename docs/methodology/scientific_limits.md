@@ -20,8 +20,27 @@ Bu proje kesin bir afet risk haritası değildir.
 - Üç senaryolu sensitivity/robustness kontrolü, ağırlık varsayımına duyarlılığı görünür kılar; kapsamlı Monte Carlo, AHP tutarlılık testi veya kurumsal ağırlık kararı yerine geçmez.
 - Alternatif senaryolar kendi gözlenen min/max ölçeğini kullanır; sınıf farkları
   ağırlık değişimiyle yeniden ölçeklemenin birleşik etkisini içerir.
+- Ağırlık pertürbasyonu (OAT + Dirichlet) yalnız ağırlık belirsizliğini, tek bir
+  uzman ağırlık setinin çevresinde ve sabit kriter skorlarıyla inceler. κ seçimi
+  belirsizliğin genişliğini belirler (κ = 50/100/200 birlikte verilir).
+  P(yüksek+) bir afet olasılığı veya doğrulama sonucu değildir; sıralama tabanlı
+  ölçüde yüksek+ alanı tanım gereği sabittir ve yalnız konum kararlılığı ölçülür.
+  Skor dönüşümleri, kaynak NoData'nın sıfıra dönüşmesi ve çift sayım gibi
+  sınırlılıklar örneklemeyle giderilmez.
 - Bazı kaynakların AOI içindeki NoData hücreleri mevcut skor reçetesinde 0'a
   karşılık gelir. Bu, o hücrelerde tehlike yokluğunun ölçülmesi anlamına gelmez.
+- Taşkın skoru AOI'nin %96,65'inde sıfırdır ve kaynak NoData'sının anlamı
+  ("taşkın yok" / "modellenmemiş") doğrulanamamıştır. Çok yüksek sınıfın
+  699 hücresinin 396'sı (%56,7) taşkın hücresidir; taşkın ağırlığı sıfırlanınca
+  çok yüksek sınıfın yaklaşık yarısı değişir
+  ([MCDA varyantları](../analysis/mcda_variants.md#taşkın)).
+- Çok yüksek sınıfın darlığı (%0,07) eşit aralıklı eşik seçiminin sonucudur;
+  aynı skorla kantil veya doğal kırılma eşikleri çok farklı alanlar verir.
+  Arazi örtüsü ile ağaç örtüsünün birleştirilip blok ağırlığının düşürülmesi
+  yüksek+ konumunu değiştirir (sıralama tabanlı Jaccard 0,850); değişimin büyük
+  kısmı blok ağırlığının düşürülmesinden gelir (yalnız düşürme 0,814, yalnız
+  birleştirme 0,935). Bu varyantlar doğrulanmış
+  alternatif değil, seçim etkisinin gösterimidir.
 - PGA/eğim ölçekleme parametrelerinin tarihsel seçme kuralı tam izlenemiyor;
   mevcut dosyalara sayısal eşdeğer reçete, geçmiş üretim niyetinden ayrı tutulur.
 - Fay kaynağı AOI'ye kırpılmıştır; dış fay geometrisi bulunmadığı için çevre

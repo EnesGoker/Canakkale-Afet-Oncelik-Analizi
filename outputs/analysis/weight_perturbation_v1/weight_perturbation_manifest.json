@@ -1,0 +1,161 @@
+{
+  "aoi_cells": 981033,
+  "aoi_rule": "template_equals_1",
+  "baseline": {
+    "baseline_classes_exact": true,
+    "baseline_id": "canakkale-canonical-11criteria-v1",
+    "baseline_manifest": "config/analysis_baseline_v1.json",
+    "baseline_manifest_sha256": "15fa4c5d13eb38a571cdc826673549be044f83ad7d8ee3c6cf151c7f63569132",
+    "baseline_raw_bit_exact": true,
+    "top_share_reproduces_baseline_classes": true
+  },
+  "baseline_district_high_area_km2": {
+    "Ayvacık": 38.69,
+    "Bayramiç": 26.17,
+    "Biga": 85.06,
+    "Bozcaada": 0.0,
+    "Eceabat": 0.0,
+    "Ezine": 0.62,
+    "Gelibolu": 105.06,
+    "Gökçeada": 0.0,
+    "Lapseki": 0.0,
+    "Yenice": 200.68,
+    "Çan": 88.68,
+    "Çanakkale Merkez": 0.96
+  },
+  "baseline_top5_districts": [
+    "Yenice",
+    "Gelibolu",
+    "Çan",
+    "Biga",
+    "Ayvacık"
+  ],
+  "config": "config/weight_perturbation_v1.json",
+  "config_sha256": "dc903c690350203a1400c6189d3d6d380856e8419f691af309e5c2aa8a9ee7a3",
+  "convergence": {
+    "p99_abs_difference_open_cells": 0.012750000000000039,
+    "p_ge_050_area_relative_change": 0.000642376794138298,
+    "passed": true,
+    "reference_samples": 4000,
+    "samples": 2000
+  },
+  "count_raster": {
+    "dtype": "UInt16",
+    "kappa": 100,
+    "normalization": "top_share",
+    "outside_aoi_nodata": 65535,
+    "path": "high_plus_probability_count_32635.tif",
+    "probability": "count / 2000",
+    "valid_zero_meaning": "The cell is never in the high-plus set; zero is valid AOI data, not NoData"
+  },
+  "criterion_order": [
+    "earthquake_pga_score",
+    "fault_proximity_score",
+    "site_condition_score",
+    "population_exposure_score",
+    "building_exposure_density_score",
+    "flood_score",
+    "hydrography_proximity_score",
+    "slope_score",
+    "landcover_sensitivity_score",
+    "tree_cover_score",
+    "road_accessibility_difficulty_score"
+  ],
+  "crs_epsg": 32635,
+  "district_ranking": "Districts ranked by high-plus area (km², descending); ties share the best rank (competition ranking). Spearman rho uses average ranks over all 12 districts and, separately, over the districts with nonzero baseline high-plus area",
+  "format_version": 1,
+  "geotransform": [
+    386392.7056,
+    100.0,
+    0.0,
+    4509726.2725,
+    0.0,
+    -100.0
+  ],
+  "grid_shape": [
+    1423,
+    1586
+  ],
+  "high_plus_definition": {
+    "fixed_scale": "Supplementary tables only. Canonical clip((raw - 0.029) / 0.473, 0, 1) and the 0.2/0.4/0.6/0.8 thresholds; area changes mix weight-driven level shifts with location changes.",
+    "published_v1": "Bridge rows only: the published v1 sensitivity classes (baseline stored canonical classes; alternatives observed min-max per scenario), unchanged.",
+    "top_share": "Main measure. In each sample the cells holding the baseline class 4-5 cell count are selected by rank of the weighted raw score (k-th largest value, ties included); class 5 likewise by its baseline count. The high-plus area is constant by definition; P(high-plus) measures location stability, not area."
+  },
+  "interpretation_limit": "Perturbation explores weight uncertainty around one expert weight set with fixed criterion scores; it is neither an independent validation nor a hazard probability",
+  "kappas": [
+    50,
+    100,
+    200
+  ],
+  "main_kappa": 100,
+  "method": "Weight perturbation of the frozen canonical MCDA: OAT steps and Dirichlet(kappa * baseline weights) samples",
+  "outputs": [
+    {
+      "path": "high_plus_probability_count_32635.tif",
+      "sha256": "5c69fdfe4cad93065fa4224ae7e4d43585fb15000145fcb386000a20e676fec9",
+      "size": 353423
+    },
+    {
+      "path": "weight_samples.csv",
+      "sha256": "7eece60a235ce7f5ac97c91b777e6146cac2128862c4f0c3b387fc673332e82d",
+      "size": 1936995
+    },
+    {
+      "path": "oat_summary.csv",
+      "sha256": "ab154bda98f04180fdcf7acdecebc15e25d63239358f76c98712627ec3a21573",
+      "size": 40729
+    },
+    {
+      "path": "scenario_bridge.csv",
+      "sha256": "a1e120b22af6633eceb20f3fa937b7db8b527ac7fe47f5bee86bacf828d132cd",
+      "size": 4052
+    },
+    {
+      "path": "monte_carlo_summary.csv",
+      "sha256": "d8107fb98f0002217b157f3d522637fff81f5de3fe44b56c3be61ac7bbb455a1",
+      "size": 6318
+    },
+    {
+      "path": "kappa_summary.csv",
+      "sha256": "b43dd968da08767675192632043fd4725ff19a91d07d925ed3c7e6a91518fd87",
+      "size": 1124
+    },
+    {
+      "path": "probability_area_summary.csv",
+      "sha256": "c070946679409990a156ad96ca50ffb50967cb7fcee643c386a9bff6a9eda2d3",
+      "size": 8154
+    },
+    {
+      "path": "district_rank_stability.csv",
+      "sha256": "bdd71882468f64513717489d7f102e32c52380ab90e7b0da9e7e7982ce2932fb",
+      "size": 7770
+    },
+    {
+      "path": "convergence.csv",
+      "sha256": "fef0f5437f23525eb693ff344eff1a3f6d4a0a9962b163288414a6b5930f63bf",
+      "size": 1272
+    }
+  ],
+  "pixel_area_km2": 0.01,
+  "probability_class_edges": [
+    0.25,
+    0.5,
+    0.75,
+    0.9
+  ],
+  "samples": 2000,
+  "seed": 20261103,
+  "software": {
+    "gdal": "3.12.3",
+    "numpy": "2.4.4",
+    "python": "3.12.16"
+  },
+  "top_share_class_counts": {
+    "1": 114283,
+    "2": 483129,
+    "3": 329029,
+    "4": 53893,
+    "5": 699
+  },
+  "weights_modified": false
+}

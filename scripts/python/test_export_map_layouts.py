@@ -69,7 +69,7 @@ class ExportSafeguardTests(unittest.TestCase):
         self.qgs = self.root / "project.qgs"
         self.qgs.write_text("approved", encoding="utf-8")
         self.records = [{"layout_name": f"{i:02d}_map_layout", "output_stem": f"{i:02d}_map",
-                         "layer_ids_ordered": ["local"]} for i in range(1, 14)]
+                         "layer_ids_ordered": ["local"]} for i in range(1, 15)]
         self.inputs = {"contract": {"layouts": self.records, "project_qgs": "project.qgs"},
                        "qgs_path": self.qgs, "project_qgs_sha256": sha256_file(self.qgs),
                        "contract_sha256": "a" * 64,
@@ -81,10 +81,10 @@ class ExportSafeguardTests(unittest.TestCase):
     def test_selection_preserves_contract_order(self):
         records = export.select_records(self.inputs["contract"], "13, 1,02")
         self.assertEqual([r["output_stem"] for r in records], ["01_map", "02_map", "13_map"])
-        self.assertEqual(len(export.select_records(self.inputs["contract"])), 13)
+        self.assertEqual(len(export.select_records(self.inputs["contract"])), 14)
 
     def test_selection_rejects_duplicate_unknown_and_malformed_numbers(self):
-        for choice in ["1,01", "0", "14", "", "1,", "one", "001", "-1"]:
+        for choice in ["1,01", "0", "15", "", "1,", "one", "001", "-1"]:
             with self.subTest(choice=choice), self.assertRaises(ValueError):
                 export.select_records(self.inputs["contract"], choice)
 

@@ -5,11 +5,11 @@ QGIS projesi: `qgis/canakkale_disaster_priority.qgz`
 CRS: EPSG:32635  
 Grid çözünürlüğü: 100 m
 
-Güncelleme: 2026-10-24
+Güncelleme: 2026-11-03
 
 Bu kayıt, korunan ilk 12 haritanın stillerini ve
-13. QGIS düzenini kapsar. Yerel QGIS çıktısı ve 13 sayfalık atlas bu tasarımla
-izlenir. Canlı CARTO altlığı için anahtar yalnız üretim sırasında uygulanır;
+13. ve 14. QGIS düzenlerini kapsar. Yerel QGIS çıktısı ve 13 sayfalık atlas bu tasarımla
+izlenir; 14. harita yalnız PNG'dir. Canlı CARTO altlığı için anahtar yalnız üretim sırasında uygulanır;
 genel QGS/QGZ dosyası özgün anahtarsız URL'yi korur.
 
 ---
@@ -70,8 +70,8 @@ QGIS layer panel aşağıdaki grup yapısını kullanır:
 Ana QGIS ekranındaki görünürlük son kayıt sırasında seçilmiş katmana göre
 farklılaşabilir. Atlasın içeriği bu genel aç/kapa durumundan bağımsızdır:
 her haritanın katman kümesi ve stilleri kilitlidir, lejantı kendi haritasına
-bağlıdır. Böylece başka bir kriter ana ekranda açıldığında hazırlanmış 13
-QGIS düzeni birden o kritere dönüşmez. Atlas bu düzen sırasıyla 13 coğrafi sayfa içerir.
+bağlıdır. Böylece başka bir kriter ana ekranda açıldığında hazırlanmış 14
+QGIS düzeni birden o kritere dönüşmez. Atlas bu düzen sırasıyla 01–13 coğrafi sayfalarını içerir.
 
 Tüm QGIS düzenlerinde il/ilçe sınırları ve CARTO altlığı tanımlıdır.
 Altlığın tanımlı olması veya HTTP 200 yanıtı alması görsel kabul değildir;
@@ -94,6 +94,7 @@ anahtarı özel dosyadan, çıktıya basmadan okumayı gösterir. Tematik raster
 | 09–11 | Yok |
 | 12 | Yol ağı |
 | 13 | Yok |
+| 14 | Baseline yüksek+ sınırı |
 
 Diğer kaynak/grid/POI katmanları sırf projede mevcut diye haritaya eklenmez.
 
@@ -577,6 +578,24 @@ sınıf eşikleri kabul edilmez. Sürekli lejant kapalıdır; dört ayrı renk k
 kullanılır. Görsel yeniden örnekleme en yakın komşudur. Kilitli stil bu
 ayarları da içerir.
 
+14. sayfanın rasterı, 2.000 ağırlık örneğinde sıralama tabanlı yüksek+ sınıfta
+kalma sayısıdır (P(yüksek+) = sayım / 2.000; κ = 100). DISCRETE eşleştirme
+ColorBrewer Purples dizisinin altı sınıflı sürümünü, en açık tonu atlayarak kullanır:
+
+| Sayım üst sınırı | P(yüksek+) | Renk | Not |
+|---:|---|---|---|
+| 0 | P = 0 | #ffffff | Saydam; altlık görünür |
+| 499 | 0 < P < 0,25 | #dadaeb | |
+| 999 | 0,25 ≤ P < 0,50 | #bcbddc | |
+| 1499 | 0,50 ≤ P < 0,75 | #9e9ac8 | |
+| 1799 | 0,75 ≤ P < 0,90 | #756bb1 | |
+| 2000 | P ≥ 0,90 | #54278f | |
+
+Tek renk tonlu sıralı palette açıklık tekdüze azalır. Sürekli lejant kapalıdır;
+altı ayrı kutu kullanılır. Baseline yüksek+ (4.–5. sınıf) sınırı 0,15 mm
+#4d4d4d çizgiyle rasterın üstündedir; lejantta ayrı satırdır. Lejant notu
+değerin afet olasılığı olmadığını belirtir.
+
 Kriter rasterlarının kayıtlı beş sınıfı ve renkleri korunur. Bazı stillerde
 son eşik `inf` olarak kaydedilmiştir; bu, son renk aralığının üst sınırıdır.
 Raster veride Inf bulunduğu anlamına gelmez; veri sonluluğu ve 0–1 aralığı
@@ -627,6 +646,15 @@ geçmiştir. Düzen/stil ve kayıtlı dosya kontrolü 13 düzen, 27 çıktı ve 
 raporlamış; ana canonical QA çıkış 0 ile tamamlanmıştır. Teknik üretim
 başarısı ayrıca görsel incelemeyle desteklenmiştir.
 
+2026-11-02 (v0.2) güncellemesinde düzenlere alt bant atıf etiketi eklenmiş,
+lejantta görünen katman ve grup adları Türkçe yazımla düzeltilmiştir (ör.
+"Çanakkale İl Sınırı", "Diri Fay Hatları", "Analiz Çıktıları"). Stiller ve
+paletler değişmemiştir; düzen/çıktı kontrolü 13 düzen ve 27 dosyayı doğrular.
+
+2026-11-03'te 14. düzen (yüksek öncelikte kalma oranı) eklenmiştir; 01–13'ün
+stilleri ve paletleri değişmemiştir. Düzen/çıktı kontrolü 14 düzen ve 28
+dosyayı doğrular.
+
 Tamamlananlar:
 
 - ana idari sınır stili
@@ -659,4 +687,5 @@ Semboloji ve layer panel standardı aşağıdaki kalite ilkelerine dayanır:
 - nihai MCDA class haritası ayrı sınıf paletiyle sunulur
 - kaynak rasterlar ve yoğun raw veri setleri varsayılan harita görünümünü bastırmaz
 - 13. QGIS düzeni kayıtlı sayfa tasarımını ve tam sayılı renk sınıflarını korur
+- 14. QGIS düzeni aynı sayfa tasarımını DISCRETE altı sınıflı tek ton paletle kullanır
 - nihai 13. PNG/PDF ve atlas güncellemesi teknik kontrolle birlikte görsel kabul kapsamındadır

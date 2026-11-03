@@ -94,6 +94,14 @@ Bu, mevcut modelin kaynak kapsamı/NoData davranışıdır. Sıfır skor, bu
 hücrelerde tehlikenin yokluğunun ölçüldüğü anlamına gelmez. Özellikle taşkın
 katmanı, bütün AOI'de yerel bir taşkın modelinin varlığı gibi yorumlanmaz.
 
+Taşkın NoData'sının "taşkın yok" mu "modellenmemiş alan" mı olduğu birincil
+kaynaklardan **doğrulanamadı**. Ürün README/CHANGELOG'u NoData'yı tanımlamaz.
+v2 yöntem makalesi 500 km² üzeri havzaları modeller, ama güncel dizinde
+modellenen ağ veya kapsama maskesi yoktur. Yerel raster yalnız ≥ 0,1 m derinlikte
+değer taşır. Haritalar yerel taşkın koruma yapılarını hesaba katmaz. Kaynaklar,
+sayılar ve taşkın ağırlığının sıfırlandığı senaryo:
+[MCDA varyantları](../analysis/mcda_variants.md#taşkın).
+
 ## Kurtarılan işlem kayıtları ve açık kalan ayrıntı
 
 [Temizlenmiş seçki](processing_history_excerpt.json), ilgili yerel QGIS

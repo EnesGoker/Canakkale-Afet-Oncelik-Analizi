@@ -1,17 +1,17 @@
 # QGIS haritaları ve ortak kaynak açıklaması
 
 **Kaynak sürümü kapsamı:** Bu belge tam yerel çalışmanın harita ürünlerini
-ve kaynak kayıtlarını açıklar. Aşağıdaki PNG/PDF ve atlas yolları yerel
-çıktılardır; mevcut kaynak ve analitik özet sürümünde bu görseller dağıtılmaz.
-Manifest yalnız yerel ürünlerin üretim/bütünlük kanıtıdır; mevcut sürümün
+ve kaynak kayıtlarını açıklar. `outputs/maps/png/` altındaki 14 PNG, görünür
+atıflarıyla kamu kaynak sürümünde yer alır; PDF'ler ve atlas yerel çıktıdır ve
+dağıtılmaz. Manifest yerel ürünlerin üretim/bütünlük kanıtıdır; sürümün
 içerik listesi değildir. [Kamu dosya kapsamı](../../docs/publication_file_scope.md).
 
-Tam yerel çalışmada bu klasörde 13 A3 yatay haritanın PNG (`outputs/maps/png/`) ve PDF (`outputs/maps/pdf/`) sürümleri bulunur.
+Tam yerel çalışmada bu klasörde 14 A3 yatay haritanın PNG (`outputs/maps/png/`) ve 01–13'ün PDF (`outputs/maps/pdf/`) sürümleri bulunur.
 01–12, öncelik sınıfı ve kriter haritalarıdır; 13, senaryo ortaklığı
-haritasıdır. Çıktılar ilgili QGIS düzenleriyle ve checksum manifestiyle izlenir.
-Aynı sıra 13 sayfalık atlasta (`outputs/atlas/canakkale_afet_oncelik_harita_atlasi.pdf`) kullanılır.
+haritasıdır; 14, yüksek öncelikte kalma oranı haritasıdır ve yalnız PNG'dir. Çıktılar ilgili QGIS düzenleriyle ve checksum manifestiyle izlenir.
+01–13 aynı sırayla 13 sayfalık atlasta (`outputs/atlas/canakkale_afet_oncelik_harita_atlasi.pdf`) kullanılır.
 
-**13 haritanın tamamı için ortak taban haritası atfı:**
+**14 haritanın tamamı için ortak taban haritası atfı:**
 © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright),
 © [CARTO](https://www.carto.com/attribution/); CartoDB Positron.
 Bu görünür açıklama, haritaların yanındaki ortak kaynak açıklamasıdır.
@@ -32,10 +32,16 @@ resmî tehlike/risk haritası değildir. 13. sayfada yüksek, her senaryonun 4. 
 sınıfıdır. Değer 0 güvenli anlamına gelmez; değer 3 yalnız seçilmiş üç senaryoda
 ortaklığı ifade eder. Ağırlık değişimi ve senaryoya özgü normalizasyon birlikte
 karşılaştırılır. [Sonuçların yorumu](../../docs/analysis/scenario_agreement.md).
+14. sayfadaki P(yüksek+), hücrenin 2.000 ağırlık örneğinde yüksek+ sınıfta kalma
+oranıdır; afet olasılığı değildir. Koyu gri çizgi baseline yüksek+ sınırıdır
+([`build_high_plus_boundary.py`](../../scripts/python/build_high_plus_boundary.py) ile donmuş sınıf rasterından üretilir).
+[Sonuçların yorumu](../../docs/analysis/weight_perturbation.md).
 
-Bu teknik çıktıların hazırlanması, üçüncü taraf verilerin yeniden dağıtım
-koşullarının tamamlandığı anlamına gelmez. [Yayın durumu](../../PUBLICATION_STATUS.md)
-ve veri hakları kaydındaki açık konular kamu yayını öncesinde ele alınacaktır.
+Her haritanın alt bandındaki etiket ortak ve tema atıflarını taşır; tam
+metinler [statik harita bildirimlerindedir](../../docs/static_map_attributions.md).
+PNG yayını, üçüncü taraf verilerin yeniden dağıtım koşullarının tamamlandığı
+anlamına gelmez; açık konular [yayın durumu](../../PUBLICATION_STATUS.md) ve
+veri hakları kaydında tutulur.
 
 [Harita/stil sözleşmesi](../../config/map_layouts_v1.json),
 [çıktı manifesti](map_export_manifest.json) ve [kontrol kaydı](../../docs/qa/map_export_qa.md)

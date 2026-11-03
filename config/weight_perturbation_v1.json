@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "description": "Weight perturbation of the frozen canonical MCDA: one-at-a-time (OAT) steps and Dirichlet sampling around the baseline weights. Baseline weights come from config/mcda_weights.tsv (scenario baseline); nothing frozen is changed.",
+  "baseline_id": "canakkale-canonical-11criteria-v1",
+  "output_dir": "outputs/analysis/weight_perturbation_v1",
+  "seed": 20261103,
+  "random_stream": "numpy.random.default_rng([seed, kappa]) (PCG64); Dirichlet(alpha = kappa * baseline weights); rows are drawn in one call per kappa and the sampled weights are stored in weight_samples.csv",
+  "kappas": [50, 100, 200],
+  "main_kappa": 100,
+  "samples": 2000,
+  "convergence": {
+    "kappa": 100,
+    "snapshots": [250, 500, 1000, 2000],
+    "reference_samples": 4000,
+    "p99_abs_difference_limit": 0.02,
+    "p_ge_050_area_relative_change_limit": 0.01
+  },
+  "oat_steps": [-0.2, -0.1, 0.1, 0.2],
+  "oat_rule": "w_i' = w_i (1 + step); every other weight is multiplied by (1 - w_i') / (1 - w_i), so the weights still sum to one",
+  "normalizations": {
+    "main": "top_share",
+    "supplementary": "fixed_scale"
+  },
+  "probability_class_edges": [0.25, 0.5, 0.75, 0.9]
+}

@@ -82,7 +82,7 @@ def select_records(contract: dict, layouts: str | None = None) -> list[dict]:
         return list(records)
     tokens = [token.strip() for token in layouts.split(",")]
     if not tokens or any(not token.isdigit() or len(token) > 2 for token in tokens):
-        raise ValueError("Düzen seçimi 13 veya 01,02 biçiminde olmalı.")
+        raise ValueError("Düzen seçimi 14 veya 01,02 biçiminde olmalı.")
     numbers = [int(token) for token in tokens]
     known = {int(record["output_stem"][:2]) for record in records}
     if len(set(numbers)) != len(numbers) or not set(numbers).issubset(known):
@@ -157,7 +157,7 @@ def load_export_inputs(root: Path, contract_path: Path = CONTRACT) -> dict:
     layouts = {node.get("name"): node for node in layout_nodes}
     if (len(layouts) != len(layout_nodes)
             or set(layouts) != {record["layout_name"] for record in contract["layouts"]}):
-        raise ValueError("QGIS projesi tam 13 onaylı düzen içermeli.")
+        raise ValueError("QGIS projesi sözleşmedeki onaylı düzenlerin tamamını ve yalnız onları içermeli.")
     thematic = {record["thematic_layer_id"] for record in contract["layouts"]}
     for record in contract["layouts"]:
         layer = layers.get(record["thematic_layer_id"])
@@ -291,7 +291,8 @@ def render_qgis(root: Path, inputs: dict, records: list[dict], stage: Path,
                 raise ValueError("Seçilen web altlığı QGIS tarafından geçersiz bulundu.")
             authentication = apply_runtime_authentication()
             (stage / "png").mkdir()
-            (stage / "pdf").mkdir()
+            if any(record.get("pdf_export", True) for record in records):
+                (stage / "pdf").mkdir()
             for record in records:
                 layout = project.layoutManager().layoutByName(record["layout_name"])
                 if layout is None or layout.pageCollection().pageCount() != 1:
@@ -308,7 +309,8 @@ def render_qgis(root: Path, inputs: dict, records: list[dict], stage: Path,
                 pdf = QgsLayoutExporter.PdfExportSettings()
                 pdf.dpi, pdf.exportMetadata, pdf.appendGeoreference = 300, False, False
                 pdf.writeGeoPdf = False
-                for kind, settings in (("png", png), ("pdf", pdf)):
+                kinds = (("png", png), ("pdf", pdf)) if record.get("pdf_export", True) else (("png", png),)
+                for kind, settings in kinds:
                     relative = f"{kind}/{record['output_stem']}.{kind}"
                     path = stage / relative
                     result = exporter.exportToImage(str(path), settings) if kind == "png" else exporter.exportToPdf(str(path), settings)
@@ -318,7 +320,7 @@ def render_qgis(root: Path, inputs: dict, records: list[dict], stage: Path,
                     if maps[0].renderingErrors() or network_errors or messages:
                         raise MapRenderingFailure("Harita/altlık çiziminde hata oluştu; eksik görünümlü çıktı kabul edilmedi.", diagnostics(maps[0], result))
                     output_rows.append(inspect_export(path, relative))
-                print(f"Tamamlandı: {record['layout_name']} (PNG ve PDF)", file=sys.stderr, flush=True)
+                print(f"Tamamlandı: {record['layout_name']} ({' ve '.join(k.upper() for k, _ in kinds)})", file=sys.stderr, flush=True)
             app.processEvents()
             if web_ids and (network_errors or not network_successes):
                 raise MapRenderingFailure("Web altlığının başarılı döşeme erişimi doğrulanamadı; çıktı kabul edilmedi.", diagnostics())
@@ -396,7 +398,7 @@ def main(argv=None) -> int:
     parser.add_argument("--project-root", type=Path, default=PROJECT_ROOT)
     parser.add_argument("--contract", type=Path, default=CONTRACT)
     parser.add_argument("--output-dir", type=Path)
-    parser.add_argument("--layouts", help="13 veya 01,02; belirtilmezse tüm 13 düzen")
+    parser.add_argument("--layouts", help="14 veya 01,02; belirtilmezse sözleşmedeki bütün düzenler")
     parser.add_argument("--allow-web-basemap", action="store_true")
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args(argv)

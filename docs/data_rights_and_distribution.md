@@ -1,6 +1,7 @@
 # Veri hakları ve kamuya dağıtım kapsamı
 
-Kontrol tarihi: **29 Ekim 2026**.
+Güncelleme: **3 Kasım 2026** (`v0.2.0`). Kaynak koşulları ilk olarak 29 Ekim
+2026'da kontrol edildi; harita görselleri için eklenen koşullar 2 Kasım 2026'da.
 
 Bu belge, üçüncü taraf kaynakların kaynak deposu, statik görsel ve sayısal
 veri paketi için dağıtım koşullarını ayırır. Ürün kimlikleri ve analizdeki
@@ -10,10 +11,9 @@ yapısı [dağıtım rehberinde](github_distribution.md) açıklanır.
 Belirsiz bir paylaşım koşulu, mevcut çalışmanın hukuka aykırı olduğu veya
 analitik açıdan kusurlu olduğu sonucunu vermez. Dağıtım kapsamı, kaynak
 koşullarına ve sunulan dosyanın niteliğine göre belirlenir. Somut dosya seçimi [ilk kamu paylaşım kapsamındadır](publication_file_scope.md):
-geçerli ilk sürüm kaynak deposu ve dosya bazında seçilmiş analitik
-özetlerdir. Altı haritalık seçki, aşağıdaki koşullar tamamlandığında ayrı
-bir sonraki adaydır; haritalar ve tam sayısal veri paketi mevcut kaynak
-sürümüne dahil değildir.
+kaynak deposu, dosya bazında seçilmiş analitik özetler ve görünür atıflı
+`01`–`14` harita PNG görselleridir. Harita PDF'leri, atlas ve tam sayısal
+veri paketi kaynak sürümüne dahil değildir.
 
 Depodaki özgün kod için MIT kapsamı [LICENSE_SCOPE.md](../LICENSE_SCOPE.md)
 belgesinde ayrılır. **MIT, üçüncü taraf verilerini veya bunlardan üretilmiş
@@ -36,15 +36,15 @@ kimliği veya lisans kaydı bulunmayan yerlerde bu sınır özellikle korunur.
 | No | Kaynak ailesi | Kamu dağıtımı için mevcut durum |
 |---:|---|---|
 | 1 | HGM idari sınırlar | Koşullu; ticari olmayan kullanım ve dağıtım, atıf |
-| 2 | AFAD TDTH | Çözümlenmemiş; workbook edinimi ve türev paylaşım kapsamı |
-| 3 | MTA diri fay | Çözümlenmemiş; tarihsel sayısal paket koşulları |
+| 2 | AFAD TDTH | Ham/türev veri: çözümlenmemiş, dağıtılmaz. Statik görsel (`01`, `05`, `13`): yazılı izin olmadan atıfla yayımlandı |
+| 3 | MTA diri fay | Ham/türev veri: çözümlenmemiş, dağıtılmaz. Statik görsel (`01`, `02`, `13`): yazılı izin olmadan atıfla yayımlandı |
 | 4 | Copernicus DEM GLO-30 | Koşullu; ürüne özel kaynak ve sorumluluk bildirimleri |
-| 5 | JRC/CEMS RP100 taşkın | Çözümlenmemiş; resmî lisans metinleri çelişkili, yerel sürüm eksik |
+| 5 | JRC/CEMS RP100 taşkın | Ham/türev veri: çözümlenmemiş (lisans metinleri çelişkili, yerel sürüm eksik), dağıtılmaz. Statik görsel (`07`): kaynak, telif ve DOI atfıyla yayımlandı |
 | 6 | WorldPop Türkiye 2020 | Koşullu; CC BY 4.0 ve değişiklik bildirimi |
-| 7 | USGS Global Vs30 Mosaic | Çözümlenmemiş; extract sürümü ve bölgesel bileşen kapsamı |
+| 7 | USGS Global Vs30 Mosaic | Ham/türev veri: çözümlenmemiş (extract sürümü ve bölgesel bileşen kapsamı), dağıtılmaz. Statik görsel (`04`): atıfla yayımlandı |
 | 8 | Microsoft bina izleri | Koşullu; CDLA Permissive 2.0, OSM hibriti ayrıca incelenecek |
 | 9 | OpenStreetMap / Geofabrik | Koşullu; ODbL, atıf ve türev veritabanı değerlendirmesi |
-| 10 | HydroRIVERS v1.0 | Çözümlenmemiş; standalone/türev ayrımı ve OSM hibriti |
+| 10 | HydroRIVERS v1.0 | Ham/türev veri: çözümlenmemiş (standalone/türev ayrımı ve OSM hibriti), dağıtılmaz. Statik görsel (`08`): Ek B bildirimiyle yayımlandı |
 | 11 | ESA WorldCover 2021 v200 | Koşullu; CC BY 4.0 ve ürün atfı |
 | 12 | CLMS ağaç örtüsü 2021 | Koşullu; CLMS kaynak ve değişiklik bildirimi |
 | 13 | CARTO Positron | Statik harita için koşullu; canlı servis erişimi ayrıca incelenecek |
@@ -92,9 +92,10 @@ izin kaydı bilinmiyor; bu alanlar tahmin edilmez.
   şey değildir; fakat bu ayrım tek başına açık yayın izni oluşturmaz. Yerel
   veri kaynağına uygulanacak kapsam ayrıca belirlenmelidir.
 
-**Dağıtım kararı:** Workbook, CSV, nokta, IDW ve skor dosyaları ilk kamu
-paketinde yer almaz. `05_deprem_pga_skoru` haritası için de genel yayın izni
-ileri sürülmez. AFAD atfı, özgün IDW açıklaması ve yöntem belgeleri korunur;
+**Dağıtım kararı:** Workbook, CSV, nokta, IDW ve skor dosyaları kamu
+paketinde yer almaz. `05` ile AFAD türevli skoru içeren `01` ve `13` harita
+görselleri atıfla yayımlanır; AFAD'dan yazılı izin alınmamıştır, izin ileri
+sürülmez ve talep halinde görsel kaldırılır. AFAD atfı, özgün IDW açıklaması ve yöntem belgeleri korunur;
 bu ayrım çalışmanın bütün metnine veya sonuçlarına otomatik yasak getirmez.
 
 ## 3. MTA — tarihsel Türkiye Diri Fay Haritası sayısal verisi
@@ -117,9 +118,10 @@ ham paket bu çalışma girdileri arasında korunmamıştır.
   harita ayrılır. İkincisinin kapsamı tarihsel paket koşulu veya uygun izinle
   netleştirilmelidir; bütün türevler otomatik yasak sayılmaz.
 
-**Dağıtım kararı:** Fay GeoPackage ve yakınlık skoru ilk kamu paketinde
-yer almaz. `01` ve `02` QGIS düzenlerinde gerçek fay çizgisi de bulunduğundan
-bu görseller için genel yayın izni ileri sürülmez. 2013/2014 kaynak kaydı
+**Dağıtım kararı:** Fay GeoPackage ve yakınlık skoru kamu paketinde yer
+almaz. Gerçek fay çizgisini taşıyan `01` ve `02` ile fay skorunu içeren `13`
+görselleri atıfla yayımlanır; MTA'dan yazılı izin alınmamıştır, izin ileri
+sürülmez ve talep halinde görsel kaldırılır. 2013/2014 kaynak kaydı
 korunur; eski veriye 2026 bibliyografisi veya lisansı aktarılmaz.
 
 ## 4. Copernicus DEM — GLO-30
@@ -142,7 +144,9 @@ release ve ham karo kimlikleri korunmamıştır. 30 m ürün koşulu, ayrı EEA-
 **Uygulama:** Genel bir “Copernicus” etiketi yerine resmî lisansın **6(b)**
 değiştirilmiş veri bildirimini ve **6(c)** sorumluluk bildirimini esas al;
 **6(e)** sonraki kullanıcı yükümlülüklerini veri paketi bildirimlerine taşı.
-Uzun zorunlu metinler burada yeniden yazılmamıştır; lisansa bağlantı verilmiştir.
+6(b) ve 6(c) metinleri lisansın 2. sayfasından aynen
+[statik harita bildirimlerine](static_map_attributions.md#09--eğim) alınmış ve
+DEM türevli haritaların (`01`, `09`, `13`) görünür atfında kullanılmıştır.
 
 ## 5. JRC/CEMS — Avrupa ve Akdeniz RP100 taşkın derinliği
 
@@ -163,10 +167,11 @@ güncel v3.1.1 dosyasıyla birebir sürüm eşleşmesini kanıtlamaz.
 - **Harita/rapor:** Kaynak ve değişiklikler belirtilir; ODbL kapsamı geçerliyse
   harita ile arkasındaki türev veritabanının yükümlülükleri ayrı ele alınır.
 
-**Dağıtım kararı:** İşlenmiş taşkın ve skor TIFF dosyaları ilk kamu
-paketinde yer almaz. Resmî metinler kendiliğinden çift lisans seçeneği sayılmaz;
-`07_taskin_skoru` görseli de bu lisans/türev kapsamı açıklanmadan onaylı
-yayın sayılmaz. Kaynak DOI'si korunur:
+**Dağıtım kararı:** İşlenmiş taşkın ve skor TIFF dosyaları kamu paketinde
+yer almaz. Resmî metinler kendiliğinden çift lisans seçeneği sayılmaz.
+`07_taskin_skoru` görseli lisans adı yerine kaynak, telif ve DOI atfıyla
+yayımlanır; lisans/türev kapsamı çözülmeden yapılan bu yayın talep halinde
+geri alınır. Kaynak DOI'si korunur:
 [10.2905/1D128B6C-A4EE-4858-9E34-6210707F3C81](https://doi.org/10.2905/1D128B6C-A4EE-4858-9E34-6210707F3C81).
 
 ## 6. WorldPop — Türkiye 2020 constrained UN-adjusted
@@ -210,8 +215,9 @@ extract'ini kaydeder. Kesin yıl/release bilinmez.
   kaynağı belirtilir; sürümü bilinmeyen extract'e yeni bir release'in lisansı
   veya tarihi atanmaz.
 
-**Dağıtım kararı:** Yerel VS30 ve zemin skoru TIFF dosyaları ilk kamu
-paketinde yer almaz; `04_zemin_kosulu_skoru` görseli koşullu inceleme adayıdır.
+**Dağıtım kararı:** Yerel VS30 ve zemin skoru TIFF dosyaları kamu
+paketinde yer almaz; `04_zemin_kosulu_skoru` görseli USGS ve Heath vd. (2020)
+atfıyla yayımlanır.
 Genel USGS kamu malı/CC0 yaklaşımı bütün üçüncü taraf bileşenlere otomatik
 genişletilmez. Bilinmeyen yıl/release bilinmiyor olarak kalır.
 
@@ -289,11 +295,13 @@ ayrı HydroATLAS/CC BY ürünlerinden alınmaz.
 **Uygulama:** HydroSHEDS lisansının **Ek B** kaynak ve garanti bildirimi
 gerekliliklerini esas al; Lehner ve Grill (2013),
 [10.1002/hyp.9740](https://doi.org/10.1002/hyp.9740) kaynağını belirt.
-HydroRIVERS context/AOI ve birleştirilmiş hidrografya/skor dosyaları ilk
-kamu paketinde yer almaz. Ayrı saf OSM gap-fill dosyası, ODbL koşullarıyla
-ayrı bir veri adayıdır; ilk görsel/kod kapsamına otomatik eklenmez.
-`08_hidrografya_yakinlik_skoru` için statik eser atfı ile ODbL 4.6 kapsamındaki
-türev veritabanı veya değişiklik yöntemine erişim düzeni birlikte ele alınır.
+HydroRIVERS context/AOI ve birleştirilmiş hidrografya/skor dosyaları kamu
+paketinde yer almaz. Ayrı saf OSM gap-fill dosyası, ODbL koşullarıyla
+ayrı bir veri adayıdır; görsel/kod kapsamına otomatik eklenmez.
+`08_hidrografya_yakinlik_skoru` görseli Ek B bildirimi ve OSM atfıyla
+yayımlanır; lisansın türev dağıtım hükmünün statik görsele uygulanma kapsamı
+çözülmemiştir. ODbL 4.6 kapsamındaki türev veritabanı veya değişiklik
+yöntemine erişim düzeni ayrıca açık kalır.
 
 ## 11. ESA — WorldCover 2021 v200
 
@@ -365,18 +373,18 @@ doğrula.
 
 ## Somut kamu kapsamı
 
-[İlk kamu paylaşım kapsamı](publication_file_scope.md), kaynak ve görselleri
-somut dosya adlarıyla ayırır. Kod/config/Markdown ve veri referanslı QGIS
-projesi; koşulları tamamlanan `03`, `06`, `09`, `10`, `11`, `12` statik
-haritalarıyla sunulabilir. Bu seçki bütün kaynak verilerine açık lisans vermez.
+[Kamu paylaşım kapsamı](publication_file_scope.md), kaynak ve görselleri
+somut dosya adlarıyla ayırır. Kod/config/Markdown, veri referanslı QGIS
+projesi ve `01`–`14` harita PNG görselleri kamu kapsamındadır. Görsel seçkisi
+kaynak verilerine açık lisans vermez.
 
 AFAD, MTA, JRC/CEMS, HydroRIVERS/OSM hibriti ve USGS Vs30 ailesindeki 27
 somut sayısal dosya yolu ilk paketin dışındadır; OSM-only dosyanın ayrı koşullu
 adaylığı listede belirtilir. Ana MCDA/senaryo rasterları ile tam yerel veri
 ZIP'i de bu ilk kamu kapsamına dahil değildir.
 
-Tam Word/PDF raporu ve atlası korunur. İçerdikleri `01`, `02`, `04`, `05`,
-`07`, `08`, `13` haritaları ve ilgili veri ekleri için kaynak kapsamı ayrı
+Harita PDF'leri, atlas ve tam Word/PDF raporu kamu paketinde yer almaz;
+yerel olarak korunur. İçerdikleri veri ekleri için kaynak kapsamı ayrı
 değerlendirilir; teknik QA bütün belgeye genel yayın izni sağlamaz. Özgün
 anlatım ve indirgenmiş analitik özetler, kaynak verisinin kopyasıyla otomatik
 aynı sayılmaz; raporun tamamına genel bir yasak sonucu çıkarılmaz.

@@ -1,8 +1,8 @@
 # Çanakkale Afet Öncelik Projesi Veri Manifesti
 
 **Kaynak sürümü kapsamı:** İlk kamu sürümü kod, yöntem belgeleri, QGIS
-proje tanımı ve seçilmiş analitik özetleri içerir. Tam kanonik veriler ve
-harita/rapor dosyaları dahil değildir. Bu belgedeki tam analiz, katman ve
+proje tanımı, seçilmiş analitik özetleri ve harita PNG görsellerini içerir.
+Tam kanonik veriler, harita PDF/atlas ve rapor dosyaları dahil değildir. Bu belgedeki tam analiz, katman ve
 çıktı kontrolleri ilgili yerel dosyalar ayrıca sağlandığında çalışır; kaynak
 kopyasında eksik girdilerin bildirilmesi beklenir. [Dosya kapsamı](publication_file_scope.md).
 
@@ -150,7 +150,7 @@ anılır; scriptler bu paketlerin proje klasöründe bulunmasını beklemez.
 | Varlık | Path | Rol |
 |---|---|---|
 | QGIS projesi | `qgis/canakkale_disaster_priority.qgz` | Harita düzeni, katman organizasyonu ve atlas üretimi |
-| Harita PNG çıktıları | `outputs/maps/png/` | Kamu raporu ve görsel sunum için 13 harita |
+| Harita PNG çıktıları | `outputs/maps/png/` | Kamu raporu ve görsel sunum için 14 harita |
 | Harita PDF çıktıları | `outputs/maps/pdf/` | Tekil kaynak kalitesinde harita exportları |
 | Birleşik atlas PDF | `outputs/atlas/canakkale_afet_oncelik_harita_atlasi.pdf` | 13 sayfalık harita atlası |
 | Rapor tabloları | `outputs/tables/` | MCDA sınıf, ilçe, raster istatistik ve sensitivity tabloları |

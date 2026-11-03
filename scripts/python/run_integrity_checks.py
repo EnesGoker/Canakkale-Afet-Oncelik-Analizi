@@ -25,9 +25,14 @@ CHECKS = (
     ("Korelasyon figürü ve kaynak checksum'ları", "plot_criterion_correlation.py", ("numpy",), "GDAL_PYTHON_BIN"),
     ("Senaryo ortaklığı yeniden hesabı ve kayıtlı raster/tablolar", "generate_scenario_agreement.py", ("numpy", "osgeo.gdal"), "GDAL_PYTHON_BIN"),
     ("Senaryo ortaklık haritası ve kaynak checksum'ları", "plot_scenario_agreement.py", ("numpy", "osgeo.gdal"), "GDAL_PYTHON_BIN"),
+    ("Ağırlık pertürbasyonu yeniden hesabı ve kayıtlı raster/tablolar", "generate_weight_perturbation.py", ("numpy", "osgeo.gdal"), "GDAL_PYTHON_BIN"),
+    ("MCDA senaryo varyantları, alternatif eşikler ve kayıtlı tablolar", "generate_mcda_variants.py", ("numpy", "osgeo.gdal"), "GDAL_PYTHON_BIN"),
     ("QGIS düzenleri, kilitli stiller ve kayıtlı harita/atlas dosyaları", "check_map_layouts.py", (), "PYTHON_BIN"),
     ("QGIS gerçek proje okuma ve yerel katmanlar", "check_qgis_runtime.py", ("qgis.core",), "QGIS_PYTHON_BIN"),
 )
+# Seconds per check; the full Dirichlet recomputation (8,000 samples) needs more than the default.
+TIMEOUTS = {"generate_weight_perturbation.py": 900}
+DEFAULT_TIMEOUT = 120
 
 
 def runtime_environment(executable: str, source: dict[str, str]) -> dict[str, str]:
@@ -86,7 +91,7 @@ def execute_check(executable: str, env: dict[str, str], script: Path, root: Path
     try:
         result = subprocess.run(
             [executable, str(script), "--check", "--project-root", str(root), "--json"],
-            env=env, capture_output=True, text=True, timeout=120,
+            env=env, capture_output=True, text=True, timeout=TIMEOUTS.get(Path(script).name, DEFAULT_TIMEOUT),
         )
     except (OSError, subprocess.TimeoutExpired) as error:
         return {"exit_code": 1, "status": "failed", "message": f"Kontrol çalıştırılamadı: {type(error).__name__}"}
@@ -134,6 +139,16 @@ def print_human_result(result: dict) -> None:
         comparison = result.get("artifact_comparison", {})
         print(f"  Kayıtlı dosya: {comparison.get('checked_files', 0)}; raster hücresi: {comparison.get('checked_raster_cells', 0)}; tablo satırı: {comparison.get('checked_table_rows', 0)}.")
         print(f"  Sayısal karşılaştırılan eski CSV: {result.get('reference_validation', {}).get('numeric_tables_checked', 0)}.")
+    if "kappas" in result:
+        comparison = result.get("artifact_comparison", {})
+        verdict = result.get("convergence", {})
+        print(f"  κ: {result['kappas']}; örnek: {result['samples']}; AOI: {result['aoi_cells']} hücre; tohum yeniden üretildi: {result.get('seed_reproduced')}.")
+        print(f"  Kayıtlı dosya: {comparison.get('checked_files', 0)}; raster hücresi: {comparison.get('checked_raster_cells', 0)}; tablo satırı: {comparison.get('checked_table_rows', 0)}.")
+        print(f"  Yakınsama: %99 fark {verdict.get('p99_abs_difference_open_cells')}; P≥0,5 alan değişimi {verdict.get('p_ge_050_area_relative_change')}; geçti: {verdict.get('passed')}.")
+    if "natural_breaks_gvf" in result:
+        comparison = result.get("artifact_comparison", {})
+        print(f"  Varyant: {', '.join(result['scenarios'])}; AOI: {result['aoi_cells']} hücre; doğal kırılma GVF: {result['natural_breaks_gvf']:.4f}.")
+        print(f"  Kayıtlı dosya: {comparison.get('checked_files', 0)}; tablo satırı: {comparison.get('checked_table_rows', 0)}.")
     if result.get("message"):
         print(f"  {result['message']}")
     for raster in result.get("rasters", []):

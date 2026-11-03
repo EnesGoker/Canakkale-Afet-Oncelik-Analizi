@@ -1,0 +1,26 @@
+evidence_id,category,value,unit,note
+aoi_cells,count,981033,cells,Template AOI cells
+flood_score_positive_cells,count,32862,cells,flood_score > 0; every other AOI cell is source NoData mapped to 0
+flood_score_positive_share,share,0.033497344126038574,fraction,
+baseline_high_plus_cells,count,54592,cells,Baseline classes 4-5
+baseline_high_plus_with_flood,count,4902,cells,
+baseline_high_plus_flood_share,share,0.08979337631887456,fraction,
+baseline_very_high_cells,count,699,cells,Baseline class 5
+baseline_very_high_with_flood,count,396,cells,
+baseline_very_high_flood_share,share,0.5665236051502146,fraction,Share of class 5 cells with a positive flood score
+flood_depth_valid_cells,source_raster,40589,cells,"Processed 90 m depth raster, whole extent"
+flood_depth_zero_cells,source_raster,0,cells,Valid cells with depth 0; dry modelled cells would need such values
+flood_depth_min_valid_m,source_raster,0.10000000149011612,m,Values exist only where water depth is positive
+flood_cell_distance_upland_ge_150_km2_p50,distance,500,m,Distance of flood_score > 0 cells to HydroRIVERS reaches with UPLAND_SKM >= 150 km²
+flood_cell_distance_upland_ge_150_km2_p90,distance,4700.95703125,m,Distance of flood_score > 0 cells to HydroRIVERS reaches with UPLAND_SKM >= 150 km²
+flood_cell_distance_upland_ge_150_km2_p99,distance,17751.158203125,m,Distance of flood_score > 0 cells to HydroRIVERS reaches with UPLAND_SKM >= 150 km²
+flood_cell_distance_upland_ge_150_km2_max,distance,25804.263671875,m,Distance of flood_score > 0 cells to HydroRIVERS reaches with UPLAND_SKM >= 150 km²
+flood_cell_distance_upland_ge_500_km2_p50,distance,1431.7821044921875,m,Distance of flood_score > 0 cells to HydroRIVERS reaches with UPLAND_SKM >= 500 km²
+flood_cell_distance_upland_ge_500_km2_p90,distance,24040.4453125,m,Distance of flood_score > 0 cells to HydroRIVERS reaches with UPLAND_SKM >= 500 km²
+flood_cell_distance_upland_ge_500_km2_p99,distance,42449.62890625,m,Distance of flood_score > 0 cells to HydroRIVERS reaches with UPLAND_SKM >= 500 km²
+flood_cell_distance_upland_ge_500_km2_max,distance,43935.5234375,m,Distance of flood_score > 0 cells to HydroRIVERS reaches with UPLAND_SKM >= 500 km²
+nodata_meaning,source_finding,unverified,,The product README and CHANGELOG do not define NoData; the README states that only land areas are covered. Source: https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/CEMS-EFAS/flood_hazard/README.txt
+modelled_network_threshold,source_finding,v2_only,,The v2 method paper models rivers with upstream drainage areas above 500 km²; the current v3 README states no threshold. Source: https://doi.org/10.5194/essd-14-1549-2022
+coverage_layer,source_finding,absent,,The current directory holds only permanent water bodies and an RP10 spurious-depth flag; the v2 river network map is not present. Source: https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/CEMS-EFAS/flood_hazard/
+local_version,source_finding,unknown,,The local file keeps the name Europe_RP100_filled_depth.tif without a release; the name does not prove a match with a listed version. Source: https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/CEMS-EFAS/flood_hazard/CHANGELOG.txt
+flood_defences,source_finding,documented,,The v2 method paper states that the maps do not account for local flood defences. Source: https://doi.org/10.5194/essd-14-1549-2022

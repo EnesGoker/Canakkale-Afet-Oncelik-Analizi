@@ -51,7 +51,9 @@
       "data/processed/osm/canakkale_osm_pois_32635.gpkg",
       "data/processed/osm/canakkale_osm_roads_32635.gpkg",
       "data/processed/osm/canakkale_osm_transport_points_32635.gpkg",
-      "outputs/analysis/scenario_agreement_v1/scenario_agreement_count_32635.tif"
+      "outputs/analysis/scenario_agreement_v1/scenario_agreement_count_32635.tif",
+      "outputs/analysis/weight_perturbation_v1/high_plus_probability_count_32635.tif",
+      "outputs/maps/layers/baseline_high_plus_boundary_32635.geojson"
     ]
   }
 }

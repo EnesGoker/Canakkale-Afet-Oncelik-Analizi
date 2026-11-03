@@ -4,7 +4,7 @@
 In a copy of the public source edition, analysis_baseline.py and
 check_portability.py are run with --scope public-source. Each must exit 0,
 and what each lists as skipped must equal config/public_scope_expected_v1.json
-exactly: the 16 frozen data files and 28 local QGIS layers the edition omits.
+exactly: the 16 frozen data files and 30 local QGIS layers the edition omits.
 A missing, extra or renamed entry fails. In a copy with the canonical data the
 tools themselves fail by design; use their full scope there.
 

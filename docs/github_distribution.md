@@ -1,13 +1,14 @@
 # GitHub Yayınlama ve İndirme Rehberi
 
-**Kaynak sürümü kapsamı:** Aşağıdaki harita, raster, atlas ve Word/PDF
+**Kaynak sürümü kapsamı:** Aşağıdaki raster, harita PDF, atlas ve Word/PDF
 yolları tam yerel çalışma çıktısıdır; bu dosyalar kaynak ve analitik özet
-sürümünde dağıtılmaz. Yerel üretim/kontrol komutları ilgili kanonik veri ve
+sürümünde dağıtılmaz. `outputs/maps/png/` altındaki harita PNG'leri kamu
+kapsamındadır. Yerel üretim/kontrol komutları ilgili kanonik veri ve
 çıktıların ayrıca bulunmasını gerektirir. [Kamu dosya kapsamı](publication_file_scope.md).
 
-**Geçerli kamu sürümü:** Kaynak kodu, yöntem belgeleri, QGIS proje tanımı ve
-seçilmiş analitik özetler sunulur. Tam veri, harita, atlas ve Word/PDF raporu
-bu sürümde dağıtılmaz. Tam yerel paket için aşağıda ayrıca koşullu teknik
+**Geçerli kamu sürümü:** Kaynak kodu, yöntem belgeleri, QGIS proje tanımı,
+seçilmiş analitik özetler ve görünür atıflı harita PNG'leri sunulur. Tam veri,
+harita PDF'leri, atlas ve Word/PDF raporu dağıtılmaz. Tam yerel paket için aşağıda ayrıca koşullu teknik
 akış açıklanır. Güncel kararlar
 [ilk yayın dosyası listesinde](../PUBLICATION_STATUS.md), kaynakların resmî
 koşulları [veri hakları kaydında](data_rights_and_distribution.md) tutulur.
@@ -144,7 +145,7 @@ seçilmiş analitik özetlerden hazırlanır. Özel çalışma Git geçmişi vey
 teknik portable ZIP bu sürüme aktarılmaz. Yalnız temiz kamu klasöründe
 oluşturulan geçmiş yayımlanır; `.gitignore` geçmişteki özel dosyaları silmez.
 
-Depo ve sürüm açıklaması; kanonik verilerin, harita/atlas ve raporun bu
+Depo ve sürüm açıklaması; kanonik verilerin, harita PDF/atlas ve raporun bu
 sürümde bulunmadığını açıkça belirtmelidir. Kaynak kodu arşivini tam veri
 paketi veya katmanlarıyla eksiksiz QGIS projesi olarak sunmayın. Kod lisansı,
 model/belge ve üçüncü taraf kaynak kapsamı ayrı korunur.

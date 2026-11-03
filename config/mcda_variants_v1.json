@@ -1,0 +1,40 @@
+{
+  "format_version": 1,
+  "baseline_id": "canakkale-canonical-11criteria-v1",
+  "output_dir": "outputs/analysis/mcda_variants_v1",
+  "scenarios": [
+    {"id": "flood_weight_zero", "group": "flood", "role": "main", "label_tr": "Taşkın ağırlığı 0, oransal dağıtım",
+     "remove": ["flood_score"]},
+    {"id": "vegetation_mean_reduced", "group": "vegetation", "role": "main", "label_tr": "Vejetasyon ortalaması, blok ağırlığı 0,06/0,96",
+     "merge": {"criteria": ["landcover_sensitivity_score", "tree_cover_score"], "into": "vegetation_score", "method": "mean", "block_weight": "largest_member"}},
+    {"id": "vegetation_mean_same_block", "group": "vegetation", "role": "supplementary", "label_tr": "Vejetasyon ortalaması, blok ağırlığı 0,10",
+     "merge": {"criteria": ["landcover_sensitivity_score", "tree_cover_score"], "into": "vegetation_score", "method": "mean", "block_weight": "sum"}},
+    {"id": "vegetation_drop_tree", "group": "vegetation", "role": "supplementary", "label_tr": "Ağaç örtüsü çıkarıldı, oransal dağıtım",
+     "remove": ["tree_cover_score"]},
+    {"id": "vegetation_separate_reduced", "group": "vegetation", "role": "supplementary", "label_tr": "İki kriter ayrı, blok ağırlığı 0,06/0,96",
+     "rescale": {"criteria": ["landcover_sensitivity_score", "tree_cover_score"], "block_weight": "largest_member"}}
+  ],
+  "classification": {"methods": ["equal_interval", "quantile", "natural_breaks"], "natural_breaks_bins": 1000},
+  "flood_evidence": {
+    "hydrorivers": "data/reference/hydrography/canakkale_hydrorivers_32635.gpkg",
+    "flood_depth": "data/processed/flood/canakkale_flood_rp100_depth_32635.tif",
+    "upstream_area_thresholds_km2": [150, 500],
+    "source_findings": [
+      {"id": "nodata_meaning", "status": "unverified",
+       "finding": "The product README and CHANGELOG do not define NoData; the README states that only land areas are covered.",
+       "source": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/CEMS-EFAS/flood_hazard/README.txt"},
+      {"id": "modelled_network_threshold", "status": "v2_only",
+       "finding": "The v2 method paper models rivers with upstream drainage areas above 500 km²; the current v3 README states no threshold.",
+       "source": "https://doi.org/10.5194/essd-14-1549-2022"},
+      {"id": "coverage_layer", "status": "absent",
+       "finding": "The current directory holds only permanent water bodies and an RP10 spurious-depth flag; the v2 river network map is not present.",
+       "source": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/CEMS-EFAS/flood_hazard/"},
+      {"id": "local_version", "status": "unknown",
+       "finding": "The local file keeps the name Europe_RP100_filled_depth.tif without a release; the name does not prove a match with a listed version.",
+       "source": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/CEMS-EFAS/flood_hazard/CHANGELOG.txt"},
+      {"id": "flood_defences", "status": "documented",
+       "finding": "The v2 method paper states that the maps do not account for local flood defences.",
+       "source": "https://doi.org/10.5194/essd-14-1549-2022"}
+    ]
+  }
+}

@@ -312,6 +312,29 @@ senaryonun yüksek/çok yüksek hücrelerini konumlarıyla karşılaştırır.
 İl ve ilçe tabloları, baseline'a göre korunan/eklenen/çıkan alanları da verir.
 Bu ek analiz, mevcut senaryo tanımlarını ve sonuçlarını değiştirmez.
 
+[Ağırlık pertürbasyonu](../analysis/weight_perturbation.md), baseline
+ağırlıklarının çevresinde iki ek deneme yapar: her kriter için tek tek ±%10 /
+±%20 değişim (OAT) ve Dirichlet(κ·w) örneklemesi (κ = 100 ana; κ = 50 ve 200
+özet; κ başına 2.000 örnek, sabit tohum). Ana ölçü sıralama tabanlıdır: her
+örnekte baseline'ın yüksek + çok yüksek hücre sayısı (54.592) en yüksek ham
+skordan seçilir. Bu ölçüde yüksek+ alanı **tanım gereği sabittir**
+(545,92 km²); sonuç alanın büyüklüğünü değil, **konumunun kararlılığını**
+ölçer. κ = 100'de örneklerin en az %90'ında yüksek+ kalan dayanıklı çekirdek
+215,75 km²'dir (baseline yüksek+'nın %39,52'si); kalan yaklaşık %60 ağırlığa
+duyarlıdır. Baseline sabit ölçeğiyle (`0.029/0.473`) alan değişimi yalnız ek
+tabloda verilir. Üç mevcut senaryo da sıralama tabanlı ölçüyle köprü satırı
+olarak hesaplanmıştır; yukarıdaki tablo ve eski CSV'ler değişmez.
+
+[MCDA varyantları](../analysis/mcda_variants.md) üç modelleme seçimini tek tek
+sınar: taşkın ağırlığının sıfırlanması (kaynak NoData'sının anlamı
+doğrulanamadığı için kapsama maskesi kurulmaz), arazi örtüsü ile ağaç
+örtüsünün ortalama tek kriterde birleştirilmesi (blok ağırlığı 0,06/0,96 =
+0,0625; ek satırlar yalnız birleştirme, yalnız blok ağırlığını düşürme ve ağaç
+örtüsünü çıkarma) ve
+eşik seçiminin etkisi (kantil ve doğal kırılma, yalnız baseline skorunda).
+Sıralama tabanlı ölçüde Jaccard sırasıyla 0,958, 0,850 (0,935 / 0,814 / 0,676);
+kanonik eşit aralıklı sınıflar değişmez.
+
 Tablosal çıktı dosyaları:
 
 ```text

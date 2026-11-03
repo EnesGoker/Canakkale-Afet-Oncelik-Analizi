@@ -28,6 +28,11 @@ MAP_TYPE = "65639"
 LEGEND_TYPE = "65642"
 WEB_PROVIDERS = {"wms", "xyz", "wfs", "vectortile", "arcgismapserver", "arcgisfeatureserver"}
 AGREEMENT_COLORS = ["#e2e5e9", "#f8d36a", "#e98747", "#542788"]
+LAYOUT_COUNT = 14
+# Map 14: P(high-plus) = count / 2000; classes 0 / <0.25 / <0.50 / <0.75 / <0.90 / >=0.90 as
+# DISCRETE upper bounds on the integer count. P = 0 is transparent.
+PROBABILITY_VALUES = [0.0, 499.0, 999.0, 1499.0, 1799.0, 2000.0]
+PROBABILITY_COLORS = ["#ffffff", "#dadaeb", "#bcbddc", "#9e9ac8", "#756bb1", "#54278f"]
 
 
 def sha256_file(path: Path) -> str:
@@ -75,8 +80,8 @@ def validate_contract(contract: dict) -> None:
     if not isinstance(contract, dict) or contract.get("format_version") != 1:
         raise ValueError("Harita sözleşmesinin sürümü geçersiz.")
     records = contract.get("layouts")
-    if not isinstance(records, list) or len(records) != 13:
-        raise ValueError("Harita sözleşmesi tam 13 düzen içermeli.")
+    if not isinstance(records, list) or len(records) != LAYOUT_COUNT:
+        raise ValueError(f"Harita sözleşmesi tam {LAYOUT_COUNT} düzen içermeli.")
     names, stems, thematic = [], [], []
     for record in records:
         if not isinstance(record, dict):
@@ -86,6 +91,8 @@ def validate_contract(contract: dict) -> None:
                 raise ValueError("Düzen sözleşmesinde zorunlu alan eksik.")
         if not re.fullmatch(r"[0-9]{2}_[a-z0-9_]+", record["output_stem"]):
             raise ValueError("Düzen çıktı adı geçersiz.")
+        if not isinstance(record.get("pdf_export", True), bool):
+            raise ValueError("Düzenin pdf_export alanı true/false olmalı.")
         ids = record.get("layer_ids_ordered")
         styles = record.get("expected_layer_style_hashes")
         if (not isinstance(ids, list) or not ids or any(not isinstance(v, str) or not v for v in ids)
@@ -99,10 +106,10 @@ def validate_contract(contract: dict) -> None:
         names.append(record["layout_name"])
         stems.append(record["output_stem"])
         thematic.append(record["thematic_layer_id"])
-    if any(len(set(values)) != 13 for values in (names, stems, thematic)):
+    if any(len(set(values)) != LAYOUT_COUNT for values in (names, stems, thematic)):
         raise ValueError("Düzen adları, çıktı adları ve tematik katmanlar benzersiz olmalı.")
-    if [stem[:2] for stem in stems] != [f"{i:02d}" for i in range(1, 14)]:
-        raise ValueError("Düzenler 01–13 çıktı sırasıyla kaydedilmeli.")
+    if [stem[:2] for stem in stems] != [f"{i:02d}" for i in range(1, LAYOUT_COUNT + 1)]:
+        raise ValueError(f"Düzenler 01–{LAYOUT_COUNT} çıktı sırasıyla kaydedilmeli.")
 
 
 
@@ -124,6 +131,26 @@ def validate_agreement_style(style: ET.Element) -> None:
     legend = shader.find("rampLegendSettings")
     if legend is None or legend.get("useContinuousLegend") != "0":
         raise ValueError("13. haritada sürekli lejant kapalı olmalı.")
+
+
+def validate_probability_style(style: ET.Element) -> None:
+    shader = style.find(".//colorrampshader")
+    if shader is None or shader.get("colorRampType") != "DISCRETE":
+        raise ValueError("14. haritanın renk enterpolasyonu DISCRETE olmalı.")
+    items = shader.findall("item")
+    try:
+        values = [float(item.get("value", "nan")) for item in items]
+    except ValueError:
+        raise ValueError("14. haritanın sınıf sınırları geçersiz.") from None
+    if values != PROBABILITY_VALUES:
+        raise ValueError("14. haritanın sınıf sınırları sayım 0, 499, 999, 1499, 1799, 2000 olmalı.")
+    if [item.get("color", "").lower() for item in items] != PROBABILITY_COLORS:
+        raise ValueError("14. haritanın renkleri onaylı rampadan farklı.")
+    if [item.get("alpha") for item in items] != ["0"] + ["255"] * 5 or any(not item.get("label", "").strip() for item in items):
+        raise ValueError("14. haritada P = 0 saydam, diğer sınıflar opak ve etiketli olmalı.")
+    legend = shader.find("rampLegendSettings")
+    if legend is None or legend.get("useContinuousLegend") != "0":
+        raise ValueError("14. haritada sürekli lejant kapalı olmalı.")
 
 
 def validate_layout(layout: ET.Element, record: dict, all_thematic_ids: set[str], layers: dict) -> None:
@@ -159,6 +186,8 @@ def validate_layout(layout: ET.Element, record: dict, all_thematic_ids: set[str]
         raise ValueError("Harita kümesi başka bir haritanın tematik katmanını içeriyor.")
     if record["output_stem"].startswith("13_"):
         validate_agreement_style(styles[record["thematic_layer_id"]])
+    if record["output_stem"].startswith("14_"):
+        validate_probability_style(styles[record["thematic_layer_id"]])
     if xml_sha256(layout) != record["layout_sha256"]:
         raise ValueError("Düzenin sayfa tasarımı/içeriği onaylı sözleşmeden farklı.")
 
@@ -175,7 +204,9 @@ def validate_exports(root: Path, contract: dict, qgs_path: Path) -> tuple[int, s
     else:
         validate_metadata_revision(qgs_path.read_bytes(), project_path(root, contract["project_qgz"]).read_bytes(),
                                    manifest.get("project_qgs_sha256"), manifest.get("metadata_revision"))
-    expected = {f"outputs/maps/{kind}/{r['output_stem']}.{kind}" for r in contract["layouts"] for kind in ("png", "pdf")}
+    pdf_layouts = [r for r in contract["layouts"] if r.get("pdf_export", True)]
+    expected = {f"outputs/maps/png/{r['output_stem']}.png" for r in contract["layouts"]}
+    expected |= {f"outputs/maps/pdf/{r['output_stem']}.pdf" for r in pdf_layouts}
     atlas = contract["atlas_path"]
     project_path(root, atlas)
     if atlas in expected:
@@ -186,7 +217,7 @@ def validate_exports(root: Path, contract: dict, qgs_path: Path) -> tuple[int, s
         raise ValueError("Harita çıktı manifestinin dosya listesi geçersiz.")
     paths = [row.get("path") for row in rows]
     if any(not isinstance(p, str) for p in paths) or len(set(paths)) != len(paths) or set(paths) != expected:
-        raise ValueError("Harita manifesti tam 13 PNG, 13 PDF ve bir atlas içermeli.")
+        raise ValueError(f"Harita manifesti tam {len(contract['layouts'])} PNG, {len(pdf_layouts)} PDF ve bir atlas içermeli.")
     for row in rows:
         path = project_path(root, row["path"])
         if not path.is_file():
@@ -207,7 +238,7 @@ def validate_exports(root: Path, contract: dict, qgs_path: Path) -> tuple[int, s
         elif path.suffix.lower() == ".pdf":
             if not header.startswith(b"%PDF-"):
                 raise ValueError("Harita PDF başlığı geçersiz.")
-            if row.get("page_count") != (13 if row["path"] == atlas else 1):
+            if row.get("page_count") != (len(pdf_layouts) if row["path"] == atlas else 1):
                 raise ValueError("Kaydedilen PDF sayfa kontrolü eksik/yanlış.")
         else:
             raise ValueError("Harita manifestinde desteklenmeyen çıktı biçimi.")
@@ -250,7 +281,7 @@ def audit_project(project_root: Path, contract_path: Path = CONTRACT) -> tuple[d
         layout_names = [e.get("name") for e in layout_nodes]
         expected_names = [r["layout_name"] for r in contract["layouts"]]
         if len(set(layout_names)) != len(layout_names) or set(layout_names) != set(expected_names):
-            raise ValueError("Proje düzenleri tam 13 onaylı düzenle eşleşmiyor.")
+            raise ValueError(f"Proje düzenleri tam {LAYOUT_COUNT} onaylı düzenle eşleşmiyor.")
         layouts = dict(zip(layout_names, layout_nodes))
         all_thematic = {r["thematic_layer_id"] for r in contract["layouts"]}
         for record in contract["layouts"]:

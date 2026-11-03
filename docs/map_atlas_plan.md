@@ -1,11 +1,12 @@
 # Çanakkale harita atlası planı ve düzen sözleşmesi
 
-**Kaynak sürümü kapsamı:** Aşağıdaki harita, raster, atlas ve Word/PDF
+**Kaynak sürümü kapsamı:** Aşağıdaki raster, harita PDF, atlas ve Word/PDF
 yolları tam yerel çalışma çıktısıdır; bu dosyalar kaynak ve analitik özet
-sürümünde dağıtılmaz. Yerel üretim/kontrol komutları ilgili kanonik veri ve
+sürümünde dağıtılmaz. `outputs/maps/png/` altındaki harita PNG'leri kamu
+kapsamındadır. Yerel üretim/kontrol komutları ilgili kanonik veri ve
 çıktıların ayrıca bulunmasını gerektirir. [Kamu dosya kapsamı](publication_file_scope.md).
 
-Güncelleme: 2026-10-24.
+Güncelleme: 2026-11-03.
 
 Atlas, 13 QGIS düzeninin tekil PDF çıktılarından birleştirilir. Düzenlerin
 metinleri, renkleri, harita kapsamları ve sayfa öğeleri üretim sözleşmesinin
@@ -14,7 +15,8 @@ kullanılır; genel QGIS projesinde veya Git'te tutulmaz.
 
 Atlas; nihai öncelik sınıfı, 11 kriter haritası ve üç senaryonun yüksek
 öncelik ortaklığını gösteren sayfa olmak üzere 13 coğrafi haritadan
-oluşur. Korelasyon figürü (`outputs/figures/criterion_correlation_v1/criterion_pearson_correlation.png`)
+oluşur. 14. QGIS düzeni (yüksek öncelikte kalma oranı) yalnız PNG olarak
+üretilir; sözleşmede `pdf_export: false` taşır ve atlasa girmez. Korelasyon figürü (`outputs/figures/criterion_correlation_v1/criterion_pearson_correlation.png`)
 ayrı bir analiz görselidir. Güncel teknik bağlama kaydı
 [map_layouts_v1.json](../config/map_layouts_v1.json), çıktı kontrolü
 [harita QA belgesidir](qa/map_export_qa.md).
@@ -53,9 +55,11 @@ klasöründedir. Düzen adı köke `_layout` eklenerek elde edilir.
 | 11 | Ağaç Örtüsü Skoru | `tree_cover_score_32635.tif` | `11_agac_ortusu_skoru` |
 | 12 | Yol Erişim Zorluğu Skoru | `road_accessibility_difficulty_score_32635.tif` | `12_yol_erisim_zorlugu_skoru` |
 | 13 | Üç Senaryoda Yüksek Öncelik Ortaklığı | `scenario_agreement_count_32635.tif` | `13_senaryo_ortakligi` |
+| 14 | Yüksek Öncelikte Kalma Oranı (yalnız PNG) | `high_plus_probability_count_32635.tif` | `14_yuksek_oncelik_olasiligi` |
 
 İlk 12 raster `data/processed/analysis/`, 13. raster
-`outputs/analysis/scenario_agreement_v1/` içindedir. Atlasın adı
+`outputs/analysis/scenario_agreement_v1/`, 14. raster
+`outputs/analysis/weight_perturbation_v1/` içindedir. Atlasın adı
 `outputs/atlas/canakkale_afet_oncelik_harita_atlasi.pdf` olarak korunur.
 
 ## Haritaya özel referanslar
@@ -74,6 +78,7 @@ ortada, altlık en alttadır. Sayfalara göre ek referanslar şöyledir:
 | 09–11 | Yok |
 | 12 | Yol ağı |
 | 13 | Yok |
+| 14 | Baseline yüksek+ sınırı (tematik rasterın üstünde) |
 
 Bu seçimler proje ana ekranındaki aç/kapa durumundan bağımsızdır. Lejantlar
 kendi haritalarına bağlanır; katman kümesi ve stilleri her sayfa için kilitlidir.
@@ -83,6 +88,12 @@ Fiili paletler [semboloji kaydında](map_symbology_qa.md) açıklanır.
 13 sayfası PDF okuma ve görsel çizim kontrolünden geçmiştir. Düzen/çıktı
 kontrolü 13 düzen ve 27 dosyayı doğrular; ana canonical QA çıkış 0 ile geçmiştir.
 Ayrıntılı kapsam ve üretim kanıtı [QA kaydındadır](qa/map_export_qa.md).
+2026-11-02 (v0.2) üretiminde 13 harita alt bant atıf etiketiyle yeniden dışa
+aktarılmış, atlas bu 13 PDF'ten aynı sıra ve sayfa içerik akışı eşliğiyle yeniden
+birleştirilmiştir; düzen/çıktı kontrolü yine 13 düzen ve 27 dosyayı doğrular.
+2026-11-03'te 14. düzen eklenmiş, 01–13 aynı projeden yeniden dışa aktarılmış ve
+atlas aynı sayfalarla değişmeden yeniden birleştirilmiştir; düzen/çıktı kontrolü
+14 düzen ve 28 dosyayı (14 PNG, 13 PDF, atlas) doğrular.
 
 ## Ortak sayfa ve yorum bilgileri
 
@@ -100,22 +111,26 @@ alternatiflerin kendi AOI min–max normalizasyonu kullanıldığı için harita
 ortak mutlak tehlike eşiği ya da yalnız ağırlık değişiminin etkisi değildir.
 [Analiz yorumu](analysis/scenario_agreement.md) bu sınırı ve alan sonuçlarını açıklar.
 
+14. haritanın değeri P(yüksek+) = sayım / 2.000'dir: hücrenin 2.000 ağırlık
+örneğinde sıralama tabanlı yüksek+ sınıfta kalma oranı. Afet olasılığı değildir;
+sınıflar ve yorum [ağırlık pertürbasyonu analizindedir](analysis/weight_perturbation.md).
+
 ## Dışa aktarma ve doğrulama
 
 PNG üretimi 300 DPI, arka plan opak, sayfa A3 yataydır. Tekil PDF'ler birer
-sayfadır; atlas 01–13 sırasıyla 13 sayfadır. Dosya adları küçük ASCII harf,
+sayfadır (14 için PDF yok); atlas 01–13 sırasıyla 13 sayfadır. Dosya adları küçük ASCII harf,
 alt çizgi ve iki haneli sıra numarası kullanır. `_layout` eki çıktı adına girmez.
 
 ```bash
 python3 scripts/python/export_map_layouts.py --check --json
 ```
 
-Kaydedilmiş ürünler [27 dosya manifestiyle](../outputs/maps/map_export_manifest.json)
+Kaydedilmiş ürünler [28 dosya manifestiyle](../outputs/maps/map_export_manifest.json)
 eşleştirilir. HTTP 200 yanıtı veren altlık görseli de hatalı içerik
 taşıyabilir; teknik üretim sonrasında görsel inceleme ayrıca gereklidir.
 
 Yeniden üretim `--generate --output-dir <yeni-veya-boş-klasör>` ile açıkça
-başlatılır; yalnız 13. sayfa için `--layouts 13`, CARTO döşemelerini çizmek için
+başlatılır; seçili düzenler için `--layouts` (ör. `--layouts 14`), CARTO döşemelerini çizmek için
 `--allow-web-basemap` ve `CARTO_BASEMAPS_API_KEY` gerekir. Anahtar ortam
 değişkeniyle yalnız çalışma anında sağlanır; salt okunur kontrol anahtar istemez;
 özel anahtar dosyasından okuma örneği [QA belgesindedir](qa/map_export_qa.md).
@@ -128,7 +143,7 @@ kontrol kayıtları [QA belgesinde](qa/map_export_qa.md) yer alır.
 ## Mevcut PDF'lerden atlası yeniden birleştirme
 
 Bu adım haritaları yeniden çizmez; mevcut 13 tek sayfalık PDF'yi sözleşmedeki
-sırayla birleştirir. CARTO anahtarı veya ağ erişimi gerekmez. `pypdf` isteğe
+sırayla birleştirir (`pdf_export: false` olan 14. düzen atlanır). CARTO anahtarı veya ağ erişimi gerekmez. `pypdf` isteğe
 bağlı birleştirme bağımlılığıdır; temel QA gereksinimlerinin parçası değildir.
 Gerekirse seçtiğiniz Python ortamına `python3 -m pip install pypdf` ile kurulur.
 
@@ -142,7 +157,8 @@ import json
 from pathlib import Path
 from pypdf import PdfReader, PdfWriter
 
-records = json.loads(Path("config/map_layouts_v1.json").read_text())["layouts"]
+records = [r for r in json.loads(Path("config/map_layouts_v1.json").read_text())["layouts"]
+           if r.get("pdf_export", True)]
 assert len(records) == 13
 writer = PdfWriter()
 source_hashes = []
