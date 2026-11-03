@@ -1,6 +1,6 @@
 # Veri hakları ve kamuya dağıtım kapsamı
 
-Güncelleme: **3 Kasım 2026** (`v0.2.0`). Kaynak koşulları ilk olarak 29 Ekim
+Güncelleme: **3 Kasım 2026** (`v0.2.1`). Kaynak koşulları ilk olarak 29 Ekim
 2026'da kontrol edildi; harita görselleri için eklenen koşullar 2 Kasım 2026'da.
 
 Bu belge, üçüncü taraf kaynakların kaynak deposu, statik görsel ve sayısal

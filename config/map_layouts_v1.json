@@ -24,7 +24,7 @@
         "mcda_priority_class_32635_e0d9729e_6fa8_43ec_8812_133776b092ce": "54fb2a7961a7a19afed9b7d19d87bfe9edef026a3eea9fca16dad8e9ba61f29a",
         "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
       },
-      "layout_sha256": "005af0a3d2458dea792cddd4634d8cc212ae1778644f49cdebde854126042883"
+      "layout_sha256": "b79d5d291929ff647f8d22123a10f56da790e29c2d19dc444fc6cae771a8ea57"
     },
     {
       "layout_name": "02_fay_yakinlik_skoru_layout",
@@ -45,7 +45,7 @@
         "fault_proximity_score_32635_4b2fd6e4_1e37_4547_9e49_5fa8d8332a36": "96d166740aef1ed71b4aa0ab62fc6b04e9b9603636d4f6c51aa2f6d8b7b4df6c",
         "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
       },
-      "layout_sha256": "64c44aec5795df82f7095eb56b7418bda805da37e537e2658b426fd0a6df6445"
+      "layout_sha256": "e632c368eda69551285bcbe97001c0536310df35d4f053a5288496a4b19830e6"
     },
     {
       "layout_name": "03_nufus_maruziyet_skoru_layout",
@@ -66,7 +66,7 @@
         "population_exposure_score_32635_e56bdac3_48ff_4df9_a8c4_7e2ebd7faa3c": "3b8a0b69c76a7ae9b0197965127a9d1c2ff10dc9c5680840aee501295974c68b",
         "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
       },
-      "layout_sha256": "dbdc0186ab51d2c4c89b64a8bc23a7df147ad600b6a27a11146a48316512cbc9"
+      "layout_sha256": "861f6d76ca3d0fb8b81142f588d238ee6d96f53854d0e4b9273f0a0bb5be6c11"
     },
     {
       "layout_name": "04_zemin_kosulu_skoru_layout",
@@ -85,7 +85,7 @@
         "site_condition_score_32635_d7a35400_1a01_40e2_bc0f_1c2b9b52ce53": "64a4822b550c74058c7bf4a16b5ff365504d866a103fe3df1a532a86a2668471",
         "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
       },
-      "layout_sha256": "2c58febc28b0e382088e5cd975665d42d7c6bea3851f101c738623ed2ad154a9"
+      "layout_sha256": "fbf1d8bab7ca93b5d3dac38b3229a75387af0be330c7b5c9165d8ecaa56546a9"
     },
     {
       "layout_name": "05_deprem_pga_skoru_layout",
@@ -104,7 +104,7 @@
         "earthquake_pga_score_32635_6968404b_8b99_4aed_a1b8_eccd43ac79ed": "49710e07eb64a29aae22b1b97cf5bff5a137a8eef17e9368af4d678f898ffaf4",
         "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
       },
-      "layout_sha256": "ccc284e0dfa0f050a42cd05dee338b9a57849b4a4aa30b3ea3c3ec83d9d8cc93"
+      "layout_sha256": "f9bbdd83c21c538cea89269b5f6ded5964d08c78b36c2dc70a2ed7c39fb0681b"
     },
     {
       "layout_name": "06_yapi_maruziyet_yogunluk_skoru_layout",
@@ -127,7 +127,7 @@
         "building_exposure_density_score_32635_ddb87db5_dc65_449a_b296_3d007ae7c19b": "6d98d1da81e5ffa66bcdc1c732d509214e5433aa792eeac6ca6688b3fba67b0c",
         "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
       },
-      "layout_sha256": "cbdea772b8176b6a13bf79791bf7c79e556672852c32c2f3d35aa504d75d1e52"
+      "layout_sha256": "0b8f60be52d6c8fbf29af7c070cc1a933c3f4c1096fb885fff184b841518aa31"
     },
     {
       "layout_name": "07_taskin_skoru_layout",
@@ -148,7 +148,7 @@
         "flood_score_32635_dd3f27f0_dc7f_4e0e_8319_29955888febf": "f4df9cd6adab9817a70b81f21bac034211042c0478660c8b8aad53324d651764",
         "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
       },
-      "layout_sha256": "28831681da81367847c0b8efab5b951715ff61b2534e166c8a722113eed1cad7"
+      "layout_sha256": "90d33e15970dcc8840faec88d81f450d1b720b68fa3e7ca7827dfd1c5df3fcce"
     },
     {
       "layout_name": "08_hidrografya_yakinlik_skoru_layout",
@@ -169,7 +169,7 @@
         "hydrography_proximity_score_32635_0dd4cb82_123b_4c0f_8ec8_4c7db77cc371": "d290880da088fadb6145f8fb090c4045db9ca96fbd9becbc98344505264eef99",
         "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
       },
-      "layout_sha256": "c1e1fdf2ef06a33159aa9c707369f9e70b7bbca1f44b59a73f79c0e699cfbc53"
+      "layout_sha256": "0eee0b2ca5f1e66f82fb17ffc274e706b2b37bf5653a2ae325548f1da5a0efd6"
     },
     {
       "layout_name": "09_egim_skoru_layout",
@@ -188,7 +188,7 @@
         "slope_score_32635_93a05a37_a935_4f0e_9d76_817ba733e3f2": "06837ab455bcbb878b5a3eda7b0c34fed13d187bb125d57a49713f0425ab49e0",
         "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
       },
-      "layout_sha256": "436b3d1c2966f8bd5cba2a5d16e4feb50d04824f826914a2d2434c31051ddf99"
+      "layout_sha256": "f6a2f1dd8f22c84288e9e1abd850c88e15d78bcafb61a49a0d69d711bc919977"
     },
     {
       "layout_name": "10_arazi_ortusu_duyarlilik_skoru_layout",
@@ -207,7 +207,7 @@
         "landcover_sensitivity_score_32635_f7c222c0_99f5_4641_80bf_f974aaf5ac7c": "14e8ff6a0bc20bafb1aea288e286507e5256886e6dbd5685ceacfdea009e2659",
         "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
       },
-      "layout_sha256": "7dc11b13951de0cd81191d14df424fd7d5782e0cea6307dc4ff9e9221c755196"
+      "layout_sha256": "9c7e0d84fa61f59e51e628e4c3b40ca1a02fb728df74e29e7030a049cac8e122"
     },
     {
       "layout_name": "11_agac_ortusu_skoru_layout",
@@ -226,7 +226,7 @@
         "tree_cover_score_32635_0929fa5b_66c1_4745_bc95_116ef5ee37e1": "22fb0e0211de0cc14e76fc913936e59ab88720df2b76112831add23f738b5574",
         "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
       },
-      "layout_sha256": "888a95fbcd9babc81c0d75581c4ecc7af01eaae11862f203ead2a84f0fa1b690"
+      "layout_sha256": "1d4262bb080a3250c3af4fbfdb77b85947e88b3b36121b28e64c3b332107cd3b"
     },
     {
       "layout_name": "12_yol_erisim_zorlugu_skoru_layout",
@@ -247,7 +247,7 @@
         "road_accessibility_difficulty_score_32635_e1a48124_da4f_4ea2_8bee_a3d9506d9245": "698ecd9789c3ee28218512c3afad0b754a164e81f80571095bb8379d1548ba9b",
         "_437c2d4d_c377_4dcc_936d_2217dea55551": "0b34004ac11f8a03df3c77d0bed0a7d6f0f89aeab338c17a94b4eacd862b3fdd"
       },
-      "layout_sha256": "bf20aae706f6a6cf396a926adbf7f7f4b82859af3dfe01202bf8f8b2b19b112d"
+      "layout_sha256": "d673b9e70fc46e0ee6158e007b7eb5c7b27e00104b8574a730289e82ebb624b5"
     },
     {
       "layout_name": "13_senaryo_ortakligi_layout",
@@ -266,7 +266,7 @@
         "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd": "580b307479db191c26c6aae3ce6230932180117914c3c84b1fc5a4f8589ccbc4",
         "scenario_agreement_count_32635_7ac82796_77c6_47b6_95f8_1d8b7b7da54c": "5ef9167c2878ca4c708d8d1a63fdebcce24cc929f13f7156ee5cafcccb91b840"
       },
-      "layout_sha256": "b4bddb4c2fbc7c356241c855eb13ad054978d9d005189a5f66f1de12a1f5e679"
+      "layout_sha256": "082571ea44292ea3802db361a7fc7133bbdd0ea78f3f49298f619894d7c72a6a"
     },
     {
       "layout_name": "14_yuksek_oncelik_olasiligi_layout",
@@ -287,7 +287,7 @@
         "canakkale_districts_32635_8e822ced_28cf_455a_a821_c4200ee497cd": "580b307479db191c26c6aae3ce6230932180117914c3c84b1fc5a4f8589ccbc4",
         "high_plus_probability_count_32635_5b799374_c9a6_5f30_ae74_14f35a425411": "72e65040074f33c904c3141b99254a44aab6ff7db4948bcbfc0a226174fb1cea"
       },
-      "layout_sha256": "fe29e3a244d9fc9f5c4d951f758d760d8aba92bc673152e989dee9a1de28ccfc",
+      "layout_sha256": "80020d603398a12e92fa93306fdb54250ba6b0db9e416a872646326499d1350f",
       "pdf_export": false
     }
   ]

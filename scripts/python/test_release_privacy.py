@@ -75,7 +75,7 @@ class ReleasePrivacyTests(unittest.TestCase):
             for name in self.private:
                 self.assertNotIn(f"{ARCHIVE_ROOT}/{name}", names)
                 self.assertNotIn(name, manifest_paths)
-            for name in (*self.public, "README.md", "README.tr.md", "LICENSE", "LICENSE_SCOPE.md", "PUBLICATION_STATUS.md"):
+            for name in (*self.public, "README.md", "README.en.md", "LICENSE", "LICENSE_SCOPE.md", "PUBLICATION_STATUS.md"):
                 self.assertIn(f"{ARCHIVE_ROOT}/{name}", names)
                 self.assertIn(name, manifest_paths)
             self.assertFalse(any(b"PRIVATE_FIXTURE_MUST_NOT_APPEAR" in archive.read(name) for name in names))

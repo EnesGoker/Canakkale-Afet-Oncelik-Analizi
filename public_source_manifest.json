@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "archive_root": "canakkale-disaster-priority",
+  "archive_root": "canakkale-afet-oncelik-analizi",
   "package_kind": "public-source-and-selected-analytical-summaries",
   "checksum_scope": "All selected payloads; this manifest excludes its own hash.",
   "files": [
@@ -36,20 +36,20 @@
     },
     {
       "path": "PUBLICATION_STATUS.md",
-      "size": 9263,
-      "sha256": "f7429a9fc9e2d083e429a4a31dbf06ccffa8df72f7e53cf2542ad91de132aa2a",
+      "size": 9294,
+      "sha256": "3619884f6be2335bc969af7f0079fe4eb35513b9248293601ffdab2e41218aaa",
+      "mode": "0644"
+    },
+    {
+      "path": "README.en.md",
+      "size": 6677,
+      "sha256": "cd0e1cf95f1b48b22ed026ddbf426d4a89f1ca4e73acd6f3fcc653a078593003",
       "mode": "0644"
     },
     {
       "path": "README.md",
-      "size": 6651,
-      "sha256": "3ac76fc523fea69feba2d6e3c93ce46098f54b30ff7ef0f2360a3cedb2420ad8",
-      "mode": "0644"
-    },
-    {
-      "path": "README.tr.md",
-      "size": 7059,
-      "sha256": "456febca64b245889e7dcf89717481d3ab3d72aed9e0d9e36a8dd03c01d84bbe",
+      "size": 7025,
+      "sha256": "04c910d049d9c9db0dd5e1560fc053d376115ecf5cf9cd07d7c31d1a6ca35d18",
       "mode": "0644"
     },
     {
@@ -67,7 +67,7 @@
     {
       "path": "config/map_layouts_v1.json",
       "size": 20279,
-      "sha256": "53d500d1ab3ce6aaddfa7ebd6f3bd4b02a9d0ce7068f37245958ec97a69dddb3",
+      "sha256": "b36f8f6d8133d6552f27fa2ba0399a0f6ba845531e3f8e992229b679cdb3f279",
       "mode": "0644"
     },
     {
@@ -90,8 +90,8 @@
     },
     {
       "path": "config/public_source_release_v1.json",
-      "size": 14069,
-      "sha256": "9cff4d633b8c31a3084b45ccf80baa2366bd0ec0071bb5ca5ed440d50bc0de60",
+      "size": 14105,
+      "sha256": "92c5807e0e965358825ffdfc5a16e6dbc900cd2132be9fe81b1183095c5028d8",
       "mode": "0644"
     },
     {
@@ -252,8 +252,8 @@
     },
     {
       "path": "docs/README.md",
-      "size": 4485,
-      "sha256": "cb74c260d0cf4742de98f95ae12b3983ffaa2896f24b0d1c9b83d044ad505913",
+      "size": 9276,
+      "sha256": "b02666e4efe4e687bbfd4b958ad37ec469aec394668a138246c3f6df8f110cde",
       "mode": "0644"
     },
     {
@@ -307,7 +307,7 @@
     {
       "path": "docs/data_rights_and_distribution.md",
       "size": 24168,
-      "sha256": "1a1fc22551bfa96573f4305c4a9caf7990086fcaebc81691e1d97ff22a40510c",
+      "sha256": "8795bb94df9b515c8c9ebc50dd04b6c5cdebdec0e27e02fa6b854649240a411f",
       "mode": "0644"
     },
     {
@@ -318,8 +318,8 @@
     },
     {
       "path": "docs/github_distribution.md",
-      "size": 9290,
-      "sha256": "2f1c9d04514cef101057ec837a5caeb55856b95a9307e3493ed8cb09026ed96e",
+      "size": 9421,
+      "sha256": "8fe22fd67b1247b3091fb4b274274966a748e123b2b6fc72a283b6e45f828d0a",
       "mode": "0644"
     },
     {
@@ -341,9 +341,15 @@
       "mode": "0644"
     },
     {
+      "path": "docs/method_summary.en.md",
+      "size": 10683,
+      "sha256": "429b4eb654754cf66e3fa55c8e9a7f15bbfd8d9616ec262c0af516f0c8a96c75",
+      "mode": "0644"
+    },
+    {
       "path": "docs/method_summary.md",
-      "size": 10604,
-      "sha256": "b20cb52527ff0bd30485ba9aa7c6b560b1b41fa13f0189c58e21940f9beefc0e",
+      "size": 11127,
+      "sha256": "d9b56bf70d339ae8ccaf02127b50b9cfbf8822352c4111c589f5825cdbbb38d8",
       "mode": "0644"
     },
     {
@@ -415,7 +421,7 @@
     {
       "path": "docs/publication_file_scope.md",
       "size": 13975,
-      "sha256": "316b946b3ca7a34e80b6fd814bfb52f72f3a666be6d51534bffdf62ccc922338",
+      "sha256": "c5b496ef6b67ecacf79b5e82c8ba5e1a69a7e044dda30a881c0f42d8b592b41a",
       "mode": "0644"
     },
     {
@@ -564,8 +570,8 @@
     },
     {
       "path": "docs/qa/map_export_qa.md",
-      "size": 15152,
-      "sha256": "0d387b0cd254a5fad0b0faaa9d2b45b54ac4f873836f23666e649d7bd6c3fda8",
+      "size": 16790,
+      "sha256": "c30838ea0a46b923471249c5b9093cb75c7ec6f74512364c29cac3c516ca4a35",
       "mode": "0644"
     },
     {
@@ -696,20 +702,20 @@
     },
     {
       "path": "docs/static_map_attributions.md",
-      "size": 19755,
-      "sha256": "052881586f6f669130a03ef5d5179aaf58df7091b4ff6a0ef370d67cd59706f6",
+      "size": 19758,
+      "sha256": "e20eef03f35861c15e5f13b291b29d09c09347a432a64144ace84d8e6e12b6ab",
+      "mode": "0644"
+    },
+    {
+      "path": "docs/usage.en.md",
+      "size": 13403,
+      "sha256": "afd87fc4ad5d5a9997f05cb6f2cafdd2f147666a6a6071c2c092febac3968eed",
       "mode": "0644"
     },
     {
       "path": "docs/usage.md",
-      "size": 13389,
-      "sha256": "e180ec309fc0fe9fd82a8ed2617123f3211ab0b2944175ac95da855a241bf35e",
-      "mode": "0644"
-    },
-    {
-      "path": "docs/usage.tr.md",
-      "size": 13672,
-      "sha256": "ad7cec3bc2c50c1278bf1f7543bd146928e8764e9575ada57d11fa9bfd0758b0",
+      "size": 13664,
+      "sha256": "5f98e5dc985700dbc5b3281764227bc392640511d7728207e0faf657485b8e8c",
       "mode": "0644"
     },
     {
@@ -858,92 +864,92 @@
     },
     {
       "path": "outputs/maps/map_export_manifest.json",
-      "size": 8389,
-      "sha256": "dbc646d33898aeb2f519373ca7113af100a25a79b03cf225f1204cc655d74a46",
+      "size": 8482,
+      "sha256": "e9a5fddc40065e57912f0be1f11fd892232a39bd57a78e3e4b7f35f85aa519b2",
       "mode": "0644"
     },
     {
       "path": "outputs/maps/png/01_cok_kriterli_oncelik_sinifi.png",
-      "size": 2368659,
-      "sha256": "d39318a3a1f40f33d4c151517ce81c4734d76ff94f4c250639f2bfd95066fbdf",
+      "size": 2369245,
+      "sha256": "5104c438ec4425c901e2b2b0bd11fdb70c73bd1cd78b453ca31dd47861931de0",
       "mode": "0644"
     },
     {
       "path": "outputs/maps/png/02_fay_yakinlik_skoru.png",
-      "size": 1868541,
-      "sha256": "4bf8e24eeb528207f7e3fc65fd5e73d6b9de00b0268978dfe5bc9f54bf175346",
+      "size": 1869470,
+      "sha256": "eeeab68a39a3469e964e742f478af09b379a5c762051691ba84e55f51a19c575",
       "mode": "0644"
     },
     {
       "path": "outputs/maps/png/03_nufus_maruziyet_skoru.png",
-      "size": 2163945,
-      "sha256": "86fedf5204ea07479713b871ce91d59f77245f4a0d354b251ac39474714d1399",
+      "size": 2164538,
+      "sha256": "a4008bbc9c24c4402cca708bd10c63ad76be078a05d16aff547b055cee9a7ef8",
       "mode": "0644"
     },
     {
       "path": "outputs/maps/png/04_zemin_kosulu_skoru.png",
-      "size": 1801592,
-      "sha256": "a8181e2e1961061640dc6b0c7a4ecc057124a743c68749e2a1b82325f037966e",
+      "size": 1802547,
+      "sha256": "819a7e2ce0148ae24b704cdf2128973d71f8dd909d064a8ab317f82eaaff71c2",
       "mode": "0644"
     },
     {
       "path": "outputs/maps/png/05_deprem_pga_skoru.png",
-      "size": 1674796,
-      "sha256": "1d9443fd4d4983e24cd6d9e2c6ff4d934ca85ccea91b67c0cdfb899262ced46f",
+      "size": 1675778,
+      "sha256": "d24428250962e6d7844017ad94fa26537429344fdc5b5857eeb1ef8ecf79872b",
       "mode": "0644"
     },
     {
       "path": "outputs/maps/png/06_yapi_maruziyet_yogunluk_skoru.png",
-      "size": 4614205,
-      "sha256": "b8e375610508a54416bf46795b09379a29cc08e45fa29634cc9500e1e6ed95cb",
+      "size": 4615034,
+      "sha256": "af20a1a6890ce75a947836cbf0527d66599e3c6e234c5e01a61cd8d89d830716",
       "mode": "0644"
     },
     {
       "path": "outputs/maps/png/07_taskin_skoru.png",
-      "size": 2285734,
-      "sha256": "e500482dbfa923478d4402b045feb2323d0156fbd0c5ea1272386e3bb5c5b9c8",
+      "size": 2286721,
+      "sha256": "248fe876e2b440076771df1e28b75b8b6aa12861929673d08871b1c3f817b8d0",
       "mode": "0644"
     },
     {
       "path": "outputs/maps/png/08_hidrografya_yakinlik_skoru.png",
-      "size": 2351435,
-      "sha256": "f8bb194883c525d4b919c4c799343c4caf3718904ef66f6a49b93a2db972f962",
+      "size": 2352296,
+      "sha256": "dfaeb09a01e291fad86b800da26f26740d34d4d87993145ea4198d641fc33ffe",
       "mode": "0644"
     },
     {
       "path": "outputs/maps/png/09_egim_skoru.png",
-      "size": 2148269,
-      "sha256": "9ed018cc5b1a54ee2656d7c3554db883417513580dcc93308281f9d992700385",
+      "size": 2149134,
+      "sha256": "72fc191e23a1c8bc876eec150d38778fe3a5b5b5054559fb27ee85f77eda64f3",
       "mode": "0644"
     },
     {
       "path": "outputs/maps/png/10_arazi_ortusu_duyarlilik_skoru.png",
-      "size": 2092072,
-      "sha256": "8dc2b8ae9c8788057081550f74b5039a6bc46297838e3433962235b17e617a48",
+      "size": 2093064,
+      "sha256": "2f6c67b7a4c23f10ee3f3344baf82e9d7c89fe4452622d5d91de94fad4874a4e",
       "mode": "0644"
     },
     {
       "path": "outputs/maps/png/11_agac_ortusu_skoru.png",
-      "size": 2344549,
-      "sha256": "20f6e2e26bb87b37dc18c6384294119ab0c03a96983c8704485612e5ee19f91e",
+      "size": 2345407,
+      "sha256": "4973ace1b0610c9b5fafe960d693090d630e736e8ebb0f574c6c64c3f52deb9f",
       "mode": "0644"
     },
     {
       "path": "outputs/maps/png/12_yol_erisim_zorlugu_skoru.png",
-      "size": 4311571,
-      "sha256": "be8fa4645365cc1d33a4f1a5d0087fc676146108534de4545c63049b57ef02b9",
+      "size": 4312466,
+      "sha256": "5a8393b6dde3e058a45f95907d864eae228cd7be097a92cc8802d0ebf4b83525",
       "mode": "0644"
     },
     {
       "path": "outputs/maps/png/13_senaryo_ortakligi.png",
-      "size": 2182051,
-      "sha256": "e819db6f20a9b78de37557b97cc8ad3d613e6226d8d7dadd5f4780456c2c6471",
+      "size": 2182618,
+      "sha256": "7077e5dacb764ce020d87cd5d982b25892658ee4255d4b60110827c8298da4ec",
       "mode": "0644"
     },
     {
       "path": "outputs/maps/png/14_yuksek_oncelik_olasiligi.png",
-      "size": 3999661,
-      "sha256": "b9d6be6bcf3935403f524cfbb98330399f3d183f9fe39a248117b92d0ac627f1",
+      "size": 4000270,
+      "sha256": "5364dd841ad4b1b52fa4c62cfb9b58351b811686e4a2ae599e685d7c265bb741",
       "mode": "0644"
     },
     {
@@ -1080,14 +1086,14 @@
     },
     {
       "path": "qgis/canakkale_disaster_priority.qgs",
-      "size": 3523052,
-      "sha256": "a89179c7f66de12d241e4356024596d163c5f417519ad2803407f247bcfefc3b",
+      "size": 3523094,
+      "sha256": "b5b7168dc0bbb543d1ad91aaedbd6b56faef74d2737d83a93d10458fbb36ac60",
       "mode": "0644"
     },
     {
       "path": "qgis/canakkale_disaster_priority.qgz",
-      "size": 302766,
-      "sha256": "4ef4659f767ec0f0afa52ddd26da428395511f6eacfe90d454431050c7e7be98",
+      "size": 302848,
+      "sha256": "c077a7d4abb530461e018193b687fc0abfa17d231e874c1ea730e1a3412c632e",
       "mode": "0644"
     },
     {
@@ -1183,13 +1189,13 @@
     {
       "path": "scripts/python/build_portable_release.py",
       "size": 10259,
-      "sha256": "7cf32380169d929cf211185eb51dc702f95ad53eaca0ca68e106b6dfdd3b7476",
+      "sha256": "1d6aa0c9858c5d15864055e433c65ca3763683b43e848425184883f0e52baf43",
       "mode": "0755"
     },
     {
       "path": "scripts/python/build_public_source_release.py",
-      "size": 19295,
-      "sha256": "9634904ff408cee2fc886d9f2071e03d0c29061da60da859eb63949ccb0809f1",
+      "size": 19298,
+      "sha256": "4fe1da45a357f82c14d31b6ad683bbe086ba300fbf61628e4648b3d32e90eece",
       "mode": "0755"
     },
     {
@@ -1453,7 +1459,7 @@
     {
       "path": "scripts/python/test_release_privacy.py",
       "size": 5013,
-      "sha256": "c01e9644d7ab4a74fbe52b11dde9188fe5b943981f3c12801284114ed9c872bb",
+      "sha256": "fd37848bbc26be76d1f33116951bd0dded2ab98fb0127a3c4a96e5d2d77fbd1b",
       "mode": "0755"
     },
     {

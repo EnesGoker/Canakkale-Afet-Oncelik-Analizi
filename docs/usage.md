@@ -1,91 +1,87 @@
-[English](usage.md) | [Türkçe](usage.tr.md)
+[Türkçe](usage.md) | [English](usage.en.md)
 
-# Usage: QGIS, analysis environment, QA and tests
+# Kullanım: QGIS, analiz ortamı, QA ve testler
 
-Run every command from the repository root. [Back to the README](../README.md) ·
-[Documentation index](README.md).
+Bütün komutlar depo kökünden çalıştırılır. [README'ye dön](../README.md) ·
+[Belge dizini](README.md).
 
-## What runs from the repository alone
+## Yalnız depodan ne çalışır
 
-The source repository, `Code → Download ZIP`, the automatic `Source code (zip)`
-and `git clone` do not contain the processed canonical analysis data, and no
-download route for them is published
-([publication scope](../PUBLICATION_STATUS.md)). Without them, these run:
+Kaynak deposu, `Code → Download ZIP`, otomatik `Source code (zip)` ve
+`git clone`, işlenmiş kanonik analiz verilerini içermez; bu veriler için bir
+indirme yolu yayımlanmamıştır ([yayın kapsamı](../PUBLICATION_STATUS.md)).
+Veriler olmadan şunlar çalışır:
 
-- the unit tests ([Tests and continuous integration](#tests-and-continuous-integration));
-- `python3 scripts/python/check_public_scope.py` (public-scope check);
-- `python3 scripts/python/build_public_source_release.py --check` (selected source files).
+- birim testler ([Testler ve sürekli entegrasyon](#testler-ve-sürekli-entegrasyon));
+- `python3 scripts/python/check_public_scope.py` (kamu kapsamı kontrolü);
+- `python3 scripts/python/build_public_source_release.py --check` (seçilmiş kaynak dosyaları).
 
-The analyses, the full QA and the QGIS layers need the complete canonical data
-folder. Reproducibility starts from the **processed canonical analysis data**;
-rebuilding the preparation chain from large upstream raw datasets is outside
-the scope of this project. The Word (`.docx`) file is the authoritative
-editable report; the separate academic DOCX generator does not reproduce its
-manually edited content.
-[Canonical data policy](canonical_data_policy.md) ·
-[Report generation scope](report_build_outputs.md).
+Analizler, tam QA ve QGIS katmanları tam kanonik veri klasörünü gerektirir.
+Yeniden üretilebilirlik **işlenmiş kanonik analiz verilerinden** başlar;
+hazırlık zincirinin büyük upstream ham verilerden yeniden kurulması proje
+kapsamı dışındadır. Word (`.docx`) dosyası yetkili düzenlenebilir rapordur;
+ayrı akademik DOCX üreticisi onun elle düzenlenmiş içeriğini yeniden üretmez.
+[Canonical veri politikası](canonical_data_policy.md) ·
+[Rapor üretim kapsamı](report_build_outputs.md).
 
-## Open in QGIS and access the data
+## QGIS'te açma ve veri erişimi
 
-**A public Release package containing the full data has not been published.**
-Downloading the QGIS file alone does not provide the project with its layers.
+**Tam verili kamu Release paketi yayımlanmamıştır.** QGIS dosyasını indirmek,
+katmanlarıyla açılabilir projeyi indirmek anlamına gelmez.
 
-For users who already have the full canonical data folder, or once the
-distribution conditions have been resolved and
-`canakkale-disaster-priority-portable.zip` has been published:
+Tam kanonik veri klasörüne sahip olanlar için, veya paylaşım koşulları
+tamamlanıp `canakkale-disaster-priority-portable.zip` yayımlandığında:
 
-1. Extract the full ZIP completely into a folder.
-2. Keep the `qgis/`, `data/` and `outputs/` folders together inside
-   `canakkale-disaster-priority/`.
-3. Open `qgis/canakkale_disaster_priority.qgz` in QGIS.
+1. Tam ZIP'i bir klasöre tamamen çıkarın.
+2. `canakkale-disaster-priority/` içinde `qgis/`, `data/` ve `outputs/`
+   klasörlerini birlikte tutun.
+3. QGIS ile `qgis/canakkale_disaster_priority.qgz` dosyasını açın.
 
-QGIS **3.44.10** is the version used to save the project and the reference
-for compatibility. Appearance in other versions needs separate checking.
-Layer paths are relative, such as `../data/processed/...`; do not move the
-QGIS file on its own. Opening the project in QGIS does not require a Python
-virtual environment.
+QGIS **3.44.10**, projenin kayıt ve uyumluluk referansıdır. Diğer sürümlerdeki
+görünüm ayrıca kontrol edilmelidir. Katman yolları `../data/processed/...`
+biçiminde görelidir; QGIS dosyasını tek başına taşımayın.
+QGIS'te açmak için Python sanal ortamı gerekmez.
 
-From the root of the full data folder, check files and paths with Python 3.10+:
+Tam veri klasörünün kökünden, Python 3.10+ ile dosya ve yol kontrolü:
 
 ```bash
 python3 scripts/python/check_portability.py --check
 ```
 
-For a full portable package that includes a manifest, also run:
+Manifest içeren tam portable pakette ayrıca:
 
 ```bash
 python3 scripts/python/check_portability.py --check --verify-manifest
 ```
 
-This tool requires no additional Python packages or QGIS. On Windows, use
-`py -3` instead of `python3`. Reporting missing files is expected when checking
-a source copy without the data; the source copy does not replace the full
-data package.
-[Portability](qgis_project_portability.md) ·
-[Download and packaging guide](github_distribution.md).
+Bu araç ek Python paketi veya QGIS gerektirmez. Windows'ta `python3` yerine
+`py -3` kullanılır. Eksik verili kaynak kopyada kontrolün eksik dosyaları
+bildirmesi beklenir; bu, tam veri paketinin yerine geçmez.
+[Taşınabilirlik](qgis_project_portability.md) ·
+[İndirme ve paket rehberi](github_distribution.md).
 
-To display the live CARTO basemap in QGIS, keep your own key in a private
-file outside the project and use the launcher:
+Canlı CARTO çevre haritasını QGIS'te açmak için kendi anahtarınızı proje
+dışında özel dosyada tutup başlatıcıyı kullanın:
 
 ```bash
 python3 scripts/python/open_qgis_with_carto.py --key-file "$HOME/.config/canakkale-disaster-priority/carto_basemap.key"
 ```
 
-[Live basemap setup](carto_live_access.md). Saved maps need no key;
-opening the project by double-clicking does not load your private key.
+[Canlı altlık kurulumu](carto_live_access.md). Hazır haritalar anahtar
+istemez; projeye doğrudan çift tıklamak kişisel anahtarı yüklemez.
 
-## Analysis environment and basic QA
+## Analiz ortamı ve temel QA
 
-Python **3.10+**, Bash, and GDAL/OGR **3.7+** form the basic environment for
-the analysis and QA tools. Reading the QGIS project requires **PyQGIS**;
-raster and calculation checks require **GDAL Python (`osgeo`) and NumPy**.
+Python **3.10+**, Bash ve GDAL/OGR **3.7+**, analiz/QA araçlarının temel
+ortamıdır. Gerçek QGIS okuması için **PyQGIS**, raster ve hesap kontrolleri
+için **GDAL Python (`osgeo`) ve NumPy** gerekir.
 
-Full QA was verified with a separate **GDAL 3.12.3 / NumPy 2.4.4 (Accelerate)**
-analysis environment and the **QGIS 3.44.15** project reader. GDAL 3.13.3's
-default resampling differs from the recorded slope/flood recipes; the main MCDA remains unchanged.
-[Runtime compatibility and scope](qa/runtime_compatibility.md).
+Tam QA; ayrı **GDAL 3.12.3 / NumPy 2.4.4 (Accelerate)** analiz ortamı ve
+**QGIS 3.44.15** proje okuyucusuyla doğrulandı. GDAL 3.13.3'ün varsayılan
+yeniden örneklemesi kayıtlı eğim/taşkın reçetelerinden farklıdır; ana MCDA aynı kalır.
+[Çalışma ortamı ve uyumluluk kapsamı](qa/runtime_compatibility.md).
 
-Install the Python dependencies:
+Python bağımlılıklarını kurmak için:
 
 ```bash
 python3 -m venv .venv
@@ -93,113 +89,111 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-`requirements.txt` does not install GDAL or QGIS; they must come from a
-compatible GIS installation. Matplotlib is needed only to generate analysis
-figures or maps, not to check the integrity of existing figures. On Windows,
-Bash scripts also require a suitable Bash environment with access to the
-GIS tools.
+`requirements.txt`, GDAL veya QGIS'i kurmaz; bunlar uyumlu GIS kurulumundan
+sağlanır. Matplotlib yalnız analiz figürü/haritası üretiminde gerekir;
+hazır figürlerin bütünlük kontrolünde gerekmez. Windows'ta Bash scriptleri
+için ayrıca uygun bir Bash ortamı ve buradan erişilebilen GIS araçları gerekir.
 
-On macOS arm64, after creating the recorded environment, use this entry point:
+macOS arm64'te kayıtlı ortam kurulduktan sonra tek giriş:
 
 ```bash
 python3 scripts/python/run_compatible_qa.py --gdal-prefix "$GIS_QA_PREFIX" --numpy-overlay "$GIS_QA_NUMPY"
 ```
 
-[Environment setup and frozen profiles](qa/runtime_compatibility.md).
-If compatible GIS tools are already selected, run basic QA from the full data root:
+[Ortam kurulumu ve sabit profiller](qa/runtime_compatibility.md).
+Uyumlu GIS araçları zaten seçilmişse tam veri klasörünün kökünden temel QA:
 
 ```bash
 bash scripts/bash/run_canonical_qa.sh --check
 ```
 
-QA checks CRS/grid/AOI consistency and scores for all 11 criteria, then
-recalculates the baseline raw and normalized scores and classes in memory.
-It verifies eight source-to-score equivalent recipes, the frozen 27-file
-input version, correlation, scenario agreement, the weight perturbation and
-the model variants. The report and sensitivity tables are regenerated from
-the canonical data in a temporary sandbox and compared byte for byte with the
-7 and 11 recorded files in `outputs/tables/`; a changed, missing, or extra file
-fails the check. The generation time written into the two table manifests is
-copied from the single `Üretim zamanı (UTC)` line of the recorded manifest, so
-that value is reproduced, not verified: a changed time value still passes.
-QGIS checks cover the layer/style locks and legend links in 14 layouts,
-QGS/QGZ equivalence, and checksums for 28 map/atlas files.
-These are technical consistency checks, not validation against observed disasters.
+QA; 11 kriterin CRS/grid/AOI uyumunu ve skorlarını kontrol eder, baseline
+ham/normalize skorunu ve sınıfları bellekte yeniden hesaplar. Sekiz
+kaynak→skor eşdeğer reçetesini, 27 dosyalık sabit girdi sürümünü,
+korelasyonu, senaryo ortaklığını, ağırlık pertürbasyonunu ve model
+varyantlarını karşılaştırır. Rapor ve duyarlılık tabloları canonical veriden
+geçici bir sandbox'ta yeniden üretilir ve `outputs/tables/` altındaki 7 ve 11
+kayıtlı dosyayla bayt bayt karşılaştırılır; değişmiş, eksik veya fazla dosya
+kontrolü düşürür. İki tablo manifestine yazılan üretim zamanı, kayıtlı
+manifestin tek `Üretim zamanı (UTC)` satırından kopyalanır; bu değer
+doğrulanmaz, yeniden üretilir: değiştirilmiş bir zaman değeri de kontrolden geçer.
+QGIS kontrolü; 14 düzenin katman/stil kilitlerini, lejant bağlantılarını,
+QGS/QGZ eşliğini ve 28 harita/atlas dosyasının checksum'ını denetler.
+Bunlar teknik tutarlılık kontrolleridir; gözlenmiş afetlerle doğrulama değildir.
 
-Exit codes: **0** means all required checks passed; **1** means a check
-failed; **2** means a check could not be completed because of a missing
-dependency. Live basemap access is not tested by offline QA. The recorded
-land-cover boundary issue is reported as a warning.
+Çıkış kodları: **0** zorunlu kontroller geçti; **1** kontrol başarısız;
+**2** eksik bağımlılık nedeniyle kontrol tamamlanamadı. Canlı taban haritası
+erişimi çevrimdışı QA kapsamında denenmez. Kayıtlı arazi örtüsü sınır
+bulgusu uyarı olarak gösterilir.
 
 <details>
-<summary>GIS tools, additional checks, and generation scope</summary>
+<summary>GIS araçları, ek kontrol komutları ve üretim kapsamı</summary>
 
-GDAL commands are resolved through `PATH`, `GDAL_BIN`, `QGIS_BIN`, or
-tool-specific environment variables. `gdal_calc.py` and `gdal_proximity.py`
-require compatible Python dependencies. QA also uses `unzip`, `xmllint`,
-`perl`, and standard shell utilities.
+GDAL komutları `PATH`, `GDAL_BIN`, `QGIS_BIN` veya araçlara özgü ortam
+değişkenleri üzerinden sağlanır. `gdal_calc.py` ve `gdal_proximity.py` için
+uyumlu Python bağımlılıkları gerekir. QA ayrıca `unzip`, `xmllint`, `perl`
+ve standart shell araçlarını kullanır.
 
-QA looks for GIS Python dependencies in the Python interpreter under
-`QGIS_BIN` or another suitable environment. If needed, select separate
-interpreters with `QGIS_PYTHON_BIN` and `GDAL_PYTHON_BIN`. `PYTHON_BIN` is used
-by the table/report tools and the QA launcher.
+QA, GIS Python bağımlılıklarını `QGIS_BIN` içindeki Python'da veya uygun
+ortamda arar. Gerekirse `QGIS_PYTHON_BIN` ve `GDAL_PYTHON_BIN` ile ayrı
+yorumlayıcılar seçilir. `PYTHON_BIN`, tablo/rapor araçları ile QA başlatıcısı
+için kullanılır.
 
-The table check can also be run separately; the main QA already includes it:
+Tablo kontrolü tek başına da çalıştırılabilir; ana QA bunu zaten içerir:
 
 ```bash
 bash scripts/bash/generate_report_tables.sh --check
 ```
 
-The following checks the separate DOCX generator. It creates a temporary
-DOCX file and does not validate the final public Word/PDF report:
+Ayrı DOCX üreticisinin kontrolü aşağıdadır. Bu komut geçici DOCX üretir;
+son kamu Word/PDF raporunu doğrulamaz:
 
 ```bash
 bash scripts/bash/build_academic_report.sh --check
 ```
 
-DOCX is a separate output target that can be generated with
-`build_academic_report.sh --build`. Pages archives and the separately generated
-academic DOCX are excluded from public distribution.
+DOCX, `build_academic_report.sh --build` ile üretilebilen ayrı bir hedeftir.
+Pages arşivleri ve ayrı üretilen akademik DOCX, kamu dağıtımına alınmaz.
 
-Technical checks and generation of a local full-data package:
+Yerel tam veri paketinin teknik kontrolü ve üretimi:
 
 ```bash
 python3 scripts/python/build_portable_release.py --check
 python3 scripts/python/build_portable_release.py --build
 ```
 
-The ZIP and SHA-256 file are generated under `outputs/temp/releases/`,
-which is excluded from Git. Generating a technical package does not publish
-it or approve data distribution. The [distribution guide](github_distribution.md)
-explains the scope and checks for the final public package.
+ZIP ve SHA-256 dosyası `outputs/temp/releases/` altında üretilir; bu klasör
+Git dışında tutulur. Teknik paket üretimi kamuya yükleme veya veri paylaşımı
+onayı değildir. [Dağıtım rehberi](github_distribution.md), nihai kamu
+paketinin kapsamını ve kontrollerini açıklar.
 
-[QA scope](qa/canonical_integrity_checks.md) ·
-[Script guide](script_kullanim_ve_guvenlik_rehberi.md).
+[QA kapsamı](qa/canonical_integrity_checks.md) ·
+[Script rehberi](script_kullanim_ve_guvenlik_rehberi.md).
 
 </details>
 
-## Tests and continuous integration
+## Testler ve sürekli entegrasyon
 
-The unit tests in `scripts/python/` build small temporary fixtures; none of
-them reads the canonical data. [`config/test_tiers_v1.json`](../config/test_tiers_v1.json)
-assigns each test module to one runtime tier and records its number of
-tests; it is the only source of the counts below.
+`scripts/python/` altındaki birim testleri küçük geçici fikstürler kurar;
+hiçbiri canonical veriyi okumaz. [`config/test_tiers_v1.json`](../config/test_tiers_v1.json)
+her test modülünü bir çalışma katmanına atar ve test sayısını kaydeder;
+aşağıdaki sayıların tek kaynağıdır.
 
-| Tier | Tests | Modules | Requires | In CI |
+| Katman | Test | Modül | Gereksinim | CI'da |
 |---|---:|---:|---|---|
-| `stdlib` | 192 | 15 | Python 3.10+ standard library | Ubuntu 24.04 and macOS arm64; Python 3.10, 3.12, 3.14 |
-| `scientific` | 90 | 4 | NumPy, Matplotlib, and Pillow from `requirements.txt` | Ubuntu 24.04 and macOS arm64; Python 3.12, locked versions |
-| `gdal` | 166 | 7 | GDAL Python (`osgeo`) and the `scientific` tier | macOS arm64 only; locked runtime (GDAL 3.12.3, NumPy 2.4.4 Accelerate) |
-| `qgis` | 17 | 1 | PyQGIS 3.44 | Not run |
-| **Total** | **465** | **27** | | |
+| `stdlib` | 192 | 15 | Python 3.10+ standart kütüphanesi | Ubuntu 24.04 ve macOS arm64; Python 3.10, 3.12, 3.14 |
+| `scientific` | 90 | 4 | `requirements.txt` ile NumPy, Matplotlib ve Pillow | Ubuntu 24.04 ve macOS arm64; Python 3.12, kilitli sürümler |
+| `gdal` | 166 | 7 | GDAL Python (`osgeo`) ve `scientific` katmanı | Yalnız macOS arm64; kilitli ortam (GDAL 3.12.3, NumPy 2.4.4 Accelerate) |
+| `qgis` | 17 | 1 | PyQGIS 3.44 | Çalıştırılmaz |
+| **Toplam** | **465** | **27** | | |
 
-When a tier's imports are missing, its tests are skipped one by one with a
-reason that names the tier. A skip is never counted as a pass:
-`run_tests.py` runs each module in its own process and compares the passed
-and skipped counts with the table. If a named tier cannot be imported, or a
-tier that was not named can be, it runs no tests and exits with code 2.
+Bir katmanın içe aktarımları yoksa testleri tek tek, katmanı adlandıran bir
+gerekçeyle atlanır. Atlama hiçbir zaman geçti sayılmaz: `run_tests.py` her
+modülü ayrı süreçte koşar ve geçen/atlanan sayıları tabloyla karşılaştırır.
+Adı verilen bir katman içe aktarılamıyorsa ya da adı verilmeyen bir katman
+içe aktarılabiliyorsa test koşmaz ve 2 koduyla çıkar.
 
-In a fresh clone or source ZIP, the Python standard library is enough for:
+Yeni bir klonda veya kaynak ZIP'inde Python standart kütüphanesi şunlara yeter:
 
 ```bash
 python3 scripts/python/tier_support.py --check
@@ -207,81 +201,80 @@ python3 scripts/python/run_tests.py --tiers stdlib
 python3 scripts/python/check_public_scope.py
 ```
 
-Each exits with code 0 and ends with:
+Her biri 0 koduyla çıkar ve şu satırla biter:
 
 - `Test tier table: PASSED; 27 modules, 465 tests (stdlib 192, scientific 90, gdal 166, qgis 17).`
 - `Unit tests (stdlib): PASSED; 192 passed, 273 skipped with a tier reason, 0 other outcomes, 465 tests in the table.`
-- `Public-source scope: PASSED`. Before this line, it reports
-  `11 verified, 16 skipped` for `analysis_baseline.py` (the 16 frozen data
-  files the edition omits) and `30 layers skipped` for `check_portability.py`
-  (the omitted local QGIS layers). Both skip lists must equal
+- `Public-source scope: PASSED`. Bu satırdan önce `analysis_baseline.py`
+  için `11 verified, 16 skipped` (sürümün dağıtmadığı 16 sabit veri dosyası),
+  `check_portability.py` için `30 layers skipped` (dağıtılmayan yerel QGIS
+  katmanları) bildirilir. İki atlama listesi de
   [`config/public_scope_expected_v1.json`](../config/public_scope_expected_v1.json)
-  entry for entry.
+  ile kayıt kayıt aynı olmalıdır.
 
-`python3 -m unittest discover -s scripts/python` ends with
-`OK (skipped=273)` on a Python without the scientific packages; some tests
-print the messages of the commands they exercise. Without
-`--scope public-source`, `analysis_baseline.py --check` and
-`check_portability.py --check` exit with code 1 in a source copy because the
-canonical data are missing; this is expected.
+`python3 -m unittest discover -s scripts/python`, bilimsel paketleri olmayan
+bir Python'da `OK (skipped=273)` ile biter; bazı testler sınadıkları
+komutların mesajlarını yazdırır. `--scope public-source` olmadan
+`analysis_baseline.py --check` ve `check_portability.py --check` kaynak
+kopyada canonical veri bulunmadığı için 1 koduyla çıkar; bu beklenen
+durumdur.
 
-After installing `requirements.txt`, use `--tiers stdlib,scientific`
-(282 passed, 183 skipped). On macOS arm64, the locked GDAL runtime can be
-built outside the project from the files in `config/qa_runtime_macos_arm64/`
-and used for the first three tiers (448 passed, 17 skipped):
+`requirements.txt` kurulduktan sonra `--tiers stdlib,scientific` kullanılır
+(282 geçer, 183 atlanır). macOS arm64'te kilitli GDAL ortamı
+`config/qa_runtime_macos_arm64/` dosyalarından proje dışında kurulup ilk üç
+katman için kullanılabilir (448 geçer, 17 atlanır):
 
 ```bash
 bash scripts/bash/setup_locked_gis_runtime.sh install "$HOME/.local/share/canakkale-qa/test-runtime"
 bash scripts/bash/setup_locked_gis_runtime.sh run "$HOME/.local/share/canakkale-qa/test-runtime" python -B scripts/python/run_tests.py --tiers stdlib,scientific,gdal
 ```
 
-[`.github/workflows/tests.yml`](../.github/workflows/tests.yml) runs on every
-push and pull request:
+[`.github/workflows/tests.yml`](../.github/workflows/tests.yml) her push ve
+pull request'te çalışır:
 
-- the `stdlib` tier, the tier table check, `check_public_scope.py`, and
-  `build_public_source_release.py --check` on Ubuntu 24.04 and macOS arm64
-  with Python 3.10, 3.12, and 3.14;
-- the `scientific` tier on Python 3.12 with the versions in
-  [`config/ci/scientific_constraints.txt`](../config/ci/scientific_constraints.txt),
-  and a canary job on Python 3.14 with the newest versions
-  `requirements.txt` allows; the canary may fail without failing the workflow;
-- the `gdal` tier on macOS arm64 in the locked runtime above, cached by the
-  hash of its lock files.
+- `stdlib` katmanı, katman tablosu kontrolü, `check_public_scope.py` ve
+  `build_public_source_release.py --check`; Ubuntu 24.04 ve macOS arm64'te,
+  Python 3.10, 3.12 ve 3.14 ile;
+- `scientific` katmanı, Python 3.12 ve
+  [`config/ci/scientific_constraints.txt`](../config/ci/scientific_constraints.txt)
+  sürümleriyle; ayrıca Python 3.14'te `requirements.txt`'nin izin verdiği en
+  yeni sürümlerle bir canary işi; canary başarısız olsa da iş akışı düşmez;
+- `gdal` katmanı, macOS arm64'te yukarıdaki kilitli ortamda; ortam önbelleği
+  kilit dosyalarının hash'iyle anahtarlanır.
 
-CI does **not** run the 17 `qgis` tests (no hosted runner provides
-PyQGIS 3.44), the `gdal` tier on Linux (no lock file exists for it), or any
-QA command that needs the canonical data: `run_canonical_qa.sh`,
-`run_compatible_qa.py`, the full-scope `analysis_baseline.py` and
-`check_portability.py`, and the table `--check` commands. A passing CI run
-does not cover these checks.
+CI, 17 `qgis` testini (barındırılan hiçbir runner PyQGIS 3.44 sağlamaz),
+Linux'ta `gdal` katmanını (bunun için kilit dosyası yok) ve canonical veri
+isteyen hiçbir QA komutunu **çalıştırmaz**: `run_canonical_qa.sh`,
+`run_compatible_qa.py`, tam kapsamlı `analysis_baseline.py` ve
+`check_portability.py`, tablo `--check` komutları. Başarılı bir CI koşusu bu
+kontrolleri kapsamaz.
 
-## Interpreting the results
+## Sonuçları yorumlarken
 
-- The weights are reasoned educational choices, not the result of AHP,
-  a formal expert survey, or calibration against observed losses.
-- Alternative scenarios use their own observed min/max scale. Class changes
-  reflect the combined effects of weights and rescaling.
-- Some cells have source NoData converted to a zero score. A zero score or
-  being below the high-priority classes in all three scenarios does not
-  establish a measured absence of hazard.
-- Correlation compares transformed criterion scores; it does not establish
-  causality, optimal weights, or model accuracy.
-- Traceability is limited for the external fault source and some historical
-  transformation parameters. Uncertainty is recorded separately where the
-  local dataset version is unknown.
+- Ağırlıklar gerekçelendirilmiş eğitim amaçlı tercihlerdir; AHP, resmî uzman
+  anketi veya gözlenmiş kayıplarla kalibrasyon sonucu değildir.
+- Alternatif senaryolar kendi gözlenen min/max ölçeğini kullanır. Sınıf
+  değişimleri ağırlıklar ile yeniden ölçeklemenin birleşik etkisidir.
+- Kaynak NoData'nın sıfır skora dönüştüğü hücreler bulunur. Sıfır skor veya
+  üç senaryoda da yüksek sınıfa girmemek, ölçülmüş tehlike yokluğu anlamına gelmez.
+- Korelasyon, dönüştürülmüş kriter skorlarını karşılaştırır; nedensellik,
+  ağırlıkların optimumluğu veya model doğruluğu kanıtı değildir.
+- Dış fay kaynağı ve bazı tarihsel dönüşüm parametreleri için izlenebilirlik
+  sınırları vardır. Yerel veri sürümü bilinmeyen kaynaklarda bu belirsizlik
+  ayrıca kaydedilir.
 
-[Method summary, known limitations](method_summary.md#10-known-limitations) ·
-[Methodological and scientific limitations](methodology/scientific_limits.md) (Turkish).
+[Yöntem özeti, bilinen sınırlılıklar](method_summary.md#10-bilinen-sınırlılıklar) ·
+[Yöntem ve bilimsel sınırlılıklar](methodology/scientific_limits.md).
 
-## Basemap and re-exporting
+## Taban haritası ve yeniden dışa aktarma
 
-With the full canonical data folder, viewing saved maps/atlas and running
-offline QA requires neither an access key nor an internet connection.
-Reloading the web basemap in QGIS requires internet access, and rendering the
-CARTO basemap requires your own access key.
+Tam canonical veri klasörüyle hazır harita/atlasları incelemek ve çevrimdışı
+QA yapmak için erişim anahtarı veya internet gerekmez. QGIS'te web taban
+haritasını yeniden yüklemek internet, CARTO altlığını yeniden çizmek ise kendi
+erişim anahtarınızı gerektirir.
 
-Exports read the key from `CARTO_BASEMAPS_API_KEY`; live QGIS access uses
-the private key file described above. Public QGIS files contain no key.
-Re-exporting uses the QGIS Python environment and a separate, empty output folder.
-[Map generation guide](map_atlas_plan.md) ·
-[Reading a key from a private file and generating outputs](qa/map_export_qa.md).
+Dışa aktarma anahtarı `CARTO_BASEMAPS_API_KEY` üzerinden, canlı QGIS erişimi
+yukarıdaki özel anahtar dosyası üzerinden alır. Kamu QGIS dosyaları anahtar
+içermez. Yeniden dışa aktarma QGIS Python ortamı ve ayrı, boş çıktı klasörü kullanır.
+[Harita üretim rehberi](map_atlas_plan.md) ·
+[Özel dosyadan anahtar okuma ve üretim](qa/map_export_qa.md).

@@ -51,11 +51,12 @@ Tam analiz veya canonical QA için kayıtlı kanonik girdiler ve beklenen
 
 ## Kaynak paketinin bütünlüğü ve yeniden üretimi
 
-Sürüm varlıkları `canakkale-disaster-priority-source.zip` ve aynı adlı
-`.sha256` dosyasıdır. İndirilen klasörde:
+Sürüm varlıkları `canakkale-afet-oncelik-analizi-kaynak.zip` ve aynı adlı
+`.sha256` dosyasıdır (v0.2.0 ve öncesinde `canakkale-disaster-priority-source.zip`).
+ZIP'in kök klasörü `canakkale-afet-oncelik-analizi/`'dir. İndirilen klasörde:
 
 ```bash
-shasum -a 256 -c canakkale-disaster-priority-source.zip.sha256
+shasum -a 256 -c canakkale-afet-oncelik-analizi-kaynak.zip.sha256
 ```
 
 Kaynak kökünde Python 3.10+ ile dosya seçimi kontrol edilir:

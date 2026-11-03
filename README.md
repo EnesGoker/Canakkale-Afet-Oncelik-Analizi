@@ -1,127 +1,126 @@
-[English](README.md) | [Türkçe](README.tr.md)
+[Türkçe](README.md) | [English](README.en.md)
 
-# Çanakkale Multi-Criteria Disaster Susceptibility and Spatial Priority Analysis
+# Çanakkale Çok Kriterli Afet Öncelik Analizi
 
-[![tests](https://github.com/EnesGoker/canakkale-disaster-priority/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/EnesGoker/canakkale-disaster-priority/actions/workflows/tests.yml)
+[![tests](https://github.com/EnesGoker/Canakkale-Afet-Oncelik-Analizi/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/EnesGoker/Canakkale-Afet-Oncelik-Analizi/actions/workflows/tests.yml)
 
-A GIS project that combines disaster susceptibility, population and building
-exposure, and accessibility in Çanakkale province through **multi-criteria
-decision analysis (MCDA) with 11 criteria** on a **shared 100 m grid**, and
-compares relative priority areas across 12 districts and three weighting
-scenarios.
+Çanakkale ili için afet duyarlılığı, nüfus ve yapı maruziyeti ile erişim
+koşullarını **11 kriterli çok kriterli karar analizi (MCDA)** ile **100 m
+ortak gridde** birleştiren ve göreli öncelik alanlarını 12 ilçede ve üç ağırlık
+senaryosunda karşılaştıran bir CBS projesi.
 
-**Project author: Enes Göker.** A student GIS portfolio from a Geographic
-Information Systems course. It is an educational preliminary assessment, not
-an official disaster risk, damage prediction or boundary product.
+**Proje sahibi: Enes Göker.** Coğrafi Bilgi Sistemleri dersi kapsamında
+hazırlanmış bir öğrenci CBS portföyüdür. Eğitim amaçlı bir ön değerlendirmedir;
+resmî afet riski, hasar tahmini veya sınır ürünü değildir.
 
-## Maps
+## Haritalar
 
-| Final priority class (map 01) | Weight stability, P(high-plus) (map 14) |
+| Nihai öncelik sınıfı (harita 01) | Ağırlık kararlılığı, P(yüksek+) (harita 14) |
 |---|---|
-| [![Map 01: five relative priority classes](outputs/maps/png/01_cok_kriterli_oncelik_sinifi.png)](outputs/maps/png/01_cok_kriterli_oncelik_sinifi.png) | [![Map 14: share of 2,000 weight samples in which a cell stays high-plus](outputs/maps/png/14_yuksek_oncelik_olasiligi.png)](outputs/maps/png/14_yuksek_oncelik_olasiligi.png) |
-| Five relative classes of the baseline model. | Share of 2,000 weight samples in which a cell stays in classes 4–5. **Not a disaster or hazard probability.** |
-| Data: HGM, AFAD, MTA, USGS, WorldPop, Microsoft, JRC/CEMS, HydroSHEDS, Copernicus, ESA; © OpenStreetMap contributors, © CARTO. [Full notices](docs/static_map_attributions.md). | Data: HGM, AFAD, MTA, USGS, WorldPop, Microsoft, JRC/CEMS, HydroSHEDS, Copernicus, ESA; © OpenStreetMap contributors, © CARTO. [Full notices](docs/static_map_attributions.md). |
+| [![Harita 01: beş göreli öncelik sınıfı](outputs/maps/png/01_cok_kriterli_oncelik_sinifi.png)](outputs/maps/png/01_cok_kriterli_oncelik_sinifi.png) | [![Harita 14: hücrenin 2.000 ağırlık örneğinde yüksek+ kalma oranı](outputs/maps/png/14_yuksek_oncelik_olasiligi.png)](outputs/maps/png/14_yuksek_oncelik_olasiligi.png) |
+| Baseline modelin beş göreli sınıfı. | Hücrenin 2.000 ağırlık örneğinde 4.–5. sınıfta kalma oranı. **Afet veya tehlike olasılığı değildir.** |
+| Veri: HGM, AFAD, MTA, USGS, WorldPop, Microsoft, JRC/CEMS, HydroSHEDS, Copernicus, ESA; © OpenStreetMap contributors, © CARTO. [Tam bildirimler](docs/static_map_attributions.md). | Veri: HGM, AFAD, MTA, USGS, WorldPop, Microsoft, JRC/CEMS, HydroSHEDS, Copernicus, ESA; © OpenStreetMap contributors, © CARTO. [Tam bildirimler](docs/static_map_attributions.md). |
 
-All 14 maps (map labels in Turkish): [map list](outputs/maps/README.md).
+14 haritanın tamamı: [harita listesi](outputs/maps/README.md).
 
-## Key findings
+## Öne çıkan bulgular
 
-- **415.05 km²** (4.23% of the area of interest) is high or very high in all
-  three weighting scenarios; **820.96 km²** is high in only one or two
-  ([scenario agreement, map 13](outputs/maps/png/13_senaryo_ortakligi.png)).
-- Under random weights around the baseline (Dirichlet, κ = 100), **215.75 km²**
-  stays high-plus in at least 90% of samples: **39.52%** of the baseline
-  high-plus area (545.92 km²).
-- The baseline top-five districts keep the same set in **94.25%** of samples,
-  but the same order in only **36.65%**.
-- Land-cover and tree-cover criterion scores correlate at **r = 0.8152**.
+- **415,05 km²** (çalışma alanının %4,23'ü) üç ağırlık senaryosunun hepsinde
+  yüksek veya çok yüksektir; **820,96 km²** yalnız bir veya ikisinde yüksektir
+  ([senaryo ortaklığı, harita 13](outputs/maps/png/13_senaryo_ortakligi.png)).
+- Baseline çevresindeki rastgele ağırlıklarda (Dirichlet, κ = 100)
+  **215,75 km²** örneklerin en az %90'ında yüksek+ kalır: baseline yüksek+
+  alanının (545,92 km²) **%39,52**'si.
+- Baseline'ın ilk beş ilçesi örneklerin **%94,25**'inde aynı kümeyi korur,
+  ama aynı sırayı yalnız **%36,65**'inde.
+- Arazi örtüsü ve ağaç örtüsü kriter skorları arasındaki korelasyon
+  **r = 0,8152**'dir.
 
-"High-plus" means classes 4 and 5. These figures are not disaster
-probabilities or accuracy rates.
+"Yüksek+", 4. ve 5. sınıflardır. Bu sayılar afet olasılığı veya doğruluk
+oranı değildir.
 
-## Known limitations
+## Bilinen sınırlılıklar
 
-> - **Flood:** the flood score is 0 in **96.65%** of the area (source NoData
->   counted as 0; its meaning could not be verified), yet **396 of the 699**
->   very-high cells (56.7%) have a flood score above 0.
-> - **Class 5 is narrow:** 699 cells, **0.07%** of the area. The threshold
->   decides it: quantile and natural-break classes give 1,962.06 and
->   939.03 km².
-> - **Double counting:** land cover and tree cover (r = 0.8152) carry
->   0.06 + 0.04 of the weight.
-> - **Weights** are reasoned expert choices: no AHP, survey or calibration.
->   P(high-plus) measures weight uncertainty only, and κ sets its width
->   (P ≥ 0.9: 126.19 km² at κ = 50, 296.12 km² at κ = 200).
-> - **District ranks move:** Gelibolu is 2nd in the baseline but in the
->   top three in only 69.9% of samples (κ = 100).
-> - **Coarse sources** are resampled to 100 m: PGA from 1,000 m IDW, Vs30
->   ≈ 1 km, flood 90 m.
-> - **No validation:** not calibrated against observed losses; no building
->   vulnerability, so it is priority and exposure, not risk.
-> - **Not reproducible from this repository alone:** the processed canonical
->   data are not distributed and no download route is published.
+> - **Taşkın:** taşkın skoru alanın **%96,65**'inde 0'dır (kaynak NoData 0
+>   sayıldı; anlamı doğrulanamadı); yine de 699 çok yüksek hücrenin **396**'sında
+>   (%56,7) taşkın skoru 0'dan büyüktür.
+> - **5. sınıf dar:** 699 hücre, alanın **%0,07**'si. Onu eşik belirler: kantil
+>   ve doğal kırılma sınıfları 1.962,06 ve 939,03 km² verir.
+> - **Çift sayım:** arazi örtüsü ve ağaç örtüsü (r = 0,8152) ağırlığın
+>   0,06 + 0,04'ünü taşır.
+> - **Ağırlıklar** gerekçeli uzman seçimidir: AHP, anket veya kalibrasyon yok.
+>   P(yüksek+) yalnız ağırlık belirsizliğini ölçer; genişliğini κ belirler
+>   (P ≥ 0,9: κ = 50'de 126,19 km², κ = 200'de 296,12 km²).
+> - **İlçe sıraları oynar:** Gelibolu baseline'da 2.'dir ama örneklerin yalnız
+>   %69,9'unda ilk üçtedir (κ = 100).
+> - **Kaba kaynaklar** 100 m'ye yeniden örneklendi: PGA 1.000 m IDW'den, Vs30
+>   ≈ 1 km, taşkın 90 m.
+> - **Doğrulama yok:** gözlenmiş kayıplarla kalibre edilmedi; bina kırılganlığı
+>   yok, bu yüzden risk değil öncelik ve maruziyettir.
+> - **Yalnız bu depodan yeniden üretilemez:** işlenmiş kanonik veriler
+>   dağıtılmıyor ve bir indirme yolu yayımlanmadı.
 
-Full list: [method summary §10](docs/method_summary.md#10-known-limitations).
+Tam liste: [yöntem özeti §10](docs/method_summary.md#10-bilinen-sınırlılıklar) ·
+[bilimsel sınırlılıklar](docs/methodology/scientific_limits.md).
 
-## Method in brief
+## Kısaca yöntem
 
-Eleven criterion layers (PGA, fault proximity, Vs30, population, building
-density, flood, hydrography, slope, land cover, tree cover, road access) are
-aligned to EPSG:32635 and a 100 m grid of 981,033 cells. Each is transformed
-to a 0–1 score and combined by a weighted linear sum; the normalized score is
-shown in five equal-interval classes. Two alternative weightings, 2,000
-Dirichlet weight samples with one-at-a-time changes, and model variants
-(flood weight 0, merged vegetation, quantile and natural-break thresholds)
-test how stable the high-priority areas are.
-[Method summary (English)](docs/method_summary.md).
+On bir kriter katmanı (PGA, fay yakınlığı, Vs30, nüfus, bina yoğunluğu, taşkın,
+hidrografya, eğim, arazi örtüsü, ağaç örtüsü, yol erişimi) EPSG:32635'e ve
+981.033 hücrelik 100 m gride hizalanır. Her biri 0–1 skora dönüştürülür ve
+ağırlıklı doğrusal toplamla birleştirilir; normalize skor beş eşit aralıklı
+sınıfta gösterilir. İki alternatif ağırlık senaryosu, tek tek değişikliklerle
+birlikte 2.000 Dirichlet ağırlık örneği ve model varyantları (taşkın ağırlığı 0,
+birleşik vejetasyon, kantil ve doğal kırılma eşikleri) yüksek öncelik alanlarının
+ne kadar kararlı olduğunu sınar.
+[Güncel yöntem notu](docs/methodology/updated_mcda_methodology_note.md).
 
-## What this repository contains
+## Bu depoda ne var
 
-- Analysis, QA and packaging code; 465 unit tests in 27 modules.
-- Weights and model definitions, aggregate result tables, the 14 map PNGs and
-  a QGIS project template.
-- Not included: canonical rasters and vectors, map PDFs, the atlas, and the
-  Word/PDF report ([file scope](docs/publication_file_scope.md)).
+- Analiz, QA ve paketleme kodu; 27 modülde 465 birim test.
+- Ağırlıklar ve model tanımları, özet sonuç tabloları, 14 harita PNG'si ve bir
+  QGIS proje şablonu.
+- Dahil olmayanlar: kanonik rasterlar ve vektörler, harita PDF'leri, atlas ve
+  Word/PDF raporu ([dosya kapsamı](docs/publication_file_scope.md)).
 
-From a clone alone, the unit tests, the public-scope check and the package
-check run; the analyses and full QA need the canonical data folder.
-[Usage, QGIS and QA](docs/usage.md).
+Yalnız bir klonla birim testler, kamu kapsamı kontrolü ve paket kontrolü
+çalışır; analizler ve tam QA kanonik veri klasörünü gerektirir.
+[Kullanım, QGIS ve QA](docs/usage.md).
 
-## Tests and continuous integration
+## Testler ve sürekli entegrasyon
 
 ```bash
 python3 scripts/python/run_tests.py --tiers stdlib
 ```
 
-The tests build small temporary fixtures and never read the canonical data.
-[`config/test_tiers_v1.json`](config/test_tiers_v1.json) assigns each module
-to a runtime tier (stdlib 192, scientific 90, gdal 166, qgis 17). CI runs the
-first three (gdal on macOS arm64 only); tiers, expected outputs and the locked GDAL runtime are in
-[docs/usage.md](docs/usage.md#tests-and-continuous-integration).
+Testler küçük geçici fikstürler kurar ve kanonik veriyi hiç okumaz.
+[`config/test_tiers_v1.json`](config/test_tiers_v1.json) her modülü bir çalışma
+katmanına atar (stdlib 192, scientific 90, gdal 166, qgis 17). CI ilk üçünü
+koşar (gdal yalnız macOS arm64'te); katmanlar, beklenen çıktılar ve kilitli GDAL
+ortamı [docs/usage.md](docs/usage.md#testler-ve-sürekli-entegrasyon) içindedir.
 
-## My contribution
+## Kişisel katkım
 
-- I brought together GIS layers from institutions and open data sources
-  and prepared them for analysis.
-- I built the MCDA model combining 11 criteria on a shared 100 m grid and
-  documented the score transformations, weight rationale, and methodological
-  limitations.
-- I prepared the QGIS layers and map layouts and presented the results
-  through district tables, a map atlas, and the course report.
+- Farklı kurumlardan ve açık veri kaynaklarından gelen CBS katmanlarını
+  bir araya getirip analiz için hazırladım.
+- On bir kriteri ortak 100 m gridde birleştiren MCDA modelini kurdum;
+  skor dönüşümlerini, ağırlıkların gerekçelerini ve yöntemin sınırlılıklarını
+  belgeledim.
+- QGIS katmanlarını ve harita düzenlerini hazırladım; sonuçları ilçe
+  tabloları, harita atlası ve ders raporuyla sundum.
 
-**Tools and practices:** QGIS, GDAL/OGR, Python, Bash · shared CRS/grid/AOI,
-relative QGIS paths, SHA-256 manifests, test cases.
+**Araçlar ve uygulamalar:** QGIS, GDAL/OGR, Python, Bash · ortak CRS/grid/AOI,
+göreli QGIS yolları, SHA-256 manifestleri, test örnekleri.
 
-## License and sources
+## Lisans ve kaynaklar
 
-The MIT License covers only the original software in `scripts/`. Maps,
-tables, documents and data are not MIT-licensed; see the
-[license scope](LICENSE_SCOPE.md#license-scope-english). Data attribution is
-not permission to redistribute.
-[Source inventory](docs/data_source_inventory.md) ·
-[Data rights](docs/data_rights_and_distribution.md) ·
-[Map notices](docs/static_map_attributions.md).
+MIT lisansı yalnız `scripts/` altındaki özgün yazılımı kapsar. Haritalar,
+tablolar, belgeler ve veriler MIT kapsamında değildir; bkz.
+[lisans kapsamı](LICENSE_SCOPE.md). Veri atfı yeniden dağıtım izni değildir.
+[Kaynak envanteri](docs/data_source_inventory.md) ·
+[Veri hakları](docs/data_rights_and_distribution.md) ·
+[Harita bildirimleri](docs/static_map_attributions.md).
 
-## Documentation
+## Belgeler
 
-[Documentation index](docs/README.md) · [Türkçe README](README.tr.md).
+[Belge dizini](docs/README.md) · [English README](README.en.md).

@@ -28,7 +28,7 @@ ARCHIVE_ROOT = "canakkale-disaster-priority"
 ARCHIVE_NAME = f"{ARCHIVE_ROOT}-portable.zip"
 ASSET_LIMIT = 2 * 1024**3
 ROOT_FILES = (
-    "README.md", "README.tr.md", ".gitignore", ".gitattributes", "requirements.txt",
+    "README.md", "README.en.md", ".gitignore", ".gitattributes", "requirements.txt",
     "LICENSE", "LICENSE_SCOPE.md", "PUBLICATION_STATUS.md",
 )
 INCLUDE_DIRS = (

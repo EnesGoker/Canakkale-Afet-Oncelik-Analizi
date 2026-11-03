@@ -1,203 +1,201 @@
-# Method summary
+[Türkçe](method_summary.md) | [English](method_summary.en.md)
 
-A one-page English summary of the analysis. The detailed method, QA and source
-documents are in Turkish; links point to them. [README](../README.md) ·
-[Documentation index](README.md).
+# Yöntem özeti
 
-## 1. Purpose and scope
+Analizin tek sayfalık Türkçe özeti. Ayrıntılı yöntem, QA ve kaynak belgelerine
+bağlantı verilir. [README](../README.md) · [Belge dizini](README.md).
 
-The project ranks **relative priority** for disaster preparedness in
-Çanakkale province by combining hazard susceptibility, exposure and
-accessibility criteria. It is a student GIS portfolio and an educational
-preliminary assessment, **not** an official disaster risk, damage prediction or
-boundary product. No institution endorses it.
+## 1. Amaç ve kapsam
 
-## 2. Study area and grid
+Proje, Çanakkale ilinde afet hazırlığı için **göreli önceliği** tehlike
+duyarlılığı, maruziyet ve erişim kriterlerini birleştirerek sıralar. Bir öğrenci
+CBS portföyü ve eğitim amaçlı bir ön değerlendirmedir; resmî afet riski, hasar
+tahmini veya sınır ürünü **değildir**. Hiçbir kurum tarafından onaylanmamıştır.
 
-| Item | Value |
+## 2. Çalışma alanı ve grid
+
+| Öğe | Değer |
 |---|---|
-| Area | Çanakkale province, 12 districts |
-| CRS | EPSG:32635 (WGS 84 / UTM zone 35N) |
-| Grid | 100 m; 1,586 × 1,423 cells; **981,033 cells** inside the area of interest (AOI) |
-| AOI area | 9,810.33 km² (from the raster cell area) |
+| Alan | Çanakkale ili, 12 ilçe |
+| CRS | EPSG:32635 (WGS 84 / UTM 35N) |
+| Grid | 100 m; 1.586 × 1.423 hücre; çalışma alanında (AOI) **981.033 hücre** |
+| AOI alanı | 9.810,33 km² (raster hücre alanından) |
 
-Every criterion is aligned to the same template raster; results are compared
-only inside the AOI.
+Her kriter aynı şablon rastere hizalanır; sonuçlar yalnız AOI içinde
+karşılaştırılır.
 
-## 3. Criteria, sources and transformations
+## 3. Kriterler, kaynaklar ve dönüşümler
 
-`x` is the source value after alignment to the 100 m template; `d` is a
-distance in metres. Scores are clipped to 0–1.
+`x`, 100 m şablona hizalandıktan sonraki kaynak değeridir; `d`, metre cinsinden
+mesafedir. Skorlar 0–1 aralığına kırpılır.
 
-| Criterion | Source | Native resolution | Score | Weight |
+| Kriter | Kaynak | Özgün çözünürlük | Skor | Ağırlık |
 |---|---|---|---|---:|
-| Earthquake PGA (10% exceedance in 50 years) | AFAD TDTH point parameters, IDW surface by the author | 1,000 m | `clip((x − 0.2977) / 0.4381)` | 0.16 |
-| Fault proximity | MTA active fault map data (2013/2014) | vector | `max(1 − d / 10 000, 0)` | 0.12 |
-| Site condition (Vs30) | USGS Global Vs30 Mosaic | 30″ (≈ 1 km) | `clip((900 − Vs30) / (900 − 180.042))` | 0.08 |
-| Population exposure | WorldPop Türkiye 2020 | 100 m | `log1p(count) / log1p(159.301)` | 0.14 |
-| Building density | Microsoft building footprints + OSM gap fill | vector | footprint share of the cell | 0.10 |
-| Flood | JRC/CEMS RP100 flood depth | 90 m | `clip(x / 10.0526)`; source NoData → 0 | 0.10 |
-| Hydrography proximity | HydroRIVERS + OSM waterways | vector | `clip(1 − d / 1 000)` | 0.06 |
-| Slope | Copernicus DEM GLO-30 | 30 m | `clip(x / 40.2023)` (degrees) | 0.08 |
-| Land-cover sensitivity | ESA WorldCover 2021 | 10 m | class score table (0.05–0.60), then 100 m average | 0.06 |
-| Tree cover | Copernicus CLMS HRL Tree Cover Density 2021 | 10 m | 100 m average of `x / 100` | 0.04 |
-| Road access difficulty | OpenStreetMap roads | vector | `clip(d / 2 000)` | 0.06 |
+| Deprem PGA (50 yılda %10 aşılma) | AFAD TDTH nokta parametreleri, yazarın IDW yüzeyi | 1.000 m | `clip((x − 0.2977) / 0.4381)` | 0,16 |
+| Fay yakınlığı | MTA diri fay haritası verisi (2013/2014) | vektör | `max(1 − d / 10 000, 0)` | 0,12 |
+| Zemin koşulu (Vs30) | USGS Global Vs30 Mosaic | 30″ (≈ 1 km) | `clip((900 − Vs30) / (900 − 180.042))` | 0,08 |
+| Nüfus maruziyeti | WorldPop Türkiye 2020 | 100 m | `log1p(count) / log1p(159.301)` | 0,14 |
+| Bina yoğunluğu | Microsoft bina izleri + OSM boşluk doldurma | vektör | hücrede bina izi oranı | 0,10 |
+| Taşkın | JRC/CEMS RP100 taşkın derinliği | 90 m | `clip(x / 10.0526)`; kaynak NoData → 0 | 0,10 |
+| Hidrografya yakınlığı | HydroRIVERS + OSM su yolları | vektör | `clip(1 − d / 1 000)` | 0,06 |
+| Eğim | Copernicus DEM GLO-30 | 30 m | `clip(x / 40.2023)` (derece) | 0,08 |
+| Arazi örtüsü duyarlılığı | ESA WorldCover 2021 | 10 m | sınıf skor tablosu (0,05–0,60), sonra 100 m ortalama | 0,06 |
+| Ağaç örtüsü | Copernicus CLMS HRL Tree Cover Density 2021 | 10 m | `x / 100`'ün 100 m ortalaması | 0,04 |
+| Yol erişim zorluğu | OpenStreetMap yolları | vektör | `clip(d / 2 000)` | 0,06 |
 
-The PGA and slope divisors were estimated from the existing data so that the
-recorded scores are reproduced; eight source-to-score recipes match the saved
-rasters in all 981,033 cells (largest absolute difference below 3 × 10⁻⁸).
-[Criterion transformations](methodology/criterion_transformations.md) ·
-[Source inventory](data_source_inventory.md).
+PGA ve eğim bölenleri, kayıtlı skorları yeniden üretecek şekilde mevcut veriden
+kestirildi; sekiz kaynak→skor reçetesi kayıtlı rasterlarla 981.033 hücrenin
+hepsinde eşleşir (en büyük mutlak fark 3 × 10⁻⁸'in altında).
+[Kriter dönüşümleri](methodology/criterion_transformations.md) ·
+[Kaynak envanteri](data_source_inventory.md).
 
-## 4. Weights and blocks
+## 4. Ağırlıklar ve bloklar
 
-The baseline weights ([`config/mcda_weights.tsv`](../config/mcda_weights.tsv))
-are reasoned expert choices balanced in five blocks: earthquake (PGA, fault
-proximity, site condition) 0.36, exposure (population, buildings) 0.24, water
-and flood (flood, hydrography) 0.16, environment and terrain (slope, land
-cover, tree cover) 0.18, accessibility (roads) 0.06. No AHP, survey or
-calibration was used.
-[Weight rationale](methodology/updated_mcda_methodology_note.md#6-ağırlıklandırma-stratejisi).
+Baseline ağırlıklar ([`config/mcda_weights.tsv`](../config/mcda_weights.tsv))
+beş blokta dengelenmiş gerekçeli uzman seçimleridir: deprem (PGA, fay yakınlığı,
+zemin koşulu) 0,36; maruziyet (nüfus, bina) 0,24; su ve taşkın (taşkın,
+hidrografya) 0,16; çevre ve arazi (eğim, arazi örtüsü, ağaç örtüsü) 0,18;
+erişim (yol) 0,06. AHP, anket veya kalibrasyon kullanılmadı.
+[Ağırlık gerekçesi](methodology/updated_mcda_methodology_note.md#6-ağırlıklandırma-stratejisi).
 
-## 5. Aggregation, normalization and classes
+## 5. Birleştirme, normalizasyon ve sınıflar
 
-The raw score is the weighted linear sum of the 11 scores (Float32, recorded
-order). The canonical normalized score is `clip((raw − 0.029) / 0.473)` and is
-shown in five equal-interval classes (thresholds 0.2, 0.4, 0.6, 0.8):
+Ham skor, 11 skorun ağırlıklı doğrusal toplamıdır (Float32, kayıtlı sıra).
+Kanonik normalize skor `clip((raw − 0.029) / 0.473)`'tür ve beş eşit aralıklı
+sınıfta gösterilir (eşikler 0,2, 0,4, 0,6, 0,8):
 
-| Class | Cells | Area (km²) | Share of AOI |
+| Sınıf | Hücre | Alan (km²) | AOI payı |
 |---|---:|---:|---:|
-| 1 Very low | 114,283 | 1,142.83 | 11.65% |
-| 2 Low | 483,129 | 4,831.29 | 49.25% |
-| 3 Medium | 329,029 | 3,290.29 | 33.54% |
-| 4 High | 53,893 | 538.93 | 5.49% |
-| 5 Very high | 699 | 6.99 | 0.07% |
+| 1 Çok düşük | 114.283 | 1.142,83 | %11,65 |
+| 2 Düşük | 483.129 | 4.831,29 | %49,25 |
+| 3 Orta | 329.029 | 3.290,29 | %33,54 |
+| 4 Yüksek | 53.893 | 538,93 | %5,49 |
+| 5 Çok yüksek | 699 | 6,99 | %0,07 |
 
-"High-plus" means classes 4 and 5 (545.92 km²). The 27 frozen inputs and
-outputs of this baseline are pinned by SHA-256 in
-[`config/analysis_baseline_v1.json`](../config/analysis_baseline_v1.json).
-[Normalization](methodology/normalization_and_baseline.md).
+"Yüksek+", 4. ve 5. sınıflardır (545,92 km²). Bu baseline'ın 27 donmuş girdi ve
+çıktısı [`config/analysis_baseline_v1.json`](../config/analysis_baseline_v1.json)
+içinde SHA-256 ile sabitlenir.
+[Normalizasyon](methodology/normalization_and_baseline.md).
 
-## 6. Scenario agreement
+## 6. Senaryo ortaklığı
 
-Two alternative weightings (`earthquake-heavy`, `equal-weight`) are compared
-with the baseline. Each uses its own observed min/max scale, so class changes
-combine the weight change and the rescaling. **415.05 km²** (4.23% of the AOI)
-is high-plus in all three scenarios and **820.96 km²** in only one or two
-(map 13). [Scenario agreement](analysis/scenario_agreement.md).
+İki alternatif ağırlıklandırma (`earthquake-heavy`, `equal-weight`) baseline ile
+karşılaştırılır. Her biri kendi gözlenen min/max ölçeğini kullanır; bu yüzden
+sınıf değişiklikleri ağırlık değişikliğini ve yeniden ölçeklemeyi birlikte
+içerir. **415,05 km²** (AOI'nin %4,23'ü) üç senaryonun hepsinde, **820,96 km²**
+yalnız bir veya ikisinde yüksek+'dır (harita 13).
+[Senaryo ortaklığı](analysis/scenario_agreement.md).
 
-## 7. Weight perturbation
+## 7. Ağırlık pertürbasyonu
 
-Weights are sampled around the baseline from a Dirichlet distribution
-(concentration κ × baseline weights; κ = 100 main, 50 and 200 as summary rows;
-2,000 samples per κ, fixed seed). The main measure is rank based: in each
-sample the cells holding the baseline high-plus cell count (top 5.565%) are
-high-plus, so the area is constant by definition and the measure is location
-stability. P(high-plus) is the share of samples in which a cell is high-plus
-(map 14); it measures weight uncertainty only and is **not a disaster
-probability**.
+Ağırlıklar baseline çevresinde Dirichlet dağılımından örneklenir (yoğunlaşma
+κ × baseline ağırlıkları; ana κ = 100, özet satırları κ = 50 ve 200; her κ için
+2.000 örnek, sabit tohum). Ana ölçü sıra tabanlıdır: her örnekte baseline
+yüksek+ hücre sayısını tutan hücreler (en üst %5,565) yüksek+ sayılır; alan
+tanım gereği sabittir ve ölçü konum kararlılığıdır. P(yüksek+), bir hücrenin
+yüksek+ olduğu örneklerin oranıdır (harita 14); yalnız ağırlık belirsizliğini
+ölçer ve **afet olasılığı değildir**.
 
-- κ = 100: P ≥ 0.9 covers **215.75 km²**, 39.52% of the baseline high-plus
-  area; P ≥ 0.5 covers 498.47 km² (91.3%). κ = 50: 126.19 km²; κ = 200:
-  296.12 km² at P ≥ 0.9.
-- The baseline top-five districts keep the same set in 94.25% of κ = 100
-  samples and the same order in 36.65%.
-- One-at-a-time ±10% / ±20% changes: the lowest high-plus Jaccard values are
-  hydrography 0.867, fault 0.886, roads 0.896, PGA 0.900, slope 0.917.
+- κ = 100: P ≥ 0,9 **215,75 km²**'yi, baseline yüksek+ alanının %39,52'sini
+  kapsar; P ≥ 0,5 498,47 km²'yi (%91,3). P ≥ 0,9'da κ = 50: 126,19 km²;
+  κ = 200: 296,12 km².
+- Baseline'ın ilk beş ilçesi κ = 100 örneklerinin %94,25'inde aynı kümeyi,
+  %36,65'inde aynı sırayı korur.
+- Tek tek ±%10 / ±%20 değişiklikler: en düşük yüksek+ Jaccard değerleri
+  hidrografya 0,867, fay 0,886, yol 0,896, PGA 0,900, eğim 0,917.
 
-[Weight perturbation](analysis/weight_perturbation.md).
+[Ağırlık pertürbasyonu](analysis/weight_perturbation.md).
 
-## 8. Model variants
+## 8. Model varyantları
 
-Variants change the weights or merge criteria and use the same rank-based
-measure (Jaccard similarity of the high-plus set with the baseline):
+Varyantlar ağırlıkları değiştirir veya kriterleri birleştirir ve aynı sıra
+tabanlı ölçüyü kullanır (yüksek+ kümesinin baseline ile Jaccard benzerliği):
 
-| Variant | High-plus Jaccard |
+| Varyant | Yüksek+ Jaccard |
 |---|---:|
-| Flood weight 0, redistributed in proportion | 0.958 (very-high class 0.515; fixed scale 0.391) |
-| Land cover and tree cover averaged, block 0.0625 (main) | 0.850 |
-| Averaged, block 0.10 | 0.935 |
-| Tree cover removed, redistributed | 0.676 |
-| Kept separate, block 0.0625 | 0.814 |
+| Taşkın ağırlığı 0, oransal dağıtım | 0,958 (çok yüksek sınıf 0,515; sabit ölçek 0,391) |
+| Arazi örtüsü ve ağaç örtüsü ortalaması, blok 0,0625 (ana) | 0,850 |
+| Ortalama, blok 0,10 | 0,935 |
+| Ağaç örtüsü çıkarıldı, oransal dağıtım | 0,676 |
+| Ayrı tutuldu, blok 0,0625 | 0,814 |
 
-Quantile and natural-break thresholds on the baseline score show the effect
-of the threshold choice: class 5 becomes 1,962.06 km² and 939.03 km². They are
-not proposed replacements for the canonical classes.
-[Model variants](analysis/mcda_variants.md).
+Baseline skorunda kantil ve doğal kırılma eşikleri eşik seçiminin etkisini
+gösterir: 5. sınıf 1.962,06 km² ve 939,03 km² olur. Kanonik sınıfların yerine
+önerilmezler.
+[Model varyantları](analysis/mcda_variants.md).
 
-## 9. QA and reproducibility
+## 9. QA ve yeniden üretilebilirlik
 
-- Full QA recomputes the baseline score and classes, the eight recipes,
-  correlation, scenario agreement, perturbation and variants, the report
-  tables (byte for byte) and the 14 QGIS layouts with 28 map/atlas checksums.
-  It needs the canonical data and a locked GDAL 3.12.3 / NumPy 2.4.4 runtime.
-- 465 unit tests in 27 modules use synthetic fixtures; CI runs the stdlib,
-  scientific and gdal tiers (gdal on macOS arm64 only); the 17 qgis tests
-  run locally only.
-- From the repository alone, only the unit tests and the package and scope
-  checks run. [Usage](usage.md) · [QA scope](qa/canonical_integrity_checks.md).
+- Tam QA baseline skoru ve sınıflarını, sekiz reçeteyi, korelasyonu, senaryo
+  ortaklığını, pertürbasyonu ve varyantları, rapor tablolarını (bayt bayt) ve
+  28 harita/atlas checksum'uyla 14 QGIS düzenini yeniden hesaplar. Kanonik veri
+  ve kilitli bir GDAL 3.12.3 / NumPy 2.4.4 ortamı gerektirir.
+- 27 modüldeki 465 birim test sentetik fikstür kullanır; CI stdlib, scientific
+  ve gdal katmanlarını koşar (gdal yalnız macOS arm64'te); 17 qgis testi yalnız
+  yerelde koşar.
+- Yalnız depodan birim testler ile paket ve kapsam kontrolleri çalışır.
+  [Kullanım](usage.md) · [QA kapsamı](qa/canonical_integrity_checks.md).
 
-## 10. Known limitations
+## 10. Bilinen sınırlılıklar
 
-1. **Flood:** score 0 in 96.65% of the AOI (948,171 cells); source NoData is
-   counted as 0 and its meaning could not be verified in the primary source.
-   The 0.10 weight acts on 3.35% of the area.
-2. **Very-high class depends on flood cells:** 396 of 699 very-high cells
-   (56.7%) and 4,902 of 54,592 high-plus cells (9.0%) have a flood score
-   above 0.
-3. **Flood weight 0:** the high-plus set is kept (Jaccard 0.958), but half of
-   the very-high class changes (0.515).
-4. **Double counting:** land cover and tree cover correlate at r = 0.8152
-   and carry 0.10 of the weight together.
-5. **Class 5 is narrow:** 699 cells (0.07%); the threshold choice decides it
-   (quantile 1,962.06 km², natural breaks 939.03 km²).
-6. **Weights:** expert judgement; no AHP/consistency ratio, survey or
-   calibration.
-7. **P(high-plus)** is not a disaster probability; κ sets the width of the
-   uncertainty (P ≥ 0.9: 126.19 / 215.75 / 296.12 km² at κ = 50 / 100 / 200).
-8. **District order:** the top-five set holds in 94.25% of samples, the
-   order in 36.65% (κ = 100; κ = 50: 87.05%).
-9. **Gelibolu** moves between analyses: 2nd in the baseline, in the top
-   three in 69.9% of κ = 100 samples, 5th with quantile and natural-break
-   classes, 4th with flood weight 0 on the fixed scale.
-10. **Sensitive criteria** (±20%): hydrography, fault, roads, PGA, slope
-    (lowest Jaccard 0.867–0.917).
-11. **Scenario rescaling:** alternative scenarios use their own min/max; class
-    changes are the combined effect of weights and rescaling.
-12. **Coarse sources** resampled to 100 m: PGA IDW 1,000 m, Vs30 ≈ 1 km,
-    flood 90 m (apparent precision).
-13. **Mixed data dates:** faults 2013/2014, population 2020, land cover 2021;
-    six sources have no recorded year or extract date.
-14. **Estimated parameters:** two scale parameters (PGA, slope) were estimated
-    afterwards; the original rationale of the eight land-cover class scores is
-    not recorded.
-15. **Boundary effects:** the fault source was clipped to the AOI;
-    5,272 land-cover cells outside the AOI do not enter the analysis.
-16. **No validation:** not calibrated against observed losses or events; no
-    building vulnerability, so the result is priority and exposure, not risk.
-17. **Not reproducible from the repository alone:** the processed canonical
-    data are not distributed and no download route is published.
-18. **Data rights:** no written permission from AFAD or MTA (maps 01, 02, 05,
-    13, 14); the JRC/CEMS licence (ODbL or CC BY 4.0), the regional Vs30
-    components and the HydroSHEDS terms for static images could not be
-    verified; OSM derived-database access remains open. Attribution is not
-    permission.
-19. **Environment:** full QA needs GDAL 3.12.3 (3.13.3 resamples slope and
-    flood differently); the gdal tier runs in CI on macOS arm64 only and the
-    qgis tier not at all.
-20. **Map production:** the Open Sans font is not installed (fallback font);
-    CARTO tile seams change a few pixels on re-export (maps 01/02: 400 and
-    1,085 pixels; map 14: 2,251 pixels).
+1. **Taşkın:** AOI'nin %96,65'inde (948.171 hücre) skor 0; kaynak NoData 0
+   sayıldı ve anlamı birincil kaynakta doğrulanamadı. 0,10 ağırlık alanın
+   %3,35'inde etkilidir.
+2. **Çok yüksek sınıf taşkın hücrelerine bağlı:** 699 çok yüksek hücrenin 396'sında
+   (%56,7) ve 54.592 yüksek+ hücrenin 4.902'sinde (%9,0) taşkın skoru 0'dan
+   büyüktür.
+3. **Taşkın ağırlığı 0:** yüksek+ kümesi korunur (Jaccard 0,958), ama çok yüksek
+   sınıfın yarısı değişir (0,515).
+4. **Çift sayım:** arazi örtüsü ve ağaç örtüsü r = 0,8152 ile ilişkilidir ve
+   ağırlığın 0,10'unu birlikte taşır.
+5. **5. sınıf dar:** 699 hücre (%0,07); onu eşik seçimi belirler (kantil
+   1.962,06 km², doğal kırılma 939,03 km²).
+6. **Ağırlıklar:** uzman yargısı; AHP/tutarlılık oranı, anket veya kalibrasyon
+   yok.
+7. **P(yüksek+)** afet olasılığı değildir; belirsizliğin genişliğini κ belirler
+   (P ≥ 0,9: κ = 50 / 100 / 200'de 126,19 / 215,75 / 296,12 km²).
+8. **İlçe sırası:** ilk beş küme örneklerin %94,25'inde, sıra %36,65'inde korunur
+   (κ = 100; κ = 50: %87,05).
+9. **Gelibolu** analizler arasında yer değiştirir: baseline'da 2., κ = 100
+   örneklerinin %69,9'unda ilk üçte, kantil ve doğal kırılma sınıflarında 5.,
+   sabit ölçekte taşkın ağırlığı 0 ile 4.
+10. **Duyarlı kriterler** (±%20): hidrografya, fay, yol, PGA, eğim (en düşük
+    Jaccard 0,867–0,917).
+11. **Senaryo yeniden ölçeklemesi:** alternatif senaryolar kendi min/max'ını
+    kullanır; sınıf değişiklikleri ağırlıkların ve yeniden ölçeklemenin
+    birleşik etkisidir.
+12. **Kaba kaynaklar** 100 m'ye yeniden örneklendi: PGA IDW 1.000 m, Vs30
+    ≈ 1 km, taşkın 90 m (görünür hassasiyet).
+13. **Karışık veri tarihleri:** faylar 2013/2014, nüfus 2020, arazi örtüsü 2021;
+    altı kaynağın kayıtlı yılı veya indirme tarihi yok.
+14. **Kestirilmiş parametreler:** iki ölçek parametresi (PGA, eğim) sonradan
+    kestirildi; sekiz arazi örtüsü sınıf skorunun özgün gerekçesi kayıtlı değil.
+15. **Sınır etkileri:** fay kaynağı AOI'ye kırpıldı; AOI dışındaki 5.272 arazi
+    örtüsü hücresi analize girmez.
+16. **Doğrulama yok:** gözlenmiş kayıp veya olaylarla kalibre edilmedi; bina
+    kırılganlığı yok, bu yüzden sonuç risk değil öncelik ve maruziyettir.
+17. **Yalnız depodan yeniden üretilemez:** işlenmiş kanonik veriler dağıtılmıyor
+    ve bir indirme yolu yayımlanmadı.
+18. **Veri hakları:** AFAD ve MTA'dan yazılı izin yok (harita 01, 02, 05, 13,
+    14); JRC/CEMS lisansı (ODbL veya CC BY 4.0), bölgesel Vs30 bileşenleri ve
+    statik görseller için HydroSHEDS koşulları doğrulanamadı; OSM türev
+    veritabanı erişimi açık kalır. Atıf izin değildir.
+19. **Ortam:** tam QA GDAL 3.12.3 gerektirir (3.13.3 eğim ve taşkını farklı
+    yeniden örnekler); gdal katmanı CI'da yalnız macOS arm64'te, qgis katmanı
+    hiç koşmaz.
+20. **Harita üretimi:** Open Sans yazı tipi kurulu değil (yedek yazı tipi);
+    CARTO karo dikişleri yeniden dışa aktarımda birkaç pikseli değiştirir
+    (harita 01/02: 400 ve 1.085 piksel; harita 14: 2.251 piksel).
 
-Planned later: AHP pairwise weights, external validation with event data,
-the flood dataset version, combining the variants with the perturbation, and
-district ranks by area share.
-[Scientific limits](methodology/scientific_limits.md).
+Sonraya planlananlar: AHP ikili ağırlıklar, olay verisiyle dış doğrulama, taşkın
+veri kümesi sürümü, varyantların pertürbasyonla birleştirilmesi ve alan oranına
+göre ilçe sıraları.
+[Bilimsel sınırlılıklar](methodology/scientific_limits.md).
 
-## 11. Sources and rights
+## 11. Kaynaklar ve haklar
 
-[Source inventory](data_source_inventory.md) ·
-[Data rights and distribution](data_rights_and_distribution.md) ·
-[Static map notices](static_map_attributions.md) ·
-[File scope](publication_file_scope.md) ·
-[License scope](../LICENSE_SCOPE.md#license-scope-english).
+[Kaynak envanteri](data_source_inventory.md) ·
+[Veri hakları ve dağıtım](data_rights_and_distribution.md) ·
+[Statik harita bildirimleri](static_map_attributions.md) ·
+[Dosya kapsamı](publication_file_scope.md) ·
+[Lisans kapsamı](../LICENSE_SCOPE.md).

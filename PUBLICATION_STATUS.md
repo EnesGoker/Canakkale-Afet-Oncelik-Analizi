@@ -1,6 +1,6 @@
 # İlk yayın dosyası listesi
 
-Güncelleme: **3 Kasım 2026 — kaynak sürümü `v0.2.0`.** İlk kaynak sürümü
+Güncelleme: **3 Kasım 2026 — kaynak sürümü `v0.2.1`.** İlk kaynak sürümü
 `v0.1.0` 30 Ekim 2026'da yayımlandı.
 
 Kaynak sürümünün içeriği: Python/Bash kodu, model tanımları, yöntem/QA
@@ -29,7 +29,7 @@ eski reçetelerden farklıdır; ana MCDA aynı kalır. [Çalışma ortamı uyuml
 | Dosya / grup | İçerik rolü | Sürüm kapsamı / sonraki koşul |
 |---|---|---|
 | `scripts/`, `.github/workflows/`, `requirements.txt`, `.gitignore`, `.gitattributes` | Kaynak deposu | Özgün kod MIT; son kod ve temiz klasör kontrollerinden geçecek. |
-| `README.md`, `README.tr.md`, `LICENSE`, `LICENSE_SCOPE.md`, bu liste, `docs/` | Kaynak deposu | İngilizce ve Türkçe README sürümleri karşılıklı dil bağlantılarıyla sunulur. Belgelerin seçilmiş kaynak sürümü lisans kapsamını ve kaynak bağlantılarını korur. Ham veri örnekleri dağıtılmaz; tam dosya listesi kaynak sürümü config dosyasındadır. |
+| `README.md`, `README.en.md`, `LICENSE`, `LICENSE_SCOPE.md`, bu liste, `docs/` | Kaynak deposu | Türkçe (`README.md`) ve İngilizce (`README.en.md`) README sürümleri karşılıklı dil bağlantılarıyla sunulur. Belgelerin seçilmiş kaynak sürümü lisans kapsamını ve kaynak bağlantılarını korur. Ham veri örnekleri dağıtılmaz; tam dosya listesi kaynak sürümü config dosyasındadır. |
 | `config/` | Kaynak deposu | Mevcut model tanımları korunacak; ayrı açık veri lisansı verilmedi. |
 | `qgis/*.qgs`, `qgis/*.qgz` | Kaynak deposu ve uygun veri paketi | Göreli yerel yollar korunur; yerel katmanları içermez. 14 düzen, 28 harita/atlas dosyası (14 PNG, 01–13 PDF'leri, atlas) ve statik çıktı üretimi teknik olarak doğrulanmıştır. Her düzen ortak ve temaya özgü kaynak bildirimlerini görünür bir etiket olarak taşır. Kamu proje dosyası erişim anahtarı içermez. |
 | `outputs/report/canakkale_disaster_priority_public_report.docx` | Düzenlenebilir ana kamu raporu / yayın adayı | Microsoft Word biçimindeki rapor 13 coğrafi harita, bir korelasyon figürü ve 1–6, A1, B1 numaralı sekiz veri tablosunu içerir. Tam dosya ilk dar seçkiye dahil değildir; ilgili şekil/ekler [kapsam kaydında](docs/publication_file_scope.md) ayrılır. Kamu kişisel bilgi kapsamı ad, üniversite ve derstir; öğrenci numarası ve danışman bilgisi bu kapsamın dışındadır. Dosya sürümü ve kontroller `outputs/report/public_report_manifest.json` ile izlenir. |

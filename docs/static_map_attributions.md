@@ -1,6 +1,6 @@
 # Statik harita kaynakları ve bildirimleri
 
-Tarih: **3 Kasım 2026** (`v0.2.0`). Bu bildirim `outputs/maps/png/` altındaki 14 harita PNG
+Tarih: **3 Kasım 2026** (`v0.2.1`). Bu bildirim `outputs/maps/png/` altındaki 14 harita PNG
 görseliyle birlikte sunulur. Kapsam [dosya seçiminde](publication_file_scope.md)
 açıklanır; sayısal kaynak verileri, harita PDF'leri veya atlas için lisans değildir.
 
@@ -48,7 +48,7 @@ Ortak gösterim EPSG:32635 ve 100 m analiz grididir; kaynakların özgün çöz�
 
 Her görselin alt bandındaki ortak satır:
 
-> İdari sınırlar: HGM Türkiye Mülki İdare Sınırları (resmî nitelik taşımaz) · Taban harita: © OpenStreetMap contributors (openstreetmap.org/copyright), © CARTO (carto.com/attribution) · Tam kaynak ve lisans bildirimleri: github.com/EnesGoker/canakkale-disaster-priority/blob/main/docs/static_map_attributions.md
+> İdari sınırlar: HGM Türkiye Mülki İdare Sınırları (resmî nitelik taşımaz) · Taban harita: © OpenStreetMap contributors (openstreetmap.org/copyright), © CARTO (carto.com/attribution) · Tam kaynak ve lisans bildirimleri: github.com/EnesGoker/Canakkale-Afet-Oncelik-Analizi/blob/main/docs/static_map_attributions.md
 
 ## 01 — Çok kriterli öncelik sınıfı
 

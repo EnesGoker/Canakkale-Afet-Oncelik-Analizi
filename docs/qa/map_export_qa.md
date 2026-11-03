@@ -134,6 +134,21 @@ ayrıştırmaz; doğrulanmış dosyanın checksum'ını ve manifestteki sayfa ka
 kontrol eder. PNG başlığı ve boyutları ayrıca okunur. Görsel kontrol; başlık,
 lejant, içerik, kırpılma ve eski referansla uyumu kapsar.
 
+## 2026-11-03 üretim ve kabul kaydı (v0.2.1, atıf bandında yeni depo adresi)
+
+| Kontrol | Sonuç |
+|---|---|
+| Düzen değişikliği | 14 düzenin `atif_kaynak_bildirimi` etiketinde yalnız depo adresi değişti (`github.com/EnesGoker/Canakkale-Afet-Oncelik-Analizi/blob/main/docs/static_map_attributions.md`); etiketin konumu, boyutu ve yazı tipi, diğer öğeler, katmanlar ve stiller aynı. Metin [statik harita bildirimleri](../static_map_attributions.md) ile aynı |
+| Üretim | `export_map_layouts.py --generate --allow-web-basemap`, QGIS 3.44.15; tek koşu (01–14), 151 HTTP isteği, 0 ağ hatası; kaynak QGS değişmedi |
+| Nihai PNG'ler | 14 dosya, 4960 × 3507 px, 300 DPI; PNG parçaları IHDR, pHYs, IDAT, IEND; yan dosya yok |
+| Önceki üretimle fark | 02–14'te değişen bütün pikseller atıf bandında (11.966–11.973 piksel). 01'de ek olarak bant dışında 41 piksel (kanal farkı ≤ 9) altlık karo dikiş çizgilerinde; tematik ve vektör katmanlarda fark yok |
+| Tekil PDF'ler ve atlas | 13 PDF; atlas aynı 13 PDF sayfasından yeniden birleştirildi, sayfa içerikleri kaynaklarla aynı |
+| Görsel kabul | 14. harita yazar tarafından tam incelendi; 01 ve rastgele seçilen 04 önceki dışa aktarımla karşılaştırıldı; atıf bandında yeni adres, taşma yok |
+| Düzen ve final dosya kontrolü | Geçti: 14 düzen, 28 kayıtlı dosya |
+
+QGIS, dışa aktarımdan sonra coğrafi konum yazmak için PNG'yi GDAL ile güncelleme kipinde açmayı dener; PNG sürücüsü bunu
+desteklemediği için terminalde düzen başına bir `ERROR 6` satırı görülür. PNG değişmez ve yan dosya yazılmaz.
+
 ## 2026-11-03 üretim ve kabul kaydı (v0.2, 14. harita)
 
 | Kontrol | Sonuç |

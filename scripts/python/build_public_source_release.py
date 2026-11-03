@@ -27,10 +27,10 @@ import zlib
 
 sys.dont_write_bytecode = True
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-ARCHIVE_ROOT = "canakkale-disaster-priority"
+ARCHIVE_ROOT = "canakkale-afet-oncelik-analizi"
 MANIFEST_NAME = "public_source_manifest.json"
-ARCHIVE_NAME = f"{ARCHIVE_ROOT}-source.zip"
-ROOT_NAMES = {"README.md", "README.tr.md", "LICENSE", "LICENSE_SCOPE.md",
+ARCHIVE_NAME = f"{ARCHIVE_ROOT}-kaynak.zip"
+ROOT_NAMES = {"README.md", "README.en.md", "LICENSE", "LICENSE_SCOPE.md",
               "PUBLICATION_STATUS.md", ".gitignore", ".gitattributes", "requirements.txt"}
 TEXT_SUFFIXES = {".md", ".py", ".sh", ".json", ".txt", ".tsv", ".csv", ".yml", ".yaml"}
 PRIVATE_NAMES = {"AGENTS.md", "portfolio_roadmap.md", "baseline_startup_summary.md",
